@@ -23,12 +23,29 @@ namespace FarmaTec
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-           
+
         }
 
         private void frmCadastroProdutos_Load(object sender, EventArgs e)
         {
+            /* using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
+             {
+                 con.Open();
+                 MySqlCommand cmd = new MySqlCommand("SELECT *FROM tbcatprodutos", con);
+                 MySqlDataReader dr = cmd.ExecuteReader();
+                 List<string> list = new List<string>();
+                 while (dr.Read())
+                 {
+                     list.Add(dr["descricao"].ToString());
+                 }
+                 dr.Close();
+                 list = list.Distinct().ToList();
+                 list.Sort();
+                 txtCategoria.DataSource = list;
 
+
+             }
+            */
         }
 
         private void InserirImagem_FileOk(object sender, CancelEventArgs e)
@@ -38,14 +55,13 @@ namespace FarmaTec
 
         private void btnInserirImagem_Click(object sender, EventArgs e)
         {
-            
 
 
             //define as propriedades do controle 
             //OpenFileDialog
             this.InserirImagem.Multiselect = true;
             this.InserirImagem.Title = "Selecionar Imagem do Produto";
-           InserirImagem.InitialDirectory = @"C:\";
+            InserirImagem.InitialDirectory = @"C:\";
             //filtra para exibir somente arquivos de imagens
             InserirImagem.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" + "All files (*.*)|*.*";
             InserirImagem.CheckFileExists = true;
@@ -62,11 +78,11 @@ namespace FarmaTec
                 // Le os arquivos selecionados 
                 foreach (String arquivo in InserirImagem.FileNames)
                 {
-                   flowLayoutPanel1.Text += arquivo;
+                    flowLayoutPanel1.Text += arquivo;
                     // cria um PictureBox
                     try
                     {
-                        
+
                         PictureBox pb = new PictureBox();
                         Image Imagem = Image.FromFile(arquivo);
                         pb.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -91,7 +107,7 @@ namespace FarmaTec
                     catch (Exception ex)
                     {
                         // Não pode carregar a imagem (problemas de permissão)
-                        MessageBox.Show("Não é possível exibir a imagem : " 
+                        MessageBox.Show("Não é possível exibir a imagem : "
                                                    + ". Você pode não ter permissão para ler o arquivo , ou " +
                                                    " ele pode estar corrompido.\n\nErro reportado : " + ex.Message);
                     }
@@ -101,7 +117,7 @@ namespace FarmaTec
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja sair do cadastrO?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja sair do cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Close();
             }
@@ -118,7 +134,7 @@ namespace FarmaTec
             dados.descricao = txtdescricao.Text;
             dados.marca = txtmarca.Text;
             dados.fornecedor = txtfornecedor.Text;
-            dados.catProduto = Convert.ToInt32(txtcategoria.Text);
+            dados.catProduto = Convert.ToInt32(txtCategoria.Text);
             dados.unidade = txtUnidade.Text;
             dados.estoqueMinimo = Convert.ToInt32(txtEstoqueMin.Text);
             dados.imgproduto = string.Empty;
@@ -129,25 +145,35 @@ namespace FarmaTec
 
             await salvarProduto.ProdutosIncluir(dados);
 
-            if (dados.mensagens == "0")
+            if (dados.mensagens == null)
             {
-                MessageBox.Show("Não foi possível efetuar o cadastro!!");
 
-            }
-            else if (dados.mensagens == "1")
-            {
-                MessageBox.Show("Dados cadastrado com sucesso!!");
+                if (dados.codigo == 0)
+                {
+                    MessageBox.Show("Não foi possível efetuar o cadastro!!");
+                }
+
+                else
+                {
+                    txtCodigo.Text = dados.codigo.ToString();
+                }
+
             }
 
             else
             {
-                MessageBox.Show(dados.mensagens);
+                MessageBox.Show(dados.mensagens,"Aviso!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
 
 
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -73,9 +73,14 @@ namespace FarmaTec
             this.mskTelefone.Location = new System.Drawing.Point(436, 286);
             this.mskTelefone.Mask = "(##) #####-####";
             this.mskTelefone.Name = "mskTelefone";
+<<<<<<< HEAD
             this.mskTelefone.Size = new System.Drawing.Size(146, 26);
             this.mskTelefone.TabIndex = 12;
             this.mskTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskTelefone_MouseClick);
+=======
+            this.mskTelefone.Size = new System.Drawing.Size(124, 26);
+            this.mskTelefone.TabIndex = 10;
+>>>>>>> 556c183fc197c1b9d421e77afe1ffa2fcb5fdce2
             // 
             // mskCnpj
             // 
@@ -83,9 +88,14 @@ namespace FarmaTec
             this.mskCnpj.Location = new System.Drawing.Point(192, 286);
             this.mskCnpj.Mask = "##,###,###/####-##";
             this.mskCnpj.Name = "mskCnpj";
+<<<<<<< HEAD
             this.mskCnpj.Size = new System.Drawing.Size(151, 26);
             this.mskCnpj.TabIndex = 11;
             this.mskCnpj.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskCnpj_MouseClick);
+=======
+            this.mskCnpj.Size = new System.Drawing.Size(161, 26);
+            this.mskCnpj.TabIndex = 9;
+>>>>>>> 556c183fc197c1b9d421e77afe1ffa2fcb5fdce2
             // 
             // lblUf
             // 
@@ -104,7 +114,11 @@ namespace FarmaTec
             this.txtUf.MaxLength = 2;
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(116, 26);
+<<<<<<< HEAD
             this.txtUf.TabIndex = 8;
+=======
+            this.txtUf.TabIndex = 6;
+>>>>>>> 556c183fc197c1b9d421e77afe1ffa2fcb5fdce2
             // 
             // lblCidade
             // 
@@ -123,7 +137,11 @@ namespace FarmaTec
             this.txtCidade.MaxLength = 100;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(387, 26);
+<<<<<<< HEAD
             this.txtCidade.TabIndex = 10;
+=======
+            this.txtCidade.TabIndex = 8;
+>>>>>>> 556c183fc197c1b9d421e77afe1ffa2fcb5fdce2
             // 
             // lblCep
             // 
@@ -170,8 +188,12 @@ namespace FarmaTec
             this.mskCep.Mask = "#####-###";
             this.mskCep.Name = "mskCep";
             this.mskCep.Size = new System.Drawing.Size(86, 26);
+<<<<<<< HEAD
             this.mskCep.TabIndex = 9;
             this.mskCep.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskCep_MouseClick);
+=======
+            this.mskCep.TabIndex = 7;
+>>>>>>> 556c183fc197c1b9d421e77afe1ffa2fcb5fdce2
             // 
             // lblTelefone
             // 
@@ -190,7 +212,11 @@ namespace FarmaTec
             this.txtEmailFornecedor.MaxLength = 100;
             this.txtEmailFornecedor.Name = "txtEmailFornecedor";
             this.txtEmailFornecedor.Size = new System.Drawing.Size(390, 26);
+<<<<<<< HEAD
             this.txtEmailFornecedor.TabIndex = 13;
+=======
+            this.txtEmailFornecedor.TabIndex = 11;
+>>>>>>> 556c183fc197c1b9d421e77afe1ffa2fcb5fdce2
             // 
             // lblCnpj
             // 
@@ -282,6 +308,10 @@ namespace FarmaTec
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(63, 26);
             this.txtCodigo.TabIndex = 1;
+<<<<<<< HEAD
+=======
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigoFornecedor_TextChanged);
+>>>>>>> 556c183fc197c1b9d421e77afe1ffa2fcb5fdce2
             // 
             // lblCodFornecedor
             // 
@@ -311,7 +341,11 @@ namespace FarmaTec
             this.txtBairro.MaxLength = 100;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(390, 26);
+<<<<<<< HEAD
             this.txtBairro.TabIndex = 7;
+=======
+            this.txtBairro.TabIndex = 5;
+>>>>>>> 556c183fc197c1b9d421e77afe1ffa2fcb5fdce2
             // 
             // frmCadastroFornecedor
             // 
