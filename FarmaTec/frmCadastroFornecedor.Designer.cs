@@ -73,8 +73,8 @@ namespace FarmaTec
             this.mskTelefone.Location = new System.Drawing.Point(436, 286);
             this.mskTelefone.Mask = "(##) #####-####";
             this.mskTelefone.Name = "mskTelefone";
-            this.mskTelefone.Size = new System.Drawing.Size(136, 26);
-            this.mskTelefone.TabIndex = 12;
+            this.mskTelefone.Size = new System.Drawing.Size(124, 26);
+            this.mskTelefone.TabIndex = 10;
             this.mskTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskTelefone_MouseClick);
             // 
             // mskCnpj
@@ -83,8 +83,9 @@ namespace FarmaTec
             this.mskCnpj.Location = new System.Drawing.Point(192, 286);
             this.mskCnpj.Mask = "##,###,###/####-##";
             this.mskCnpj.Name = "mskCnpj";
-            this.mskCnpj.Size = new System.Drawing.Size(151, 26);
-            this.mskCnpj.TabIndex = 11;
+
+            this.mskCnpj.Size = new System.Drawing.Size(161, 26);
+            this.mskCnpj.TabIndex = 9;
             this.mskCnpj.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskCnpj_MouseClick);
             // 
             // lblUf
@@ -104,7 +105,7 @@ namespace FarmaTec
             this.txtUf.MaxLength = 2;
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(116, 26);
-            this.txtUf.TabIndex = 8;
+            this.txtUf.TabIndex = 6;
             // 
             // lblCidade
             // 

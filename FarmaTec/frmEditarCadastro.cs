@@ -13,10 +13,10 @@ namespace FarmaTec
     public partial class frmEditarCadastro : Form
     {
         TratamentoCampos tratamentoCampos = new TratamentoCampos();
-       
 
         public frmEditarCadastro()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -64,6 +64,27 @@ namespace FarmaTec
         private void mskTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
             mskTelefone.Select(0, 0);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btnSalvar.PerformClick();
+                    return true;
+
+                case Keys.Escape:
+                    btnLimpar.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    btnLimpar.PerformClick();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
 

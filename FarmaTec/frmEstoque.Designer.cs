@@ -30,7 +30,6 @@ namespace FarmaTec
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstoque));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.saida = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -53,17 +52,6 @@ namespace FarmaTec
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Quebra do produto",
-            "Vencimento do produto"});
-            this.comboBox1.Location = new System.Drawing.Point(289, 355);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 32;
             // 
             // saida
             // 
@@ -182,7 +170,7 @@ namespace FarmaTec
             this.Quantidade,
             this.Descrição,
             this.Status});
-            this.dataGridView1.Location = new System.Drawing.Point(42, 192);
+            this.dataGridView1.Location = new System.Drawing.Point(42, 190);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(672, 45);
             this.dataGridView1.TabIndex = 17;
@@ -246,8 +234,7 @@ namespace FarmaTec
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(750, 408);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(746, 366);
             this.Controls.Add(this.saida);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -273,8 +260,6 @@ namespace FarmaTec
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button saida;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
