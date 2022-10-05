@@ -12,6 +12,9 @@ namespace FarmaTec
 {
     public partial class frmEditarCadastro : Form
     {
+        TratamentoCampos tratamentoCampos = new TratamentoCampos();
+        bool salvar = false;
+
         public frmEditarCadastro()
         {
             InitializeComponent();
@@ -25,14 +28,44 @@ namespace FarmaTec
             }
         }
 
-        private void frmEditarCadastro_Load(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
+            mskTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
+            if (tratamentoCampos.Vazio(this) == true)
+            {
+                tratamentoCampos.Bloquear(this);
+                if (MessageBox.Show("Deseja Editar o Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (MessageBox.Show("Cadastro Atualizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                    {
+                        tratamentoCampos.Limpar(this);
+                        txtCodigoFuncionario.Enabled = true;
+                    }
+                }
+            }
         }
 
-        private void cmbCargo_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            if (txtCodigoFuncionario.Text != string.Empty)
+            {
+                tratamentoCampos.Desbloquear(this);
+                txtCodigoFuncionario.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Preencha o Código do Funcionário.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCodigoFuncionario.Focus();
 
+            }
         }
+
+        private void mskTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            mskTelefone.Select(0, 0);
+        }
+
+
     }
 }

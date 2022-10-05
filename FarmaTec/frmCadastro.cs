@@ -9,24 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using TransferenciaDados;
+using System.Text.RegularExpressions;
 
 namespace FarmaTec
 {
     public partial class frmCadastro : Form
     {
+        TratamentoCampos tratamentoCampos = new TratamentoCampos();
+
         public frmCadastro()
         {
+            this.KeyPreview = true;
             InitializeComponent();
-        }
-
-        private void lblEndereco_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCodCliente_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -34,7 +28,6 @@ namespace FarmaTec
             //Instanciar as classes
             SalvarContatos salvarContatos = new SalvarContatos();
             ContatosDTO dados = new ContatosDTO();
-
 
 
             //validar se os campos estão preenchidos
@@ -49,98 +42,57 @@ namespace FarmaTec
                            orderby crtl.TabIndex
                            select crtl;
 
-            //Percorrer a consulta e verificar quais os campos não foram preenchidos
+            mskCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-            foreach (var crtlTxt in controle)
+            if (tratamentoCampos.Vazio(this) == true)
             {
-                if (crtlTxt.Text == string.Empty)
+                Regex mRegxExpression;
+                if (txtEmail.Text.Trim() != string.Empty)
                 {
-                    finalizar = true;
-                    textBox.Name = crtlTxt.Name;
-                    crtlTxt.Focus();
-                    break;
+                    mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                    if (!mRegxExpression.IsMatch(txtEmail.Text.Trim()))
+                    {
+                        MessageBox.Show("Formato de E-mail incorreto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtEmail.Focus();
+                    }
+                    else
+                    {
+                        tratamentoCampos.Bloquear(this);
+                        if (MessageBox.Show("Deseja Finalizar o Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            dados.nome = txtNome.Text;
+                            dados.cpf = mskCpf.Text;
+                            dados.email = txtEmail.Text;
+                            dados.endereco = string.Empty;
+                            dados.cep = string.Empty;
+                            dados.cidade = string.Empty;
+                            dados.bairro = string.Empty;
+                            dados.uf = string.Empty;
+                            dados.telefone = string.Empty;
+                            dados.bairro = string.Empty;
+
+                            salvarContatos.ClientesIncluir(dados);
+
+                            if (dados.codigo != 0)
+                            {
+                                //Popular o campo código
+                                txtCodigo.Text = dados.codigo.ToString();
+                                MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                tratamentoCampos.Limpar(this);
+                                tratamentoCampos.Desbloquear(this);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
                 }
             }
-
-
-
-
-            //Remover a máscara do CEP - formatação
-            //Verificar se os campos uf e telefone estão vazios
-            if (txtNome.Text != string.Empty && txtEmail.Text == String.Empty)
-            {
-               
-
-                if (mskCpf.Text == string.Empty)
-                {
-                    MessageBox.Show("Favor informar o CEP", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                    mskCpf.Focus();
-                    finalizar = true;
-                }
-                else
-                {
-                    mskCpf.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
-                }
-            }
-
-            //Apresentar msg para preencher o campo
-            if (finalizar == true && mskCpf.Text != String.Empty)
-            {
-                MessageBox.Show("Favor preencher o campo" + textBox.Name.Substring(3, textBox.Name.Length - 3), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            }
-
-            if (finalizar == false)
-            {
-
-                
-
-                //Popular a classe
-                dados.nome = txtNome.Text;
-                dados.cpf = mskCpf.Text;
-                dados.email = txtEmail.Text;
-                dados.endereco = string.Empty;
-                dados.cep = string.Empty;
-                dados.cidade = string.Empty;
-                dados.bairro = string.Empty;
-                dados.uf = string.Empty;
-                dados.telefone = string.Empty;
-                dados.bairro = string.Empty;
-
-
-
-                //Chamar o método
-                salvarContatos.ClientesIncluir(dados);
-                //Verificar o resultado
-                if (dados.codigo != 0)
-                {
-                    //Popular o campo código
-                    txtCodigo.Text = dados.codigo.ToString();
-                    MessageBox.Show("Cadastro realizado com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Desabilitar(null, null);
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-            }
-
-
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -150,38 +102,39 @@ namespace FarmaTec
             }
         }
 
-        private void txtNome_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        public void Desabilitar(object sender, EventArgs e)
-        {
-            txtNome.Enabled = false;
-            mskCpf.Enabled = false;
-            txtEmail.Enabled = false;
-            txtCodigo.Enabled = false;
-            btnSalvar.Enabled = false;
-            btnLimpar.Enabled = false;
-
-        }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            txtNome.Clear();
-            txtCodigo.Clear();
-            mskCpf.Clear();
-            txtEmail.Clear();
+            tratamentoCampos.Limpar(this);
+            txtNome.Focus();
         }
 
-        private void frmCadastro_Load(object sender, EventArgs e)
+        private void mskCpf_MouseClick(object sender, MouseEventArgs e)
         {
+            mskCpf.Select(0, 0);
         }
 
-        private void mskCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            mskCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btnSalvar.PerformClick();
+                    return true;
+
+                case Keys.Escape:
+                    btnSair.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    btnLimpar.PerformClick();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 
-    }
+}
 
