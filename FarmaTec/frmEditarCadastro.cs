@@ -13,7 +13,7 @@ namespace FarmaTec
     public partial class frmEditarCadastro : Form
     {
         TratamentoCampos tratamentoCampos = new TratamentoCampos();
-        bool salvar = false;
+       
 
         public frmEditarCadastro()
         {
