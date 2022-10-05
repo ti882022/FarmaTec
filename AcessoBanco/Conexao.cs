@@ -67,6 +67,5 @@ namespace AcessoBanco
             return conn;
         }
 
-
     }
 }
