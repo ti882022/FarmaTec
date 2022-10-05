@@ -60,14 +60,28 @@ namespace TransferenciaDados
 
                 var result = await response.Content.ReadAsStringAsync();
 
+
+
                 JObject obj = JObject.Parse(result);
 
-                dados.mensagens = obj["RetornoDados"]["sucesso"].ToString();
+                JArray arrayProdutos = (JArray)obj["RetornoDados"];
+
+                foreach (var item in arrayProdutos)
+                {
+                    dados.codigo = Convert.ToInt32(item["codigo"].ToString());
+
+                }
+
             }
 
             catch (JsonException e)
             {
-                dados.mensagens = " ERRO - SalvarProdutos - ProdutosIncluir - " + e.Message.ToString();
+                dados.mensagens = " ERRO - SalvarProdutos - ProdutosIncluir - \r\n " + e.Message.ToString();
+            }
+
+            catch (HttpRequestException ex)
+            {
+                dados.mensagens = " ERRO - SalvarProdutos - ProdutosIncluir - \r\n " + ex.Message.ToString();
             }
 
         }

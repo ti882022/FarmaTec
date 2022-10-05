@@ -1,5 +1,5 @@
 ﻿
-namespace Projeto_Integrador_QT3___Sistema_Farmacêutico
+namespace FarmaTec
 {
     partial class frmAlterarSenha
     {
@@ -29,7 +29,7 @@ namespace Projeto_Integrador_QT3___Sistema_Farmacêutico
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSair = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblAlterarSenha = new System.Windows.Forms.Label();
             this.lblNovaSenha = new System.Windows.Forms.Label();
@@ -38,16 +38,16 @@ namespace Projeto_Integrador_QT3___Sistema_Farmacêutico
             this.mskNovaSenha = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
-            // btnSair
+            // btnLimpar
             // 
-            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(155, 194);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 28);
-            this.btnSair.TabIndex = 3;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(155, 194);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 28);
+            this.btnLimpar.TabIndex = 4;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -55,9 +55,10 @@ namespace Projeto_Integrador_QT3___Sistema_Farmacêutico
             this.btnSalvar.Location = new System.Drawing.Point(19, 194);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btnSalvar.TabIndex = 2;
+            this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // lblAlterarSenha
             // 
@@ -96,7 +97,7 @@ namespace Projeto_Integrador_QT3___Sistema_Farmacêutico
             this.mskConfirmarSenha.Name = "mskConfirmarSenha";
             this.mskConfirmarSenha.PasswordChar = '*';
             this.mskConfirmarSenha.Size = new System.Drawing.Size(211, 26);
-            this.mskConfirmarSenha.TabIndex = 1;
+            this.mskConfirmarSenha.TabIndex = 2;
             // 
             // mskNovaSenha
             // 
@@ -105,7 +106,7 @@ namespace Projeto_Integrador_QT3___Sistema_Farmacêutico
             this.mskNovaSenha.Name = "mskNovaSenha";
             this.mskNovaSenha.PasswordChar = '*';
             this.mskNovaSenha.Size = new System.Drawing.Size(211, 26);
-            this.mskNovaSenha.TabIndex = 0;
+            this.mskNovaSenha.TabIndex = 1;
             // 
             // frmAlterarSenha
             // 
@@ -116,7 +117,7 @@ namespace Projeto_Integrador_QT3___Sistema_Farmacêutico
             this.Controls.Add(this.mskNovaSenha);
             this.Controls.Add(this.mskConfirmarSenha);
             this.Controls.Add(this.lblConfirmarSenha);
-            this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.lblAlterarSenha);
             this.Controls.Add(this.lblNovaSenha);
@@ -129,7 +130,7 @@ namespace Projeto_Integrador_QT3___Sistema_Farmacêutico
         }
 
         #endregion
-        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label lblAlterarSenha;
         private System.Windows.Forms.Label lblNovaSenha;

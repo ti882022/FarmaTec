@@ -66,31 +66,36 @@ namespace FarmaTec
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            txtCodigoFuncionario.Clear();
-            mskTelefone.Clear();
-            txtNomeFuncionario.Clear();
-            txtEmailFuncionario.Clear();
-            txtusuario.Clear();
+            
         }
 
         private void cmbCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            MySqlConnection conn = new MySqlConnection("datasource=localhost; database=bdfarmacia;port=3306; username = root; password=");
-            string query = "SELECT descricao FROM tbclasseusuario";
-            MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
-            conn.Open();
-            DataSet ds = new DataSet();
-            da.Fill(ds, "tbclasseusuario");
-            cmbCargo.DisplayMember = "descricao";
-            conn.Close();
+           
 
 
         }
 
         private void frmNovoAcesso_Load(object sender, EventArgs e)
         {
+            using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT *FROM tbclasseusuario", con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                List<string> list = new List<string>();
+                while (dr.Read())
+                {
+                    list.Add(dr["descricao"].ToString());
+                }
+                dr.Close();
+                list = list.Distinct().ToList();
+                list.Sort();
+                cmbCargo.DataSource = list;
 
+
+            }
         }
 
         private void mskTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -115,6 +120,11 @@ namespace FarmaTec
         }
 
         private void txtCodigoFuncionario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mskSenha_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

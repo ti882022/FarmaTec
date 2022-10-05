@@ -52,7 +52,6 @@ namespace FarmaTec
             this.lblCodCliente.Size = new System.Drawing.Size(91, 20);
             this.lblCodCliente.TabIndex = 0;
             this.lblCodCliente.Text = "Cod Cliente";
-            this.lblCodCliente.Click += new System.EventHandler(this.lblCodCliente_Click);
             // 
             // txtCodigo
             // 
@@ -62,7 +61,6 @@ namespace FarmaTec
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(63, 26);
             this.txtCodigo.TabIndex = 1;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtNome
             // 
@@ -70,8 +68,7 @@ namespace FarmaTec
             this.txtNome.Location = new System.Drawing.Point(279, 197);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(390, 26);
-            this.txtNome.TabIndex = 0;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
+            this.txtNome.TabIndex = 2;
             // 
             // lblNomeCliente
             // 
@@ -97,12 +94,11 @@ namespace FarmaTec
             // 
             this.mskCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskCpf.Location = new System.Drawing.Point(279, 239);
-            this.mskCpf.Mask = "###.###.###-##";
+            this.mskCpf.Mask = "###,###,###-##";
             this.mskCpf.Name = "mskCpf";
             this.mskCpf.Size = new System.Drawing.Size(123, 26);
-            this.mskCpf.TabIndex = 1;
-            this.mskCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskCpf_MaskInputRejected);
-
+            this.mskCpf.TabIndex = 3;
+            this.mskCpf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskCpf_MouseClick);
             // 
             // lblEmail
             // 
@@ -120,8 +116,8 @@ namespace FarmaTec
             this.txtEmail.Location = new System.Drawing.Point(279, 281);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(250, 26);
-            this.txtEmail.TabIndex = 2;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.TabIndex = 4;
+//            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblTituloCadastro
             // 
@@ -139,7 +135,7 @@ namespace FarmaTec
             this.btnSalvar.Location = new System.Drawing.Point(218, 351);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btnSalvar.TabIndex = 3;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -150,7 +146,7 @@ namespace FarmaTec
             this.btnLimpar.Location = new System.Drawing.Point(340, 351);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 28);
-            this.btnLimpar.TabIndex = 4;
+            this.btnLimpar.TabIndex = 6;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -161,7 +157,7 @@ namespace FarmaTec
             this.btnSair.Location = new System.Drawing.Point(454, 351);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 28);
-            this.btnSair.TabIndex = 5;
+            this.btnSair.TabIndex = 7;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -189,7 +185,6 @@ namespace FarmaTec
             this.MinimizeBox = false;
             this.Name = "frmCadastro";
             this.Text = "Cadastro de Cliente - FarmaTec";
-            this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
