@@ -73,8 +73,8 @@ namespace FarmaTec
             this.mskTelefone.Location = new System.Drawing.Point(436, 286);
             this.mskTelefone.Mask = "(##) #####-####";
             this.mskTelefone.Name = "mskTelefone";
-            this.mskTelefone.Size = new System.Drawing.Size(146, 26);
-            this.mskTelefone.TabIndex = 8;
+            this.mskTelefone.Size = new System.Drawing.Size(124, 26);
+            this.mskTelefone.TabIndex = 10;
             // 
             // mskCnpj
             // 
@@ -83,7 +83,7 @@ namespace FarmaTec
             this.mskCnpj.Mask = "##.###.###/####-##";
             this.mskCnpj.Name = "mskCnpj";
             this.mskCnpj.Size = new System.Drawing.Size(161, 26);
-            this.mskCnpj.TabIndex = 7;
+            this.mskCnpj.TabIndex = 9;
             // 
             // lblUf
             // 
@@ -102,7 +102,7 @@ namespace FarmaTec
             this.txtUf.MaxLength = 2;
             this.txtUf.Name = "txtUf";
             this.txtUf.Size = new System.Drawing.Size(116, 26);
-            this.txtUf.TabIndex = 4;
+            this.txtUf.TabIndex = 6;
             // 
             // lblCidade
             // 
@@ -121,7 +121,7 @@ namespace FarmaTec
             this.txtCidade.MaxLength = 100;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(387, 26);
-            this.txtCidade.TabIndex = 6;
+            this.txtCidade.TabIndex = 8;
             // 
             // lblCep
             // 
@@ -140,7 +140,7 @@ namespace FarmaTec
             this.txtNumero.MaxLength = 10;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(116, 26);
-            this.txtNumero.TabIndex = 2;
+            this.txtNumero.TabIndex = 4;
             // 
             // lblEndereco
             // 
@@ -159,7 +159,7 @@ namespace FarmaTec
             this.txtEndereco.MaxLength = 100;
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(390, 26);
-            this.txtEndereco.TabIndex = 1;
+            this.txtEndereco.TabIndex = 3;
             // 
             // mskCep
             // 
@@ -168,7 +168,7 @@ namespace FarmaTec
             this.mskCep.Mask = "#####-###";
             this.mskCep.Name = "mskCep";
             this.mskCep.Size = new System.Drawing.Size(86, 26);
-            this.mskCep.TabIndex = 5;
+            this.mskCep.TabIndex = 7;
             // 
             // lblTelefone
             // 
@@ -187,7 +187,7 @@ namespace FarmaTec
             this.txtEmailFornecedor.MaxLength = 100;
             this.txtEmailFornecedor.Name = "txtEmailFornecedor";
             this.txtEmailFornecedor.Size = new System.Drawing.Size(390, 26);
-            this.txtEmailFornecedor.TabIndex = 9;
+            this.txtEmailFornecedor.TabIndex = 11;
             // 
             // lblCnpj
             // 
@@ -269,7 +269,7 @@ namespace FarmaTec
             this.txtNomeFornecedor.MaxLength = 100;
             this.txtNomeFornecedor.Name = "txtNomeFornecedor";
             this.txtNomeFornecedor.Size = new System.Drawing.Size(544, 26);
-            this.txtNomeFornecedor.TabIndex = 0;
+            this.txtNomeFornecedor.TabIndex = 2;
             // 
             // txtCodigo
             // 
@@ -278,7 +278,7 @@ namespace FarmaTec
             this.txtCodigo.Location = new System.Drawing.Point(192, 128);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(63, 26);
-            this.txtCodigo.TabIndex = 74;
+            this.txtCodigo.TabIndex = 1;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigoFornecedor_TextChanged);
             // 
             // lblCodFornecedor
@@ -309,7 +309,7 @@ namespace FarmaTec
             this.txtBairro.MaxLength = 100;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(390, 26);
-            this.txtBairro.TabIndex = 3;
+            this.txtBairro.TabIndex = 5;
             // 
             // frmCadastroFornecedor
             // 

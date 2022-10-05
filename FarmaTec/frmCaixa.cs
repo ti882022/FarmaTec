@@ -46,7 +46,23 @@ namespace FarmaTec
 
         private void frmCaixa_Load(object sender, EventArgs e)
         {
-            
+            using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT *FROM tbformapgto", con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                List<string> list = new List<string>();
+                while (dr.Read())
+                {
+                    list.Add(dr["descricao"].ToString());
+                }
+                dr.Close();
+                list = list.Distinct().ToList();
+                list.Sort();
+                cbFormaPagamento.DataSource = list;
+
+
+            }
         }
 
         private void btnIncluir_Click_1(object sender, EventArgs e)
@@ -114,14 +130,7 @@ namespace FarmaTec
         private void cbFormaPagamento_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            MySqlConnection conn = new MySqlConnection("datasource=localhost; database=bdfarmacia;port=3306; username = root; password=");
-            string query = "SELECT descricao FROM tbformapgto";
-            MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
-            conn.Open();
-            DataSet ds = new DataSet();
-            da.Fill(ds, "tbformapgto");
-            cbFormaPagamento.DisplayMember = "formaPgto";
-            conn.Close();
+         
 
         }
 
