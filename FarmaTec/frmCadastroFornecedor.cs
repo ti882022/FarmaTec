@@ -45,7 +45,7 @@ namespace FarmaTec
             //Definir vaiável para receber o nome do textbox
             TextBox textBox = new TextBox();
             //Variável para indicar o textbox que irá receber o focus/msg
-            bool finalizar = false;
+         
 
             //Criar uma consulta LINQ
             var controle = from crtl in this.Controls.OfType<TextBox>()
@@ -59,7 +59,7 @@ namespace FarmaTec
             {
                 if (crtlTxt.Text == string.Empty)
                 {
-                    finalizar = true;
+                   
                     textBox.Name = crtlTxt.Name;
                     crtlTxt.Focus();
                     break;
