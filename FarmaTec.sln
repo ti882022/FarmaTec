@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmaTec", "FarmaTec\FarmaTec.csproj", "{BE48D6E8-C974-4C39-A0EF-1689E22A35A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A4EB9F2E-0C19-47BD-BE3F-ECDFBFF0C57E} = {A4EB9F2E-0C19-47BD-BE3F-ECDFBFF0C57E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferenciaDados", "TransferenciaDados\TransferenciaDados.csproj", "{6CE61917-1FBE-43F2-8DA6-83C642DD8FA7}"
 EndProject
