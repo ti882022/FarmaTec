@@ -36,6 +36,8 @@ namespace FarmaTec
 
             //Popular a classe
             dados.nome = txtNomeFuncionario.Text;
+            dados.usuario = txtnomeusuario.Text;
+         //   dados.cargo = txtclassefunc.Text;
             dados.telefone = mskTelefone.Text;
             dados.email = txtEmailFuncionario.Text;
             dados.sexo = txtsexo.Text;
@@ -79,7 +81,7 @@ namespace FarmaTec
 
         private void frmNovoAcesso_Load(object sender, EventArgs e)
         {
-            using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
+          /*  using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT *FROM tbclasseusuario", con);
@@ -92,10 +94,11 @@ namespace FarmaTec
                 dr.Close();
                 list = list.Distinct().ToList();
                 list.Sort();
-                cmbCargo.DataSource = list;
+                txtclassefunc.DataSource = list;
 
 
             }
+          */
         }
 
         private void mskTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -125,6 +128,11 @@ namespace FarmaTec
         }
 
         private void mskSenha_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtusuario_TextChanged(object sender, EventArgs e)
         {
 
         }

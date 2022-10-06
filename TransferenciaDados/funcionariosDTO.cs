@@ -21,7 +21,7 @@ namespace TransferenciaDados
         public int codigo { get; set; }
         public string nome { get; set; }
         public string usuario { get; set; }
-        public string senha { get; set; }
+        
         public string sexo { get; set; }
         public string telefone { get; set; }
         public string email { get; set; }
@@ -89,11 +89,11 @@ namespace TransferenciaDados
                 var data = new Dictionary<string, string>
                 {
                     {"txtnomefuncionario", dados.nome },
-                    {"txtusuario", dados.usuario },
-                    {"txtsenha", dados.senha },
-                    {"txtsexo", dados.sexo },
+                    {"txtnomeusuario", dados.usuario },
+                    {"txtsexo", dados.sexo},
                     {"txtfonefuncionario", dados.telefone },
                     {"txtemailfuncionario", dados.email },
+                    {"txtclassefunc", dados.cargo },
                     {"HTTP_ACCEPT", "application/Json" }
 
                 };

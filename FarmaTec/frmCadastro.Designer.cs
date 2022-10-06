@@ -117,7 +117,6 @@ namespace FarmaTec
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(250, 26);
             this.txtEmail.TabIndex = 4;
-//            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblTituloCadastro
             // 
@@ -185,6 +184,7 @@ namespace FarmaTec
             this.MinimizeBox = false;
             this.Name = "frmCadastro";
             this.Text = "Cadastro de Cliente - FarmaTec";
+            this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

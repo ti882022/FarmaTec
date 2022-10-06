@@ -133,6 +133,11 @@ namespace FarmaTec
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void frmCadastro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
