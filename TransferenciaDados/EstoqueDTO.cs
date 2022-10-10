@@ -20,10 +20,11 @@ namespace TransferenciaDados
         public string status { get; set; }
 
         public string mensagens { get; set; }
+            }
+   
 
-    }
 
-    public class EstoqueContatos
+    public class Estoque
     {
         public DataTable EstoqueDataTable;
         public void MostrarEstoque(EstoqueDTO dados)

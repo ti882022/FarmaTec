@@ -1,7 +1,7 @@
 ﻿
 namespace FarmaTec
 {
-    partial class frmEstoque
+    partial class cboEstoque
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,14 @@ namespace FarmaTec
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstoque));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cboEstoque));
             this.saida = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.frmcomprar = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbocomprar = new System.Windows.Forms.ComboBox();
+            this.cboQuantidade = new System.Windows.Forms.TextBox();
             this.Quantidadedoproduto = new System.Windows.Forms.Label();
-            this.codigoproduto = new System.Windows.Forms.TextBox();
+            this.cbocodigoproduto = new System.Windows.Forms.TextBox();
             this.Codigodoproduto = new System.Windows.Forms.Label();
             this.Pesquisa = new System.Windows.Forms.Button();
             this.Atualizar = new System.Windows.Forms.Button();
@@ -49,6 +49,7 @@ namespace FarmaTec
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbomotivo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +69,7 @@ namespace FarmaTec
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(285, 305);
+            this.label1.Location = new System.Drawing.Point(284, 303);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 30;
@@ -76,30 +77,30 @@ namespace FarmaTec
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(529, 30);
+            this.dateTimePicker1.Location = new System.Drawing.Point(505, 31);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(209, 20);
             this.dateTimePicker1.TabIndex = 28;
             // 
-            // frmcomprar
+            // cbocomprar
             // 
-            this.frmcomprar.FormattingEnabled = true;
-            this.frmcomprar.Items.AddRange(new object[] {
+            this.cbocomprar.FormattingEnabled = true;
+            this.cbocomprar.Items.AddRange(new object[] {
             "entrada ",
             "saida"});
-            this.frmcomprar.Location = new System.Drawing.Point(263, 328);
-            this.frmcomprar.Name = "frmcomprar";
-            this.frmcomprar.Size = new System.Drawing.Size(117, 21);
-            this.frmcomprar.TabIndex = 25;
-            this.frmcomprar.SelectedIndexChanged += new System.EventHandler(this.frmcomprar_SelectedIndexChanged);
+            this.cbocomprar.Location = new System.Drawing.Point(263, 328);
+            this.cbocomprar.Name = "cbocomprar";
+            this.cbocomprar.Size = new System.Drawing.Size(117, 21);
+            this.cbocomprar.TabIndex = 25;
+            this.cbocomprar.SelectedIndexChanged += new System.EventHandler(this.cbocomprar_SelectedIndexChanged);
             // 
-            // textBox2
+            // cboQuantidade
             // 
-            this.textBox2.Location = new System.Drawing.Point(72, 310);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(99, 39);
-            this.textBox2.TabIndex = 24;
+            this.cboQuantidade.Location = new System.Drawing.Point(72, 305);
+            this.cboQuantidade.Multiline = true;
+            this.cboQuantidade.Name = "cboQuantidade";
+            this.cboQuantidade.Size = new System.Drawing.Size(99, 39);
+            this.cboQuantidade.TabIndex = 24;
             // 
             // Quantidadedoproduto
             // 
@@ -111,14 +112,14 @@ namespace FarmaTec
             this.Quantidadedoproduto.TabIndex = 23;
             this.Quantidadedoproduto.Text = "Quantidade";
             // 
-            // codigoproduto
+            // cbocodigoproduto
             // 
-            this.codigoproduto.Location = new System.Drawing.Point(133, 66);
-            this.codigoproduto.Multiline = true;
-            this.codigoproduto.Name = "codigoproduto";
-            this.codigoproduto.Size = new System.Drawing.Size(136, 39);
-            this.codigoproduto.TabIndex = 22;
-            this.codigoproduto.TextChanged += new System.EventHandler(this.codigoproduto_TextChanged);
+            this.cbocodigoproduto.Location = new System.Drawing.Point(133, 66);
+            this.cbocodigoproduto.Multiline = true;
+            this.cbocodigoproduto.Name = "cbocodigoproduto";
+            this.cbocodigoproduto.Size = new System.Drawing.Size(87, 39);
+            this.cbocodigoproduto.TabIndex = 22;
+            this.cbocodigoproduto.TextChanged += new System.EventHandler(this.codigoproduto_TextChanged);
             // 
             // Codigodoproduto
             // 
@@ -133,7 +134,7 @@ namespace FarmaTec
             // Pesquisa
             // 
             this.Pesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Pesquisa.Location = new System.Drawing.Point(289, 66);
+            this.Pesquisa.Location = new System.Drawing.Point(236, 65);
             this.Pesquisa.Name = "Pesquisa";
             this.Pesquisa.Size = new System.Drawing.Size(91, 40);
             this.Pesquisa.TabIndex = 20;
@@ -150,7 +151,7 @@ namespace FarmaTec
             this.Atualizar.TabIndex = 19;
             this.Atualizar.Text = "Atualizar";
             this.Atualizar.UseVisualStyleBackColor = true;
-            this.Atualizar.Click += new System.EventHandler(this.Adicionar_Click);
+            this.Atualizar.Click += new System.EventHandler(this.Atualizar_Click);
             // 
             // Produtos
             // 
@@ -227,30 +228,42 @@ namespace FarmaTec
             this.button1.Size = new System.Drawing.Size(27, 23);
             this.button1.TabIndex = 26;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // frmEstoque
+            // cbomotivo
+            // 
+            this.cbomotivo.FormattingEnabled = true;
+            this.cbomotivo.Items.AddRange(new object[] {
+            "Quebra",
+            "vencimento "});
+            this.cbomotivo.Location = new System.Drawing.Point(395, 305);
+            this.cbomotivo.Name = "cbomotivo";
+            this.cbomotivo.Size = new System.Drawing.Size(121, 21);
+            this.cbomotivo.TabIndex = 32;
+            this.cbomotivo.Visible = false;
+            // 
+            // cboEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(746, 366);
+            this.ClientSize = new System.Drawing.Size(747, 366);
+            this.Controls.Add(this.cbomotivo);
             this.Controls.Add(this.saida);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.menos);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.frmcomprar);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cbocomprar);
+            this.Controls.Add(this.cboQuantidade);
             this.Controls.Add(this.Quantidadedoproduto);
-            this.Controls.Add(this.codigoproduto);
+            this.Controls.Add(this.cbocodigoproduto);
             this.Controls.Add(this.Codigodoproduto);
             this.Controls.Add(this.Pesquisa);
             this.Controls.Add(this.Atualizar);
             this.Controls.Add(this.Produtos);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmEstoque";
+            this.Name = "cboEstoque";
             this.Text = "frmEstoque";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -266,10 +279,10 @@ namespace FarmaTec
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button menos;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox frmcomprar;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cbocomprar;
+        private System.Windows.Forms.TextBox cboQuantidade;
         private System.Windows.Forms.Label Quantidadedoproduto;
-        private System.Windows.Forms.TextBox codigoproduto;
+        private System.Windows.Forms.TextBox cbocodigoproduto;
         private System.Windows.Forms.Label Codigodoproduto;
         private System.Windows.Forms.Button Pesquisa;
         private System.Windows.Forms.Button Atualizar;
@@ -279,5 +292,6 @@ namespace FarmaTec
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewLinkColumn Descrição;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.ComboBox cbomotivo;
     }
 }

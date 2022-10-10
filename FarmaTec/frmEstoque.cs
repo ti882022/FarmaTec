@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace FarmaTec
 {
-    public partial class frmEstoque : Form
+    public partial class cboEstoque : Form
     {
-        public frmEstoque()
+        public cboEstoque()
         {
             InitializeComponent();
         }
@@ -30,10 +30,18 @@ namespace FarmaTec
         {
 
         }
+           
 
-        private void frmcomprar_SelectedIndexChanged(object sender, EventArgs e)
+        
+
+       
+
+       
+
+        private void cbocomprar_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(cbocomprar.Text=="saida"){ cbomotivo.Visible = true;          }
+            else { cbomotivo.Visible = false; }
         }
 
         private void codigoproduto_TextChanged(object sender, EventArgs e)
@@ -41,12 +49,7 @@ namespace FarmaTec
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void Adicionar_Click(object sender, EventArgs e)
+        private void Atualizar_Click(object sender, EventArgs e)
         {
 
         }
