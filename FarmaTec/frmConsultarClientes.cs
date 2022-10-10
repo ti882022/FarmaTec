@@ -122,6 +122,7 @@ namespace FarmaTec
                                             consultarClientes.listClientes[i].bairro.ToString(),
                                             consultarClientes.listClientes[i].uf.ToString(),
                                             consultarClientes.listClientes[i].cpf.ToString(),
+                                            consultarClientes.listClientes[i].foneCliente.ToString(),
                                             consultarClientes.listClientes[i].emailCliente.ToString());
                 }
                 if (dados.mensagens != null)
