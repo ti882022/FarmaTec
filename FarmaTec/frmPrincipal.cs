@@ -126,7 +126,7 @@ namespace FarmaTec
         private void menuMovimentacaoEntrada_Click(object sender, EventArgs e)
         {
             FecharTodos();
-            Form childForm = new frmEstoque();
+            Form childForm = new cboEstoque();
             AbrirForm(childForm);
         }
 
