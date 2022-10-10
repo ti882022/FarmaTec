@@ -31,14 +31,14 @@ namespace FarmaTec
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultarClientes));
             this.pnlConsulta = new System.Windows.Forms.Panel();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskCpf = new System.Windows.Forms.MaskedTextBox();
             this.lblCpf = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblNomeCliente = new System.Windows.Forms.Label();
             this.lblcodigo = new System.Windows.Forms.Label();
             this.txtCodCliente = new System.Windows.Forms.TextBox();
-            this.txtNomeCliente = new System.Windows.Forms.TextBox();
+            this.txtnomeCliente = new System.Windows.Forms.TextBox();
             this.dtClientes = new System.Windows.Forms.DataGridView();
             this.codCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,27 +61,27 @@ namespace FarmaTec
             // pnlConsulta
             // 
             this.pnlConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlConsulta.Controls.Add(this.maskedTextBox1);
+            this.pnlConsulta.Controls.Add(this.mskCpf);
             this.pnlConsulta.Controls.Add(this.lblCpf);
             this.pnlConsulta.Controls.Add(this.lblBuscar);
             this.pnlConsulta.Controls.Add(this.btnBuscar);
             this.pnlConsulta.Controls.Add(this.lblNomeCliente);
             this.pnlConsulta.Controls.Add(this.lblcodigo);
             this.pnlConsulta.Controls.Add(this.txtCodCliente);
-            this.pnlConsulta.Controls.Add(this.txtNomeCliente);
+            this.pnlConsulta.Controls.Add(this.txtnomeCliente);
             this.pnlConsulta.Location = new System.Drawing.Point(37, 67);
             this.pnlConsulta.Name = "pnlConsulta";
             this.pnlConsulta.Size = new System.Drawing.Size(974, 121);
             this.pnlConsulta.TabIndex = 18;
             // 
-            // maskedTextBox1
+            // mskCpf
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(377, 65);
-            this.maskedTextBox1.Mask = "###.###.###-##";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(136, 29);
-            this.maskedTextBox1.TabIndex = 3;
+            this.mskCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskCpf.Location = new System.Drawing.Point(377, 65);
+            this.mskCpf.Mask = "###.###.###-##";
+            this.mskCpf.Name = "mskCpf";
+            this.mskCpf.Size = new System.Drawing.Size(136, 29);
+            this.mskCpf.TabIndex = 3;
             // 
             // lblCpf
             // 
@@ -114,6 +114,7 @@ namespace FarmaTec
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblNomeCliente
             // 
@@ -145,14 +146,14 @@ namespace FarmaTec
             this.txtCodCliente.Size = new System.Drawing.Size(80, 29);
             this.txtCodCliente.TabIndex = 1;
             // 
-            // txtNomeCliente
+            // txtnomeCliente
             // 
-            this.txtNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCliente.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomeCliente.Location = new System.Drawing.Point(118, 65);
-            this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(226, 29);
-            this.txtNomeCliente.TabIndex = 2;
+            this.txtnomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnomeCliente.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtnomeCliente.Location = new System.Drawing.Point(118, 65);
+            this.txtnomeCliente.Name = "txtnomeCliente";
+            this.txtnomeCliente.Size = new System.Drawing.Size(226, 29);
+            this.txtnomeCliente.TabIndex = 2;
             // 
             // dtClientes
             // 
@@ -291,6 +292,7 @@ namespace FarmaTec
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConsultarClientes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmConsultarClientes_Load);
             this.pnlConsulta.ResumeLayout(false);
             this.pnlConsulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtClientes)).EndInit();
@@ -306,13 +308,13 @@ namespace FarmaTec
         private System.Windows.Forms.Label lblNomeCliente;
         private System.Windows.Forms.Label lblcodigo;
         private System.Windows.Forms.TextBox txtCodCliente;
-        private System.Windows.Forms.TextBox txtNomeCliente;
+        private System.Windows.Forms.TextBox txtnomeCliente;
         private System.Windows.Forms.DataGridView dtClientes;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label lblClientesRegistrados;
         private System.Windows.Forms.PictureBox pctClientes;
         private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskCpf;
         private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn codCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeCliente;

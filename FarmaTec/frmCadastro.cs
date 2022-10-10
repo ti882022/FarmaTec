@@ -63,6 +63,9 @@ namespace FarmaTec
                             dados.nome = txtNome.Text;
                             dados.cpf = mskCpf.Text;
                             dados.email = txtEmail.Text;
+                            dados.usuario = mskCpf.Text;
+                            dados.senha = mskCpf.Text;
+                            dados.logado = 3;
                             dados.endereco = string.Empty;
                             dados.cep = string.Empty;
                             dados.cidade = string.Empty;
@@ -77,6 +80,8 @@ namespace FarmaTec
                             {
                                 //Popular o campo código
                                 txtCodigo.Text = dados.codigo.ToString();
+                               
+
                                 MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 tratamentoCampos.Limpar(this);
                                 tratamentoCampos.Desbloquear(this);

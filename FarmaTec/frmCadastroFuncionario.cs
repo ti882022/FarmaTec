@@ -19,6 +19,36 @@ namespace FarmaTec
             InitializeComponent();
         }
 
+        public int codigoClasse;
+
+        private void ListarCargos()
+        {
+            try
+            {
+                ConsultarCargo consultarcargo = new ConsultarCargo();
+                CargosDTO dados = new CargosDTO();
+
+                consultarcargo.CarregarCombo(dados);
+
+                //Limpar fonte de dados e limpar combo
+                cboclassefunc.DataSource = null;
+                cboclassefunc.Items.Clear();
+
+                //Popular o listbox
+                //Definir o código do cargo, porém irá apresentar somente o nome do cargo
+                cboclassefunc.ValueMember = "classeUsuario";
+                cboclassefunc.DisplayMember = "descricao";
+                cboclassefunc.DataSource = consultarcargo.CargosDataTable;
+                //Trazer os dados para serem selecionados
+                cboclassefunc.SelectedIndex = -1;
+            }
+
+            catch(Exception e) 
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
+        }
+
         private void btnSair_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja sair do cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -33,11 +63,11 @@ namespace FarmaTec
             SalvarFuncionario salvarFuncionario = new SalvarFuncionario();
             funcionariosDTO dados = new funcionariosDTO();
 
-
+            mskTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             //Popular a classe
-            dados.nome = txtNomeFuncionario.Text;
-            dados.usuario = txtnomeusuario.Text;
-         //   dados.cargo = txtclassefunc.Text;
+            dados.nome = txtusuario.Text;
+            dados.usuario = txtusuario.Text;
+            dados.cargo = codigoClasse;
             dados.telefone = mskTelefone.Text;
             dados.email = txtEmailFuncionario.Text;
             dados.sexo = txtsexo.Text;
@@ -73,7 +103,7 @@ namespace FarmaTec
 
         private void cmbCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+           
            
 
 
@@ -81,24 +111,26 @@ namespace FarmaTec
 
         private void frmNovoAcesso_Load(object sender, EventArgs e)
         {
-          /*  using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT *FROM tbclasseusuario", con);
-                MySqlDataReader dr = cmd.ExecuteReader();
-                List<string> list = new List<string>();
-                while (dr.Read())
-                {
-                    list.Add(dr["descricao"].ToString());
-                }
-                dr.Close();
-                list = list.Distinct().ToList();
-                list.Sort();
-                txtclassefunc.DataSource = list;
+            /*  using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
+              {
+                  con.Open();
+                  MySqlCommand cmd = new MySqlCommand("SELECT *FROM tbclasseusuario", con);
+                  MySqlDataReader dr = cmd.ExecuteReader();
+                  List<string> list = new List<string>();
+                  while (dr.Read())
+                  {
+                      list.Add(dr["descricao"].ToString());
+                  }
+                  dr.Close();
+                  list = list.Distinct().ToList();
+                  list.Sort();
+                  txtclassefunc.DataSource = list;
 
 
-            }
-          */
+              }
+            */
+            ListarCargos();
+
         }
 
         private void mskTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -135,6 +167,11 @@ namespace FarmaTec
         private void txtusuario_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboclassefunc_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            codigoClasse = Convert.ToInt32(cboclassefunc.SelectedValue.ToString());
         }
     }
 }

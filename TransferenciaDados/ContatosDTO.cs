@@ -14,6 +14,9 @@ namespace TransferenciaDados
         // Declaração dos atributos
         public int codigo { get; set; }
         public string nome { get; set; }
+        public string usuario { get; set; }
+        public string senha { get; set; }
+        public int logado { get; set; }
         public string endereco { get; set; }
         public string cep { get; set; }
         public string cidade { get; set; }
@@ -52,7 +55,7 @@ namespace TransferenciaDados
 
     }
 
-    
+
 
 
 
@@ -97,16 +100,19 @@ namespace TransferenciaDados
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 //Popular os parâmetros da procedure
-                
+
                 cmd.Parameters.AddWithValue("@pnome", dados.nome);
                 cmd.Parameters.AddWithValue("@pendereco", dados.endereco);
                 cmd.Parameters.AddWithValue("@pcep", dados.cep);
                 cmd.Parameters.AddWithValue("@pcidade", dados.cidade);
-                cmd.Parameters.AddWithValue("@pbairro", dados.bairro);  
+                cmd.Parameters.AddWithValue("@pbairro", dados.bairro);
                 cmd.Parameters.AddWithValue("@puf", dados.uf);
                 cmd.Parameters.AddWithValue("@pcpf", dados.cpf);
                 cmd.Parameters.AddWithValue("@pfone", dados.telefone);
                 cmd.Parameters.AddWithValue("@pemail", dados.email);
+                cmd.Parameters.AddWithValue("@pusuario", dados.usuario);
+                cmd.Parameters.AddWithValue("@psenha", dados.senha);
+                cmd.Parameters.AddWithValue("@plogado", dados.logado);
 
                 //Executar os comandos SQL
                 MySqlDataReader dr = cmd.ExecuteReader();
@@ -182,5 +188,5 @@ namespace TransferenciaDados
 
         } //Fechamento Fornecedores Incluir
 
-    } 
+    }
 }

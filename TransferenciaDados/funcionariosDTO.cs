@@ -25,7 +25,7 @@ namespace TransferenciaDados
         public string sexo { get; set; }
         public string telefone { get; set; }
         public string email { get; set; }
-        public string cargo { get; set; }
+        public int cargo { get; set; }
         public string mensagens { get; set; }
     }
     public class SalvarFuncionario
@@ -88,16 +88,18 @@ namespace TransferenciaDados
 
                 var data = new Dictionary<string, string>
                 {
-                    {"txtnomefuncionario", dados.nome },
-                    {"txtnomeusuario", dados.usuario },
+                    {"txtnomefuncionario", dados.nome},
+                    {"txtusuario", dados.usuario},
                     {"txtsexo", dados.sexo},
                     {"txtfonefuncionario", dados.telefone },
                     {"txtemailfuncionario", dados.email },
-                    {"txtclassefunc", dados.cargo },
+                    {"txtclassefunc", dados.cargo.ToString()},
                     {"HTTP_ACCEPT", "application/Json" }
-
                 };
 
+                
+
+               
                 var response = await client.PostAsync(URL, new FormUrlEncodedContent(data));
 
                 var result = await response.Content.ReadAsStringAsync();
