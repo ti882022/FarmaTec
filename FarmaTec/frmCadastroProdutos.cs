@@ -16,15 +16,13 @@ namespace FarmaTec
 {
     public partial class frmCadastroProdutos : Form
     {
+        TratamentoCampos tratamentoCampos = new TratamentoCampos();
         public frmCadastroProdutos()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-
-        }
 
         private void frmCadastroProdutos_Load(object sender, EventArgs e)
         {
@@ -55,8 +53,6 @@ namespace FarmaTec
 
         private void btnInserirImagem_Click(object sender, EventArgs e)
         {
-
-
             //define as propriedades do controle 
             //OpenFileDialog
             this.InserirImagem.Multiselect = true;
@@ -129,53 +125,80 @@ namespace FarmaTec
             SalvarProduto salvarProduto = new SalvarProduto();
             ProdutosDTO dados = new ProdutosDTO();
 
-
-            //Popular a classe
-            dados.descricao = txtdescricao.Text;
-            dados.marca = txtmarca.Text;
-            dados.fornecedor = txtfornecedor.Text;
-            dados.catProduto = Convert.ToInt32(txtCategoria.Text);
-            dados.unidade = txtUnidade.Text;
-            dados.estoqueMinimo = Convert.ToInt32(txtEstoqueMin.Text);
-            dados.imgproduto = string.Empty;
-            dados.preco = txtpreco.Text;
-
-
-            //Chamar o método para incluir dados
-
-            await salvarProduto.ProdutosIncluir(dados);
-
-            if (dados.mensagens == null)
+            if (tratamentoCampos.Vazio(this) == true)
             {
-
-                if (dados.codigo == 0)
+                tratamentoCampos.Bloquear(this);
+                if (MessageBox.Show("Deseja Finalizar o Cadastro do Produt?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Não foi possível efetuar o cadastro!!");
-                }
 
-                else
-                {
-                    txtCodigo.Text = dados.codigo.ToString();
+                    //Popular a classe
+                    dados.descricao = txtdescricao.Text;
+                    dados.marca = txtmarca.Text;
+                    dados.fornecedor = txtfornecedor.Text;
+                    dados.catProduto = Convert.ToInt32(txtCategoria.Text);
+                    dados.unidade = txtUnidade.Text;
+                    dados.estoqueMinimo = Convert.ToInt32(txtEstoqueMin.Text);
+                    dados.imgproduto = string.Empty;
+                    dados.preco = txtpreco.Text;
+
+
+                    //Chamar o método para incluir dados
+
+                    await salvarProduto.ProdutosIncluir(dados);
+
+                    if (dados.mensagens == null)
+                    {
+
+                        if (dados.codigo == 0)
+                        {
+                            MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        else
+                        {
+                            txtCodigo.Text = dados.codigo.ToString();
+                            MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            tratamentoCampos.Limpar(this);
+                            tratamentoCampos.Desbloquear(this);
+                        }
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show(dados.mensagens, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
 
             }
 
-            else
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            tratamentoCampos.Limpar(this);
+            txtdescricao.Focus();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
             {
-                MessageBox.Show(dados.mensagens,"Aviso!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                case Keys.Enter:
+                    btnSalvar.PerformClick();
+                    return true;
+
+                case Keys.Escape:
+                    btnSair.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    btnLimpar.PerformClick();
+                    return true;
+
             }
-
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

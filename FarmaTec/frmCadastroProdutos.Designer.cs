@@ -143,6 +143,7 @@ namespace FarmaTec
             this.btnLimpar.TabIndex = 11;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -258,7 +259,6 @@ namespace FarmaTec
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(107, 100);
             this.flowLayoutPanel1.TabIndex = 131;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // lblestoque
             // 
@@ -287,7 +287,6 @@ namespace FarmaTec
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(294, 28);
             this.txtCategoria.TabIndex = 5;
-            this.txtCategoria.SelectedIndexChanged += new System.EventHandler(this.txtCategoria_SelectedIndexChanged);
             // 
             // frmCadastroProdutos
             // 
