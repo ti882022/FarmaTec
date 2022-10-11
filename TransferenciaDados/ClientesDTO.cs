@@ -74,7 +74,7 @@ namespace TransferenciaDados
                 {
                     {"txtnomeCliente", dados.nome},
                     {"txtcpfCliente", dados.cpf},
-                    {"HTTP_ACCEPT", "application/Json" }
+                    {"HTTP_ACCEPT", "application/Json"}
 
 
                 };
@@ -82,12 +82,16 @@ namespace TransferenciaDados
                 var response = await client.PostAsync(URL, new FormUrlEncodedContent(data));
 
                 var result = await response.Content.ReadAsStringAsync();
-
+                
                 JObject obj = JObject.Parse(result);
+
+
 
                 JArray arrayClientes = (JArray)obj["RetornoDados"];
 
-                foreach (var item in arrayClientes )
+               
+
+                foreach (var item in arrayClientes)
                 {
 
 

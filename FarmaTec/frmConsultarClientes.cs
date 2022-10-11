@@ -80,15 +80,34 @@ namespace FarmaTec
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Close();
-            }
+             if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+             {
+                 Close();
+             }
 
-        }
+
+               }
+            AutoCompletar();
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
+
+
             try
             {
                 //Instanciar as classes
@@ -133,6 +152,8 @@ namespace FarmaTec
             {
                 MessageBox.Show(ex.ToString());
             }
+
+           
         }
 
         private void frmConsultarClientes_Load(object sender, EventArgs e)
