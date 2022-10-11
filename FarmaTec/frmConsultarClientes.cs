@@ -32,11 +32,11 @@ namespace FarmaTec
                 ConsultarClientes consultarClientes = new ConsultarClientes();
                 ClientesDTO dados = new ClientesDTO();
 
-             //   txtnomeCliente.Text = "Ewerthon";
+                //   txtnomeCliente.Text = "Ewerthon";
 
                 //Popular classe
                 dados.nome = txtnomeCliente.Text;
-               // dados.cpf = mskCpf.Text;
+                // dados.cpf = mskCpf.Text;
 
                 //Chamar o método
                 await consultarClientes.MostrarCliente(dados);
@@ -49,7 +49,7 @@ namespace FarmaTec
                         for (int i = 0; i < consultarClientes.listClientes.Count; i++)
                         {
                             autocomplete.Add(consultarClientes.listClientes[i].nomeCliente.ToString());
-                                                    }
+                        }
                         //Definir as propriedades do autocomplete do textbox
                         txtnomeCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
                         txtnomeCliente.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -80,30 +80,26 @@ namespace FarmaTec
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            /* if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-             {
-                 Close();
-             }
-
-             */
-
-            AutoCompletar();
-
+            if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }
 
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 //Instanciar as classes
                 ConsultarClientes consultarClientes = new ConsultarClientes();
                 ClientesDTO dados = new ClientesDTO();
 
+                mskCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
                 //Popular classe
                 dados.nome = txtnomeCliente.Text;
+                dados.cpf = mskCpf.Text;
 
                 //Limpar fonte de dados e o DatagridView
                 dtClientes.DataSource = null;
@@ -122,6 +118,7 @@ namespace FarmaTec
                                             consultarClientes.listClientes[i].bairro.ToString(),
                                             consultarClientes.listClientes[i].uf.ToString(),
                                             consultarClientes.listClientes[i].cpf.ToString(),
+                                            consultarClientes.listClientes[i].foneCliente.ToString(),
                                             consultarClientes.listClientes[i].emailCliente.ToString());
                 }
                 if (dados.mensagens != null)
@@ -129,7 +126,7 @@ namespace FarmaTec
                     MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-
+                mskCpf.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
             }
 
             catch (Exception ex)
@@ -140,7 +137,7 @@ namespace FarmaTec
 
         private void frmConsultarClientes_Load(object sender, EventArgs e)
         {
-           // AutoCompletar();
+            AutoCompletar();
         }
     }
 }
