@@ -86,23 +86,7 @@ namespace FarmaTec
              }
 
 
-               }
-            AutoCompletar();
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
+        }
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {

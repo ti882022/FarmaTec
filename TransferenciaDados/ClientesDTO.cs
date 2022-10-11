@@ -65,7 +65,7 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://localhost/FarmaTec/clientes/listar/";
+                string URL = "http://localhost/siteturma88/clientes/listar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -82,14 +82,14 @@ namespace TransferenciaDados
                 var response = await client.PostAsync(URL, new FormUrlEncodedContent(data));
 
                 var result = await response.Content.ReadAsStringAsync();
-                
+
                 JObject obj = JObject.Parse(result);
 
 
 
                 JArray arrayClientes = (JArray)obj["RetornoDados"];
 
-               
+
 
                 foreach (var item in arrayClientes)
                 {
