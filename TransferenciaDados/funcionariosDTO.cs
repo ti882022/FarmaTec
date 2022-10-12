@@ -15,13 +15,13 @@ using Newtonsoft.Json.Linq;
 
 namespace TransferenciaDados
 {
-   public class funcionariosDTO
+    public class funcionariosDTO
     {
         // Declaração dos atributos
         public int codigo { get; set; }
         public string nome { get; set; }
         public string usuario { get; set; }
-        
+
         public string sexo { get; set; }
         public string telefone { get; set; }
         public string email { get; set; }
@@ -79,7 +79,7 @@ namespace TransferenciaDados
 
         public async Task FuncionariosIncluir(funcionariosDTO dados)
         {
-            try 
+            try
             {
                 string URL = "http://localhost/siteturma88/funcionarios/incluir/";
 
@@ -97,16 +97,22 @@ namespace TransferenciaDados
                     {"HTTP_ACCEPT", "application/Json" }
                 };
 
-                
 
-               
+
+
                 var response = await client.PostAsync(URL, new FormUrlEncodedContent(data));
 
                 var result = await response.Content.ReadAsStringAsync();
 
                 JObject obj = JObject.Parse(result);
 
-                dados.mensagens = obj["RetornoDados"]["sucesso"].ToString();
+                JArray arrayFuncionarios = (JArray)obj["RetornoDados"];
+
+                foreach (var item in arrayFuncionarios)
+                {
+                    dados.codigo = Convert.ToInt32(item["codigo"].ToString());
+
+                }
             }
 
             catch (JsonException e)
@@ -117,4 +123,4 @@ namespace TransferenciaDados
         }
     }
 
-    }
+}

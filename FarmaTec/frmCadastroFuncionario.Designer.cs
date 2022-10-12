@@ -36,7 +36,7 @@ namespace FarmaTec
             this.lblTituloFuncionario = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.lblNomeFuncionario = new System.Windows.Forms.Label();
-            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
             this.txtCodigoFuncionario = new System.Windows.Forms.TextBox();
             this.lblCodFuncionario = new System.Windows.Forms.Label();
             this.txtEmailFuncionario = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@ namespace FarmaTec
             this.lblSexo = new System.Windows.Forms.Label();
             this.txtsexo = new System.Windows.Forms.ComboBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.txtnomeusuario = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSair
@@ -114,13 +114,13 @@ namespace FarmaTec
             this.lblNomeFuncionario.TabIndex = 31;
             this.lblNomeFuncionario.Text = "Nome";
             // 
-            // txtusuario
+            // txtNomeFuncionario
             // 
-            this.txtusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtusuario.Location = new System.Drawing.Point(325, 179);
-            this.txtusuario.Name = "txtusuario";
-            this.txtusuario.Size = new System.Drawing.Size(390, 26);
-            this.txtusuario.TabIndex = 2;
+            this.txtNomeFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeFuncionario.Location = new System.Drawing.Point(325, 179);
+            this.txtNomeFuncionario.Name = "txtNomeFuncionario";
+            this.txtNomeFuncionario.Size = new System.Drawing.Size(390, 26);
+            this.txtNomeFuncionario.TabIndex = 2;
             // 
             // txtCodigoFuncionario
             // 
@@ -130,7 +130,6 @@ namespace FarmaTec
             this.txtCodigoFuncionario.Name = "txtCodigoFuncionario";
             this.txtCodigoFuncionario.Size = new System.Drawing.Size(63, 26);
             this.txtCodigoFuncionario.TabIndex = 1;
-            this.txtCodigoFuncionario.TextChanged += new System.EventHandler(this.txtCodigoFuncionario_TextChanged);
             // 
             // lblCodFuncionario
             // 
@@ -169,7 +168,7 @@ namespace FarmaTec
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(130, 26);
             this.mskTelefone.TabIndex = 4;
-            this.mskTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskTelefone_MaskInputRejected);
+            this.mskTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskTelefone_MouseClick);
             // 
             // contextMenuStrip1
             // 
@@ -201,7 +200,6 @@ namespace FarmaTec
             this.cboclassefunc.Name = "cboclassefunc";
             this.cboclassefunc.Size = new System.Drawing.Size(121, 28);
             this.cboclassefunc.TabIndex = 7;
-            this.cboclassefunc.SelectedIndexChanged += new System.EventHandler(this.cmbCargo_SelectedIndexChanged);
             this.cboclassefunc.SelectionChangeCommitted += new System.EventHandler(this.cboclassefunc_SelectionChangeCommitted);
             // 
             // lblSexo
@@ -228,7 +226,6 @@ namespace FarmaTec
             this.txtsexo.Name = "txtsexo";
             this.txtsexo.Size = new System.Drawing.Size(47, 28);
             this.txtsexo.TabIndex = 5;
-            this.txtsexo.SelectedIndexChanged += new System.EventHandler(this.txtsexo_SelectedIndexChanged);
             // 
             // lblusuario
             // 
@@ -240,14 +237,13 @@ namespace FarmaTec
             this.lblusuario.TabIndex = 51;
             this.lblusuario.Text = "Usuário";
             // 
-            // txtnomeusuario
+            // txtUsuario
             // 
-            this.txtnomeusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnomeusuario.Location = new System.Drawing.Point(325, 208);
-            this.txtnomeusuario.Name = "txtnomeusuario";
-            this.txtnomeusuario.Size = new System.Drawing.Size(390, 26);
-            this.txtnomeusuario.TabIndex = 3;
-            this.txtnomeusuario.TextChanged += new System.EventHandler(this.txtusuario_TextChanged);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(325, 208);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(390, 26);
+            this.txtUsuario.TabIndex = 3;
             // 
             // frmCadastroFuncionario
             // 
@@ -256,7 +252,7 @@ namespace FarmaTec
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblusuario);
-            this.Controls.Add(this.txtnomeusuario);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtsexo);
             this.Controls.Add(this.lblSexo);
             this.Controls.Add(this.cboclassefunc);
@@ -270,7 +266,7 @@ namespace FarmaTec
             this.Controls.Add(this.lblTituloFuncionario);
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.lblNomeFuncionario);
-            this.Controls.Add(this.txtusuario);
+            this.Controls.Add(this.txtNomeFuncionario);
             this.Controls.Add(this.txtCodigoFuncionario);
             this.Controls.Add(this.lblCodFuncionario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -292,7 +288,7 @@ namespace FarmaTec
         private System.Windows.Forms.Label lblTituloFuncionario;
         private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.Label lblNomeFuncionario;
-        private System.Windows.Forms.TextBox txtusuario;
+        private System.Windows.Forms.TextBox txtNomeFuncionario;
         private System.Windows.Forms.TextBox txtCodigoFuncionario;
         private System.Windows.Forms.Label lblCodFuncionario;
         private System.Windows.Forms.TextBox txtEmailFuncionario;
@@ -304,6 +300,6 @@ namespace FarmaTec
         private System.Windows.Forms.Label lblSexo;
         private System.Windows.Forms.ComboBox txtsexo;
         private System.Windows.Forms.Label lblusuario;
-        private System.Windows.Forms.TextBox txtnomeusuario;
+        private System.Windows.Forms.TextBox txtUsuario;
     }
 }
