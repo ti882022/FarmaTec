@@ -78,7 +78,7 @@ namespace FarmaTec
             // 
             this.mskCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskCpf.Location = new System.Drawing.Point(377, 65);
-            this.mskCpf.Mask = "###.###.###-##";
+            this.mskCpf.Mask = "###,###,###-##";
             this.mskCpf.Name = "mskCpf";
             this.mskCpf.Size = new System.Drawing.Size(136, 29);
             this.mskCpf.TabIndex = 3;

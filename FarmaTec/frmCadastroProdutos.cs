@@ -128,7 +128,7 @@ namespace FarmaTec
             if (tratamentoCampos.Vazio(this) == true)
             {
                 tratamentoCampos.Bloquear(this);
-                if (MessageBox.Show("Deseja Finalizar o Cadastro do Produt?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja Finalizar o Cadastro do Produto?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     //Popular a classe

@@ -83,7 +83,6 @@ namespace FarmaTec
             this.mskCnpj.Location = new System.Drawing.Point(192, 286);
             this.mskCnpj.Mask = "##,###,###/####-##";
             this.mskCnpj.Name = "mskCnpj";
-
             this.mskCnpj.Size = new System.Drawing.Size(161, 26);
             this.mskCnpj.TabIndex = 9;
             this.mskCnpj.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskCnpj_MouseClick);
@@ -124,7 +123,7 @@ namespace FarmaTec
             this.txtCidade.MaxLength = 100;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(387, 26);
-            this.txtCidade.TabIndex = 10;
+            this.txtCidade.TabIndex = 8;
             // 
             // lblCep
             // 
@@ -171,7 +170,7 @@ namespace FarmaTec
             this.mskCep.Mask = "#####-###";
             this.mskCep.Name = "mskCep";
             this.mskCep.Size = new System.Drawing.Size(86, 26);
-            this.mskCep.TabIndex = 9;
+            this.mskCep.TabIndex = 7;
             this.mskCep.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskCep_MouseClick);
             // 
             // lblTelefone
@@ -191,7 +190,7 @@ namespace FarmaTec
             this.txtEmailFornecedor.MaxLength = 100;
             this.txtEmailFornecedor.Name = "txtEmailFornecedor";
             this.txtEmailFornecedor.Size = new System.Drawing.Size(390, 26);
-            this.txtEmailFornecedor.TabIndex = 13;
+            this.txtEmailFornecedor.TabIndex = 11;
             // 
             // lblCnpj
             // 
@@ -209,7 +208,7 @@ namespace FarmaTec
             this.btnSair.Location = new System.Drawing.Point(497, 372);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 28);
-            this.btnSair.TabIndex = 12;
+            this.btnSair.TabIndex = 14;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -220,7 +219,7 @@ namespace FarmaTec
             this.btnLimpar.Location = new System.Drawing.Point(383, 372);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 28);
-            this.btnLimpar.TabIndex = 11;
+            this.btnLimpar.TabIndex = 13;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -231,7 +230,7 @@ namespace FarmaTec
             this.btnSalvar.Location = new System.Drawing.Point(261, 372);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btnSalvar.TabIndex = 10;
+            this.btnSalvar.TabIndex = 12;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -312,7 +311,7 @@ namespace FarmaTec
             this.txtBairro.MaxLength = 100;
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(390, 26);
-            this.txtBairro.TabIndex = 7;
+            this.txtBairro.TabIndex = 5;
             // 
             // frmCadastroFornecedor
             // 
