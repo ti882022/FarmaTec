@@ -65,8 +65,8 @@ namespace FarmaTec
 
             mskTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             //Popular a classe
-            dados.nome = txtusuario.Text;
-            dados.usuario = txtusuario.Text;
+            dados.nome = txtNomeFuncionario.Text;
+            dados.usuario = txtUsuario.Text;
             dados.cargo = codigoClasse;
             dados.telefone = mskTelefone.Text;
             dados.email = txtEmailFuncionario.Text;
@@ -84,6 +84,7 @@ namespace FarmaTec
             }
             else if (dados.mensagens == "1")
             {
+                txtCodigoFuncionario.Text = dados.codigo.ToString();
                 MessageBox.Show("Dados cadastrado com sucesso!!");
             }
 

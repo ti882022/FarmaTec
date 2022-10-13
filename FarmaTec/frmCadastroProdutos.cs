@@ -138,8 +138,9 @@ namespace FarmaTec
                     dados.catProduto = Convert.ToInt32(txtCategoria.Text);
                     dados.unidade = txtUnidade.Text;
                     dados.estoqueMinimo = Convert.ToInt32(txtEstoqueMin.Text);
+                    dados.preco = Convert.ToInt32(txtpreco.Text);
                     dados.imgproduto = string.Empty;
-                    dados.preco = txtpreco.Text;
+                   
 
 
                     //Chamar o método para incluir dados
@@ -199,6 +200,11 @@ namespace FarmaTec
 
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

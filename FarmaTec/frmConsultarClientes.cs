@@ -36,7 +36,7 @@ namespace FarmaTec
 
                 //Popular classe
                 dados.nome = txtnomeCliente.Text;
-               // dados.cpf = mskCpf.Text;
+                dados.cpf = mskCpf.Text;
 
                 //Chamar o método
                 await consultarClientes.MostrarCliente(dados);
@@ -98,6 +98,8 @@ namespace FarmaTec
                 ConsultarClientes consultarClientes = new ConsultarClientes();
                 ClientesDTO dados = new ClientesDTO();
 
+               mskCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
                 //Popular classe
                 dados.nome = txtnomeCliente.Text;
                 dados.cpf = mskCpf.Text;
@@ -126,7 +128,7 @@ namespace FarmaTec
                 {
                     MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
+                mskCpf.TextMaskFormat = MaskFormat.IncludePromptAndLiterals; 
 
             }
 
