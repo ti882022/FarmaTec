@@ -55,17 +55,7 @@ namespace FarmaTec
 
             //Percorrer a consulta e verificar quais os campos não foram preenchidos
 
-            foreach (var crtlTxt in controle)
-            {
-                if (crtlTxt.Text == string.Empty)
-                {
-                   
-                    textBox.Name = crtlTxt.Name;
-                    crtlTxt.Focus();
-                    break;
-                }
-            }
-
+          
             mskCnpj.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             mskCep.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             mskTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;

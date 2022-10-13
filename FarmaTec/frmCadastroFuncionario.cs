@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using TransferenciaDados;
+using System.Text.RegularExpressions;
 
 namespace FarmaTec
 {
     public partial class frmCadastroFuncionario : Form
     {
+        TratamentoCampos tratamentoCampos = new TratamentoCampos();
         public frmCadastroFuncionario()
         {
             InitializeComponent();
@@ -64,50 +66,62 @@ namespace FarmaTec
             funcionariosDTO dados = new funcionariosDTO();
 
             mskTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            //Popular a classe
-            dados.nome = txtNomeFuncionario.Text;
-            dados.usuario = txtUsuario.Text;
-            dados.cargo = codigoClasse;
-            dados.telefone = mskTelefone.Text;
-            dados.email = txtEmailFuncionario.Text;
-            dados.sexo = txtsexo.Text;
-
-
-            //Chamar o método para incluir dados
-
-            await salvarFuncionario.FuncionariosIncluir(dados);
-            
-            if (dados.mensagens == "0")
+            if (tratamentoCampos.Vazio(this) == true)
             {
-                MessageBox.Show("Não foi possível efetuar o cadastro!!");
+                Regex mRegxExpression;
+                if (txtEmailFuncionario.Text.Trim() != string.Empty)
+                {
+                    mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
 
-            }
-            else if (dados.mensagens == "1")
-            {
-                txtCodigoFuncionario.Text = dados.codigo.ToString();
-                MessageBox.Show("Dados cadastrado com sucesso!!");
-            }
+                    if (!mRegxExpression.IsMatch(txtEmailFuncionario.Text.Trim()))
+                    {
+                        MessageBox.Show("Formato de E-mail incorreto.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtEmailFuncionario.Focus();
+                    }
+                    else
+                    {
+                        tratamentoCampos.Bloquear(this);
+                        if (MessageBox.Show("Deseja Finalizar o Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            dados.nome = txtNomeFuncionario.Text;
+                            dados.usuario = txtUsuario.Text;
+                            dados.cargo = codigoClasse;
+                            dados.telefone = mskTelefone.Text;
+                            dados.email = txtEmailFuncionario.Text;
+                            dados.sexo = txtsexo.Text;
 
-            else 
-            {
-                MessageBox.Show(dados.mensagens);
-            }
 
+                            //Chamar o método para incluir dados
 
-            
+                            await salvarFuncionario.FuncionariosIncluir(dados);
+
+                            if (dados.mensagens == null)
+                            {
+
+                                if (dados.codigo == 0)
+                                {
+                                    MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+
+                                else
+                                {
+                                    txtCodigoFuncionario.Text = dados.codigo.ToString();
+                                    MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    tratamentoCampos.Limpar(this);
+                                    tratamentoCampos.Desbloquear(this);
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }           
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void cmbCargo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-           
-
-
+            tratamentoCampos.Limpar(this);
+            txtUsuario.Focus();
         }
 
         private void frmNovoAcesso_Load(object sender, EventArgs e)
@@ -131,48 +145,38 @@ namespace FarmaTec
               }
             */
             ListarCargos();
-
         }
 
-        private void mskTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void txtsexo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtsexo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-
-        }
-
-        private void txtCodigoFuncionario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mskSenha_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void txtusuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void cboclassefunc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             codigoClasse = Convert.ToInt32(cboclassefunc.SelectedValue.ToString());
+        }
+
+        private void mskTelefone_MouseClick(object sender, MouseEventArgs e)
+        {
+            mskTelefone.Select(0, 0);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btnSalvar.PerformClick();
+                    return true;
+
+                case Keys.Escape:
+                    btnSair.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    btnLimpar.PerformClick();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

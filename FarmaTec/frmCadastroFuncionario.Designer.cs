@@ -130,7 +130,6 @@ namespace FarmaTec
             this.txtCodigoFuncionario.Name = "txtCodigoFuncionario";
             this.txtCodigoFuncionario.Size = new System.Drawing.Size(63, 26);
             this.txtCodigoFuncionario.TabIndex = 1;
-            this.txtCodigoFuncionario.TextChanged += new System.EventHandler(this.txtCodigoFuncionario_TextChanged);
             // 
             // lblCodFuncionario
             // 
@@ -169,7 +168,7 @@ namespace FarmaTec
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(130, 26);
             this.mskTelefone.TabIndex = 4;
-            this.mskTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskTelefone_MaskInputRejected);
+            this.mskTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskTelefone_MouseClick);
             // 
             // contextMenuStrip1
             // 
@@ -201,7 +200,6 @@ namespace FarmaTec
             this.cboclassefunc.Name = "cboclassefunc";
             this.cboclassefunc.Size = new System.Drawing.Size(121, 28);
             this.cboclassefunc.TabIndex = 7;
-            this.cboclassefunc.SelectedIndexChanged += new System.EventHandler(this.cmbCargo_SelectedIndexChanged);
             this.cboclassefunc.SelectionChangeCommitted += new System.EventHandler(this.cboclassefunc_SelectionChangeCommitted);
             // 
             // lblSexo
@@ -228,7 +226,6 @@ namespace FarmaTec
             this.txtsexo.Name = "txtsexo";
             this.txtsexo.Size = new System.Drawing.Size(47, 28);
             this.txtsexo.TabIndex = 5;
-            this.txtsexo.SelectedIndexChanged += new System.EventHandler(this.txtsexo_SelectedIndexChanged);
             // 
             // lblusuario
             // 
@@ -247,7 +244,6 @@ namespace FarmaTec
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(390, 26);
             this.txtUsuario.TabIndex = 3;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtusuario_TextChanged);
             // 
             // frmCadastroFuncionario
             // 

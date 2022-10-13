@@ -77,19 +77,19 @@ namespace TransferenciaDados
                     {"HTTP_ACCEPT", "application/Json"}
 
 
-            };
+                };
 
                 var response = await client.PostAsync(URL, new FormUrlEncodedContent(data));
 
                 var result = await response.Content.ReadAsStringAsync();
-                
+
                 JObject obj = JObject.Parse(result);
 
 
 
                 JArray arrayClientes = (JArray)obj["RetornoDados"];
 
-               
+
 
                 foreach (var item in arrayClientes)
                 {

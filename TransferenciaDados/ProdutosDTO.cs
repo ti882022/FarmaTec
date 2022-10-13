@@ -41,7 +41,7 @@ namespace TransferenciaDados
         {
             try
             {
-                string URL = "http://localhost/FarmaTec/produtos/incluir/";
+                string URL = "http://localhost/siteturma88/produtos/incluir/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
