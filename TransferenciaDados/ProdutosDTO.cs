@@ -29,7 +29,7 @@ namespace TransferenciaDados
         public int catProduto { get; set; }
         public string unidade { get; set; }
         public int estoqueMinimo { get; set; }
-        public int preco { get; set; }
+         public int preco { get; set; }
         public string imgproduto { get; set; }
         public string mensagens { get; set; }
     }
@@ -139,8 +139,8 @@ namespace TransferenciaDados
 
                 var data = new Dictionary<string, string>
                 {
-                    {"txtCodProduto", dados.codigo.ToString()},
                     {"txtdescricao", dados.descricao},
+                    {"txtcodproduto", dados.codigo.ToString()},
                     {"HTTP_ACCEPT", "application/Json"}
 
 

@@ -37,8 +37,8 @@ namespace FarmaTec
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblNomeProduto = new System.Windows.Forms.Label();
             this.lblcodigo = new System.Windows.Forms.Label();
-            this.txtCodProduto = new System.Windows.Forms.TextBox();
-            this.txtNomeProduto = new System.Windows.Forms.TextBox();
+            this.txtcodproduto = new System.Windows.Forms.TextBox();
+            this.txtdescricao = new System.Windows.Forms.TextBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.pctProdutos = new System.Windows.Forms.PictureBox();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -71,7 +71,6 @@ namespace FarmaTec
             this.catProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estoqueMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagem = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtProdutos)).BeginInit();
             this.pnlConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctProdutos)).BeginInit();
@@ -98,8 +97,7 @@ namespace FarmaTec
             this.fornecedor,
             this.catProduto,
             this.unidade,
-            this.estoqueMinimo,
-            this.Imagem});
+            this.estoqueMinimo});
             this.dtProdutos.Location = new System.Drawing.Point(142, 274);
             this.dtProdutos.Name = "dtProdutos";
             this.dtProdutos.Size = new System.Drawing.Size(1134, 388);
@@ -112,8 +110,8 @@ namespace FarmaTec
             this.pnlConsulta.Controls.Add(this.btnBuscar);
             this.pnlConsulta.Controls.Add(this.lblNomeProduto);
             this.pnlConsulta.Controls.Add(this.lblcodigo);
-            this.pnlConsulta.Controls.Add(this.txtCodProduto);
-            this.pnlConsulta.Controls.Add(this.txtNomeProduto);
+            this.pnlConsulta.Controls.Add(this.txtcodproduto);
+            this.pnlConsulta.Controls.Add(this.txtdescricao);
             this.pnlConsulta.Location = new System.Drawing.Point(77, 66);
             this.pnlConsulta.Name = "pnlConsulta";
             this.pnlConsulta.Size = new System.Drawing.Size(974, 121);
@@ -140,6 +138,7 @@ namespace FarmaTec
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblNomeProduto
             // 
@@ -161,23 +160,23 @@ namespace FarmaTec
             this.lblcodigo.TabIndex = 8;
             this.lblcodigo.Text = "Código";
             // 
-            // txtCodProduto
+            // txtcodproduto
             // 
-            this.txtCodProduto.AllowDrop = true;
-            this.txtCodProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodProduto.Location = new System.Drawing.Point(12, 65);
-            this.txtCodProduto.Name = "txtCodProduto";
-            this.txtCodProduto.Size = new System.Drawing.Size(80, 29);
-            this.txtCodProduto.TabIndex = 7;
+            this.txtcodproduto.AllowDrop = true;
+            this.txtcodproduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcodproduto.Location = new System.Drawing.Point(12, 65);
+            this.txtcodproduto.Name = "txtcodproduto";
+            this.txtcodproduto.Size = new System.Drawing.Size(80, 29);
+            this.txtcodproduto.TabIndex = 7;
             // 
-            // txtNomeProduto
+            // txtdescricao
             // 
-            this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeProduto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomeProduto.Location = new System.Drawing.Point(118, 65);
-            this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(226, 29);
-            this.txtNomeProduto.TabIndex = 6;
+            this.txtdescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescricao.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtdescricao.Location = new System.Drawing.Point(118, 65);
+            this.txtdescricao.Name = "txtdescricao";
+            this.txtdescricao.Size = new System.Drawing.Size(226, 29);
+            this.txtdescricao.TabIndex = 6;
             // 
             // btnSair
             // 
@@ -423,12 +422,6 @@ namespace FarmaTec
             this.estoqueMinimo.Name = "estoqueMinimo";
             this.estoqueMinimo.Width = 130;
             // 
-            // Imagem
-            // 
-            this.Imagem.HeaderText = "imgProduto";
-            this.Imagem.Name = "Imagem";
-            this.Imagem.Width = 160;
-            // 
             // frmConsultarProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,8 +458,8 @@ namespace FarmaTec
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblNomeProduto;
         private System.Windows.Forms.Label lblcodigo;
-        private System.Windows.Forms.TextBox txtCodProduto;
-        private System.Windows.Forms.TextBox txtNomeProduto;
+        private System.Windows.Forms.TextBox txtcodproduto;
+        private System.Windows.Forms.TextBox txtdescricao;
         private System.Windows.Forms.PictureBox pctProdutos;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem menuVendas;
@@ -498,6 +491,5 @@ namespace FarmaTec
         private System.Windows.Forms.DataGridViewTextBoxColumn catProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn unidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn estoqueMinimo;
-        private System.Windows.Forms.DataGridViewImageColumn Imagem;
     }
 }
