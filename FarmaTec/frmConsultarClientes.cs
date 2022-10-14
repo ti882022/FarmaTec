@@ -13,8 +13,11 @@ namespace FarmaTec
 {
     public partial class frmConsultarClientes : Form
     {
+        TratamentoCampos tratamentoCampos = new TratamentoCampos();
+
         public frmConsultarClientes()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -72,18 +75,12 @@ namespace FarmaTec
 
         }
 
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnSair_Click(object sender, EventArgs e)
         {
-             if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-             {
-                 Close();
-             }
+            if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }
 
 
         }
@@ -124,10 +121,13 @@ namespace FarmaTec
                                             consultarClientes.listClientes[i].foneCliente.ToString(),
                                             consultarClientes.listClientes[i].emailCliente.ToString());
                 }
+
+
                 if (dados.mensagens != null)
                 {
-                    MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
 
                 mskCpf.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
             }
@@ -137,12 +137,34 @@ namespace FarmaTec
                 MessageBox.Show(ex.ToString());
             }
 
-           
+
         }
 
         private void frmConsultarClientes_Load(object sender, EventArgs e)
         {
             AutoCompletar();
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btnBuscar.PerformClick();
+                    return true;
+
+                case Keys.Escape:
+                    btnSair.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    btnSair.PerformClick();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
     }
 }

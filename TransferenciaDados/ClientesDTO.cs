@@ -114,12 +114,12 @@ namespace TransferenciaDados
 
             catch (JsonException e)
             {
-                dados.mensagens = " ERRO - ConsultarClientes  - MostrarCliente - " + e.Message.ToString();
+                dados.mensagens = "Cliente não cadastrado.";
             }
 
             catch (HttpRequestException ex)
             {
-                dados.mensagens = " ERRO - ConsultarClientes  - MostrarCliente - " + ex.Message.ToString();
+                dados.mensagens = "Erro de Conexão: Contate o suporte - " + ex.Message.ToString();
             }
 
         }
