@@ -22,7 +22,7 @@ namespace FarmaTec
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja sair da Retirada de produtos?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja sair do Editor de Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Close();
             }
@@ -41,30 +41,22 @@ namespace FarmaTec
                     {
                         tratamentoCampos.Limpar(this);
                         txtCodigoFuncionario.Enabled = true;
+                        mskTelefone.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
                     }
                 }
             }
         }
 
-        private void btnPesquisar_Click(object sender, EventArgs e)
+        public void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (txtCodigoFuncionario.Text != string.Empty)
-            {
+                    
                 tratamentoCampos.Desbloquear(this);
                 txtCodigoFuncionario.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("Preencha o Código do Funcionário.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCodigoFuncionario.Focus();
+                txtCodigoFuncionario.BackColor = System.Drawing.Color.White;
+                txtNomeFuncionario.Focus();
 
-            }
         }
 
-        private void mskTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            mskTelefone.Select(0, 0);
-        }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -72,15 +64,21 @@ namespace FarmaTec
             switch (keyData)
             {
                 case Keys.Enter:
+                    if((txtCodigoFuncionario.Text != string.Empty) && (txtCodigoFuncionario.Enabled == true)){ 
+                    btnPesquisar.PerformClick();
+                    }
+                    else
+                    {
                     btnSalvar.PerformClick();
+                    }
                     return true;
 
                 case Keys.Escape:
-                    btnLimpar.PerformClick();
+                    btnSair.PerformClick();
                     return true;
 
                 case Keys.F12:
-                    btnLimpar.PerformClick();
+                    btnSair.PerformClick();
                     return true;
 
             }

@@ -34,7 +34,7 @@ namespace FarmaTec
             this.lblCargo = new System.Windows.Forms.Label();
             this.txtEmailFuncionario = new System.Windows.Forms.TextBox();
             this.lblEmailFuncionario = new System.Windows.Forms.Label();
-            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblTituloEditarCadastro = new System.Windows.Forms.Label();
@@ -71,9 +71,8 @@ namespace FarmaTec
             this.mskTelefone.Location = new System.Drawing.Point(284, 198);
             this.mskTelefone.Mask = "(##) #####-####";
             this.mskTelefone.Name = "mskTelefone";
-            this.mskTelefone.Size = new System.Drawing.Size(121, 26);
+            this.mskTelefone.Size = new System.Drawing.Size(128, 26);
             this.mskTelefone.TabIndex = 4;
-            this.mskTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskTelefone_MaskInputRejected);
             // 
             // lblCargo
             // 
@@ -104,16 +103,16 @@ namespace FarmaTec
             this.lblEmailFuncionario.TabIndex = 55;
             this.lblEmailFuncionario.Text = "Email";
             // 
-            // btnLimpar
+            // btnSair
             // 
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(438, 370);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 28);
-            this.btnLimpar.TabIndex = 9;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnSair_Click);
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.Location = new System.Drawing.Point(438, 370);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(75, 28);
+            this.btnSair.TabIndex = 9;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnPesquisar
             // 
@@ -232,7 +231,7 @@ namespace FarmaTec
             this.Controls.Add(this.lblCargo);
             this.Controls.Add(this.txtEmailFuncionario);
             this.Controls.Add(this.lblEmailFuncionario);
-            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.lblTituloEditarCadastro);
@@ -257,7 +256,7 @@ namespace FarmaTec
         private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.TextBox txtEmailFuncionario;
         private System.Windows.Forms.Label lblEmailFuncionario;
-        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label lblTituloEditarCadastro;

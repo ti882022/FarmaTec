@@ -81,7 +81,7 @@ namespace FarmaTec
             {
                 if (item is TextBox)
                 {
-                    if (item.Text == string.Empty && item.Enabled == true)
+                    if ((item.Text == string.Empty) && (item.Enabled == true))
                     {
                         item.BackColor = System.Drawing.Color.Yellow;
                         controlevazio = true;
@@ -94,7 +94,7 @@ namespace FarmaTec
 
                 else if (item is MaskedTextBox)
                 {
-                    if (item.Text == string.Empty)
+                    if ((item.Text == string.Empty)&& (item.Enabled == true))
                     {
                         item.BackColor = System.Drawing.Color.Yellow;
                         controlevazio = true;
