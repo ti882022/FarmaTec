@@ -99,22 +99,22 @@ namespace TransferenciaDados
         public string descricao { get; set; }
         public string marca { get; set; }
         public string fornecedor { get; set; }
-        public int catProduto { get; set; }
-        public string unidade { get; set; }
-        public int estoqueMinimo { get; set; }
+        public string categoria { get; set; }
+        public int qtde { get; set; }
+        public decimal preco { get; set;}
         //   public string imgProduto
 
 
 
-        public ListProdutos(int codProduto, string descricao, string marca, string fornecedor, int catProduto, string unidade, int estoqueMinimo)
+        public ListProdutos(int codProduto, string descricao, string marca, string fornecedor, string categoria, int qtde, decimal preco)
         {
             this.codProduto = codProduto;
             this.descricao = descricao;
             this.marca = marca;
             this.fornecedor = fornecedor;
-            this.catProduto = catProduto;
-            this.unidade = unidade;
-            this.estoqueMinimo = estoqueMinimo;
+            this.categoria = categoria;
+            this.qtde = qtde;
+            this.preco = preco;
 
         }
 
@@ -152,23 +152,24 @@ namespace TransferenciaDados
 
                 JObject obj = JObject.Parse(result);
 
-
+                
 
                 JArray arrayProdutos = (JArray)obj["RetornoDados"];
 
 
+                                                                 
 
-                foreach (var item in arrayProdutos)
-                {
-
+                    foreach (var item in arrayProdutos)
+                    {
 
                     listProdutos.Add(new ListProdutos(Convert.ToInt32(item["codProduto"].ToString()), item["descricao"].ToString(),
-                                                                                                        item["marca"].ToString(),
-                                                                                                        item["fornecedor"].ToString(),
-                                                                                                        Convert.ToInt32(item["catProduto"].ToString()),
-                                                                                                        item["unidade"].ToString(),
-                                                                                                        Convert.ToInt32(item["estoqueMinimo"].ToString()))
-                        );
+                                                                                                      item["marca"].ToString(),
+                                                                                                      item["fornecedor"].ToString(),
+                                                                                                      item["categoria"].ToString(),
+                                                                                                      Convert.ToInt32(item["qtde"].ToString()),
+                                                                                                      Convert.ToDecimal(item["preco"]))
+                                                        );
+                    
                                                 
 
                 }

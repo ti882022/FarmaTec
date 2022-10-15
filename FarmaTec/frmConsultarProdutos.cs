@@ -30,6 +30,9 @@ namespace FarmaTec
             }
         }
 
+
+
+
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
 
@@ -46,7 +49,7 @@ namespace FarmaTec
                 dados.codigo = Convert.ToInt32(txtcodproduto.Text);
 
                 //Limpar fonte de dados e o DatagridView
-                 dtProdutos.DataSource = null;
+                dtProdutos.DataSource = null;
                 dtProdutos.Rows.Clear();
 
                 //Chamar o método
@@ -58,9 +61,9 @@ namespace FarmaTec
                                             consultarProdutos.listProdutos[i].descricao.ToString(),
                                             consultarProdutos.listProdutos[i].marca.ToString(),
                                             consultarProdutos.listProdutos[i].fornecedor.ToString(),
-                                            consultarProdutos.listProdutos[i].catProduto.ToString(),
-                                            consultarProdutos.listProdutos[i].unidade.ToString(),
-                                            consultarProdutos.listProdutos[i].estoqueMinimo.ToString());
+                                            consultarProdutos.listProdutos[i].categoria.ToString(),
+                                            consultarProdutos.listProdutos[i].qtde.ToString(),
+                                           Convert.ToDecimal(consultarProdutos.listProdutos[i].preco));
                                              
                 }
                 if (dados.mensagens != null)
@@ -75,6 +78,17 @@ namespace FarmaTec
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void dtProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void frmConsultarProdutos_Load(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }
