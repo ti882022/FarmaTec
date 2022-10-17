@@ -140,7 +140,7 @@ namespace TransferenciaDados
                 var data = new Dictionary<string, string>
                 {
                     {"txtdescricao", dados.descricao},
-                    {"txtcodproduto", dados.codigo.ToString()},
+                    {"txtcodproduto",dados.codigo.ToString()},
                     {"HTTP_ACCEPT", "application/Json"}
 
 

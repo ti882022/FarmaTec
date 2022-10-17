@@ -22,12 +22,75 @@ namespace FarmaTec
 
         }
 
+        //Coleção para o AutoComplete
+        AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
+
+        public async void AutoCompletarProdutos()
+        {
+
+
+            try
+            {
+                //Instanciar as classes
+                ConsultarProdutos consultarProdutos = new ConsultarProdutos();
+                ProdutosDTO dados = new ProdutosDTO();
+
+                
+
+                //Popular classe
+                dados.descricao = txtdescricao.Text;
+                // dados.cpf = mskCpf.Text;
+
+                //Chamar o método
+                await consultarProdutos.MostrarProduto(dados);
+
+                if (dados.mensagens == null)
+                {
+                    if (consultarProdutos.listProdutos.Count > 0)
+                    {
+                        //Percorrer a lista
+                        for (int i = 0; i < consultarProdutos.listProdutos.Count; i++)
+                        {
+                            autocomplete.Add(consultarProdutos.listProdutos[i].descricao.ToString());
+                        }
+                        //Definir as propriedades do autocomplete do textbox
+                        txtdescricao.AutoCompleteMode = AutoCompleteMode.Suggest;
+                        txtdescricao.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        txtdescricao.AutoCompleteCustomSource = autocomplete;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(dados.mensagens);
+                }
+
+            }
+
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
+
+        }
+
+
+
+
+
+
+
         private void btnSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Close();
-            }
+
+          
+              if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+              {
+                  Close();
+              }
+
+              
         }
 
 
@@ -46,7 +109,20 @@ namespace FarmaTec
 
                 //Popular classe
                 dados.descricao = txtdescricao.Text;
-                dados.codigo = Convert.ToInt32(txtcodproduto.Text);
+
+                if(txtcodproduto.Text == string.Empty)
+                {
+                    dados.codigo = 0;
+
+                    
+                }
+
+                else
+                {
+                    dados.codigo = Convert.ToInt32(txtcodproduto.Text);
+                }
+                
+                
 
                 //Limpar fonte de dados e o DatagridView
                 dtProdutos.DataSource = null;
@@ -87,8 +163,7 @@ namespace FarmaTec
 
         private void frmConsultarProdutos_Load(object sender, EventArgs e)
         {
-           
-
+          //  AutoCompletarProdutos();
         }
     }
 }
