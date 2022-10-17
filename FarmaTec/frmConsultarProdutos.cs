@@ -113,8 +113,6 @@ namespace FarmaTec
                 if(txtcodproduto.Text == string.Empty)
                 {
                     dados.codigo = 0;
-
-                    
                 }
 
                 else
@@ -163,7 +161,7 @@ namespace FarmaTec
 
         private void frmConsultarProdutos_Load(object sender, EventArgs e)
         {
-            AutoCompletarProdutos();
+            //AutoCompletarProdutos();
         }
     }
 }

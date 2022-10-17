@@ -132,7 +132,7 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://localhost/siteturma88/produtos/listar/";
+                string URL = "http://localhost/siteturma88/produtos/listarcod/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
