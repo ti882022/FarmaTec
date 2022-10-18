@@ -32,7 +32,7 @@ namespace FarmaTec
             this.components = new System.ComponentModel.Container();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtusuario = new System.Windows.Forms.TextBox();
             this.mskSenha = new System.Windows.Forms.MaskedTextBox();
             this.btnAcessar = new System.Windows.Forms.Button();
             this.imgLogo = new System.Windows.Forms.PictureBox();
@@ -62,13 +62,13 @@ namespace FarmaTec
             this.lblSenha.Text = "Senha:";
             this.lblSenha.Click += new System.EventHandler(this.lblSenha_Click);
             // 
-            // txtUsuario
+            // txtusuario
             // 
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(178, 284);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(260, 31);
-            this.txtUsuario.TabIndex = 0;
+            this.txtusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusuario.Location = new System.Drawing.Point(178, 284);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(260, 31);
+            this.txtusuario.TabIndex = 0;
             // 
             // mskSenha
             // 
@@ -108,7 +108,7 @@ namespace FarmaTec
             this.ClientSize = new System.Drawing.Size(631, 432);
             this.Controls.Add(this.btnAcessar);
             this.Controls.Add(this.mskSenha);
-            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.txtusuario);
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.imgLogo);
@@ -130,7 +130,7 @@ namespace FarmaTec
         private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblSenha;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtusuario;
         private System.Windows.Forms.MaskedTextBox mskSenha;
         private System.Windows.Forms.Button btnAcessar;
         private System.Windows.Forms.BindingSource bindingSource1;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TransferenciaDados;
 
 namespace FarmaTec
 {
@@ -22,30 +23,12 @@ namespace FarmaTec
         }
 
 
-        private void FecharTodos()
+        private async void btnAcessar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                foreach (Form childForm in Application.OpenForms)
-                {
-                    if (childForm.Name != this.Name)
-                    {
-                        childForm.Close();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
-        private void btnAcessar_Click(object sender, EventArgs e)
-        {
-            if (txtUsuario.Text == String.Empty)
+            if (txtusuario.Text == String.Empty)
             {
                 MessageBox.Show("Favor informar o usuário", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtUsuario.Focus();
+                txtusuario.Focus();
             }
             else if (mskSenha.Text == String.Empty)
             {
@@ -54,9 +37,50 @@ namespace FarmaTec
             }
             else
             {
-                FecharTodos();
-                Form childForm = new frmPrincipal();
-                childForm.Show();
+                try
+                {
+                    //Instanciar as classes
+                    UsuarioAutenticar usuarioAutenticar = new UsuarioAutenticar();
+                    UsuariosDTO dados = new UsuariosDTO();
+
+
+
+                    //Popular classe
+                    dados.usuario = txtusuario.Text;
+                    dados.senha = mskSenha.Text;
+
+                   
+
+
+
+                
+
+                    //Chamar o método
+                    await usuarioAutenticar.ValidarUsuario(dados);
+
+                    for (int i = 0; i < consultarProdutos.listProdutos.Count; i++)
+                    {
+                        dtProdutos.Rows.Add(consultarProdutos.listProdutos[i].codProduto.ToString(),
+                                                consultarProdutos.listProdutos[i].descricao.ToString(),
+                                                consultarProdutos.listProdutos[i].marca.ToString(),
+                                                consultarProdutos.listProdutos[i].fornecedor.ToString(),
+                                                consultarProdutos.listProdutos[i].categoria.ToString(),
+                                                consultarProdutos.listProdutos[i].qtde.ToString(),
+                                               Convert.ToDecimal(consultarProdutos.listProdutos[i].preco));
+
+                    }
+                    if (dados.mensagens != null)
+                    {
+                        MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
            
 
