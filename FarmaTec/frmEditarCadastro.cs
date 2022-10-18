@@ -77,14 +77,13 @@ namespace FarmaTec
                     btnSair.PerformClick();
                     return true;
 
-                case Keys.F12:
-                    btnSair.PerformClick();
-                    return true;
-
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
+        private void mskTelefone_MouseClick(object sender, MouseEventArgs e)
+        {
+            mskTelefone.Select(0, 0);
+        }
     }
 }

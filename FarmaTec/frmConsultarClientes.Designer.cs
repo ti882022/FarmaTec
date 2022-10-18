@@ -90,6 +90,7 @@ namespace FarmaTec
             this.mskCpf.Name = "mskCpf";
             this.mskCpf.Size = new System.Drawing.Size(136, 29);
             this.mskCpf.TabIndex = 3;
+            this.mskCpf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskCpf_MouseClick);
             // 
             // lblCpf
             // 

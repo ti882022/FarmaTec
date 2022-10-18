@@ -21,25 +21,6 @@ namespace FarmaTec
             InitializeComponent();
         }
 
-
-        private void FecharTodos()
-        {
-            try
-            {
-                foreach (Form childForm in Application.OpenForms)
-                {
-                    if (childForm.Name != this.Name)
-                    {
-                        childForm.Close();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
         private void btnAcessar_Click(object sender, EventArgs e)
         {
             if (txtUsuario.Text == String.Empty)
@@ -54,7 +35,7 @@ namespace FarmaTec
             }
             else
             {
-                FecharTodos();
+                
                 Form childForm = new frmPrincipal();
                 childForm.Show();
             }

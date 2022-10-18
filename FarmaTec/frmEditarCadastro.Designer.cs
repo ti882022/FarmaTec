@@ -73,6 +73,7 @@ namespace FarmaTec
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(128, 26);
             this.mskTelefone.TabIndex = 4;
+            this.mskTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskTelefone_MouseClick);
             // 
             // lblCargo
             // 
