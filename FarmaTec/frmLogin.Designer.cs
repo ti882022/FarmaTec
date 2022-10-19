@@ -32,13 +32,24 @@ namespace FarmaTec
             this.components = new System.ComponentModel.Container();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtusuario = new System.Windows.Forms.TextBox();
             this.mskSenha = new System.Windows.Forms.MaskedTextBox();
             this.btnAcessar = new System.Windows.Forms.Button();
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.mskNovaSenha = new System.Windows.Forms.MaskedTextBox();
+            this.mskConfirmarSenha = new System.Windows.Forms.MaskedTextBox();
+            this.lblConfirmarSenha = new System.Windows.Forms.Label();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.lblNovaSenha = new System.Windows.Forms.Label();
+            this.mskSenhaAtual = new System.Windows.Forms.MaskedTextBox();
+            this.lblSenhaAtual = new System.Windows.Forms.Label();
+            this.lblPrimeiroAcesso = new System.Windows.Forms.Label();
+            this.pnlMudarSenha = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.pnlMudarSenha.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -62,13 +73,13 @@ namespace FarmaTec
             this.lblSenha.Text = "Senha:";
             this.lblSenha.Click += new System.EventHandler(this.lblSenha_Click);
             // 
-            // txtUsuario
+            // txtusuario
             // 
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(178, 284);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(260, 31);
-            this.txtUsuario.TabIndex = 0;
+            this.txtusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusuario.Location = new System.Drawing.Point(178, 284);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(260, 31);
+            this.txtusuario.TabIndex = 0;
             // 
             // mskSenha
             // 
@@ -89,7 +100,6 @@ namespace FarmaTec
             this.btnAcessar.Text = "Acessar";
             this.btnAcessar.UseVisualStyleBackColor = true;
             this.btnAcessar.Click += new System.EventHandler(this.btnAcessar_Click);
-            this.btnAcessar.MouseHover += new System.EventHandler(this.btnAcessar_Click);
             // 
             // imgLogo
             // 
@@ -100,15 +110,125 @@ namespace FarmaTec
             this.imgLogo.TabIndex = 0;
             this.imgLogo.TabStop = false;
             // 
+            // mskNovaSenha
+            // 
+            this.mskNovaSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskNovaSenha.Location = new System.Drawing.Point(121, 177);
+            this.mskNovaSenha.Name = "mskNovaSenha";
+            this.mskNovaSenha.PasswordChar = '*';
+            this.mskNovaSenha.Size = new System.Drawing.Size(211, 26);
+            this.mskNovaSenha.TabIndex = 81;
+            this.mskNovaSenha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskNovaSenha_MaskInputRejected);
+            // 
+            // mskConfirmarSenha
+            // 
+            this.mskConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskConfirmarSenha.Location = new System.Drawing.Point(121, 237);
+            this.mskConfirmarSenha.Name = "mskConfirmarSenha";
+            this.mskConfirmarSenha.PasswordChar = '*';
+            this.mskConfirmarSenha.Size = new System.Drawing.Size(211, 26);
+            this.mskConfirmarSenha.TabIndex = 82;
+            this.mskConfirmarSenha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskConfirmarSenha_MaskInputRejected);
+            // 
+            // lblConfirmarSenha
+            // 
+            this.lblConfirmarSenha.AutoSize = true;
+            this.lblConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmarSenha.Location = new System.Drawing.Point(161, 214);
+            this.lblConfirmarSenha.Name = "lblConfirmarSenha";
+            this.lblConfirmarSenha.Size = new System.Drawing.Size(129, 20);
+            this.lblConfirmarSenha.TabIndex = 86;
+            this.lblConfirmarSenha.Text = "Confirmar Senha";
+            this.lblConfirmarSenha.Click += new System.EventHandler(this.lblConfirmarSenha_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(257, 292);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 28);
+            this.btnLimpar.TabIndex = 84;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.Location = new System.Drawing.Point(121, 292);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 28);
+            this.btnSalvar.TabIndex = 83;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // lblNovaSenha
+            // 
+            this.lblNovaSenha.AutoSize = true;
+            this.lblNovaSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNovaSenha.Location = new System.Drawing.Point(178, 154);
+            this.lblNovaSenha.Name = "lblNovaSenha";
+            this.lblNovaSenha.Size = new System.Drawing.Size(96, 20);
+            this.lblNovaSenha.TabIndex = 85;
+            this.lblNovaSenha.Text = "Nova Senha";
+            this.lblNovaSenha.Click += new System.EventHandler(this.lblNovaSenha_Click);
+            // 
+            // mskSenhaAtual
+            // 
+            this.mskSenhaAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskSenhaAtual.Location = new System.Drawing.Point(121, 111);
+            this.mskSenhaAtual.Name = "mskSenhaAtual";
+            this.mskSenhaAtual.PasswordChar = '*';
+            this.mskSenhaAtual.Size = new System.Drawing.Size(211, 26);
+            this.mskSenhaAtual.TabIndex = 87;
+            // 
+            // lblSenhaAtual
+            // 
+            this.lblSenhaAtual.AutoSize = true;
+            this.lblSenhaAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenhaAtual.Location = new System.Drawing.Point(178, 88);
+            this.lblSenhaAtual.Name = "lblSenhaAtual";
+            this.lblSenhaAtual.Size = new System.Drawing.Size(97, 20);
+            this.lblSenhaAtual.TabIndex = 88;
+            this.lblSenhaAtual.Text = "Senha Atual";
+            // 
+            // lblPrimeiroAcesso
+            // 
+            this.lblPrimeiroAcesso.AutoSize = true;
+            this.lblPrimeiroAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrimeiroAcesso.Location = new System.Drawing.Point(130, 39);
+            this.lblPrimeiroAcesso.Name = "lblPrimeiroAcesso";
+            this.lblPrimeiroAcesso.Size = new System.Drawing.Size(191, 29);
+            this.lblPrimeiroAcesso.TabIndex = 89;
+            this.lblPrimeiroAcesso.Text = "Altere sua senha";
+            // 
+            // pnlMudarSenha
+            // 
+            this.pnlMudarSenha.Controls.Add(this.lblPrimeiroAcesso);
+            this.pnlMudarSenha.Controls.Add(this.lblNovaSenha);
+            this.pnlMudarSenha.Controls.Add(this.mskSenhaAtual);
+            this.pnlMudarSenha.Controls.Add(this.btnSalvar);
+            this.pnlMudarSenha.Controls.Add(this.lblSenhaAtual);
+            this.pnlMudarSenha.Controls.Add(this.btnLimpar);
+            this.pnlMudarSenha.Controls.Add(this.mskNovaSenha);
+            this.pnlMudarSenha.Controls.Add(this.lblConfirmarSenha);
+            this.pnlMudarSenha.Controls.Add(this.mskConfirmarSenha);
+            this.pnlMudarSenha.Location = new System.Drawing.Point(606, 19);
+            this.pnlMudarSenha.Name = "pnlMudarSenha";
+            this.pnlMudarSenha.Size = new System.Drawing.Size(435, 395);
+            this.pnlMudarSenha.TabIndex = 90;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(631, 432);
+            this.ClientSize = new System.Drawing.Size(1112, 432);
+            this.Controls.Add(this.pnlMudarSenha);
             this.Controls.Add(this.btnAcessar);
             this.Controls.Add(this.mskSenha);
-            this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.txtusuario);
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.imgLogo);
@@ -120,6 +240,8 @@ namespace FarmaTec
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.pnlMudarSenha.ResumeLayout(false);
+            this.pnlMudarSenha.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,9 +252,19 @@ namespace FarmaTec
         private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblSenha;
-        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtusuario;
         private System.Windows.Forms.MaskedTextBox mskSenha;
         private System.Windows.Forms.Button btnAcessar;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.MaskedTextBox mskNovaSenha;
+        private System.Windows.Forms.MaskedTextBox mskConfirmarSenha;
+        private System.Windows.Forms.Label lblConfirmarSenha;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label lblNovaSenha;
+        private System.Windows.Forms.MaskedTextBox mskSenhaAtual;
+        private System.Windows.Forms.Label lblSenhaAtual;
+        private System.Windows.Forms.Label lblPrimeiroAcesso;
+        private System.Windows.Forms.Panel pnlMudarSenha;
     }
 }

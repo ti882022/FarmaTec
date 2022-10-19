@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TransferenciaDados;
 
 namespace FarmaTec
 {
@@ -152,5 +153,23 @@ namespace FarmaTec
             AbrirForm(childForm);
         }
 
+        private async void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Instanciar as classes
+            UsuarioAutenticar usuarioDesconectar = new UsuarioAutenticar();
+            UsuariosDTO dados = new UsuariosDTO();
+
+
+
+            //Popular classe
+            dados.nome = LoginSistema.nomeUsuario;
+            dados.email = LoginSistema.emailUsuario;
+
+
+
+
+            //Chamar o método
+            await usuarioDesconectar.DesconectarUsuario(dados);
+        }
     }
 }
