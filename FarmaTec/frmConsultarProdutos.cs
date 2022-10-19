@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TransferenciaDados;
+
 namespace FarmaTec
 {
     public partial class frmConsultarProdutos : Form
@@ -75,12 +76,6 @@ namespace FarmaTec
 
         }
 
-
-
-
-
-
-
         private void btnSair_Click(object sender, EventArgs e)
         {
 
@@ -92,9 +87,6 @@ namespace FarmaTec
 
               
         }
-
-
-
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -113,8 +105,6 @@ namespace FarmaTec
                 if(txtcodproduto.Text == string.Empty)
                 {
                     dados.codigo = 0;
-
-                    
                 }
 
                 else
@@ -164,6 +154,30 @@ namespace FarmaTec
         private void frmConsultarProdutos_Load(object sender, EventArgs e)
         {
             AutoCompletarProdutos();
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btnBuscar.PerformClick();
+                    return true;
+
+                case Keys.Escape:
+                    btnSair.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    txtcodproduto.Clear();
+                    txtdescricao.Clear();
+                    txtcodproduto.Focus();
+                    dtProdutos.Rows.Clear();
+                    dtProdutos.Refresh();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

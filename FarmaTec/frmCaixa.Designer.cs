@@ -325,13 +325,13 @@ namespace FarmaTec
             // menuConsultaProdutos
             // 
             this.menuConsultaProdutos.Name = "menuConsultaProdutos";
-            this.menuConsultaProdutos.Size = new System.Drawing.Size(180, 22);
+            this.menuConsultaProdutos.Size = new System.Drawing.Size(122, 22);
             this.menuConsultaProdutos.Text = "Produtos";
             // 
             // menuConsultaClientes
             // 
             this.menuConsultaClientes.Name = "menuConsultaClientes";
-            this.menuConsultaClientes.Size = new System.Drawing.Size(180, 22);
+            this.menuConsultaClientes.Size = new System.Drawing.Size(122, 22);
             this.menuConsultaClientes.Text = "Clientes";
             // 
             // menuCadastro
@@ -345,7 +345,7 @@ namespace FarmaTec
             // menuCadastroClientes
             // 
             this.menuCadastroClientes.Name = "menuCadastroClientes";
-            this.menuCadastroClientes.Size = new System.Drawing.Size(180, 22);
+            this.menuCadastroClientes.Size = new System.Drawing.Size(116, 22);
             this.menuCadastroClientes.Text = "Clientes";
             // 
             // grpPagamento
@@ -371,7 +371,7 @@ namespace FarmaTec
             // cbFormaPagamento
             // 
             this.cbFormaPagamento.FormattingEnabled = true;
-            this.cbFormaPagamento.Location = new System.Drawing.Point(62, 162);
+            this.cbFormaPagamento.Location = new System.Drawing.Point(62, 217);
             this.cbFormaPagamento.Name = "cbFormaPagamento";
             this.cbFormaPagamento.Size = new System.Drawing.Size(260, 33);
             this.cbFormaPagamento.TabIndex = 9;
@@ -388,7 +388,7 @@ namespace FarmaTec
             // 
             // txtValorTotal
             // 
-            this.txtValorTotal.Location = new System.Drawing.Point(213, 207);
+            this.txtValorTotal.Location = new System.Drawing.Point(221, 292);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(113, 31);
             this.txtValorTotal.TabIndex = 7;
@@ -397,7 +397,7 @@ namespace FarmaTec
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(56, 207);
+            this.lblTotal.Location = new System.Drawing.Point(56, 292);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(75, 31);
             this.lblTotal.TabIndex = 6;
@@ -407,7 +407,7 @@ namespace FarmaTec
             // 
             this.lblFormaPagamento.AutoSize = true;
             this.lblFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormaPagamento.Location = new System.Drawing.Point(56, 130);
+            this.lblFormaPagamento.Location = new System.Drawing.Point(56, 185);
             this.lblFormaPagamento.Name = "lblFormaPagamento";
             this.lblFormaPagamento.Size = new System.Drawing.Size(274, 31);
             this.lblFormaPagamento.TabIndex = 4;
@@ -415,7 +415,7 @@ namespace FarmaTec
             // 
             // txtDesconto
             // 
-            this.txtDesconto.Location = new System.Drawing.Point(217, 89);
+            this.txtDesconto.Location = new System.Drawing.Point(221, 116);
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(113, 31);
             this.txtDesconto.TabIndex = 3;
@@ -424,7 +424,7 @@ namespace FarmaTec
             // 
             this.lblDesconto.AutoSize = true;
             this.lblDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesconto.Location = new System.Drawing.Point(56, 89);
+            this.lblDesconto.Location = new System.Drawing.Point(60, 116);
             this.lblDesconto.Name = "lblDesconto";
             this.lblDesconto.Size = new System.Drawing.Size(130, 31);
             this.lblDesconto.TabIndex = 2;
@@ -432,7 +432,7 @@ namespace FarmaTec
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(217, 45);
+            this.txtValor.Location = new System.Drawing.Point(221, 54);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(113, 31);
             this.txtValor.TabIndex = 1;
@@ -441,7 +441,7 @@ namespace FarmaTec
             // 
             this.lblPagamento.AutoSize = true;
             this.lblPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPagamento.Location = new System.Drawing.Point(56, 49);
+            this.lblPagamento.Location = new System.Drawing.Point(56, 54);
             this.lblPagamento.Name = "lblPagamento";
             this.lblPagamento.Size = new System.Drawing.Size(77, 31);
             this.lblPagamento.TabIndex = 0;

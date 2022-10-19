@@ -13,7 +13,6 @@ namespace FarmaTec
 {
     public partial class frmConsultarClientes : Form
     {
-        TratamentoCampos tratamentoCampos = new TratamentoCampos();
 
         public frmConsultarClientes()
         {
@@ -159,12 +158,21 @@ namespace FarmaTec
                     return true;
 
                 case Keys.F12:
-                    btnSair.PerformClick();
+                    txtnomeCliente.Clear();
+                    mskCpf.Clear();
+                    txtnomeCliente.Focus();
+                    dtClientes.Rows.Clear();
+                    dtClientes.Refresh();
                     return true;
+
 
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private void mskCpf_MouseClick(object sender, MouseEventArgs e)
+        {
+            mskCpf.Select(0, 0);
+        }
     }
 }
