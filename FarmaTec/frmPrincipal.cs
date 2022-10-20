@@ -40,7 +40,9 @@ namespace FarmaTec
                     break;
 
                 case 33:
-                    menuCadastro.Visible = false;
+                    menuCadastroFuncionarios.Visible = false;
+                    menuCadastroFornecedores.Visible = false;
+                    menuCadastroProdutos.Visible = false;
                     menuMovimentacao.Visible = false;
                     menuRelatorios.Visible = false;
                     menuVendas.Visible = false;
@@ -57,6 +59,8 @@ namespace FarmaTec
 
                 case 35:
                     menuRelatorios.Visible = false;
+                    menuCadastroFuncionarios.Visible = false;
+
                     break;
             }
         }

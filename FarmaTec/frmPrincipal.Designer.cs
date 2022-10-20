@@ -42,7 +42,7 @@ namespace FarmaTec
             this.menuNovoAcesso = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEditarCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroFornecedores = new System.Windows.Forms.ToolStripMenuItem();
-            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadastroProdutos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMovimentacao = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMovimentacaoEntrada = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,14 +83,14 @@ namespace FarmaTec
             // menuVendasCaixa
             // 
             this.menuVendasCaixa.Name = "menuVendasCaixa";
-            this.menuVendasCaixa.Size = new System.Drawing.Size(180, 22);
+            this.menuVendasCaixa.Size = new System.Drawing.Size(117, 22);
             this.menuVendasCaixa.Text = "Caixa";
             this.menuVendasCaixa.Click += new System.EventHandler(this.menuVendasCaixa_Click);
             // 
             // menuVendasRetirada
             // 
             this.menuVendasRetirada.Name = "menuVendasRetirada";
-            this.menuVendasRetirada.Size = new System.Drawing.Size(180, 22);
+            this.menuVendasRetirada.Size = new System.Drawing.Size(117, 22);
             this.menuVendasRetirada.Text = "Retirada";
             this.menuVendasRetirada.Click += new System.EventHandler(this.menuVendasRetirada_Click);
             // 
@@ -106,14 +106,14 @@ namespace FarmaTec
             // menuConsultaProdutos
             // 
             this.menuConsultaProdutos.Name = "menuConsultaProdutos";
-            this.menuConsultaProdutos.Size = new System.Drawing.Size(180, 22);
+            this.menuConsultaProdutos.Size = new System.Drawing.Size(122, 22);
             this.menuConsultaProdutos.Text = "Produtos";
             this.menuConsultaProdutos.Click += new System.EventHandler(this.menuConsultaProdutos_Click);
             // 
             // menuConsultaClientes
             // 
             this.menuConsultaClientes.Name = "menuConsultaClientes";
-            this.menuConsultaClientes.Size = new System.Drawing.Size(180, 22);
+            this.menuConsultaClientes.Size = new System.Drawing.Size(122, 22);
             this.menuConsultaClientes.Text = "Clientes";
             this.menuConsultaClientes.Click += new System.EventHandler(this.menuConsultaClientes_Click);
             // 
@@ -123,7 +123,7 @@ namespace FarmaTec
             this.menuCadastroClientes,
             this.menuCadastroFuncionarios,
             this.menuCadastroFornecedores,
-            this.produtosToolStripMenuItem});
+            this.menuCadastroProdutos});
             this.menuCadastro.Name = "menuCadastro";
             this.menuCadastro.Size = new System.Drawing.Size(66, 20);
             this.menuCadastro.Text = "Cadastro";
@@ -148,14 +148,14 @@ namespace FarmaTec
             // menuNovoAcesso
             // 
             this.menuNovoAcesso.Name = "menuNovoAcesso";
-            this.menuNovoAcesso.Size = new System.Drawing.Size(180, 22);
+            this.menuNovoAcesso.Size = new System.Drawing.Size(154, 22);
             this.menuNovoAcesso.Text = "Novo Acesso";
             this.menuNovoAcesso.Click += new System.EventHandler(this.menuNovoAcesso_Click);
             // 
             // menuEditarCadastro
             // 
             this.menuEditarCadastro.Name = "menuEditarCadastro";
-            this.menuEditarCadastro.Size = new System.Drawing.Size(180, 22);
+            this.menuEditarCadastro.Size = new System.Drawing.Size(154, 22);
             this.menuEditarCadastro.Text = "Editar Cadastro";
             this.menuEditarCadastro.Click += new System.EventHandler(this.menuEditarCadastro_Click);
             // 
@@ -166,12 +166,12 @@ namespace FarmaTec
             this.menuCadastroFornecedores.Text = "Fornecedores";
             this.menuCadastroFornecedores.Click += new System.EventHandler(this.menuCadastroFornecedores_Click);
             // 
-            // produtosToolStripMenuItem
+            // menuCadastroProdutos
             // 
-            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.produtosToolStripMenuItem.Text = "Produtos";
-            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
+            this.menuCadastroProdutos.Name = "menuCadastroProdutos";
+            this.menuCadastroProdutos.Size = new System.Drawing.Size(180, 22);
+            this.menuCadastroProdutos.Text = "Produtos";
+            this.menuCadastroProdutos.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
             // menuMovimentacao
             // 
@@ -184,7 +184,7 @@ namespace FarmaTec
             // menuMovimentacaoEntrada
             // 
             this.menuMovimentacaoEntrada.Name = "menuMovimentacaoEntrada";
-            this.menuMovimentacaoEntrada.Size = new System.Drawing.Size(180, 22);
+            this.menuMovimentacaoEntrada.Size = new System.Drawing.Size(154, 22);
             this.menuMovimentacaoEntrada.Text = "Movimentação";
             this.menuMovimentacaoEntrada.Click += new System.EventHandler(this.menuMovimentacaoEntrada_Click);
             // 
@@ -252,6 +252,6 @@ namespace FarmaTec
         private System.Windows.Forms.ToolStripMenuItem menuMovimentacaoEntrada;
         private System.Windows.Forms.ToolStripMenuItem menuRelatorios;
         private System.Windows.Forms.ToolStripMenuItem menuSair;
-        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuCadastroProdutos;
     }
 }
