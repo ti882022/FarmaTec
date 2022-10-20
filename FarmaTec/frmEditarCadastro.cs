@@ -30,8 +30,7 @@ namespace FarmaTec
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            mskTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-
+         
             if (tratamentoCampos.Vazio(this) == true)
             {
                 tratamentoCampos.Bloquear(this);
@@ -41,7 +40,7 @@ namespace FarmaTec
                     {
                         tratamentoCampos.Limpar(this);
                         txtCodigoFuncionario.Enabled = true;
-                        mskTelefone.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+                        
                     }
                 }
             }
@@ -81,9 +80,14 @@ namespace FarmaTec
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void mskTelefone_MouseClick(object sender, MouseEventArgs e)
+        private void lblUsuario_Click(object sender, EventArgs e)
         {
-            mskTelefone.Select(0, 0);
+
+        }
+
+        private void txtCodigoFuncionario_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

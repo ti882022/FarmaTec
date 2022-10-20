@@ -29,8 +29,7 @@ namespace TransferenciaDados
         public int catProduto { get; set; }
         public string unidade { get; set; }
         public int estoqueMinimo { get; set; }
-         public int preco { get; set; }
-        public string imgproduto { get; set; }
+        public int preco { get; set; }
         public string mensagens { get; set; }
     }
     public class SalvarProduto
@@ -54,10 +53,8 @@ namespace TransferenciaDados
                     {"txtcategoria", dados.catProduto.ToString()},
                     {"txtunidade", dados.unidade },
                     {"txtestoquemin", dados.estoqueMinimo.ToString()},
-                    {"txtestoquemin", dados.preco.ToString()},
-
-                    {"txtimagem", dados.imgproduto },
-                                       {"HTTP_ACCEPT", "application/Json"}
+                    {"txtpreco", dados.preco.ToString()},
+                  {"HTTP_ACCEPT", "application/Json"}
 
                 };
 
@@ -132,15 +129,15 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://localhost/siteturma88/produtos/listar/";
+                string URL = "http://localhost/siteturma88/produtos/listarcod/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
 
                 var data = new Dictionary<string, string>
                 {
-                    {"txtdescricao", dados.descricao},
-                    {"txtcodproduto",dados.codigo.ToString()},
+                    {"txtcodprod",dados.codigo.ToString()},
+                    {"txtdescricao", dados.descricao},                   
                     {"HTTP_ACCEPT", "application/Json"}
 
 

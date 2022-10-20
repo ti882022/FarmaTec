@@ -85,7 +85,7 @@ namespace FarmaTec
                         {
                             dados.nome = txtNomeFuncionario.Text;
                             dados.usuario = txtUsuario.Text;
-                            dados.cargo = codigoClasse ;
+                            dados.cargo = Convert.ToInt32(codigoClasse);
                             dados.telefone = mskTelefone.Text;
                             dados.email = txtEmailFuncionario.Text;
                             dados.sexo = txtsexo.Text;
