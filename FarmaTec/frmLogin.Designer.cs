@@ -56,9 +56,10 @@ namespace FarmaTec
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(62, 284);
+            this.lblUsuario.Location = new System.Drawing.Point(83, 350);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(102, 29);
+            this.lblUsuario.Size = new System.Drawing.Size(127, 36);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuário:";
             // 
@@ -66,9 +67,10 @@ namespace FarmaTec
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(62, 335);
+            this.lblSenha.Location = new System.Drawing.Point(83, 412);
+            this.lblSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(88, 29);
+            this.lblSenha.Size = new System.Drawing.Size(109, 36);
             this.lblSenha.TabIndex = 2;
             this.lblSenha.Text = "Senha:";
             this.lblSenha.Click += new System.EventHandler(this.lblSenha_Click);
@@ -76,26 +78,29 @@ namespace FarmaTec
             // txtusuario
             // 
             this.txtusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtusuario.Location = new System.Drawing.Point(178, 284);
+            this.txtusuario.Location = new System.Drawing.Point(237, 350);
+            this.txtusuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtusuario.Name = "txtusuario";
-            this.txtusuario.Size = new System.Drawing.Size(260, 31);
+            this.txtusuario.Size = new System.Drawing.Size(345, 37);
             this.txtusuario.TabIndex = 0;
             // 
             // mskSenha
             // 
             this.mskSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskSenha.Location = new System.Drawing.Point(178, 335);
+            this.mskSenha.Location = new System.Drawing.Point(237, 412);
+            this.mskSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mskSenha.Name = "mskSenha";
             this.mskSenha.PasswordChar = '*';
-            this.mskSenha.Size = new System.Drawing.Size(260, 31);
+            this.mskSenha.Size = new System.Drawing.Size(345, 37);
             this.mskSenha.TabIndex = 1;
             // 
             // btnAcessar
             // 
             this.btnAcessar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcessar.Location = new System.Drawing.Point(246, 378);
+            this.btnAcessar.Location = new System.Drawing.Point(328, 465);
+            this.btnAcessar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAcessar.Name = "btnAcessar";
-            this.btnAcessar.Size = new System.Drawing.Size(113, 36);
+            this.btnAcessar.Size = new System.Drawing.Size(151, 44);
             this.btnAcessar.TabIndex = 2;
             this.btnAcessar.Text = "Acessar";
             this.btnAcessar.UseVisualStyleBackColor = true;
@@ -104,29 +109,32 @@ namespace FarmaTec
             // imgLogo
             // 
             this.imgLogo.Image = global::FarmaTec.Properties.Resources.FarmaTec_removebg_preview2;
-            this.imgLogo.Location = new System.Drawing.Point(178, 19);
+            this.imgLogo.Location = new System.Drawing.Point(237, 23);
+            this.imgLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(260, 259);
+            this.imgLogo.Size = new System.Drawing.Size(347, 319);
             this.imgLogo.TabIndex = 0;
             this.imgLogo.TabStop = false;
             // 
             // mskNovaSenha
             // 
             this.mskNovaSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskNovaSenha.Location = new System.Drawing.Point(121, 177);
+            this.mskNovaSenha.Location = new System.Drawing.Point(161, 218);
+            this.mskNovaSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mskNovaSenha.Name = "mskNovaSenha";
             this.mskNovaSenha.PasswordChar = '*';
-            this.mskNovaSenha.Size = new System.Drawing.Size(211, 26);
+            this.mskNovaSenha.Size = new System.Drawing.Size(280, 30);
             this.mskNovaSenha.TabIndex = 81;
             this.mskNovaSenha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskNovaSenha_MaskInputRejected);
             // 
             // mskConfirmarSenha
             // 
             this.mskConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskConfirmarSenha.Location = new System.Drawing.Point(121, 237);
+            this.mskConfirmarSenha.Location = new System.Drawing.Point(161, 292);
+            this.mskConfirmarSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mskConfirmarSenha.Name = "mskConfirmarSenha";
             this.mskConfirmarSenha.PasswordChar = '*';
-            this.mskConfirmarSenha.Size = new System.Drawing.Size(211, 26);
+            this.mskConfirmarSenha.Size = new System.Drawing.Size(280, 30);
             this.mskConfirmarSenha.TabIndex = 82;
             this.mskConfirmarSenha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskConfirmarSenha_MaskInputRejected);
             // 
@@ -134,9 +142,10 @@ namespace FarmaTec
             // 
             this.lblConfirmarSenha.AutoSize = true;
             this.lblConfirmarSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmarSenha.Location = new System.Drawing.Point(161, 214);
+            this.lblConfirmarSenha.Location = new System.Drawing.Point(215, 263);
+            this.lblConfirmarSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConfirmarSenha.Name = "lblConfirmarSenha";
-            this.lblConfirmarSenha.Size = new System.Drawing.Size(129, 20);
+            this.lblConfirmarSenha.Size = new System.Drawing.Size(160, 25);
             this.lblConfirmarSenha.TabIndex = 86;
             this.lblConfirmarSenha.Text = "Confirmar Senha";
             this.lblConfirmarSenha.Click += new System.EventHandler(this.lblConfirmarSenha_Click);
@@ -144,9 +153,10 @@ namespace FarmaTec
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(257, 292);
+            this.btnLimpar.Location = new System.Drawing.Point(343, 359);
+            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 28);
+            this.btnLimpar.Size = new System.Drawing.Size(100, 34);
             this.btnLimpar.TabIndex = 84;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -155,9 +165,10 @@ namespace FarmaTec
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(121, 292);
+            this.btnSalvar.Location = new System.Drawing.Point(161, 359);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 28);
+            this.btnSalvar.Size = new System.Drawing.Size(100, 34);
             this.btnSalvar.TabIndex = 83;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -167,9 +178,10 @@ namespace FarmaTec
             // 
             this.lblNovaSenha.AutoSize = true;
             this.lblNovaSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNovaSenha.Location = new System.Drawing.Point(178, 154);
+            this.lblNovaSenha.Location = new System.Drawing.Point(237, 190);
+            this.lblNovaSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNovaSenha.Name = "lblNovaSenha";
-            this.lblNovaSenha.Size = new System.Drawing.Size(96, 20);
+            this.lblNovaSenha.Size = new System.Drawing.Size(121, 25);
             this.lblNovaSenha.TabIndex = 85;
             this.lblNovaSenha.Text = "Nova Senha";
             this.lblNovaSenha.Click += new System.EventHandler(this.lblNovaSenha_Click);
@@ -177,19 +189,21 @@ namespace FarmaTec
             // mskSenhaAtual
             // 
             this.mskSenhaAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskSenhaAtual.Location = new System.Drawing.Point(121, 111);
+            this.mskSenhaAtual.Location = new System.Drawing.Point(161, 137);
+            this.mskSenhaAtual.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mskSenhaAtual.Name = "mskSenhaAtual";
             this.mskSenhaAtual.PasswordChar = '*';
-            this.mskSenhaAtual.Size = new System.Drawing.Size(211, 26);
+            this.mskSenhaAtual.Size = new System.Drawing.Size(280, 30);
             this.mskSenhaAtual.TabIndex = 87;
             // 
             // lblSenhaAtual
             // 
             this.lblSenhaAtual.AutoSize = true;
             this.lblSenhaAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaAtual.Location = new System.Drawing.Point(178, 88);
+            this.lblSenhaAtual.Location = new System.Drawing.Point(237, 108);
+            this.lblSenhaAtual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSenhaAtual.Name = "lblSenhaAtual";
-            this.lblSenhaAtual.Size = new System.Drawing.Size(97, 20);
+            this.lblSenhaAtual.Size = new System.Drawing.Size(120, 25);
             this.lblSenhaAtual.TabIndex = 88;
             this.lblSenhaAtual.Text = "Senha Atual";
             // 
@@ -197,9 +211,10 @@ namespace FarmaTec
             // 
             this.lblPrimeiroAcesso.AutoSize = true;
             this.lblPrimeiroAcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrimeiroAcesso.Location = new System.Drawing.Point(130, 39);
+            this.lblPrimeiroAcesso.Location = new System.Drawing.Point(173, 48);
+            this.lblPrimeiroAcesso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrimeiroAcesso.Name = "lblPrimeiroAcesso";
-            this.lblPrimeiroAcesso.Size = new System.Drawing.Size(191, 29);
+            this.lblPrimeiroAcesso.Size = new System.Drawing.Size(238, 36);
             this.lblPrimeiroAcesso.TabIndex = 89;
             this.lblPrimeiroAcesso.Text = "Altere sua senha";
             // 
@@ -214,17 +229,18 @@ namespace FarmaTec
             this.pnlMudarSenha.Controls.Add(this.mskNovaSenha);
             this.pnlMudarSenha.Controls.Add(this.lblConfirmarSenha);
             this.pnlMudarSenha.Controls.Add(this.mskConfirmarSenha);
-            this.pnlMudarSenha.Location = new System.Drawing.Point(606, 19);
+            this.pnlMudarSenha.Location = new System.Drawing.Point(789, 15);
+            this.pnlMudarSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlMudarSenha.Name = "pnlMudarSenha";
-            this.pnlMudarSenha.Size = new System.Drawing.Size(435, 395);
+            this.pnlMudarSenha.Size = new System.Drawing.Size(580, 486);
             this.pnlMudarSenha.TabIndex = 90;
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(1112, 432);
+            this.ClientSize = new System.Drawing.Size(1483, 532);
             this.Controls.Add(this.pnlMudarSenha);
             this.Controls.Add(this.btnAcessar);
             this.Controls.Add(this.mskSenha);
@@ -234,6 +250,7 @@ namespace FarmaTec
             this.Controls.Add(this.imgLogo);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLogin";
             this.Text = "FarmaTec - Login";
             this.TopMost = true;

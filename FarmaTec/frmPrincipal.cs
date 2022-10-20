@@ -33,24 +33,30 @@ namespace FarmaTec
                     menuStrip.Visible = false;
                     break;
 
-               
-                   
+
+                case 32:
+                    menuStrip.Visible = true;
+
+                    break;
 
                 case 33:
                     menuCadastro.Visible = false;
-                   
-                    break;
+                    menuMovimentacao.Visible = false;
+                    menuRelatorios.Visible = false;
+                    menuVendas.Visible = false;
 
+                    break;
 
                 case 34:
                     menuCadastro.Visible = false;
-
+                    menuVendas.Visible = false;
+                    menuConsulta.Visible = false;
+                    menuMovimentacao.Visible = false;
+                    menuVendas.Visible = false;
                     break;
-                 
-
 
                 case 35:
-                    menuCadastro.Visible = false;
+                    menuRelatorios.Visible = false;
                     break;
             }
         }
@@ -130,7 +136,7 @@ namespace FarmaTec
 
         private void menuAlterarSenha_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void menuCadastroFornecedores_Click(object sender, EventArgs e)
@@ -169,7 +175,7 @@ namespace FarmaTec
 
         }
 
-        
+
 
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
         {

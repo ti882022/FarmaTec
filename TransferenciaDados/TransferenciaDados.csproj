@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CargosDTO.cs" />
+    <Compile Include="CategoriasDTO.cs" />
     <Compile Include="ClientesDTO.cs" />
     <Compile Include="ContatosDTO.cs" />
     <Compile Include="EstoqueDTO.cs" />

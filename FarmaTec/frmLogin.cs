@@ -80,7 +80,7 @@ namespace FarmaTec
 
                             case 1:
                                 LoginSucesso = true;
-                                MessageBox.Show("Bem-vindo ao Sistema", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("Bem-vindo ao Sistema", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 //Limpar os campos
                                 txtusuario.Clear();
