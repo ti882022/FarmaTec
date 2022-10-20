@@ -51,7 +51,7 @@ namespace FarmaTec
             this.lblestoque = new System.Windows.Forms.Label();
             this.txtEstoqueMin = new System.Windows.Forms.TextBox();
             this.txtCategoria = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblpreco = new System.Windows.Forms.Label();
             this.txtpreco = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -270,15 +270,15 @@ namespace FarmaTec
             this.txtCategoria.Size = new System.Drawing.Size(294, 28);
             this.txtCategoria.TabIndex = 5;
             // 
-            // label1
+            // lblpreco
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(88, 263);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
-            this.label1.TabIndex = 135;
-            this.label1.Text = "Estoque min";
+            this.lblpreco.AutoSize = true;
+            this.lblpreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpreco.Location = new System.Drawing.Point(88, 263);
+            this.lblpreco.Name = "lblpreco";
+            this.lblpreco.Size = new System.Drawing.Size(50, 20);
+            this.lblpreco.TabIndex = 135;
+            this.lblpreco.Text = "Preço";
             // 
             // txtpreco
             // 
@@ -295,7 +295,7 @@ namespace FarmaTec
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblpreco);
             this.Controls.Add(this.txtpreco);
             this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.lblestoque);
@@ -350,7 +350,7 @@ namespace FarmaTec
         private System.Windows.Forms.Label lblestoque;
         private System.Windows.Forms.TextBox txtEstoqueMin;
         private System.Windows.Forms.ComboBox txtCategoria;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblpreco;
         private System.Windows.Forms.TextBox txtpreco;
     }
 }
