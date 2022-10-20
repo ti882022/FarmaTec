@@ -54,7 +54,7 @@ namespace TransferenciaDados
                     {"txtunidade", dados.unidade },
                     {"txtestoquemin", dados.estoqueMinimo.ToString()},
                     {"txtpreco", dados.preco.ToString()},
-                  {"HTTP_ACCEPT", "application/Json"}
+                    {"HTTP_ACCEPT", "application/Json"}
 
                 };
 

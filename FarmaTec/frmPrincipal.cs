@@ -27,7 +27,32 @@ namespace FarmaTec
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            switch (LoginSistema.classe)
+            {
+                case 31:
+                    menuStrip.Visible = false;
+                    break;
 
+               
+                   
+
+                case 33:
+                    menuCadastro.Visible = false;
+                   
+                    break;
+
+
+                case 34:
+                    menuCadastro.Visible = false;
+
+                    break;
+                 
+
+
+                case 35:
+                    menuCadastro.Visible = false;
+                    break;
+            }
         }
         public void FecharTodos()
         {
