@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 namespace TransferenciaDados
 {
+
      public class CargosDTO
     {
         public int classeUsuario { get; set; }
