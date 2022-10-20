@@ -45,15 +45,15 @@ namespace TransferenciaDados
         {
             try
             {
-                string URL = "http://localhost/siteturma88/usuarios/validar/";
+                string URL = "http://localhost/siteturma88/usuarios/conectar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
 
                 var data = new Dictionary<string, string>
                 {
-                    {"txtnomeusuario", dados.usuario },
-                    {"txtsenhausuario", dados.senha },
+                    {"txtusuario", dados.usuario },
+                    {"txtsenha", dados.senha },
                     {"HTTP_ACCEPT", "application/Json"}
 
                 };

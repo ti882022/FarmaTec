@@ -51,7 +51,7 @@ namespace FarmaTec
             this.lblestoque = new System.Windows.Forms.Label();
             this.txtEstoqueMin = new System.Windows.Forms.TextBox();
             this.txtCategoria = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPreco = new System.Windows.Forms.Label();
             this.txtpreco = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -232,7 +232,7 @@ namespace FarmaTec
             this.btnInserirImagem.TabIndex = 9;
             this.btnInserirImagem.Text = "Procurar";
             this.btnInserirImagem.UseVisualStyleBackColor = true;
-            this.btnInserirImagem.Click += new System.EventHandler(this.btnInserirImagem_Click);
+           // this.btnInserirImagem.Click += new System.EventHandler(this.btnInserirImagem_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -270,15 +270,15 @@ namespace FarmaTec
             this.txtCategoria.Size = new System.Drawing.Size(294, 28);
             this.txtCategoria.TabIndex = 5;
             // 
-            // label1
+            // lblPreco
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(88, 263);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
-            this.label1.TabIndex = 135;
-            this.label1.Text = "Estoque min";
+            this.lblPreco.AutoSize = true;
+            this.lblPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreco.Location = new System.Drawing.Point(88, 263);
+            this.lblPreco.Name = "lblPreco";
+            this.lblPreco.Size = new System.Drawing.Size(50, 20);
+            this.lblPreco.TabIndex = 135;
+            this.lblPreco.Text = "Preço";
             // 
             // txtpreco
             // 
@@ -295,7 +295,7 @@ namespace FarmaTec
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPreco);
             this.Controls.Add(this.txtpreco);
             this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.lblestoque);
@@ -350,7 +350,7 @@ namespace FarmaTec
         private System.Windows.Forms.Label lblestoque;
         private System.Windows.Forms.TextBox txtEstoqueMin;
         private System.Windows.Forms.ComboBox txtCategoria;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPreco;
         private System.Windows.Forms.TextBox txtpreco;
     }
 }

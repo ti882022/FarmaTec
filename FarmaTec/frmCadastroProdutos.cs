@@ -51,7 +51,7 @@ namespace FarmaTec
 
         }
 
-        private void btnInserirImagem_Click(object sender, EventArgs e)
+       /* private void btnInserirImagem_Click(object sender, EventArgs e)
         {
             //define as propriedades do controle 
             //OpenFileDialog
@@ -109,7 +109,7 @@ namespace FarmaTec
                     }
                 }
             }
-        }
+        }*/
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -139,7 +139,7 @@ namespace FarmaTec
                     dados.unidade = txtUnidade.Text;
                     dados.estoqueMinimo = Convert.ToInt32(txtEstoqueMin.Text);
                     dados.preco = Convert.ToInt32(txtpreco.Text);
-                    dados.imgproduto = string.Empty;
+                    //dados.imgproduto = string.Empty;
                    
 
 
