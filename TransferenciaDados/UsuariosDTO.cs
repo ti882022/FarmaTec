@@ -45,7 +45,7 @@ namespace TransferenciaDados
         {
             try
             {
-                string URL = "http://localhost/siteturma88/usuarios/conectar/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/usuarios/conectar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -94,7 +94,7 @@ namespace TransferenciaDados
         {
             try
             {
-                string URL = "http://localhost/siteturma88/usuarios/trocar/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/usuarios/trocar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -142,7 +142,7 @@ namespace TransferenciaDados
         {
             try
             {
-                string URL = "http://localhost/siteturma88/usuarios/desconectar/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/usuarios/desconectar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);

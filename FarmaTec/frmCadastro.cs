@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using TransferenciaDados;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using TransferenciaDados;
 
 namespace FarmaTec
 {
@@ -80,7 +74,7 @@ namespace FarmaTec
                             {
                                 //Popular o campo código
                                 txtCodigo.Text = dados.codigo.ToString();
-                               
+
 
                                 MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 tratamentoCampos.Limpar(this);

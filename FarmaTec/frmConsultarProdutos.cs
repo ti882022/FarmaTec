@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TransferenciaDados;
 
@@ -36,7 +29,7 @@ namespace FarmaTec
                 ConsultarProdutos consultarProdutos = new ConsultarProdutos();
                 ProdutosDTO dados = new ProdutosDTO();
 
-                
+
 
                 //Popular classe
                 dados.descricao = txtdescricao.Text;
@@ -79,13 +72,13 @@ namespace FarmaTec
         private void btnSair_Click(object sender, EventArgs e)
         {
 
-          
-              if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-              {
-                  Close();
-              }
 
-              
+            if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }
+
+
         }
 
         private async void btnBuscar_Click(object sender, EventArgs e)
@@ -97,12 +90,12 @@ namespace FarmaTec
                 ConsultarProdutos consultarProdutos = new ConsultarProdutos();
                 ProdutosDTO dados = new ProdutosDTO();
 
-        
+
 
                 //Popular classe
                 dados.descricao = txtdescricao.Text;
 
-                if(txtcodproduto.Text == string.Empty)
+                if (txtcodproduto.Text == string.Empty)
                 {
                     dados.codigo = 0;
                 }
@@ -111,8 +104,8 @@ namespace FarmaTec
                 {
                     dados.codigo = Convert.ToInt32(txtcodproduto.Text);
                 }
-                
-                
+
+
 
                 //Limpar fonte de dados e o DatagridView
                 dtProdutos.DataSource = null;
@@ -130,14 +123,14 @@ namespace FarmaTec
                                             consultarProdutos.listProdutos[i].categoria.ToString(),
                                             consultarProdutos.listProdutos[i].qtde.ToString(),
                                            Convert.ToDecimal(consultarProdutos.listProdutos[i].preco));
-                                             
+
                 }
                 if (dados.mensagens != null)
                 {
                     MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
-              
+
             }
 
             catch (Exception ex)
@@ -148,7 +141,7 @@ namespace FarmaTec
 
         private void dtProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void frmConsultarProdutos_Load(object sender, EventArgs e)

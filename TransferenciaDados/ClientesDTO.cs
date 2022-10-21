@@ -65,7 +65,7 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://localhost/siteturma88/clientes/listar/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/clientes/listar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
