@@ -196,6 +196,7 @@ namespace FarmaTec
 
 
                         //Popular classe
+                        
                         dados.nome = LoginSistema.nomeUsuario;
                         dados.email = LoginSistema.emailUsuario;
                         dados.senha = mskSenhaAtual.Text;
@@ -216,6 +217,7 @@ namespace FarmaTec
                         {
                             MessageBox.Show("Senha alterada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             pnlMudarSenha.Location = new Point(650, 0);
+                            mskSenha.Clear();
                             txtusuario.Focus();
                             LoginSucesso = false;
                         }

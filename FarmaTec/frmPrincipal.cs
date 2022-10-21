@@ -63,6 +63,9 @@ namespace FarmaTec
 
                     break;
             }
+
+            StatusUsuario.Text = "FARMATEC - SISTEMA PARA FARMACIAS -  VERSÃO 2.0 - USUARIO:  " + LoginSistema.nomeUsuario;
+
         }
         public void FecharTodos()
         {
@@ -205,6 +208,16 @@ namespace FarmaTec
 
             //Chamar o método
             await usuarioDesconectar.DesconectarUsuario(dados);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void StatusUsuario_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
