@@ -12,47 +12,42 @@ using AcessoBanco;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 namespace TransferenciaDados
 {
-
-     public class CargosDTO
+   public class PagamentoDTO
     {
-        public int classeUsuario { get; set; }
+        public int formaPgto { get; set; }
         public string descricao { get; set; }
         public string mensagens { get; set; }
 
-
     }
 
-    public class SalvarCargo
+    public class ConsultarPagamento
     {
-
-    }
-
-    public class ConsultarCargo
-    {
-        public DataTable CargosDataTable;
+        public DataTable PagamentoDataTable;
 
 
-        public void CarregarCombo(CargosDTO dados)
+        public void CarregarCombo(PagamentoDTO dados)
         {
-            try 
+            try
             {
-                string sql = "Select * from tbclasseusuario order by descricao asc";
+                string sql = "Select * from tbformapgto order by descricao asc";
                 //Interação de dados
-                MySqlDataAdapter CargosDataAdapter = new MySqlDataAdapter(sql, Conexao.obterConexao());
+                MySqlDataAdapter PagamentoDataAdapter = new MySqlDataAdapter(sql, Conexao.obterConexao());
                 //Instanciar objeto
-                CargosDataTable = new DataTable();
+                PagamentoDataTable = new DataTable();
                 //Popular o DataTable
-                CargosDataAdapter.Fill(CargosDataTable);
+                PagamentoDataAdapter.Fill(PagamentoDataTable);
 
                 Conexao.fecharConexao();
             }
             catch (JsonException e)
             {
-                dados.mensagens = " ERRO - ConsultarCargo - CarregarCombo - " + e.Message.ToString();
+                dados.mensagens = " ERRO - ConsultarPagamento - CarregarCombo - " + e.Message.ToString();
             }
         }
     }
+
 
 }

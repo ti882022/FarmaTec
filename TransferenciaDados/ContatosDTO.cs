@@ -125,7 +125,7 @@ namespace TransferenciaDados
                     while (dr.Read())
                     {
                         //Converter int para string
-                        dados.codigo = Convert.ToInt32(dr.GetValue(0).ToString());
+                       dados.codigo = Convert.ToInt32(dr.GetValue(0).ToString());
                     }
                 }
 
