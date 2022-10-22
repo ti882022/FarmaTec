@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TransferenciaDados;
 
 namespace FarmaTec
 {
@@ -30,7 +31,7 @@ namespace FarmaTec
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-         
+
             if (tratamentoCampos.Vazio(this) == true)
             {
                 tratamentoCampos.Bloquear(this);
@@ -40,19 +41,68 @@ namespace FarmaTec
                     {
                         tratamentoCampos.Limpar(this);
                         txtCodigoFuncionario.Enabled = true;
-                        
+
                     }
                 }
             }
         }
 
-        public void btnPesquisar_Click(object sender, EventArgs e)
+        public async void btnPesquisar_Click(object sender, EventArgs e)
         {
-                    
-                tratamentoCampos.Desbloquear(this);
-                txtCodigoFuncionario.Enabled = false;
-                txtCodigoFuncionario.BackColor = System.Drawing.Color.White;
-                txtNomeFuncionario.Focus();
+            try
+            {
+                if (txtCodigoFuncionario.Text != string.Empty)
+                {
+                    tratamentoCampos.Desbloquear(this);
+                    txtCodigoFuncionario.Enabled = false;
+                    txtCodigoFuncionario.BackColor = System.Drawing.Color.White;
+                    txtNomeFuncionario.Focus();
+                    //Instanciar as classes
+
+                    ConsultarUsers consultarUsers = new ConsultarUsers();
+                    ConsultarDTO dados = new ConsultarDTO();
+
+
+                    //Popular classe
+                    dados.usuario = txtCodigoFuncionario.Text;
+
+                    //Chamar o método
+                    await consultarUsers.MostrarUsuarios(dados);
+
+                    for (int i = 0; i < consultarUsers.listusuarios.Count; i++)
+                    {
+
+                        //PAREI AQUI, BASEAR NO SAU FRMCONTATOS PARA CONTINUAR//
+
+                        /*txtNomeUsuario.Text = consultarClientes.listClientes[i].codCliente.ToString(),
+                                                consultarClientes.listClientes[i].nomeCliente.ToString(),
+                                                consultarClientes.listClientes[i].endereco.ToString(),
+                                                consultarClientes.listClientes[i].cep.ToString(),
+                                                consultarClientes.listClientes[i].cidade.ToString(),
+                                                consultarClientes.listClientes[i].bairro.ToString(),
+                                                consultarClientes.listClientes[i].uf.ToString(),
+                                                consultarClientes.listClientes[i].cpf.ToString(),
+                                                consultarClientes.listClientes[i].foneCliente.ToString(),
+                                                consultarClientes.listClientes[i].emailCliente.ToString());*/
+                    }
+
+
+                    if (dados.mensagens != null)
+                    {
+                        MessageBox.Show(dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha o código do cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
 
         }
 
@@ -63,12 +113,13 @@ namespace FarmaTec
             switch (keyData)
             {
                 case Keys.Enter:
-                    if((txtCodigoFuncionario.Text != string.Empty) && (txtCodigoFuncionario.Enabled == true)){ 
-                    btnPesquisar.PerformClick();
+                    if ((txtCodigoFuncionario.Text != string.Empty) && (txtCodigoFuncionario.Enabled == true))
+                    {
+                        btnPesquisar.PerformClick();
                     }
                     else
                     {
-                    btnSalvar.PerformClick();
+                        btnSalvar.PerformClick();
                     }
                     return true;
 
@@ -91,3 +142,7 @@ namespace FarmaTec
         }
     }
 }
+
+
+
+

@@ -90,9 +90,11 @@
     <Compile Include="CargosDTO.cs" />
     <Compile Include="CategoriasDTO.cs" />
     <Compile Include="ClientesDTO.cs" />
+    <Compile Include="consultarDTO.cs" />
     <Compile Include="ContatosDTO.cs" />
     <Compile Include="EstoqueDTO.cs" />
     <Compile Include="funcionariosDTO.cs" />
+    <Compile Include="PagamentoDTO.cs" />
     <Compile Include="ProdutosDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

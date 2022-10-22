@@ -19,6 +19,40 @@ namespace FarmaTec
             InitializeComponent();
         }
 
+        public int codigoPagamento;
+
+        private void ListarPagamento()
+        {
+            try
+            {
+                ConsultarPagamento consultarpagamento = new ConsultarPagamento();
+                PagamentoDTO dados = new PagamentoDTO();
+
+                consultarpagamento.CarregarCombo(dados);
+
+                //Limpar fonte de dados e limpar combo
+                cboFormaPagamento.DataSource = null;
+                cboFormaPagamento.Items.Clear();
+
+                //Popular o listbox
+                //Definir o código do cargo, porém irá apresentar somente o nome do cargo
+                cboFormaPagamento.ValueMember = "formaPgto";
+                cboFormaPagamento.DisplayMember = "descricao";
+                cboFormaPagamento.DataSource = consultarpagamento.PagamentoDataTable;
+                //Trazer os dados para serem selecionados
+                cboFormaPagamento.SelectedIndex = -1;
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
+        }
+
+
+
+
+
         private void btnIncluir_Click(object sender, EventArgs e)
         {
 
@@ -46,23 +80,8 @@ namespace FarmaTec
 
         private void frmCaixa_Load(object sender, EventArgs e)
         {
-            using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT *FROM tbformapgto", con);
-                MySqlDataReader dr = cmd.ExecuteReader();
-                List<string> list = new List<string>();
-                while (dr.Read())
-                {
-                    list.Add(dr["descricao"].ToString());
-                }
-                dr.Close();
-                list = list.Distinct().ToList();
-                list.Sort();
-                cbFormaPagamento.DataSource = list;
-
-
-            }
+            txtNomeFuncionario.Text = LoginSistema.nomeUsuario;
+            ListarPagamento();
         }
 
         private void btnIncluir_Click_1(object sender, EventArgs e)
@@ -137,6 +156,16 @@ namespace FarmaTec
         private void dtPedido_ValueChanged(object sender, EventArgs e)
         {
           
+        }
+
+        private void txtNomeFuncionario_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtCodFuncionario_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
     }

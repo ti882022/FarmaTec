@@ -42,14 +42,17 @@ namespace FarmaTec
             this.menuNovoAcesso = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEditarCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroFornecedores = new System.Windows.Forms.ToolStripMenuItem();
-            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadastroProdutos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMovimentacao = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMovimentacaoEntrada = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.StatusSistema = new System.Windows.Forms.StatusStrip();
+            this.StatusUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.StatusSistema.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -63,10 +66,10 @@ namespace FarmaTec
             this.menuMovimentacao,
             this.menuRelatorios,
             this.menuSair});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Location = new System.Drawing.Point(-7, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip.Size = new System.Drawing.Size(1600, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1607, 24);
             this.menuStrip.TabIndex = 17;
             this.menuStrip.Text = "menuPrincipal";
             this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
@@ -83,14 +86,14 @@ namespace FarmaTec
             // menuVendasCaixa
             // 
             this.menuVendasCaixa.Name = "menuVendasCaixa";
-            this.menuVendasCaixa.Size = new System.Drawing.Size(180, 22);
+            this.menuVendasCaixa.Size = new System.Drawing.Size(117, 22);
             this.menuVendasCaixa.Text = "Caixa";
             this.menuVendasCaixa.Click += new System.EventHandler(this.menuVendasCaixa_Click);
             // 
             // menuVendasRetirada
             // 
             this.menuVendasRetirada.Name = "menuVendasRetirada";
-            this.menuVendasRetirada.Size = new System.Drawing.Size(180, 22);
+            this.menuVendasRetirada.Size = new System.Drawing.Size(117, 22);
             this.menuVendasRetirada.Text = "Retirada";
             this.menuVendasRetirada.Click += new System.EventHandler(this.menuVendasRetirada_Click);
             // 
@@ -106,14 +109,14 @@ namespace FarmaTec
             // menuConsultaProdutos
             // 
             this.menuConsultaProdutos.Name = "menuConsultaProdutos";
-            this.menuConsultaProdutos.Size = new System.Drawing.Size(180, 22);
+            this.menuConsultaProdutos.Size = new System.Drawing.Size(122, 22);
             this.menuConsultaProdutos.Text = "Produtos";
             this.menuConsultaProdutos.Click += new System.EventHandler(this.menuConsultaProdutos_Click);
             // 
             // menuConsultaClientes
             // 
             this.menuConsultaClientes.Name = "menuConsultaClientes";
-            this.menuConsultaClientes.Size = new System.Drawing.Size(180, 22);
+            this.menuConsultaClientes.Size = new System.Drawing.Size(122, 22);
             this.menuConsultaClientes.Text = "Clientes";
             this.menuConsultaClientes.Click += new System.EventHandler(this.menuConsultaClientes_Click);
             // 
@@ -123,7 +126,7 @@ namespace FarmaTec
             this.menuCadastroClientes,
             this.menuCadastroFuncionarios,
             this.menuCadastroFornecedores,
-            this.produtosToolStripMenuItem});
+            this.menuCadastroProdutos});
             this.menuCadastro.Name = "menuCadastro";
             this.menuCadastro.Size = new System.Drawing.Size(66, 20);
             this.menuCadastro.Text = "Cadastro";
@@ -131,7 +134,7 @@ namespace FarmaTec
             // menuCadastroClientes
             // 
             this.menuCadastroClientes.Name = "menuCadastroClientes";
-            this.menuCadastroClientes.Size = new System.Drawing.Size(180, 22);
+            this.menuCadastroClientes.Size = new System.Drawing.Size(145, 22);
             this.menuCadastroClientes.Text = "Clientes";
             this.menuCadastroClientes.Click += new System.EventHandler(this.menuCadastroClientes_Click);
             // 
@@ -141,37 +144,37 @@ namespace FarmaTec
             this.menuNovoAcesso,
             this.menuEditarCadastro});
             this.menuCadastroFuncionarios.Name = "menuCadastroFuncionarios";
-            this.menuCadastroFuncionarios.Size = new System.Drawing.Size(180, 22);
+            this.menuCadastroFuncionarios.Size = new System.Drawing.Size(145, 22);
             this.menuCadastroFuncionarios.Text = "Funcionários";
             this.menuCadastroFuncionarios.Click += new System.EventHandler(this.menuCadastroFuncionarios_Click);
             // 
             // menuNovoAcesso
             // 
             this.menuNovoAcesso.Name = "menuNovoAcesso";
-            this.menuNovoAcesso.Size = new System.Drawing.Size(180, 22);
+            this.menuNovoAcesso.Size = new System.Drawing.Size(154, 22);
             this.menuNovoAcesso.Text = "Novo Acesso";
             this.menuNovoAcesso.Click += new System.EventHandler(this.menuNovoAcesso_Click);
             // 
             // menuEditarCadastro
             // 
             this.menuEditarCadastro.Name = "menuEditarCadastro";
-            this.menuEditarCadastro.Size = new System.Drawing.Size(180, 22);
+            this.menuEditarCadastro.Size = new System.Drawing.Size(154, 22);
             this.menuEditarCadastro.Text = "Editar Cadastro";
             this.menuEditarCadastro.Click += new System.EventHandler(this.menuEditarCadastro_Click);
             // 
             // menuCadastroFornecedores
             // 
             this.menuCadastroFornecedores.Name = "menuCadastroFornecedores";
-            this.menuCadastroFornecedores.Size = new System.Drawing.Size(180, 22);
+            this.menuCadastroFornecedores.Size = new System.Drawing.Size(145, 22);
             this.menuCadastroFornecedores.Text = "Fornecedores";
             this.menuCadastroFornecedores.Click += new System.EventHandler(this.menuCadastroFornecedores_Click);
             // 
-            // produtosToolStripMenuItem
+            // menuCadastroProdutos
             // 
-            this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.produtosToolStripMenuItem.Text = "Produtos";
-            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
+            this.menuCadastroProdutos.Name = "menuCadastroProdutos";
+            this.menuCadastroProdutos.Size = new System.Drawing.Size(145, 22);
+            this.menuCadastroProdutos.Text = "Produtos";
+            this.menuCadastroProdutos.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
             // menuMovimentacao
             // 
@@ -184,7 +187,7 @@ namespace FarmaTec
             // menuMovimentacaoEntrada
             // 
             this.menuMovimentacaoEntrada.Name = "menuMovimentacaoEntrada";
-            this.menuMovimentacaoEntrada.Size = new System.Drawing.Size(180, 22);
+            this.menuMovimentacaoEntrada.Size = new System.Drawing.Size(154, 22);
             this.menuMovimentacaoEntrada.Text = "Movimentação";
             this.menuMovimentacaoEntrada.Click += new System.EventHandler(this.menuMovimentacaoEntrada_Click);
             // 
@@ -212,15 +215,37 @@ namespace FarmaTec
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // StatusSistema
+            // 
+            this.StatusSistema.Enabled = false;
+            this.StatusSistema.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.StatusSistema.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusUsuario});
+            this.StatusSistema.Location = new System.Drawing.Point(0, 707);
+            this.StatusSistema.Name = "StatusSistema";
+            this.StatusSistema.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+            this.StatusSistema.Size = new System.Drawing.Size(1350, 22);
+            this.StatusSistema.TabIndex = 18;
+            this.StatusSistema.Text = "statusStrip1";
+            // 
+            // StatusUsuario
+            // 
+            this.StatusUsuario.Name = "StatusUsuario";
+            this.StatusUsuario.Size = new System.Drawing.Size(118, 17);
+            this.StatusUsuario.Text = "toolStripStatusLabel1";
+            this.StatusUsuario.Click += new System.EventHandler(this.StatusUsuario_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.StatusSistema);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal - FarmaTec";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipal_FormClosed);
@@ -228,7 +253,10 @@ namespace FarmaTec
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.StatusSistema.ResumeLayout(false);
+            this.StatusSistema.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -252,6 +280,8 @@ namespace FarmaTec
         private System.Windows.Forms.ToolStripMenuItem menuMovimentacaoEntrada;
         private System.Windows.Forms.ToolStripMenuItem menuRelatorios;
         private System.Windows.Forms.ToolStripMenuItem menuSair;
-        private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuCadastroProdutos;
+        private System.Windows.Forms.ToolStripStatusLabel StatusUsuario;
+        private System.Windows.Forms.StatusStrip StatusSistema;
     }
 }

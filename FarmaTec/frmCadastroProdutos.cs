@@ -54,10 +54,6 @@ namespace FarmaTec
             }
         }
 
-        private void cboCategoria_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            codigoCategoria = Convert.ToInt32(cboCategoria.SelectedValue.ToString());
-        }
 
 
         private void frmCadastroProdutos_Load(object sender, EventArgs e)
@@ -226,5 +222,11 @@ namespace FarmaTec
         {
 
         }
+
+        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            codigoCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
+        }
     }
-}
+    }
+
