@@ -23,10 +23,10 @@ namespace FarmaTec
             InitializeComponent();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private async void btnSalvar_Click(object sender, EventArgs e)
         {
             //Instanciar as classes
-            SalvarContatos salvarContatos = new SalvarContatos();
+            SalvarCliente salvarCliente = new SalvarCliente();
             ContatosDTO dados = new ContatosDTO();
 
 
@@ -74,13 +74,13 @@ namespace FarmaTec
                             dados.telefone = string.Empty;
                             dados.bairro = string.Empty;
 
-                            salvarContatos.ClientesIncluir(dados);
+                            await salvarCliente.ClientesIncluir(dados);
 
                             if (dados.codigo != 0)
                             {
                                 //Popular o campo código
                                 txtCodigo.Text = dados.codigo.ToString();
-                               
+
 
                                 MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 tratamentoCampos.Limpar(this);

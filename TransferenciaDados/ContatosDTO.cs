@@ -7,6 +7,12 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using AcessoBanco;
 
+
+//Namespace para APi rest
+using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 namespace TransferenciaDados
 {
     public class ContatosDTO
@@ -29,7 +35,7 @@ namespace TransferenciaDados
 
     }
 
-    public class ForncedoresDTO
+  /*  public class ForncedoresDTO
     {
         // Declaração dos atributos
         public int codigo { get; set; }
@@ -46,6 +52,8 @@ namespace TransferenciaDados
         public string mensagens { get; set; }
     }
 
+    */
+
     public class ClassesDTO
     {
         // Declaração dos atributos
@@ -54,10 +62,6 @@ namespace TransferenciaDados
         public string mensagens { get; set; }
 
     }
-
-
-
-
 
 
     public class ConsultarContatos
@@ -88,60 +92,69 @@ namespace TransferenciaDados
         }
     }
 
-    public class SalvarContatos
+
+    public class SalvarCliente
     {
-        public void ClientesIncluir(ContatosDTO dados)
+
+        public async Task ClientesIncluir(ContatosDTO dados)
+    {
+        try
         {
-            try
-            {
-                //Definir o tipo de comandos do SQL
-                //chamando a Stored Procedure de inclusão de dados
-                MySqlCommand cmd = new MySqlCommand("spInserirClientes", Conexao.obterConexao());
-                cmd.CommandType = CommandType.StoredProcedure;
+            string URL = "http://10.38.45.24:8080/farmatec-api/clientes/incluir/";
 
-                //Popular os parâmetros da procedure
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(URL);
 
-                cmd.Parameters.AddWithValue("@pnome", dados.nome);
-                cmd.Parameters.AddWithValue("@pendereco", dados.endereco);
-                cmd.Parameters.AddWithValue("@pcep", dados.cep);
-                cmd.Parameters.AddWithValue("@pcidade", dados.cidade);
-                cmd.Parameters.AddWithValue("@pbairro", dados.bairro);
-                cmd.Parameters.AddWithValue("@puf", dados.uf);
-                cmd.Parameters.AddWithValue("@pcpf", dados.cpf);
-                cmd.Parameters.AddWithValue("@pfone", dados.telefone);
-                cmd.Parameters.AddWithValue("@pemail", dados.email);
-                cmd.Parameters.AddWithValue("@pusuario", dados.usuario);
-                cmd.Parameters.AddWithValue("@psenha", dados.senha);
-                cmd.Parameters.AddWithValue("@plogado", dados.logado);
-
-                //Executar os comandos SQL
-                MySqlDataReader dr = cmd.ExecuteReader();
-
-                //Verificar a existência de registros
-
-                if (dr.HasRows)
+            var data = new Dictionary<string, string>
                 {
-                    //Percorre os registros se tiver linhas
-                    while (dr.Read())
-                    {
-                        //Converter int para string
-                       dados.codigo = Convert.ToInt32(dr.GetValue(0).ToString());
-                    }
-                }
+                    {"txtnomeCliente", dados.nome },
+                    {"txtendereco", dados.endereco },
+                    {"txtcep", dados.cep},
+                    {"txtcidade", dados.cidade},
+                    {"txtbairro", dados.bairro},
+                    {"txtuf", dados.uf},
+                    {"txtcpf", dados.cpf},
+                    {"txtfoneCliente", dados.telefone},
+                    {"txtemailCliente", dados.email},
+                    {"txtusuario", dados.usuario},
+                    {"txtsenha", dados.senha},
+                    {"txtlogado", dados.logado.ToString()},
+                    {"HTTP_ACCEPT", "application/Json"}
 
-                dr.Close();
+                };
 
-                Conexao.fecharConexao();
+            var response = await client.PostAsync(URL, new FormUrlEncodedContent(data));
 
-            }
-            catch (MySqlException e)
+            var result = await response.Content.ReadAsStringAsync();
+
+
+
+            JObject obj = JObject.Parse(result);
+
+            JArray arrayProdutos = (JArray)obj["RetornoDados"];
+
+            foreach (var item in arrayProdutos)
             {
-                dados.mensagens = "ERRO - SalvarContatos - ClientesIncluir -" + e.Message.ToString();
+                dados.codigo = Convert.ToInt32(item["codigo"].ToString());
+
             }
 
-        } //Fechamento clientes Incluir
+        }
 
-        public void FornecedoresIncluir(ForncedoresDTO dados)
+        catch (JsonException e)
+        {
+            dados.mensagens = " ERRO - SalvarProdutos - ProdutosIncluir - \r\n " + e.Message.ToString();
+        }
+
+        catch (HttpRequestException ex)
+        {
+            dados.mensagens = " ERRO - SalvarProdutos - ProdutosIncluir - \r\n " + ex.Message.ToString();
+        }
+
+    }
+}
+
+    /*    public void FornecedoresIncluir(ForncedoresDTO dados)
         {
             try
             {
@@ -186,7 +199,7 @@ namespace TransferenciaDados
                 dados.mensagens = "ERRO - SalvarContatos - FornecedoresIncluir -" + e.Message.ToString();
             }
 
-        } //Fechamento Fornecedores Incluir
+        } //Fechamento Fornecedores Incluir */
 
     }
-}
+

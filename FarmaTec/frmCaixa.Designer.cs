@@ -70,14 +70,12 @@ namespace FarmaTec
             this.btnFinalizarCompra = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.dsPrecoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtVenda = new System.Windows.Forms.DataGridView();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.codProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpCliente.SuspendLayout();
             this.grpProduto.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -93,6 +91,7 @@ namespace FarmaTec
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(500, 29);
             this.txtNomeCliente.TabIndex = 0;
+            this.txtNomeCliente.TextChanged += new System.EventHandler(this.txtNomeCliente_TextChanged);
             // 
             // txtCodCliente
             // 
@@ -339,7 +338,7 @@ namespace FarmaTec
             this.grpPagamento.Controls.Add(this.txtValor);
             this.grpPagamento.Controls.Add(this.lblPagamento);
             this.grpPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPagamento.Location = new System.Drawing.Point(530, 273);
+            this.grpPagamento.Location = new System.Drawing.Point(515, 379);
             this.grpPagamento.Name = "grpPagamento";
             this.grpPagamento.Size = new System.Drawing.Size(434, 401);
             this.grpPagamento.TabIndex = 17;
@@ -471,59 +470,17 @@ namespace FarmaTec
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // dsPrecoTotal
-            // 
-            this.dsPrecoTotal.HeaderText = "Total";
-            this.dsPrecoTotal.Name = "dsPrecoTotal";
-            this.dsPrecoTotal.ReadOnly = true;
-            this.dsPrecoTotal.Width = 130;
-            // 
-            // dsDesconto
-            // 
-            this.dsDesconto.HeaderText = "Desconto";
-            this.dsDesconto.Name = "dsDesconto";
-            this.dsDesconto.ReadOnly = true;
-            this.dsDesconto.Width = 130;
-            // 
-            // dsQuantidade
-            // 
-            this.dsQuantidade.HeaderText = "Quantidade";
-            this.dsQuantidade.Name = "dsQuantidade";
-            this.dsQuantidade.ReadOnly = true;
-            // 
-            // dsPreco
-            // 
-            this.dsPreco.HeaderText = "Valor Unitário";
-            this.dsPreco.Name = "dsPreco";
-            this.dsPreco.ReadOnly = true;
-            this.dsPreco.Width = 130;
-            // 
-            // dsProduto
-            // 
-            this.dsProduto.HeaderText = "Produto";
-            this.dsProduto.Name = "dsProduto";
-            this.dsProduto.ReadOnly = true;
-            this.dsProduto.Width = 300;
-            // 
-            // dsCodigo
-            // 
-            this.dsCodigo.HeaderText = "Código";
-            this.dsCodigo.Name = "dsCodigo";
-            this.dsCodigo.ReadOnly = true;
-            // 
             // dtVenda
             // 
             this.dtVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtVenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dsCodigo,
-            this.dsProduto,
-            this.dsPreco,
-            this.dsQuantidade,
-            this.dsDesconto,
-            this.dsPrecoTotal});
-            this.dtVenda.Location = new System.Drawing.Point(234, 284);
+            this.codProduto,
+            this.descricao,
+            this.qtde,
+            this.preco});
+            this.dtVenda.Location = new System.Drawing.Point(318, 280);
             this.dtVenda.Name = "dtVenda";
-            this.dtVenda.Size = new System.Drawing.Size(934, 349);
+            this.dtVenda.Size = new System.Drawing.Size(842, 349);
             this.dtVenda.TabIndex = 9;
             this.dtVenda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -533,6 +490,33 @@ namespace FarmaTec
             this.mySqlCommand1.Connection = null;
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
+            // 
+            // codProduto
+            // 
+            this.codProduto.HeaderText = "Código";
+            this.codProduto.Name = "codProduto";
+            this.codProduto.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            this.descricao.HeaderText = "Produto";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            this.descricao.Width = 300;
+            // 
+            // qtde
+            // 
+            this.qtde.HeaderText = "Quantidade";
+            this.qtde.Name = "qtde";
+            this.qtde.ReadOnly = true;
+            this.qtde.Width = 200;
+            // 
+            // preco
+            // 
+            this.preco.HeaderText = "Valor Unitário";
+            this.preco.Name = "preco";
+            this.preco.ReadOnly = true;
+            this.preco.Width = 200;
             // 
             // frmCaixa
             // 
@@ -608,13 +592,11 @@ namespace FarmaTec
         private System.Windows.Forms.Label lblDesconto;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label lblPagamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsPrecoTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsDesconto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsQuantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsPreco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsCodigo;
         private System.Windows.Forms.DataGridView dtVenda;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preco;
     }
 }

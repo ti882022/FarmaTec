@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TransferenciaDados;
 
@@ -81,18 +74,18 @@ namespace FarmaTec
             }
         }
 
-       
-           
 
-        
 
-       
 
-       
+
+
+
+
+
 
         private void cbocomprar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbocomprar.Text=="saida"){ cbomotivo.Visible = true;          }
+            if (cbocomprar.Text == "saida") { cbomotivo.Visible = true; }
             else { cbomotivo.Visible = false; }
         }
 
@@ -131,7 +124,7 @@ namespace FarmaTec
 
                 for (int i = 0; i < consultarestoque.listestoques.Count; i++)
                 {
-                    dtprodutos.Rows.Add(consultarestoque.listestoques[i].codMvto.ToString(),                       
+                    dtprodutos.Rows.Add(consultarestoque.listestoques[i].codMvto.ToString(),
                                             consultarestoque.listestoques[i].dataMvto.ToString(),
                                             consultarestoque.listestoques[i].codProduto.ToString(),
                                             consultarestoque.listestoques[i].qtdeMvto.ToString(),
