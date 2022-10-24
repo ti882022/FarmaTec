@@ -41,8 +41,10 @@ namespace FarmaTec
             this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
             this.txtCodigoFuncionario = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.lblStatusCadastro = new System.Windows.Forms.Label();
+            this.radAtivo = new System.Windows.Forms.RadioButton();
+            this.radReset = new System.Windows.Forms.RadioButton();
+            this.radDesativado = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // cmbCargo
@@ -51,16 +53,11 @@ namespace FarmaTec
             this.cmbCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCargo.FormattingEnabled = true;
             this.cmbCargo.ItemHeight = 20;
-            this.cmbCargo.Items.AddRange(new object[] {
-            "Gerente",
-            "Administrador",
-            "Estoquista",
-            "Caixa",
-            "Atendente"});
             this.cmbCargo.Location = new System.Drawing.Point(284, 262);
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(121, 28);
             this.cmbCargo.TabIndex = 6;
+            this.cmbCargo.SelectionChangeCommitted += new System.EventHandler(this.cmbCargo_SelectionChangeCommitted);
             // 
             // lblCargo
             // 
@@ -174,21 +171,6 @@ namespace FarmaTec
             this.lblUsuario.Text = "Usuario";
             this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
             // 
-            // cmbStatus
-            // 
-            this.cmbStatus.Enabled = false;
-            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.ItemHeight = 20;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Ativo",
-            "Bloqueado",
-            "Reset"});
-            this.cmbStatus.Location = new System.Drawing.Point(284, 296);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(121, 28);
-            this.cmbStatus.TabIndex = 7;
-            // 
             // lblStatusCadastro
             // 
             this.lblStatusCadastro.AutoSize = true;
@@ -199,13 +181,51 @@ namespace FarmaTec
             this.lblStatusCadastro.TabIndex = 61;
             this.lblStatusCadastro.Text = "Status";
             // 
+            // radAtivo
+            // 
+            this.radAtivo.AutoSize = true;
+            this.radAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radAtivo.Location = new System.Drawing.Point(283, 302);
+            this.radAtivo.Name = "radAtivo";
+            this.radAtivo.Size = new System.Drawing.Size(62, 24);
+            this.radAtivo.TabIndex = 62;
+            this.radAtivo.TabStop = true;
+            this.radAtivo.Text = "Ativo";
+            this.radAtivo.UseVisualStyleBackColor = true;
+            // 
+            // radReset
+            // 
+            this.radReset.AutoSize = true;
+            this.radReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radReset.Location = new System.Drawing.Point(464, 302);
+            this.radReset.Name = "radReset";
+            this.radReset.Size = new System.Drawing.Size(70, 24);
+            this.radReset.TabIndex = 62;
+            this.radReset.TabStop = true;
+            this.radReset.Text = "Reset";
+            this.radReset.UseVisualStyleBackColor = true;
+            // 
+            // radDesativado
+            // 
+            this.radDesativado.AutoSize = true;
+            this.radDesativado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radDesativado.Location = new System.Drawing.Point(351, 302);
+            this.radDesativado.Name = "radDesativado";
+            this.radDesativado.Size = new System.Drawing.Size(107, 24);
+            this.radDesativado.TabIndex = 62;
+            this.radDesativado.TabStop = true;
+            this.radDesativado.Text = "Desativado";
+            this.radDesativado.UseVisualStyleBackColor = true;
+            // 
             // frmEditarCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cmbStatus);
+            this.Controls.Add(this.radDesativado);
+            this.Controls.Add(this.radReset);
+            this.Controls.Add(this.radAtivo);
             this.Controls.Add(this.lblStatusCadastro);
             this.Controls.Add(this.cmbCargo);
             this.Controls.Add(this.lblCargo);
@@ -223,6 +243,7 @@ namespace FarmaTec
             this.MinimizeBox = false;
             this.Name = "frmEditarCadastro";
             this.Text = "Editar Cadastro de Funcionários - FarmaTec";
+            this.Load += new System.EventHandler(this.frmEditarCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,7 +263,9 @@ namespace FarmaTec
         private System.Windows.Forms.TextBox txtNomeFuncionario;
         private System.Windows.Forms.TextBox txtCodigoFuncionario;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label lblStatusCadastro;
+        private System.Windows.Forms.RadioButton radAtivo;
+        private System.Windows.Forms.RadioButton radReset;
+        private System.Windows.Forms.RadioButton radDesativado;
     }
 }

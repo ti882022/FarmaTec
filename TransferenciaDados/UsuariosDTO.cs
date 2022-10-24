@@ -32,8 +32,6 @@ namespace TransferenciaDados
     }
     public class LoginSistema
     {
-
-       
         public static string nomeUsuario { get; set; }
         public static string emailUsuario { get; set; }
         public static int classe { get; set; }

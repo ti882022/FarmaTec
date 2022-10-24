@@ -40,7 +40,7 @@ namespace TransferenciaDados
         {
             try
             {
-                string URL = "http://localhost/siteturma88/produtos/incluir/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/produtos/incluir/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -129,7 +129,7 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://localhost/siteturma88/produtos/listarcod/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/listarcod/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
