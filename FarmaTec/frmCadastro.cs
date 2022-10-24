@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
-using System.Text.RegularExpressions;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using TransferenciaDados;
+using System.Text.RegularExpressions;
 
 namespace FarmaTec
 {
@@ -17,10 +23,10 @@ namespace FarmaTec
             InitializeComponent();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private async void btnSalvar_Click(object sender, EventArgs e)
         {
             //Instanciar as classes
-            SalvarContatos salvarContatos = new SalvarContatos();
+            SalvarCliente salvarCliente = new SalvarCliente();
             ContatosDTO dados = new ContatosDTO();
 
 
@@ -68,7 +74,7 @@ namespace FarmaTec
                             dados.telefone = string.Empty;
                             dados.bairro = string.Empty;
 
-                            salvarContatos.ClientesIncluir(dados);
+                            await salvarCliente.ClientesIncluir(dados);
 
                             if (dados.codigo != 0)
                             {
