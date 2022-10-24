@@ -36,11 +36,11 @@ namespace FarmaTec
             txtNomeFornecedor.Focus();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private async void btnSalvar_Click(object sender, EventArgs e)
         {
             //Instanciar as classes
-            SalvarContatos salvarContatos = new SalvarContatos();
-            ForncedoresDTO dados = new ForncedoresDTO();
+            SalvarFornecedores salvarFornecedores = new SalvarFornecedores();
+            FornecedoresDTO dados = new FornecedoresDTO();
             //validar se os campos estão preenchidos
             //Definir vaiável para receber o nome do textbox
             TextBox textBox = new TextBox();
@@ -88,19 +88,25 @@ namespace FarmaTec
                             dados.telefone = mskTelefone.Text;
                             dados.email = txtEmailFornecedor.Text;
 
-                            salvarContatos.FornecedoresIncluir(dados);
+                          await salvarFornecedores.FornecedoresIncluir(dados);
 
-                            if (dados.codigo != 0)
+                            if (dados.mensagens == null)
                             {
-                                //Popular o campo código
-                                txtCodigo.Text = dados.codigo.ToString();
-                                MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                tratamentoCampos.Limpar(this);
-                                tratamentoCampos.Desbloquear(this);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                if (dados.codigo == 0)
+                                {
+                                    MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                else
+                                {
+
+                                    //Popular o campo código
+                                    txtCodigo.Text = dados.codigo.ToString();
+                                    MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    tratamentoCampos.Limpar(this);
+                                    tratamentoCampos.Desbloquear(this);
+
+                                }
+
                             }
                         }
                     }

@@ -167,6 +167,11 @@ namespace FarmaTec
         {
             
         }
+
+        private void txtNomeCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
