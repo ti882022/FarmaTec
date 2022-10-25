@@ -65,6 +65,7 @@ namespace FarmaTec
             }
 
             StatusUsuario.Text = "FARMATEC - SISTEMA PARA FARMACIAS -  VERSÃO 2.0 - USUARIO:  " + LoginSistema.nomeUsuario;
+            this.Text = "Principal - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
 
         }
         public void FecharTodos()
@@ -171,14 +172,6 @@ namespace FarmaTec
 
         private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
-        }
-
-        private void menuRelatorioFinanceiro_Click(object sender, EventArgs e)
-        {
-            FecharTodos();
-            Form childForm = new frmRelatorioFinanceiro();
-            AbrirForm(childForm);
 
         }
 

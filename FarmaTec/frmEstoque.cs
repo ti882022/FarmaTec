@@ -148,5 +148,10 @@ namespace FarmaTec
         {
 
         }
+
+        private void cbomotivo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -241,6 +241,7 @@ namespace FarmaTec
             this.cbomotivo.Size = new System.Drawing.Size(121, 21);
             this.cbomotivo.TabIndex = 32;
             this.cbomotivo.Visible = false;
+            this.cbomotivo.SelectedIndexChanged += new System.EventHandler(this.cbomotivo_SelectedIndexChanged);
             // 
             // cboEstoque
             // 

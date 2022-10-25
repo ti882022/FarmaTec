@@ -129,7 +129,7 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://10.38.45.24:8080/farmatec-api/listarcod/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/produtos/listarcod/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);

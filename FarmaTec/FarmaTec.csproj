@@ -166,18 +166,6 @@
     <Compile Include="frmRelatorioEstoque.Designer.cs">
       <DependentUpon>frmRelatorioEstoque.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRelatorioFinanceiro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRelatorioFinanceiro.Designer.cs">
-      <DependentUpon>frmRelatorioFinanceiro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmRelatorioVendas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRelatorioVendas.Designer.cs">
-      <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmRetirada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,12 +216,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRelatorioEstoque.resx">
       <DependentUpon>frmRelatorioEstoque.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRelatorioFinanceiro.resx">
-      <DependentUpon>frmRelatorioFinanceiro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRelatorioVendas.resx">
-      <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRetirada.resx">
       <DependentUpon>frmRetirada.cs</DependentUpon>

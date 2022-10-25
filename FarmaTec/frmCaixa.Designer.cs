@@ -71,11 +71,11 @@ namespace FarmaTec
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dtVenda = new System.Windows.Forms.DataGridView();
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.codProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.grpCliente.SuspendLayout();
             this.grpProduto.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -484,13 +484,6 @@ namespace FarmaTec
             this.dtVenda.TabIndex = 9;
             this.dtVenda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // mySqlCommand1
-            // 
-            this.mySqlCommand1.CacheAge = 0;
-            this.mySqlCommand1.Connection = null;
-            this.mySqlCommand1.EnableCaching = false;
-            this.mySqlCommand1.Transaction = null;
-            // 
             // codProduto
             // 
             this.codProduto.HeaderText = "Código";
@@ -518,6 +511,13 @@ namespace FarmaTec
             this.preco.ReadOnly = true;
             this.preco.Width = 200;
             // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
+            // 
             // frmCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,7 +535,7 @@ namespace FarmaTec
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmCaixa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Caixa - FarmaTec";
+            this.Text = "Caixa - FarmaTec - Usuário: ";
             this.Load += new System.EventHandler(this.frmCaixa_Load);
             this.grpCliente.ResumeLayout(false);
             this.grpCliente.PerformLayout();
