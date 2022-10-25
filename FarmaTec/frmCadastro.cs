@@ -76,15 +76,23 @@ namespace FarmaTec
 
                             await salvarCliente.ClientesIncluir(dados);
 
-                            if (dados.codigo != 0)
+                            if (dados.mensagens == null)
                             {
-                                //Popular o campo código
-                                txtCodigo.Text = dados.codigo.ToString();
 
 
-                                MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                tratamentoCampos.Limpar(this);
-                                tratamentoCampos.Desbloquear(this);
+                                if (dados.codigo == 0)
+                                {
+                                    MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+
+                                else
+                                {
+                                    txtCodigo.Text = dados.codigo.ToString();
+                                    MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    tratamentoCampos.Limpar(this);
+                                    tratamentoCampos.Desbloquear(this);
+                                }
+
                             }
                             else
                             {

@@ -167,5 +167,10 @@ namespace FarmaTec
         {
             mskCpf.Select(0, 0);
         }
+
+        private void txtnomeCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

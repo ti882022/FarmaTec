@@ -143,6 +143,7 @@ namespace FarmaTec
             this.txtnomeCliente.Name = "txtnomeCliente";
             this.txtnomeCliente.Size = new System.Drawing.Size(226, 29);
             this.txtnomeCliente.TabIndex = 2;
+            this.txtnomeCliente.TextChanged += new System.EventHandler(this.txtnomeCliente_TextChanged);
             // 
             // dtClientes
             // 
