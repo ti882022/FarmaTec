@@ -21,6 +21,113 @@ namespace FarmaTec
 
         public int codigoPagamento;
 
+
+        //Coleção para o AutoComplete
+        AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
+
+     
+
+        public async void AutoCompletar()
+        {
+
+
+            try
+            {
+                //Instanciar as classes
+                ConsultarClientes consultarClientes = new ConsultarClientes();
+                ClientesDTO dados = new ClientesDTO();
+
+           
+
+                //Popular classe
+                dados.nome = txtnomecliente.Text;
+               
+
+                //Chamar o método
+                await consultarClientes.MostrarCliente(dados);
+
+                if (dados.mensagens == null)
+                {
+                    if (consultarClientes.listClientes.Count > 0)
+                    {
+                        //Percorrer a lista
+                        for (int i = 0; i < consultarClientes.listClientes.Count; i++)
+                        {
+                            autocomplete.Add(consultarClientes.listClientes[i].nomeCliente.ToString());
+                        }
+                        //Definir as propriedades do autocomplete do textbox
+                        txtnomecliente.AutoCompleteMode = AutoCompleteMode.Suggest;
+                        txtnomecliente.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        txtnomecliente.AutoCompleteCustomSource = autocomplete;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(dados.mensagens);
+                }
+
+            }
+
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
+
+        }
+
+
+        public async void AutoCompletarProdutos()
+        {
+
+
+            try
+            {
+                //Instanciar as classes
+                ConsultarProdutos consultarProdutos = new ConsultarProdutos();
+                ProdutosDTO dados = new ProdutosDTO();
+
+
+
+                //Popular classe
+                dados.descricao = txtdescricao.Text;
+                // dados.cpf = mskCpf.Text;
+
+                //Chamar o método
+                await consultarProdutos.MostrarProduto(dados);
+
+                if (dados.mensagens == null)
+                {
+                    if (consultarProdutos.listProdutos.Count > 0)
+                    {
+                        //Percorrer a lista
+                        for (int i = 0; i < consultarProdutos.listProdutos.Count; i++)
+                        {
+                            autocomplete.Add(consultarProdutos.listProdutos[i].descricao.ToString());
+                        }
+                        //Definir as propriedades do autocomplete do textbox
+                        txtdescricao.AutoCompleteMode = AutoCompleteMode.Suggest;
+                        txtdescricao.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        txtdescricao.AutoCompleteCustomSource = autocomplete;
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(dados.mensagens);
+                }
+
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
+
+        }
+
+
         private void ListarPagamento()
         {
             try
@@ -51,8 +158,6 @@ namespace FarmaTec
 
 
 
-
-
         private void btnIncluir_Click(object sender, EventArgs e)
         {
 
@@ -80,42 +185,44 @@ namespace FarmaTec
 
         private void frmCaixa_Load(object sender, EventArgs e)
         {
+            
             txtNomeFuncionario.Text = LoginSistema.nomeUsuario;
-            ListarPagamento();
+            AutoCompletar();
+            AutoCompletarProdutos();
         }
 
         private void btnIncluir_Click_1(object sender, EventArgs e)
         {
 
-            if (txtNomeCliente.Text == String.Empty && txtNomeProduto.Text == String.Empty)
+            if (txtnomecliente.Text == String.Empty && txtdescricao.Text == String.Empty)
             {
                 MessageBox.Show("Favor inserir o nome do Cliente e do Produto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNomeCliente.BackColor = Color.Red;
-                txtNomeProduto.BackColor = Color.Red;
-                txtNomeCliente.Focus();
+                txtnomecliente.BackColor = Color.Red;
+                txtdescricao.BackColor = Color.Red;
+                txtnomecliente.Focus();
             }
-            else if (txtNomeCliente.Text == String.Empty)
+            else if (txtnomecliente.Text == String.Empty)
             {
                 MessageBox.Show("Favor inserir o nome do Cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               txtNomeCliente.BackColor = Color.Red;
-               txtNomeProduto.BackColor = Color.Green;
-               txtNomeCliente.Focus();
+               txtnomecliente.BackColor = Color.Red;
+               txtdescricao.BackColor = Color.Green;
+               txtnomecliente.Focus();
             }
 
 
-            else if (txtNomeProduto.Text == String.Empty)
+            else if (txtdescricao.Text == String.Empty)
             {
                 MessageBox.Show("Favor inserir o nome do Produto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNomeProduto.BackColor = Color.Red;
-                txtNomeCliente.BackColor = Color.Green;
-                txtNomeProduto.Focus();
+                txtdescricao.BackColor = Color.Red;
+                txtnomecliente.BackColor = Color.Green;
+                txtdescricao.Focus();
             }
 
             else {
-                txtNomeCliente.BackColor = Color.White;
-                txtNomeProduto.BackColor = Color.White;
-                txtNomeCliente.Enabled = false;
-                txtNomeProduto.Clear();
+                txtnomecliente.BackColor = Color.White;
+                txtdescricao.BackColor = Color.White;
+                txtnomecliente.Enabled = false;
+                txtdescricao.Clear();
                 txtCodProduto.Clear();
                
             }
@@ -172,6 +279,17 @@ namespace FarmaTec
         {
 
         }
+
+        private void btnFinalizarCompra_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNomeProduto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
     }
 

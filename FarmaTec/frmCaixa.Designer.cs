@@ -31,9 +31,7 @@ namespace FarmaTec
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCaixa));
-            this.txtNomeCliente = new System.Windows.Forms.TextBox();
-            this.txtCodCliente = new System.Windows.Forms.TextBox();
-            this.lblCodCliente = new System.Windows.Forms.Label();
+            this.txtnomecliente = new System.Windows.Forms.TextBox();
             this.lblNomeCliente = new System.Windows.Forms.Label();
             this.grpCliente = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +42,7 @@ namespace FarmaTec
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNomeProduto = new System.Windows.Forms.TextBox();
+            this.txtdescricao = new System.Windows.Forms.TextBox();
             this.txtCodProduto = new System.Windows.Forms.TextBox();
             this.txtPedido = new System.Windows.Forms.TextBox();
             this.nrPedido = new System.Windows.Forms.Label();
@@ -83,35 +81,15 @@ namespace FarmaTec
             ((System.ComponentModel.ISupportInitialize)(this.dtVenda)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNomeCliente
+            // txtnomecliente
             // 
-            this.txtNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCliente.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomeCliente.Location = new System.Drawing.Point(119, 65);
-            this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(500, 29);
-            this.txtNomeCliente.TabIndex = 0;
-            this.txtNomeCliente.TextChanged += new System.EventHandler(this.txtNomeCliente_TextChanged);
-            // 
-            // txtCodCliente
-            // 
-            this.txtCodCliente.AllowDrop = true;
-            this.txtCodCliente.Enabled = false;
-            this.txtCodCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodCliente.Location = new System.Drawing.Point(6, 65);
-            this.txtCodCliente.Name = "txtCodCliente";
-            this.txtCodCliente.Size = new System.Drawing.Size(76, 29);
-            this.txtCodCliente.TabIndex = 1;
-            // 
-            // lblCodCliente
-            // 
-            this.lblCodCliente.AutoSize = true;
-            this.lblCodCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodCliente.Location = new System.Drawing.Point(6, 42);
-            this.lblCodCliente.Name = "lblCodCliente";
-            this.lblCodCliente.Size = new System.Drawing.Size(63, 20);
-            this.lblCodCliente.TabIndex = 3;
-            this.lblCodCliente.Text = "Código:";
+            this.txtnomecliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnomecliente.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtnomecliente.Location = new System.Drawing.Point(119, 65);
+            this.txtnomecliente.Name = "txtnomecliente";
+            this.txtnomecliente.Size = new System.Drawing.Size(500, 29);
+            this.txtnomecliente.TabIndex = 0;
+            this.txtnomecliente.TextChanged += new System.EventHandler(this.txtNomeCliente_TextChanged);
             // 
             // lblNomeCliente
             // 
@@ -128,9 +106,7 @@ namespace FarmaTec
             this.grpCliente.Controls.Add(this.label3);
             this.grpCliente.Controls.Add(this.lblNomeCliente);
             this.grpCliente.Controls.Add(this.txtNomeFuncionario);
-            this.grpCliente.Controls.Add(this.lblCodCliente);
-            this.grpCliente.Controls.Add(this.txtCodCliente);
-            this.grpCliente.Controls.Add(this.txtNomeCliente);
+            this.grpCliente.Controls.Add(this.txtnomecliente);
             this.grpCliente.Font = new System.Drawing.Font("Yu Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCliente.Location = new System.Drawing.Point(29, 64);
             this.grpCliente.Name = "grpCliente";
@@ -168,7 +144,7 @@ namespace FarmaTec
             this.grpProduto.Controls.Add(this.label1);
             this.grpProduto.Controls.Add(this.label6);
             this.grpProduto.Controls.Add(this.label4);
-            this.grpProduto.Controls.Add(this.txtNomeProduto);
+            this.grpProduto.Controls.Add(this.txtdescricao);
             this.grpProduto.Controls.Add(this.txtCodProduto);
             this.grpProduto.Controls.Add(this.txtPedido);
             this.grpProduto.Controls.Add(this.nrPedido);
@@ -235,14 +211,15 @@ namespace FarmaTec
             this.label4.TabIndex = 12;
             this.label4.Text = "Nome do Produto";
             // 
-            // txtNomeProduto
+            // txtdescricao
             // 
-            this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeProduto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomeProduto.Location = new System.Drawing.Point(132, 65);
-            this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(500, 29);
-            this.txtNomeProduto.TabIndex = 1;
+            this.txtdescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescricao.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtdescricao.Location = new System.Drawing.Point(132, 65);
+            this.txtdescricao.Name = "txtdescricao";
+            this.txtdescricao.Size = new System.Drawing.Size(500, 29);
+            this.txtdescricao.TabIndex = 1;
+            this.txtdescricao.TextChanged += new System.EventHandler(this.txtNomeProduto_TextChanged);
             // 
             // txtCodProduto
             // 
@@ -338,7 +315,7 @@ namespace FarmaTec
             this.grpPagamento.Controls.Add(this.txtValor);
             this.grpPagamento.Controls.Add(this.lblPagamento);
             this.grpPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPagamento.Location = new System.Drawing.Point(515, 379);
+            this.grpPagamento.Location = new System.Drawing.Point(515, 303);
             this.grpPagamento.Name = "grpPagamento";
             this.grpPagamento.Size = new System.Drawing.Size(434, 401);
             this.grpPagamento.TabIndex = 17;
@@ -436,6 +413,7 @@ namespace FarmaTec
             this.btnFinalizarCompra.Text = "Finalizar Compra";
             this.btnFinalizarCompra.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFinalizarCompra.UseVisualStyleBackColor = false;
+            this.btnFinalizarCompra.Click += new System.EventHandler(this.btnFinalizarCompra_Click);
             // 
             // btnSair
             // 
@@ -553,9 +531,7 @@ namespace FarmaTec
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNomeCliente;
-        private System.Windows.Forms.TextBox txtCodCliente;
-        private System.Windows.Forms.Label lblCodCliente;
+        private System.Windows.Forms.TextBox txtnomecliente;
         private System.Windows.Forms.Label lblNomeCliente;
         private System.Windows.Forms.GroupBox grpCliente;
         private System.Windows.Forms.GroupBox grpProduto;
@@ -564,7 +540,7 @@ namespace FarmaTec
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNomeProduto;
+        private System.Windows.Forms.TextBox txtdescricao;
         private System.Windows.Forms.TextBox txtCodProduto;
         private System.Windows.Forms.TextBox txtPedido;
         private System.Windows.Forms.Label nrPedido;
