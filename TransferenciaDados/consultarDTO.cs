@@ -28,14 +28,16 @@ namespace TransferenciaDados
         public string emailFunc { get; set; }
         public int cargoFunc { get; set; }
         public int statusFunc { get; set; }
+        public string descricaoCargo{ get; set; }
         public string mensagens { get; set; }
 
-        public ListConsultar(string NomeUser, string EmailUser, int CargoUser, int StatusUser)
+        public ListConsultar(string nome, string email, int classeUsuario, int logado, string descricao)
         {
-            this.nomeFunc = NomeUser;
-            this.emailFunc = EmailUser;
-            this.cargoFunc = CargoUser;
-            this.statusFunc = StatusUser;
+            this.nomeFunc = nome;
+            this.emailFunc = email;
+            this.cargoFunc = classeUsuario;
+            this.statusFunc = logado;
+            this.descricaoCargo = descricao;
         }
     }
     public class ConsultarUsers
@@ -48,7 +50,7 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://localhost/siteturma88/usuarios/listar/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/usuarios/listar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -75,9 +77,11 @@ namespace TransferenciaDados
                 {
 
 
-                    listusuarios.Add(new ListConsultar(item["NomeUser"].ToString(), item["EmailUser"].ToString(),
-                                                                                                        (Convert.ToInt32(item["CargoUser"].ToString())),
-                                                                                                        (Convert.ToInt32(item["StatusUser"].ToString()))));
+                    listusuarios.Add(new ListConsultar(item["nome"].ToString(), 
+                                                       item["email"].ToString(),
+                                                       (Convert.ToInt32(item["classeUsuario"].ToString())),
+                                                       (Convert.ToInt32(item["logado"].ToString())),
+                                                        item["descricao"].ToString()));
 
                 }
 
@@ -105,7 +109,7 @@ namespace TransferenciaDados
         {
             try
             {
-                string URL = "http://localhost/siteturma88/usuarios/atualizar/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/usuarios/atualizar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -113,7 +117,8 @@ namespace TransferenciaDados
                 var data = new Dictionary<string, string>
                 {
                     {"txtusuario", dados.usuario},
-                    {"txtemail", dados.email },
+                    {"txtnome", dados.nome},
+                    {"txtemail", dados.email},
                     {"txtclasse", Convert.ToInt32(dados.classeUsuario).ToString()},
                     {"txtlogado", Convert.ToInt32(dados.logado).ToString()},
                     {"HTTP_ACCEPT", "application/Json"}
@@ -132,7 +137,7 @@ namespace TransferenciaDados
 
                 foreach (var item in arrayUsuarios)
                 {
-                    dados.logado = Convert.ToInt32(item["sucesso"].ToString());
+                    dados.logado = Convert.ToInt32(item["logado"].ToString());
                 }
 
             }
