@@ -141,7 +141,7 @@ namespace FarmaTec
         private async void Atualizar_Click(object sender, EventArgs e)
         {
             SalvarMovimento salvarMovimento = new SalvarMovimento();
-            MovimentaçãoDTO dados = new MovimentaçãoDTO();
+            MovimentacaoDTO dados = new MovimentacaoDTO();
 
             if (tratamentoCampos.Vazio(this) == true)
             {

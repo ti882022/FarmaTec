@@ -170,10 +170,5 @@ namespace FarmaTec
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

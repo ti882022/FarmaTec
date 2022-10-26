@@ -96,6 +96,7 @@
     <Compile Include="EstoqueDTO.cs" />
     <Compile Include="FornecedoresDTO.cs" />
     <Compile Include="funcionariosDTO.cs" />
+    <Compile Include="MovimentacaoDTO.cs" />
     <Compile Include="PagamentoDTO.cs" />
     <Compile Include="ProdutosDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
