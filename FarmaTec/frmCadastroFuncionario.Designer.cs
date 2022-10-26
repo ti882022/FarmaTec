@@ -54,10 +54,9 @@ namespace FarmaTec
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(780, 446);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSair.Location = new System.Drawing.Point(479, 362);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(100, 34);
+            this.btnSair.Size = new System.Drawing.Size(75, 28);
             this.btnSair.TabIndex = 10;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -66,10 +65,9 @@ namespace FarmaTec
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(623, 446);
-            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpar.Location = new System.Drawing.Point(361, 362);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(100, 34);
+            this.btnLimpar.Size = new System.Drawing.Size(75, 28);
             this.btnLimpar.TabIndex = 9;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -78,10 +76,9 @@ namespace FarmaTec
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(460, 446);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvar.Location = new System.Drawing.Point(239, 362);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(100, 34);
+            this.btnSalvar.Size = new System.Drawing.Size(75, 28);
             this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -91,10 +88,9 @@ namespace FarmaTec
             // 
             this.lblTituloFuncionario.AutoSize = true;
             this.lblTituloFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloFuncionario.Location = new System.Drawing.Point(223, 79);
-            this.lblTituloFuncionario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTituloFuncionario.Location = new System.Drawing.Point(167, 64);
             this.lblTituloFuncionario.Name = "lblTituloFuncionario";
-            this.lblTituloFuncionario.Size = new System.Drawing.Size(591, 46);
+            this.lblTituloFuncionario.Size = new System.Drawing.Size(482, 37);
             this.lblTituloFuncionario.TabIndex = 36;
             this.lblTituloFuncionario.Text = "Cadastro de Novo Funcionário";
             // 
@@ -102,10 +98,9 @@ namespace FarmaTec
             // 
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefone.Location = new System.Drawing.Point(259, 297);
-            this.lblTelefone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTelefone.Location = new System.Drawing.Point(194, 241);
             this.lblTelefone.Name = "lblTelefone";
-            this.lblTelefone.Size = new System.Drawing.Size(89, 25);
+            this.lblTelefone.Size = new System.Drawing.Size(71, 20);
             this.lblTelefone.TabIndex = 34;
             this.lblTelefone.Text = "Telefone";
             // 
@@ -113,30 +108,27 @@ namespace FarmaTec
             // 
             this.lblNomeFuncionario.AutoSize = true;
             this.lblNomeFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeFuncionario.Location = new System.Drawing.Point(259, 223);
-            this.lblNomeFuncionario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNomeFuncionario.Location = new System.Drawing.Point(194, 181);
             this.lblNomeFuncionario.Name = "lblNomeFuncionario";
-            this.lblNomeFuncionario.Size = new System.Drawing.Size(64, 25);
+            this.lblNomeFuncionario.Size = new System.Drawing.Size(51, 20);
             this.lblNomeFuncionario.TabIndex = 31;
             this.lblNomeFuncionario.Text = "Nome";
             // 
             // txtNomeFuncionario
             // 
             this.txtNomeFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeFuncionario.Location = new System.Drawing.Point(433, 220);
-            this.txtNomeFuncionario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNomeFuncionario.Location = new System.Drawing.Point(325, 179);
             this.txtNomeFuncionario.Name = "txtNomeFuncionario";
-            this.txtNomeFuncionario.Size = new System.Drawing.Size(519, 30);
+            this.txtNomeFuncionario.Size = new System.Drawing.Size(390, 26);
             this.txtNomeFuncionario.TabIndex = 2;
             // 
             // txtCodigoFuncionario
             // 
             this.txtCodigoFuncionario.Enabled = false;
             this.txtCodigoFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoFuncionario.Location = new System.Drawing.Point(433, 182);
-            this.txtCodigoFuncionario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoFuncionario.Location = new System.Drawing.Point(325, 148);
             this.txtCodigoFuncionario.Name = "txtCodigoFuncionario";
-            this.txtCodigoFuncionario.Size = new System.Drawing.Size(83, 30);
+            this.txtCodigoFuncionario.Size = new System.Drawing.Size(63, 26);
             this.txtCodigoFuncionario.TabIndex = 1;
             // 
             // lblCodFuncionario
@@ -144,41 +136,37 @@ namespace FarmaTec
             this.lblCodFuncionario.AutoSize = true;
             this.lblCodFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCodFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodFuncionario.Location = new System.Drawing.Point(259, 186);
-            this.lblCodFuncionario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodFuncionario.Location = new System.Drawing.Point(194, 151);
             this.lblCodFuncionario.Name = "lblCodFuncionario";
-            this.lblCodFuncionario.Size = new System.Drawing.Size(156, 25);
+            this.lblCodFuncionario.Size = new System.Drawing.Size(125, 20);
             this.lblCodFuncionario.TabIndex = 28;
             this.lblCodFuncionario.Text = "Cod Funcionário";
             // 
             // txtEmailFuncionario
             // 
             this.txtEmailFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailFuncionario.Location = new System.Drawing.Point(433, 327);
-            this.txtEmailFuncionario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmailFuncionario.Location = new System.Drawing.Point(325, 266);
             this.txtEmailFuncionario.Name = "txtEmailFuncionario";
-            this.txtEmailFuncionario.Size = new System.Drawing.Size(332, 30);
+            this.txtEmailFuncionario.Size = new System.Drawing.Size(250, 26);
             this.txtEmailFuncionario.TabIndex = 6;
             // 
             // lblEmailFuncionario
             // 
             this.lblEmailFuncionario.AutoSize = true;
             this.lblEmailFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmailFuncionario.Location = new System.Drawing.Point(259, 332);
-            this.lblEmailFuncionario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmailFuncionario.Location = new System.Drawing.Point(194, 270);
             this.lblEmailFuncionario.Name = "lblEmailFuncionario";
-            this.lblEmailFuncionario.Size = new System.Drawing.Size(60, 25);
+            this.lblEmailFuncionario.Size = new System.Drawing.Size(48, 20);
             this.lblEmailFuncionario.TabIndex = 40;
             this.lblEmailFuncionario.Text = "Email";
             // 
             // mskTelefone
             // 
             this.mskTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskTelefone.Location = new System.Drawing.Point(433, 293);
-            this.mskTelefone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mskTelefone.Location = new System.Drawing.Point(325, 238);
             this.mskTelefone.Mask = "(##) #####-####";
             this.mskTelefone.Name = "mskTelefone";
-            this.mskTelefone.Size = new System.Drawing.Size(172, 30);
+            this.mskTelefone.Size = new System.Drawing.Size(130, 26);
             this.mskTelefone.TabIndex = 4;
             this.mskTelefone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskTelefone_MouseClick);
             // 
@@ -192,10 +180,9 @@ namespace FarmaTec
             // 
             this.lblCargo.AutoSize = true;
             this.lblCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCargo.Location = new System.Drawing.Point(259, 368);
-            this.lblCargo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCargo.Location = new System.Drawing.Point(194, 299);
             this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(66, 25);
+            this.lblCargo.Size = new System.Drawing.Size(52, 20);
             this.lblCargo.TabIndex = 42;
             this.lblCargo.Text = "Cargo";
             // 
@@ -209,11 +196,10 @@ namespace FarmaTec
             "Estoquista",
             "Caixa",
             "Atendente"});
-            this.cboclassefunc.Location = new System.Drawing.Point(433, 364);
-            this.cboclassefunc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboclassefunc.Location = new System.Drawing.Point(325, 296);
             this.cboclassefunc.MaxLength = 100;
             this.cboclassefunc.Name = "cboclassefunc";
-            this.cboclassefunc.Size = new System.Drawing.Size(160, 33);
+            this.cboclassefunc.Size = new System.Drawing.Size(121, 28);
             this.cboclassefunc.TabIndex = 7;
             this.cboclassefunc.SelectedIndexChanged += new System.EventHandler(this.cboclassefunc_SelectedIndexChanged);
             this.cboclassefunc.SelectionChangeCommitted += new System.EventHandler(this.cboclassefunc_SelectionChangeCommitted);
@@ -222,10 +208,9 @@ namespace FarmaTec
             // 
             this.lblSexo.AutoSize = true;
             this.lblSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSexo.Location = new System.Drawing.Point(636, 293);
-            this.lblSexo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSexo.Location = new System.Drawing.Point(477, 238);
             this.lblSexo.Name = "lblSexo";
-            this.lblSexo.Size = new System.Drawing.Size(58, 25);
+            this.lblSexo.Size = new System.Drawing.Size(45, 20);
             this.lblSexo.TabIndex = 49;
             this.lblSexo.Text = "Sexo";
             // 
@@ -238,39 +223,36 @@ namespace FarmaTec
             this.txtsexo.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.txtsexo.Location = new System.Drawing.Point(704, 290);
-            this.txtsexo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtsexo.Location = new System.Drawing.Point(528, 236);
             this.txtsexo.MaxLength = 1;
             this.txtsexo.Name = "txtsexo";
-            this.txtsexo.Size = new System.Drawing.Size(61, 33);
+            this.txtsexo.Size = new System.Drawing.Size(47, 28);
             this.txtsexo.TabIndex = 5;
             // 
             // lblusuario
             // 
             this.lblusuario.AutoSize = true;
             this.lblusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblusuario.Location = new System.Drawing.Point(259, 260);
-            this.lblusuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblusuario.Location = new System.Drawing.Point(194, 211);
             this.lblusuario.Name = "lblusuario";
-            this.lblusuario.Size = new System.Drawing.Size(79, 25);
+            this.lblusuario.Size = new System.Drawing.Size(64, 20);
             this.lblusuario.TabIndex = 51;
             this.lblusuario.Text = "Usuário";
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(433, 256);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario.Location = new System.Drawing.Point(325, 208);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(519, 30);
+            this.txtUsuario.Size = new System.Drawing.Size(390, 26);
             this.txtUsuario.TabIndex = 3;
             // 
             // frmCadastroFuncionario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblusuario);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtsexo);
@@ -290,7 +272,6 @@ namespace FarmaTec
             this.Controls.Add(this.txtCodigoFuncionario);
             this.Controls.Add(this.lblCodFuncionario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCadastroFuncionario";

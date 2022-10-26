@@ -285,7 +285,7 @@ namespace FarmaTec
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.txtcodProduto);
             this.Name = "frmCadastroProdutos";
-            this.Text = "frmCadastroProdutos";
+            this.Text = "Cadastro de Produto - FarmaTec - Usuário: ";
             this.Load += new System.EventHandler(this.frmCadastroProdutos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

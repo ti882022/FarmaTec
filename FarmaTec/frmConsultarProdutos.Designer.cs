@@ -253,7 +253,7 @@ namespace FarmaTec
             this.Controls.Add(this.pnlConsulta);
             this.Controls.Add(this.pctProdutos);
             this.Name = "frmConsultarProdutos";
-            this.Text = "Consultar Produtos - FarmaTec";
+            this.Text = "Consultar Produtos - FarmaTec - Usuário: ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConsultarProdutos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtProdutos)).EndInit();

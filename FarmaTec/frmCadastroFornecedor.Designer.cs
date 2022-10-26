@@ -349,7 +349,7 @@ namespace FarmaTec
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCadastroFornecedor";
-            this.Text = "frmCadastroFornecedor";
+            this.Text = "Cadastro de Fornecedor - FarmaTec - Usuário: ";
             this.ResumeLayout(false);
             this.PerformLayout();
 

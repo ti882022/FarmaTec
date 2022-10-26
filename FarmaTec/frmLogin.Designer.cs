@@ -56,7 +56,7 @@ namespace FarmaTec
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(62, 284);
+            this.lblUsuario.Location = new System.Drawing.Point(62, 283);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(102, 29);
             this.lblUsuario.TabIndex = 1;
@@ -66,7 +66,7 @@ namespace FarmaTec
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(62, 335);
+            this.lblSenha.Location = new System.Drawing.Point(62, 334);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(88, 29);
             this.lblSenha.TabIndex = 2;
@@ -76,7 +76,7 @@ namespace FarmaTec
             // txtusuario
             // 
             this.txtusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtusuario.Location = new System.Drawing.Point(178, 284);
+            this.txtusuario.Location = new System.Drawing.Point(178, 283);
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(260, 31);
             this.txtusuario.TabIndex = 0;
@@ -84,7 +84,7 @@ namespace FarmaTec
             // mskSenha
             // 
             this.mskSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskSenha.Location = new System.Drawing.Point(178, 335);
+            this.mskSenha.Location = new System.Drawing.Point(178, 334);
             this.mskSenha.Name = "mskSenha";
             this.mskSenha.PasswordChar = '*';
             this.mskSenha.Size = new System.Drawing.Size(260, 31);
@@ -93,7 +93,7 @@ namespace FarmaTec
             // btnAcessar
             // 
             this.btnAcessar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcessar.Location = new System.Drawing.Point(246, 378);
+            this.btnAcessar.Location = new System.Drawing.Point(246, 377);
             this.btnAcessar.Name = "btnAcessar";
             this.btnAcessar.Size = new System.Drawing.Size(113, 36);
             this.btnAcessar.TabIndex = 2;
@@ -104,7 +104,7 @@ namespace FarmaTec
             // imgLogo
             // 
             this.imgLogo.Image = global::FarmaTec.Properties.Resources.FarmaTec_removebg_preview2;
-            this.imgLogo.Location = new System.Drawing.Point(178, 19);
+            this.imgLogo.Location = new System.Drawing.Point(178, 18);
             this.imgLogo.Name = "imgLogo";
             this.imgLogo.Size = new System.Drawing.Size(260, 259);
             this.imgLogo.TabIndex = 0;

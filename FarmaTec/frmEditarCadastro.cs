@@ -92,6 +92,9 @@ namespace FarmaTec
                                 MessageBox.Show("Cadastro Atualizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 tratamentoCampos.Limpar(this);
                                 txtCodigoFuncionario.Enabled = true;
+                                radDesativado.Checked = false;
+                                radAtivo.Checked = false;
+                                radReset.Checked = false;
                             }
 
                         }

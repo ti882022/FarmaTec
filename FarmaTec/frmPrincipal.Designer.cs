@@ -246,7 +246,7 @@ namespace FarmaTec
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Principal - FarmaTec";
+            this.Text = "Principal - FarmaTec - Usuário: ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.frmPrincipal_Load);

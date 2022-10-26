@@ -242,7 +242,7 @@ namespace FarmaTec
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEditarCadastro";
-            this.Text = "Editar Cadastro de Funcionários - FarmaTec";
+            this.Text = "Editar Cadastro de Funcionários - FarmaTec - Usuário: ";
             this.Load += new System.EventHandler(this.frmEditarCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

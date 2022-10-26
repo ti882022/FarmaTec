@@ -65,6 +65,7 @@ namespace FarmaTec
             }
 
             StatusUsuario.Text = "FARMATEC - SISTEMA PARA FARMACIAS -  VERSÃO 2.0 - USUARIO:  " + LoginSistema.nomeUsuario;
+            this.Text = "Principal - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
 
         }
         public void FecharTodos()
@@ -173,8 +174,6 @@ namespace FarmaTec
         {
 
         }
-
-      
 
 
 

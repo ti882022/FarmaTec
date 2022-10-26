@@ -183,7 +183,7 @@ namespace FarmaTec
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCadastro";
-            this.Text = "Cadastro de Cliente - FarmaTec";
+            this.Text = "Cadastro de Cliente - FarmaTec - Usuário: ";
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

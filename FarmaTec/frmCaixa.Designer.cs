@@ -514,8 +514,7 @@ namespace FarmaTec
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmCaixa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Caixa - FarmaTec";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "Caixa - FarmaTec - Usuário: ";
             this.Load += new System.EventHandler(this.frmCaixa_Load);
             this.grpCliente.ResumeLayout(false);
             this.grpCliente.PerformLayout();

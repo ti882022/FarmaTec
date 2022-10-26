@@ -13,6 +13,7 @@ namespace FarmaTec
 
         public frmLogin()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -20,7 +21,7 @@ namespace FarmaTec
 
 
         private async void btnAcessar_Click(object sender, EventArgs e)
-        {
+            {
             try
             {
                 if (txtusuario.Text == String.Empty)
@@ -55,7 +56,7 @@ namespace FarmaTec
 
                     if (dados.mensagens != null)
                     {
-                        MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Usuário ou senha inválidas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -104,6 +105,8 @@ namespace FarmaTec
                                 MessageBox.Show("Seu primeiro acesso" + " Será necessário alterar a senha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 pnlMudarSenha.Location = new Point(50, 30);
                                 mskSenhaAtual.Focus();
+                                txtusuario.Enabled = false;
+                                mskSenha.Enabled = false;
                                 LoginSucesso = false;
                                 break;
 
@@ -213,6 +216,8 @@ namespace FarmaTec
                             pnlMudarSenha.Location = new Point(650, 0);
                             mskSenha.Clear();
                             txtusuario.Focus();
+                            txtusuario.Enabled = true;
+                            mskSenha.Enabled = true;
                             LoginSucesso = false;
                         }
                     }
@@ -239,5 +244,30 @@ namespace FarmaTec
         {
 
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    if (txtusuario.Enabled == true)
+                    {
+                        btnAcessar.PerformClick();
+                    }
+                    else
+                    {
+                        btnSalvar.PerformClick();
+                    }
+                    return true;
+
+                case Keys.Escape:
+                    this.Close();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
     }
 }
