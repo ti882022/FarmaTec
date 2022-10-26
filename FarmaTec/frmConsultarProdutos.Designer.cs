@@ -80,7 +80,7 @@ namespace FarmaTec
             this.dtProdutos.ReadOnly = true;
             this.dtProdutos.Size = new System.Drawing.Size(1183, 388);
             this.dtProdutos.TabIndex = 24;
-            this.dtProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtProdutos_CellContentClick);
+           
             // 
             // codProduto
             // 

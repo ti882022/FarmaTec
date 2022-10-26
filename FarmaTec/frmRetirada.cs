@@ -23,5 +23,13 @@ namespace FarmaTec
             Form childForm = new frmConsultarClientes();
             AbrirForm(childForm);
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja sair da compra?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }

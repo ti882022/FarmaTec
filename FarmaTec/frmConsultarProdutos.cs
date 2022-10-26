@@ -137,10 +137,7 @@ namespace FarmaTec
             }
         }
 
-        private void dtProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void frmConsultarProdutos_Load(object sender, EventArgs e)
         {
