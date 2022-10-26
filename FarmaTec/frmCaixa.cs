@@ -359,6 +359,10 @@ namespace FarmaTec
                 txtValorTotal.Text = txtValor.Text;
             }
         }
+
+        
+        
+       
     }
 
     }

@@ -105,6 +105,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RetiradaDTO.cs" />
     <Compile Include="statusDTO.cs" />
     <Compile Include="testarDTO.cs" />
     <Compile Include="UsuariosDTO.cs" />
