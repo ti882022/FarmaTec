@@ -44,7 +44,7 @@ namespace FarmaTec
             this.label4 = new System.Windows.Forms.Label();
             this.txtdescricao = new System.Windows.Forms.TextBox();
             this.txtCodProduto = new System.Windows.Forms.TextBox();
-            this.txtPedido = new System.Windows.Forms.TextBox();
+            this.txtnumpedido = new System.Windows.Forms.TextBox();
             this.nrPedido = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
@@ -152,7 +152,7 @@ namespace FarmaTec
             this.grpProduto.Controls.Add(this.label4);
             this.grpProduto.Controls.Add(this.txtdescricao);
             this.grpProduto.Controls.Add(this.txtCodProduto);
-            this.grpProduto.Controls.Add(this.txtPedido);
+            this.grpProduto.Controls.Add(this.txtnumpedido);
             this.grpProduto.Controls.Add(this.nrPedido);
             this.grpProduto.Font = new System.Drawing.Font("Yu Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpProduto.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -246,16 +246,16 @@ namespace FarmaTec
             this.txtCodProduto.Size = new System.Drawing.Size(100, 34);
             this.txtCodProduto.TabIndex = 7;
             // 
-            // txtPedido
+            // txtnumpedido
             // 
-            this.txtPedido.AllowDrop = true;
-            this.txtPedido.Enabled = false;
-            this.txtPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPedido.Location = new System.Drawing.Point(25, 171);
-            this.txtPedido.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPedido.Name = "txtPedido";
-            this.txtPedido.Size = new System.Drawing.Size(100, 34);
-            this.txtPedido.TabIndex = 6;
+            this.txtnumpedido.AllowDrop = true;
+            this.txtnumpedido.Enabled = false;
+            this.txtnumpedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnumpedido.Location = new System.Drawing.Point(25, 171);
+            this.txtnumpedido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtnumpedido.Name = "txtnumpedido";
+            this.txtnumpedido.Size = new System.Drawing.Size(100, 34);
+            this.txtnumpedido.TabIndex = 6;
             // 
             // nrPedido
             // 
@@ -583,7 +583,7 @@ namespace FarmaTec
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtdescricao;
-        private System.Windows.Forms.TextBox txtPedido;
+        private System.Windows.Forms.TextBox txtnumpedido;
         private System.Windows.Forms.Label nrPedido;
         private System.Windows.Forms.DateTimePicker dtPedido;
         private System.Windows.Forms.Button btnIncluir;

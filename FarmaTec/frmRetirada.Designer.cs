@@ -36,8 +36,8 @@ namespace FarmaTec
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtnumpedido = new System.Windows.Forms.TextBox();
+            this.txtdescricao = new System.Windows.Forms.TextBox();
             this.grpCliente = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblNomeCliente = new System.Windows.Forms.Label();
@@ -68,8 +68,8 @@ namespace FarmaTec
             this.grpPedido.Controls.Add(this.label1);
             this.grpPedido.Controls.Add(this.label4);
             this.grpPedido.Controls.Add(this.label6);
-            this.grpPedido.Controls.Add(this.textBox3);
-            this.grpPedido.Controls.Add(this.textBox4);
+            this.grpPedido.Controls.Add(this.txtnumpedido);
+            this.grpPedido.Controls.Add(this.txtdescricao);
             this.grpPedido.Font = new System.Drawing.Font("Yu Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPedido.Location = new System.Drawing.Point(941, 47);
             this.grpPedido.Margin = new System.Windows.Forms.Padding(4);
@@ -134,26 +134,26 @@ namespace FarmaTec
             this.label6.TabIndex = 3;
             this.label6.Text = "Nº Pedido";
             // 
-            // textBox3
+            // txtnumpedido
             // 
-            this.textBox3.AllowDrop = true;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(8, 80);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 34);
-            this.textBox3.TabIndex = 1;
+            this.txtnumpedido.AllowDrop = true;
+            this.txtnumpedido.Enabled = false;
+            this.txtnumpedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnumpedido.Location = new System.Drawing.Point(8, 80);
+            this.txtnumpedido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtnumpedido.Name = "txtnumpedido";
+            this.txtnumpedido.Size = new System.Drawing.Size(100, 34);
+            this.txtnumpedido.TabIndex = 1;
             // 
-            // textBox4
+            // txtdescricao
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox4.Location = new System.Drawing.Point(159, 80);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(665, 34);
-            this.textBox4.TabIndex = 0;
+            this.txtdescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescricao.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtdescricao.Location = new System.Drawing.Point(159, 80);
+            this.txtdescricao.Margin = new System.Windows.Forms.Padding(4);
+            this.txtdescricao.Name = "txtdescricao";
+            this.txtdescricao.Size = new System.Drawing.Size(665, 34);
+            this.txtdescricao.TabIndex = 0;
             // 
             // grpCliente
             // 
@@ -273,7 +273,7 @@ namespace FarmaTec
             this.menuConsulta});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1845, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1845, 30);
             this.menuStrip.TabIndex = 19;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -282,7 +282,7 @@ namespace FarmaTec
             this.menuConsulta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuConsultaClientes});
             this.menuConsulta.Name = "menuConsulta";
-            this.menuConsulta.Size = new System.Drawing.Size(80, 24);
+            this.menuConsulta.Size = new System.Drawing.Size(80, 26);
             this.menuConsulta.Text = "Consulta";
             // 
             // menuConsultaClientes
@@ -390,8 +390,8 @@ namespace FarmaTec
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtnumpedido;
+        private System.Windows.Forms.TextBox txtdescricao;
         private System.Windows.Forms.GroupBox grpCliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblNomeCliente;
