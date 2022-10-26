@@ -78,7 +78,7 @@ namespace FarmaTec
         }
 
 
-        public async void AutoCompletarProdutos()
+       public async void AutoCompletarProdutosCaixa()
         {
 
 
@@ -87,8 +87,6 @@ namespace FarmaTec
                 //Instanciar as classes
                 ConsultarProdutos consultarProdutos = new ConsultarProdutos();
                 ProdutosDTO dados = new ProdutosDTO();
-
-
 
                 //Popular classe
                 dados.descricao = txtdescricao.Text;
@@ -126,6 +124,8 @@ namespace FarmaTec
             }
 
         }
+
+      
 
 
         private void ListarPagamento()
@@ -188,12 +188,12 @@ namespace FarmaTec
             
             txtNomeFuncionario.Text = LoginSistema.nomeUsuario;
             AutoCompletar();
-            AutoCompletarProdutos();
+            AutoCompletarProdutosCaixa();
         }
 
-        private void btnIncluir_Click_1(object sender, EventArgs e)
+        private async void btnIncluir_Click_1(object sender, EventArgs e)
         {
-
+           
             if (txtnomecliente.Text == String.Empty && txtdescricao.Text == String.Empty)
             {
                 MessageBox.Show("Favor inserir o nome do Cliente e do Produto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -226,7 +226,48 @@ namespace FarmaTec
                 txtCodProduto.Clear();
                
             }
-         
+
+
+
+                    //Realizar a pesquisa do produto no banco de dados.
+            try
+            {
+                //Instanciar as classes
+                ConsultarProdutos consultarProdutos = new ConsultarProdutos();
+                ProdutosDTO dados = new ProdutosDTO();
+
+
+
+                //Popular classe
+                dados.descricao = txtdescricao.Text;
+
+
+                //Chamar o método
+                await consultarProdutos.MostrarProduto(dados);
+
+
+                //Popular o campo código
+                for (int i = 0; i < consultarProdutos.listProdutos.Count; i++)
+                {
+                    txtCodProduto.Text =   consultarProdutos.listProdutos[i].codProduto.ToString();
+                  
+                    
+                  
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
+
+
+
+
         }
 
         private void grpProduto_Paint(object sender, PaintEventArgs e)
@@ -288,6 +329,24 @@ namespace FarmaTec
         private void txtNomeProduto_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtDesconto_TextChanged(object sender, EventArgs e)
+
+        {
+            if (txtDesconto.Text != string.Empty)
+            {
+                double number = int.Parse(txtValor.Text);
+                double porcentagem = number * Convert.ToDouble(txtDesconto.Text) / 100;
+                double porcentagemtotal = number - porcentagem;
+                txtValorTotal.Text = porcentagemtotal.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Favor inserir a porcentagem de desconto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
+           
         }
     }
 

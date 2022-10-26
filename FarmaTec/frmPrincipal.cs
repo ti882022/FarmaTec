@@ -174,13 +174,7 @@ namespace FarmaTec
 
         }
 
-        private void menuRelatorioFinanceiro_Click(object sender, EventArgs e)
-        {
-            FecharTodos();
-            Form childForm = new frmRelatorioFinanceiro();
-            AbrirForm(childForm);
-
-        }
+      
 
 
 

@@ -32,6 +32,8 @@ namespace TransferenciaDados
     }
     public class LoginSistema
     {
+
+        public static int codFuncionario { get; set; }
         public static string nomeUsuario { get; set; }
         public static string emailUsuario { get; set; }
         public static int classe { get; set; }
@@ -73,7 +75,9 @@ namespace TransferenciaDados
                 {
 
                     dados.logado = Convert.ToInt32(item["plogado"].ToString());
-                   
+
+
+                    LoginSistema.codFuncionario = Convert.ToInt32(item["pcod"].ToString());
                     LoginSistema.emailUsuario = item["pemail"].ToString();
                     LoginSistema.nomeUsuario = item["pnome"].ToString();
                     LoginSistema.classe = Convert.ToInt32(item["pcargo"].ToString());

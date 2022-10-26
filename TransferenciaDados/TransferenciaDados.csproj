@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaixaDTO.cs" />
     <Compile Include="CargosDTO.cs" />
     <Compile Include="CategoriasDTO.cs" />
     <Compile Include="ClientesDTO.cs" />

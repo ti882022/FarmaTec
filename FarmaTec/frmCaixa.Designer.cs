@@ -95,7 +95,7 @@ namespace FarmaTec
             // 
             this.lblNomeCliente.AutoSize = true;
             this.lblNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeCliente.Location = new System.Drawing.Point(115, 42);
+            this.lblNomeCliente.Location = new System.Drawing.Point(121, 42);
             this.lblNomeCliente.Name = "lblNomeCliente";
             this.lblNomeCliente.Size = new System.Drawing.Size(130, 20);
             this.lblNomeCliente.TabIndex = 4;
@@ -373,6 +373,7 @@ namespace FarmaTec
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(113, 31);
             this.txtDesconto.TabIndex = 3;
+            this.txtDesconto.TextChanged += new System.EventHandler(this.txtDesconto_TextChanged);
             // 
             // lblDesconto
             // 
@@ -539,10 +540,8 @@ namespace FarmaTec
         private System.Windows.Forms.TextBox txtNomeFuncionario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtdescricao;
-        private System.Windows.Forms.TextBox txtCodProduto;
         private System.Windows.Forms.TextBox txtPedido;
         private System.Windows.Forms.Label nrPedido;
         private System.Windows.Forms.DateTimePicker dtPedido;
@@ -575,5 +574,7 @@ namespace FarmaTec
         private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
         private System.Windows.Forms.DataGridViewTextBoxColumn preco;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCodProduto;
     }
 }

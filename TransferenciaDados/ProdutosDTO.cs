@@ -14,9 +14,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
-
-
-
 namespace TransferenciaDados
 {
     public class ProdutosDTO
@@ -129,7 +126,7 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://10.38.45.24:8080/farmatec-api/listarcod/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/produtos/listarcod/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -153,8 +150,7 @@ namespace TransferenciaDados
 
                 JArray arrayProdutos = (JArray)obj["RetornoDados"];
 
-
-                                                                 
+                                                                            
 
                     foreach (var item in arrayProdutos)
                     {

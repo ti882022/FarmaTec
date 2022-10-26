@@ -22,13 +22,11 @@ namespace FarmaTec
         public async void AutoCompletarProdutos()
         {
 
-
             try
             {
                 //Instanciar as classes
                 ConsultarProdutos consultarProdutos = new ConsultarProdutos();
                 ProdutosDTO dados = new ProdutosDTO();
-
 
 
                 //Popular classe
