@@ -334,19 +334,30 @@ namespace FarmaTec
         private void txtDesconto_TextChanged(object sender, EventArgs e)
 
         {
-            if (txtDesconto.Text != string.Empty)
+            
+           
+           
+        }
+
+        private void mskDesconto_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+           
+        }
+
+        private void txtdesconto_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtdesconto.Text != string.Empty)
             {
                 double number = int.Parse(txtValor.Text);
-                double porcentagem = number * Convert.ToDouble(txtDesconto.Text) / 100;
+                double porcentagem = number * Convert.ToDouble(txtdesconto.Text) / 100;
                 double porcentagemtotal = number - porcentagem;
                 txtValorTotal.Text = porcentagemtotal.ToString();
             }
             else
             {
                 MessageBox.Show("Favor inserir a porcentagem de desconto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtValorTotal.Text = txtValor.Text;
             }
-           
-           
         }
     }
 

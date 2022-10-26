@@ -61,7 +61,6 @@ namespace FarmaTec
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblFormaPagamento = new System.Windows.Forms.Label();
-            this.txtDesconto = new System.Windows.Forms.TextBox();
             this.lblDesconto = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.lblPagamento = new System.Windows.Forms.Label();
@@ -74,6 +73,7 @@ namespace FarmaTec
             this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.txtdesconto = new System.Windows.Forms.TextBox();
             this.grpCliente.SuspendLayout();
             this.grpProduto.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -305,12 +305,12 @@ namespace FarmaTec
             // grpPagamento
             // 
             this.grpPagamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.grpPagamento.Controls.Add(this.txtdesconto);
             this.grpPagamento.Controls.Add(this.cboFormaPagamento);
             this.grpPagamento.Controls.Add(this.btnReceber);
             this.grpPagamento.Controls.Add(this.txtValorTotal);
             this.grpPagamento.Controls.Add(this.lblTotal);
             this.grpPagamento.Controls.Add(this.lblFormaPagamento);
-            this.grpPagamento.Controls.Add(this.txtDesconto);
             this.grpPagamento.Controls.Add(this.lblDesconto);
             this.grpPagamento.Controls.Add(this.txtValor);
             this.grpPagamento.Controls.Add(this.lblPagamento);
@@ -366,14 +366,6 @@ namespace FarmaTec
             this.lblFormaPagamento.Size = new System.Drawing.Size(274, 31);
             this.lblFormaPagamento.TabIndex = 4;
             this.lblFormaPagamento.Text = "Forma de Pagamento";
-            // 
-            // txtDesconto
-            // 
-            this.txtDesconto.Location = new System.Drawing.Point(221, 116);
-            this.txtDesconto.Name = "txtDesconto";
-            this.txtDesconto.Size = new System.Drawing.Size(113, 31);
-            this.txtDesconto.TabIndex = 3;
-            this.txtDesconto.TextChanged += new System.EventHandler(this.txtDesconto_TextChanged);
             // 
             // lblDesconto
             // 
@@ -497,6 +489,14 @@ namespace FarmaTec
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
             // 
+            // txtdesconto
+            // 
+            this.txtdesconto.Location = new System.Drawing.Point(221, 116);
+            this.txtdesconto.Name = "txtdesconto";
+            this.txtdesconto.Size = new System.Drawing.Size(113, 31);
+            this.txtdesconto.TabIndex = 10;
+            this.txtdesconto.TextChanged += new System.EventHandler(this.txtdesconto_TextChanged_1);
+            // 
             // frmCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,7 +563,6 @@ namespace FarmaTec
         private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblFormaPagamento;
-        private System.Windows.Forms.TextBox txtDesconto;
         private System.Windows.Forms.Label lblDesconto;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label lblPagamento;
@@ -575,5 +574,6 @@ namespace FarmaTec
         private System.Windows.Forms.DataGridViewTextBoxColumn preco;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCodProduto;
+        private System.Windows.Forms.TextBox txtdesconto;
     }
 }
