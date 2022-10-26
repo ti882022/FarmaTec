@@ -81,7 +81,7 @@ namespace TransferenciaDados
         {
             try
             {
-                string URL = "http://localhost/siteturma88/funcionarios/incluir/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/funcionarios/incluir/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -89,14 +89,15 @@ namespace TransferenciaDados
                 var data = new Dictionary<string, string>
                 {
                     {"txtnomefuncionario", dados.nome},
-                    {"txtusuario", dados.usuario},
                     {"txtsexo", dados.sexo},
                     {"txtfonefuncionario", dados.telefone },
                     {"txtemailfuncionario", dados.email },
                     {"txtclassefunc", dados.cargo.ToString()},
+                    {"txtusuario", dados.usuario},
                     {"HTTP_ACCEPT", "application/Json" }
                 };
 
+                
 
 
 

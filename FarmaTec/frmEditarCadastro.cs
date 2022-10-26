@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TransferenciaDados;
 
 namespace FarmaTec
 {
@@ -19,52 +20,174 @@ namespace FarmaTec
             this.KeyPreview = true;
             InitializeComponent();
         }
+        public int codigoClasse;
+
+        private void ListarCargos()
+        {
+            try
+            {
+                ConsultarCargo consultarcargo = new ConsultarCargo();
+                CargosDTO dados = new CargosDTO();
+
+                consultarcargo.CarregarCombo(dados);
+
+                //Limpar fonte de dados e limpar combo
+                cmbCargo.DataSource = null;
+                cmbCargo.Items.Clear();
+
+                //Popular o listbox
+                //Definir o código do cargo, porém irá apresentar somente o nome do cargo
+                cmbCargo.ValueMember = "classeUsuario";
+                cmbCargo.DisplayMember = "descricao";
+                cmbCargo.DataSource = consultarcargo.CargosDataTable;
+                //Trazer os dados para serem selecionados
+                cmbCargo.SelectedIndex = -1;
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
+        }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja sair da Retirada de produtos?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja sair do Editor de Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Close();
             }
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private async void btnSalvar_Click(object sender, EventArgs e)
         {
-            mskTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-
-            if (tratamentoCampos.Vazio(this) == true)
+            try
             {
-                tratamentoCampos.Bloquear(this);
-                if (MessageBox.Show("Deseja Editar o Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (tratamentoCampos.Vazio(this) == true)
                 {
-                    if (MessageBox.Show("Cadastro Atualizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                    tratamentoCampos.Bloquear(this);
+                    if (MessageBox.Show("Deseja Editar o Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        tratamentoCampos.Limpar(this);
-                        txtCodigoFuncionario.Enabled = true;
+                        ConsultarUsers consultarUsers = new ConsultarUsers();
+                        UsuariosDTO dados = new UsuariosDTO();
+
+                        dados.usuario = txtCodigoFuncionario.Text;
+                        dados.nome = txtNomeFuncionario.Text;
+                        dados.email = txtEmailFuncionario.Text;
+                        dados.classeUsuario = Convert.ToInt32(codigoClasse);
+                        if (radAtivo.Checked == true) dados.logado = 1;
+                        if (radDesativado.Checked == true) dados.logado = 4;
+                        if (radReset.Checked == true) dados.logado = 3;
+
+                        await consultarUsers.EditarCadastro(dados);
+                        if (dados.mensagens == null)
+                        {
+
+                            if (dados.logado == 0)
+                            {
+                                MessageBox.Show("Não foi possível alterar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Cadastro Atualizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                tratamentoCampos.Limpar(this);
+                                txtCodigoFuncionario.Enabled = true;
+                                radDesativado.Checked = false;
+                                radAtivo.Checked = false;
+                                radReset.Checked = false;
+                            }
+
+                        }
+
                     }
                 }
             }
-        }
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            if (txtCodigoFuncionario.Text != string.Empty)
+            catch
             {
-                tratamentoCampos.Desbloquear(this);
-                txtCodigoFuncionario.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("Preencha o Código do Funcionário.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCodigoFuncionario.Focus();
-
+                MessageBox.Show(e.ToString());
             }
         }
 
-        private void mskTelefone_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        public async void btnPesquisar_Click(object sender, EventArgs e)
         {
-            mskTelefone.Select(0, 0);
+            try
+            {
+                if (txtCodigoFuncionario.Text != string.Empty)
+                {
+                    tratamentoCampos.Desbloquear(this);
+                    txtCodigoFuncionario.Enabled = false;
+                    txtCodigoFuncionario.BackColor = System.Drawing.Color.White;
+                    txtNomeFuncionario.Focus();
+
+                    //Instanciar as classes
+                    ConsultarUsers consultarUsers = new ConsultarUsers();
+                    ConsultarDTO dados = new ConsultarDTO();
+
+
+                    //Popular classe
+                    dados.usuario = txtCodigoFuncionario.Text;
+
+                    //Chamar o método
+                    await consultarUsers.MostrarUsuarios(dados);
+
+
+                    if (dados.mensagens != null)
+                    {
+                        MessageBox.Show(dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        tratamentoCampos.Bloquear(this);
+                        txtCodigoFuncionario.Enabled = true;
+                        txtCodigoFuncionario.BackColor = System.Drawing.Color.White;
+                        txtCodigoFuncionario.Focus();
+                    }
+                    else
+                    {
+                        for (int i = 0; i < consultarUsers.listusuarios.Count; i++)
+                        {
+                            txtNomeFuncionario.Text = consultarUsers.listusuarios[i].nomeFunc.ToString();
+                            txtEmailFuncionario.Text = consultarUsers.listusuarios[i].emailFunc.ToString();
+                            switch (consultarUsers.listusuarios[i].statusFunc.ToString())
+                            {
+                                case "1":
+                                    this.radAtivo.Checked = true;
+                                    break;
+                                case "2":
+                                    this.radAtivo.Checked = true;
+                                    break;
+                                case "3":
+                                    this.radReset.Checked = true;
+                                    break;
+                                case "4":
+                                    this.radDesativado.Checked = true;
+                                    break;
+                            }
+                            for (int j = 0; j < cmbCargo.Items.Count; j++)
+                            {
+                                DataRowView drv = (DataRowView)cmbCargo.Items[j];
+                                string cargoFunc = drv["classeUsuario"].ToString();
+
+                                cmbCargo.SelectedIndex = -1;
+                                if (consultarUsers.listusuarios[i].cargoFunc.ToString() == cargoFunc)
+                                {
+                                    cmbCargo.SelectedIndex = j;
+                                    j = cmbCargo.Items.Count;
+                                    cmbCargo.Enabled = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha o código do cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                
+            }
         }
+
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -72,19 +195,27 @@ namespace FarmaTec
             switch (keyData)
             {
                 case Keys.Enter:
-                    btnSalvar.PerformClick();
+                    if ((txtCodigoFuncionario.Text != string.Empty) && (txtCodigoFuncionario.Enabled == true))
+                    {
+                        btnPesquisar.PerformClick();
+                    }
+                    else
+                    {
+                        btnSalvar.PerformClick();
+                    }
                     return true;
 
                 case Keys.Escape:
-                    btnLimpar.PerformClick();
-                    return true;
-
-                case Keys.F12:
-                    btnLimpar.PerformClick();
+                    btnSair.PerformClick();
                     return true;
 
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void lblUsuario_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void txtCodigoFuncionario_TextChanged(object sender, EventArgs e)
@@ -92,19 +223,18 @@ namespace FarmaTec
 
         }
 
-        private void cmbCargo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmEditarCadastro_Load(object sender, EventArgs e)
         {
+            ListarCargos();
+        }
 
+        private void cmbCargo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            codigoClasse = Convert.ToInt32(cmbCargo.SelectedValue.ToString());
         }
     }
 }
+
+
+
+

@@ -65,7 +65,7 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://localhost/siteturma88/clientes/listar/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/clientes/listar/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -114,12 +114,12 @@ namespace TransferenciaDados
 
             catch (JsonException e)
             {
-                dados.mensagens = " ERRO - ConsultarClientes  - MostrarCliente - " + e.Message.ToString();
+                dados.mensagens = "Cliente não cadastrado.";
             }
 
             catch (HttpRequestException ex)
             {
-                dados.mensagens = " ERRO - ConsultarClientes  - MostrarCliente - " + ex.Message.ToString();
+                dados.mensagens = "Erro de Conexão: Contate o suporte - " + ex.Message.ToString();
             }
 
         }

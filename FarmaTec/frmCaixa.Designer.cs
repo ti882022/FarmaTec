@@ -31,22 +31,18 @@ namespace FarmaTec
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCaixa));
-            this.txtNomeCliente = new System.Windows.Forms.TextBox();
-            this.txtCodCliente = new System.Windows.Forms.TextBox();
-            this.lblCodCliente = new System.Windows.Forms.Label();
+            this.txtnomecliente = new System.Windows.Forms.TextBox();
             this.lblNomeCliente = new System.Windows.Forms.Label();
             this.grpCliente = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
-            this.txtCodFuncionario = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.grpProduto = new System.Windows.Forms.GroupBox();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.dtPedido = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNomeProduto = new System.Windows.Forms.TextBox();
+            this.txtdescricao = new System.Windows.Forms.TextBox();
             this.txtCodProduto = new System.Windows.Forms.TextBox();
             this.txtPedido = new System.Windows.Forms.TextBox();
             this.nrPedido = new System.Windows.Forms.Label();
@@ -54,30 +50,13 @@ namespace FarmaTec
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.menuVendas = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuVendasCaixa = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuVendasRetirada = new System.Windows.Forms.ToolStripMenuItem();
             this.menuConsulta = new System.Windows.Forms.ToolStripMenuItem();
             this.menuConsultaProdutos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuConsultaClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadastroClientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCadastroFuncionarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuNovoAcesso = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEditarCadastro = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAlterarSenha = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCadastroFornecedores = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMovimentacao = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMovimentacaoEntrada = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMovimentacaoSaida = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRelatorios = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRelatorioFinanceiro = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRelatorioFluxo = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRelatorioVendas = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRelatorioEstoque = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.grpPagamento = new System.Windows.Forms.GroupBox();
-            this.cbFormaPagamento = new System.Windows.Forms.ComboBox();
+            this.cboFormaPagamento = new System.Windows.Forms.ComboBox();
             this.btnReceber = new System.Windows.Forms.Button();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -89,13 +68,12 @@ namespace FarmaTec
             this.btnFinalizarCompra = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.dsPrecoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsDesconto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dsCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtVenda = new System.Windows.Forms.DataGridView();
+            this.codProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.grpCliente.SuspendLayout();
             this.grpProduto.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -103,40 +81,21 @@ namespace FarmaTec
             ((System.ComponentModel.ISupportInitialize)(this.dtVenda)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNomeCliente
+            // txtnomecliente
             // 
-            this.txtNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCliente.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomeCliente.Location = new System.Drawing.Point(119, 65);
-            this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(500, 29);
-            this.txtNomeCliente.TabIndex = 0;
-            // 
-            // txtCodCliente
-            // 
-            this.txtCodCliente.AllowDrop = true;
-            this.txtCodCliente.Enabled = false;
-            this.txtCodCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodCliente.Location = new System.Drawing.Point(6, 65);
-            this.txtCodCliente.Name = "txtCodCliente";
-            this.txtCodCliente.Size = new System.Drawing.Size(76, 29);
-            this.txtCodCliente.TabIndex = 1;
-            // 
-            // lblCodCliente
-            // 
-            this.lblCodCliente.AutoSize = true;
-            this.lblCodCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodCliente.Location = new System.Drawing.Point(6, 42);
-            this.lblCodCliente.Name = "lblCodCliente";
-            this.lblCodCliente.Size = new System.Drawing.Size(63, 20);
-            this.lblCodCliente.TabIndex = 3;
-            this.lblCodCliente.Text = "Código:";
+            this.txtnomecliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnomecliente.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtnomecliente.Location = new System.Drawing.Point(119, 65);
+            this.txtnomecliente.Name = "txtnomecliente";
+            this.txtnomecliente.Size = new System.Drawing.Size(500, 29);
+            this.txtnomecliente.TabIndex = 0;
+            this.txtnomecliente.TextChanged += new System.EventHandler(this.txtNomeCliente_TextChanged);
             // 
             // lblNomeCliente
             // 
             this.lblNomeCliente.AutoSize = true;
             this.lblNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeCliente.Location = new System.Drawing.Point(115, 42);
+            this.lblNomeCliente.Location = new System.Drawing.Point(121, 42);
             this.lblNomeCliente.Name = "lblNomeCliente";
             this.lblNomeCliente.Size = new System.Drawing.Size(130, 20);
             this.lblNomeCliente.TabIndex = 4;
@@ -147,11 +106,7 @@ namespace FarmaTec
             this.grpCliente.Controls.Add(this.label3);
             this.grpCliente.Controls.Add(this.lblNomeCliente);
             this.grpCliente.Controls.Add(this.txtNomeFuncionario);
-            this.grpCliente.Controls.Add(this.txtCodFuncionario);
-            this.grpCliente.Controls.Add(this.label2);
-            this.grpCliente.Controls.Add(this.lblCodCliente);
-            this.grpCliente.Controls.Add(this.txtCodCliente);
-            this.grpCliente.Controls.Add(this.txtNomeCliente);
+            this.grpCliente.Controls.Add(this.txtnomecliente);
             this.grpCliente.Font = new System.Drawing.Font("Yu Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCliente.Location = new System.Drawing.Point(29, 64);
             this.grpCliente.Name = "grpCliente";
@@ -164,7 +119,7 @@ namespace FarmaTec
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(115, 116);
+            this.label3.Location = new System.Drawing.Point(121, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(160, 20);
             this.label3.TabIndex = 5;
@@ -175,30 +130,11 @@ namespace FarmaTec
             this.txtNomeFuncionario.Enabled = false;
             this.txtNomeFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeFuncionario.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomeFuncionario.Location = new System.Drawing.Point(119, 139);
+            this.txtNomeFuncionario.Location = new System.Drawing.Point(119, 131);
             this.txtNomeFuncionario.Name = "txtNomeFuncionario";
             this.txtNomeFuncionario.Size = new System.Drawing.Size(500, 29);
             this.txtNomeFuncionario.TabIndex = 2;
-            // 
-            // txtCodFuncionario
-            // 
-            this.txtCodFuncionario.AllowDrop = true;
-            this.txtCodFuncionario.Enabled = false;
-            this.txtCodFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodFuncionario.Location = new System.Drawing.Point(6, 139);
-            this.txtCodFuncionario.Name = "txtCodFuncionario";
-            this.txtCodFuncionario.Size = new System.Drawing.Size(76, 29);
-            this.txtCodFuncionario.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 112);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Código:";
+            this.txtNomeFuncionario.TextChanged += new System.EventHandler(this.txtNomeFuncionario_TextChanged);
             // 
             // grpProduto
             // 
@@ -208,7 +144,7 @@ namespace FarmaTec
             this.grpProduto.Controls.Add(this.label1);
             this.grpProduto.Controls.Add(this.label6);
             this.grpProduto.Controls.Add(this.label4);
-            this.grpProduto.Controls.Add(this.txtNomeProduto);
+            this.grpProduto.Controls.Add(this.txtdescricao);
             this.grpProduto.Controls.Add(this.txtCodProduto);
             this.grpProduto.Controls.Add(this.txtPedido);
             this.grpProduto.Controls.Add(this.nrPedido);
@@ -275,14 +211,15 @@ namespace FarmaTec
             this.label4.TabIndex = 12;
             this.label4.Text = "Nome do Produto";
             // 
-            // txtNomeProduto
+            // txtdescricao
             // 
-            this.txtNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeProduto.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtNomeProduto.Location = new System.Drawing.Point(132, 65);
-            this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(500, 29);
-            this.txtNomeProduto.TabIndex = 1;
+            this.txtdescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescricao.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtdescricao.Location = new System.Drawing.Point(132, 65);
+            this.txtdescricao.Name = "txtdescricao";
+            this.txtdescricao.Size = new System.Drawing.Size(500, 29);
+            this.txtdescricao.TabIndex = 1;
+            this.txtdescricao.TextChanged += new System.EventHandler(this.txtNomeProduto_TextChanged);
             // 
             // txtCodProduto
             // 
@@ -322,38 +259,13 @@ namespace FarmaTec
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuVendas,
             this.menuConsulta,
-            this.menuCadastro,
-            this.menuMovimentacao,
-            this.menuRelatorios,
-            this.menuSair});
+            this.menuCadastro});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1384, 24);
             this.menuStrip.TabIndex = 16;
             this.menuStrip.Text = "menuStrip1";
-            // 
-            // menuVendas
-            // 
-            this.menuVendas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuVendasCaixa,
-            this.menuVendasRetirada});
-            this.menuVendas.Name = "menuVendas";
-            this.menuVendas.Size = new System.Drawing.Size(56, 20);
-            this.menuVendas.Text = "Vendas";
-            // 
-            // menuVendasCaixa
-            // 
-            this.menuVendasCaixa.Name = "menuVendasCaixa";
-            this.menuVendasCaixa.Size = new System.Drawing.Size(117, 22);
-            this.menuVendasCaixa.Text = "Caixa";
-            // 
-            // menuVendasRetirada
-            // 
-            this.menuVendasRetirada.Name = "menuVendasRetirada";
-            this.menuVendasRetirada.Size = new System.Drawing.Size(117, 22);
-            this.menuVendasRetirada.Text = "Retirada";
             // 
             // menuConsulta
             // 
@@ -379,9 +291,7 @@ namespace FarmaTec
             // menuCadastro
             // 
             this.menuCadastro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuCadastroClientes,
-            this.menuCadastroFuncionarios,
-            this.menuCadastroFornecedores});
+            this.menuCadastroClientes});
             this.menuCadastro.Name = "menuCadastro";
             this.menuCadastro.Size = new System.Drawing.Size(66, 20);
             this.menuCadastro.Text = "Cadastro";
@@ -389,110 +299,13 @@ namespace FarmaTec
             // menuCadastroClientes
             // 
             this.menuCadastroClientes.Name = "menuCadastroClientes";
-            this.menuCadastroClientes.Size = new System.Drawing.Size(145, 22);
+            this.menuCadastroClientes.Size = new System.Drawing.Size(116, 22);
             this.menuCadastroClientes.Text = "Clientes";
-            // 
-            // menuCadastroFuncionarios
-            // 
-            this.menuCadastroFuncionarios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuNovoAcesso,
-            this.menuEditarCadastro,
-            this.menuAlterarSenha});
-            this.menuCadastroFuncionarios.Name = "menuCadastroFuncionarios";
-            this.menuCadastroFuncionarios.Size = new System.Drawing.Size(145, 22);
-            this.menuCadastroFuncionarios.Text = "Funcionários";
-            // 
-            // menuNovoAcesso
-            // 
-            this.menuNovoAcesso.Name = "menuNovoAcesso";
-            this.menuNovoAcesso.Size = new System.Drawing.Size(154, 22);
-            this.menuNovoAcesso.Text = "Novo Acesso";
-            // 
-            // menuEditarCadastro
-            // 
-            this.menuEditarCadastro.Name = "menuEditarCadastro";
-            this.menuEditarCadastro.Size = new System.Drawing.Size(154, 22);
-            this.menuEditarCadastro.Text = "Editar Cadastro";
-            this.menuEditarCadastro.Click += new System.EventHandler(this.menuEditarCadastro_Click);
-            // 
-            // menuAlterarSenha
-            // 
-            this.menuAlterarSenha.Name = "menuAlterarSenha";
-            this.menuAlterarSenha.Size = new System.Drawing.Size(154, 22);
-            this.menuAlterarSenha.Text = "Alterar Senha";
-            // 
-            // menuCadastroFornecedores
-            // 
-            this.menuCadastroFornecedores.Name = "menuCadastroFornecedores";
-            this.menuCadastroFornecedores.Size = new System.Drawing.Size(145, 22);
-            this.menuCadastroFornecedores.Text = "Fornecedores";
-            // 
-            // menuMovimentacao
-            // 
-            this.menuMovimentacao.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuMovimentacaoEntrada,
-            this.menuMovimentacaoSaida});
-            this.menuMovimentacao.Name = "menuMovimentacao";
-            this.menuMovimentacao.Size = new System.Drawing.Size(99, 20);
-            this.menuMovimentacao.Text = "Movimentação";
-            // 
-            // menuMovimentacaoEntrada
-            // 
-            this.menuMovimentacaoEntrada.Name = "menuMovimentacaoEntrada";
-            this.menuMovimentacaoEntrada.Size = new System.Drawing.Size(159, 22);
-            this.menuMovimentacaoEntrada.Text = "Entrada Estoque";
-            // 
-            // menuMovimentacaoSaida
-            // 
-            this.menuMovimentacaoSaida.Name = "menuMovimentacaoSaida";
-            this.menuMovimentacaoSaida.Size = new System.Drawing.Size(159, 22);
-            this.menuMovimentacaoSaida.Text = "Saida Estoque";
-            // 
-            // menuRelatorios
-            // 
-            this.menuRelatorios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuRelatorioFinanceiro,
-            this.menuRelatorioFluxo,
-            this.menuRelatorioVendas,
-            this.menuRelatorioEstoque});
-            this.menuRelatorios.Name = "menuRelatorios";
-            this.menuRelatorios.Size = new System.Drawing.Size(71, 20);
-            this.menuRelatorios.Text = "Relatórios";
-            // 
-            // menuRelatorioFinanceiro
-            // 
-            this.menuRelatorioFinanceiro.Name = "menuRelatorioFinanceiro";
-            this.menuRelatorioFinanceiro.Size = new System.Drawing.Size(151, 22);
-            this.menuRelatorioFinanceiro.Text = "Financeiro";
-            // 
-            // menuRelatorioFluxo
-            // 
-            this.menuRelatorioFluxo.Name = "menuRelatorioFluxo";
-            this.menuRelatorioFluxo.Size = new System.Drawing.Size(151, 22);
-            this.menuRelatorioFluxo.Text = "Fluxo de Caixa";
-            // 
-            // menuRelatorioVendas
-            // 
-            this.menuRelatorioVendas.Name = "menuRelatorioVendas";
-            this.menuRelatorioVendas.Size = new System.Drawing.Size(151, 22);
-            this.menuRelatorioVendas.Text = "Vendas";
-            // 
-            // menuRelatorioEstoque
-            // 
-            this.menuRelatorioEstoque.Name = "menuRelatorioEstoque";
-            this.menuRelatorioEstoque.Size = new System.Drawing.Size(151, 22);
-            this.menuRelatorioEstoque.Text = "Estoque";
-            // 
-            // menuSair
-            // 
-            this.menuSair.Name = "menuSair";
-            this.menuSair.Size = new System.Drawing.Size(38, 20);
-            this.menuSair.Text = "Sair";
             // 
             // grpPagamento
             // 
             this.grpPagamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.grpPagamento.Controls.Add(this.cbFormaPagamento);
+            this.grpPagamento.Controls.Add(this.cboFormaPagamento);
             this.grpPagamento.Controls.Add(this.btnReceber);
             this.grpPagamento.Controls.Add(this.txtValorTotal);
             this.grpPagamento.Controls.Add(this.lblTotal);
@@ -502,21 +315,21 @@ namespace FarmaTec
             this.grpPagamento.Controls.Add(this.txtValor);
             this.grpPagamento.Controls.Add(this.lblPagamento);
             this.grpPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPagamento.Location = new System.Drawing.Point(530, 273);
+            this.grpPagamento.Location = new System.Drawing.Point(515, 303);
             this.grpPagamento.Name = "grpPagamento";
             this.grpPagamento.Size = new System.Drawing.Size(434, 401);
             this.grpPagamento.TabIndex = 17;
             this.grpPagamento.TabStop = false;
             this.grpPagamento.Text = "PAGAMENTO";
             // 
-            // cbFormaPagamento
+            // cboFormaPagamento
             // 
-            this.cbFormaPagamento.FormattingEnabled = true;
-            this.cbFormaPagamento.Location = new System.Drawing.Point(62, 162);
-            this.cbFormaPagamento.Name = "cbFormaPagamento";
-            this.cbFormaPagamento.Size = new System.Drawing.Size(260, 33);
-            this.cbFormaPagamento.TabIndex = 9;
-            this.cbFormaPagamento.SelectedIndexChanged += new System.EventHandler(this.cbFormaPagamento_SelectedIndexChanged);
+            this.cboFormaPagamento.FormattingEnabled = true;
+            this.cboFormaPagamento.Location = new System.Drawing.Point(62, 217);
+            this.cboFormaPagamento.Name = "cboFormaPagamento";
+            this.cboFormaPagamento.Size = new System.Drawing.Size(260, 33);
+            this.cboFormaPagamento.TabIndex = 9;
+            this.cboFormaPagamento.SelectedIndexChanged += new System.EventHandler(this.cbFormaPagamento_SelectedIndexChanged);
             // 
             // btnReceber
             // 
@@ -529,7 +342,7 @@ namespace FarmaTec
             // 
             // txtValorTotal
             // 
-            this.txtValorTotal.Location = new System.Drawing.Point(213, 207);
+            this.txtValorTotal.Location = new System.Drawing.Point(221, 292);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(113, 31);
             this.txtValorTotal.TabIndex = 7;
@@ -538,7 +351,7 @@ namespace FarmaTec
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(56, 207);
+            this.lblTotal.Location = new System.Drawing.Point(56, 292);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(75, 31);
             this.lblTotal.TabIndex = 6;
@@ -548,7 +361,7 @@ namespace FarmaTec
             // 
             this.lblFormaPagamento.AutoSize = true;
             this.lblFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormaPagamento.Location = new System.Drawing.Point(56, 130);
+            this.lblFormaPagamento.Location = new System.Drawing.Point(56, 185);
             this.lblFormaPagamento.Name = "lblFormaPagamento";
             this.lblFormaPagamento.Size = new System.Drawing.Size(274, 31);
             this.lblFormaPagamento.TabIndex = 4;
@@ -556,16 +369,17 @@ namespace FarmaTec
             // 
             // txtDesconto
             // 
-            this.txtDesconto.Location = new System.Drawing.Point(217, 89);
+            this.txtDesconto.Location = new System.Drawing.Point(221, 116);
             this.txtDesconto.Name = "txtDesconto";
             this.txtDesconto.Size = new System.Drawing.Size(113, 31);
             this.txtDesconto.TabIndex = 3;
+            this.txtDesconto.TextChanged += new System.EventHandler(this.txtDesconto_TextChanged);
             // 
             // lblDesconto
             // 
             this.lblDesconto.AutoSize = true;
             this.lblDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesconto.Location = new System.Drawing.Point(56, 89);
+            this.lblDesconto.Location = new System.Drawing.Point(60, 116);
             this.lblDesconto.Name = "lblDesconto";
             this.lblDesconto.Size = new System.Drawing.Size(130, 31);
             this.lblDesconto.TabIndex = 2;
@@ -573,7 +387,7 @@ namespace FarmaTec
             // 
             // txtValor
             // 
-            this.txtValor.Location = new System.Drawing.Point(217, 45);
+            this.txtValor.Location = new System.Drawing.Point(221, 54);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(113, 31);
             this.txtValor.TabIndex = 1;
@@ -582,7 +396,7 @@ namespace FarmaTec
             // 
             this.lblPagamento.AutoSize = true;
             this.lblPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPagamento.Location = new System.Drawing.Point(56, 49);
+            this.lblPagamento.Location = new System.Drawing.Point(56, 54);
             this.lblPagamento.Name = "lblPagamento";
             this.lblPagamento.Size = new System.Drawing.Size(77, 31);
             this.lblPagamento.TabIndex = 0;
@@ -600,6 +414,7 @@ namespace FarmaTec
             this.btnFinalizarCompra.Text = "Finalizar Compra";
             this.btnFinalizarCompra.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFinalizarCompra.UseVisualStyleBackColor = false;
+            this.btnFinalizarCompra.Click += new System.EventHandler(this.btnFinalizarCompra_Click);
             // 
             // btnSair
             // 
@@ -634,61 +449,53 @@ namespace FarmaTec
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // dsPrecoTotal
-            // 
-            this.dsPrecoTotal.HeaderText = "Total";
-            this.dsPrecoTotal.Name = "dsPrecoTotal";
-            this.dsPrecoTotal.ReadOnly = true;
-            this.dsPrecoTotal.Width = 130;
-            // 
-            // dsDesconto
-            // 
-            this.dsDesconto.HeaderText = "Desconto";
-            this.dsDesconto.Name = "dsDesconto";
-            this.dsDesconto.ReadOnly = true;
-            this.dsDesconto.Width = 130;
-            // 
-            // dsQuantidade
-            // 
-            this.dsQuantidade.HeaderText = "Quantidade";
-            this.dsQuantidade.Name = "dsQuantidade";
-            this.dsQuantidade.ReadOnly = true;
-            // 
-            // dsPreco
-            // 
-            this.dsPreco.HeaderText = "Valor Unitário";
-            this.dsPreco.Name = "dsPreco";
-            this.dsPreco.ReadOnly = true;
-            this.dsPreco.Width = 130;
-            // 
-            // dsProduto
-            // 
-            this.dsProduto.HeaderText = "Produto";
-            this.dsProduto.Name = "dsProduto";
-            this.dsProduto.ReadOnly = true;
-            this.dsProduto.Width = 300;
-            // 
-            // dsCodigo
-            // 
-            this.dsCodigo.HeaderText = "Código";
-            this.dsCodigo.Name = "dsCodigo";
-            this.dsCodigo.ReadOnly = true;
-            // 
             // dtVenda
             // 
             this.dtVenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtVenda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dsCodigo,
-            this.dsProduto,
-            this.dsPreco,
-            this.dsQuantidade,
-            this.dsDesconto,
-            this.dsPrecoTotal});
-            this.dtVenda.Location = new System.Drawing.Point(234, 284);
+            this.codProduto,
+            this.descricao,
+            this.qtde,
+            this.preco});
+            this.dtVenda.Location = new System.Drawing.Point(318, 280);
             this.dtVenda.Name = "dtVenda";
-            this.dtVenda.Size = new System.Drawing.Size(934, 349);
+            this.dtVenda.Size = new System.Drawing.Size(842, 349);
             this.dtVenda.TabIndex = 9;
             this.dtVenda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // codProduto
+            // 
+            this.codProduto.HeaderText = "Código";
+            this.codProduto.Name = "codProduto";
+            this.codProduto.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            this.descricao.HeaderText = "Produto";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            this.descricao.Width = 300;
+            // 
+            // qtde
+            // 
+            this.qtde.HeaderText = "Quantidade";
+            this.qtde.Name = "qtde";
+            this.qtde.ReadOnly = true;
+            this.qtde.Width = 200;
+            // 
+            // preco
+            // 
+            this.preco.HeaderText = "Valor Unitário";
+            this.preco.Name = "preco";
+            this.preco.ReadOnly = true;
+            this.preco.Width = 200;
+            // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
             // 
             // frmCaixa
             // 
@@ -707,7 +514,7 @@ namespace FarmaTec
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmCaixa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Caixa - FarmaTec";
+            this.Text = "Caixa - FarmaTec - Usuário: ";
             this.Load += new System.EventHandler(this.frmCaixa_Load);
             this.grpCliente.ResumeLayout(false);
             this.grpCliente.PerformLayout();
@@ -725,21 +532,15 @@ namespace FarmaTec
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNomeCliente;
-        private System.Windows.Forms.TextBox txtCodCliente;
-        private System.Windows.Forms.Label lblCodCliente;
+        private System.Windows.Forms.TextBox txtnomecliente;
         private System.Windows.Forms.Label lblNomeCliente;
         private System.Windows.Forms.GroupBox grpCliente;
         private System.Windows.Forms.GroupBox grpProduto;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCodFuncionario;
         private System.Windows.Forms.TextBox txtNomeFuncionario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNomeProduto;
-        private System.Windows.Forms.TextBox txtCodProduto;
+        private System.Windows.Forms.TextBox txtdescricao;
         private System.Windows.Forms.TextBox txtPedido;
         private System.Windows.Forms.Label nrPedido;
         private System.Windows.Forms.DateTimePicker dtPedido;
@@ -751,30 +552,13 @@ namespace FarmaTec
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnFinalizarCompra;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem menuVendas;
-        private System.Windows.Forms.ToolStripMenuItem menuVendasCaixa;
-        private System.Windows.Forms.ToolStripMenuItem menuVendasRetirada;
         private System.Windows.Forms.ToolStripMenuItem menuConsulta;
         private System.Windows.Forms.ToolStripMenuItem menuConsultaProdutos;
         private System.Windows.Forms.ToolStripMenuItem menuConsultaClientes;
         private System.Windows.Forms.ToolStripMenuItem menuCadastro;
         private System.Windows.Forms.ToolStripMenuItem menuCadastroClientes;
-        private System.Windows.Forms.ToolStripMenuItem menuCadastroFuncionarios;
-        private System.Windows.Forms.ToolStripMenuItem menuNovoAcesso;
-        private System.Windows.Forms.ToolStripMenuItem menuEditarCadastro;
-        private System.Windows.Forms.ToolStripMenuItem menuAlterarSenha;
-        private System.Windows.Forms.ToolStripMenuItem menuCadastroFornecedores;
-        private System.Windows.Forms.ToolStripMenuItem menuMovimentacao;
-        private System.Windows.Forms.ToolStripMenuItem menuMovimentacaoEntrada;
-        private System.Windows.Forms.ToolStripMenuItem menuMovimentacaoSaida;
-        private System.Windows.Forms.ToolStripMenuItem menuRelatorios;
-        private System.Windows.Forms.ToolStripMenuItem menuRelatorioFinanceiro;
-        private System.Windows.Forms.ToolStripMenuItem menuRelatorioFluxo;
-        private System.Windows.Forms.ToolStripMenuItem menuRelatorioVendas;
-        private System.Windows.Forms.ToolStripMenuItem menuRelatorioEstoque;
-        private System.Windows.Forms.ToolStripMenuItem menuSair;
         private System.Windows.Forms.GroupBox grpPagamento;
-        private System.Windows.Forms.ComboBox cbFormaPagamento;
+        private System.Windows.Forms.ComboBox cboFormaPagamento;
         private System.Windows.Forms.Button btnReceber;
         private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.Label lblTotal;
@@ -783,12 +567,13 @@ namespace FarmaTec
         private System.Windows.Forms.Label lblDesconto;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label lblPagamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsPrecoTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsDesconto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsQuantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsPreco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dsCodigo;
         private System.Windows.Forms.DataGridView dtVenda;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preco;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCodProduto;
     }
 }

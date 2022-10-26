@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using TransferenciaDados;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using TransferenciaDados;
 
 namespace FarmaTec
 {
@@ -45,7 +37,7 @@ namespace FarmaTec
                 cboclassefunc.SelectedIndex = -1;
             }
 
-            catch(Exception e) 
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message.ToString());
             }
@@ -85,7 +77,7 @@ namespace FarmaTec
                         {
                             dados.nome = txtNomeFuncionario.Text;
                             dados.usuario = txtUsuario.Text;
-                            dados.cargo = codigoClasse;
+                            dados.cargo = Convert.ToInt32(codigoClasse);
                             dados.telefone = mskTelefone.Text;
                             dados.email = txtEmailFuncionario.Text;
                             dados.sexo = txtsexo.Text;
@@ -115,7 +107,7 @@ namespace FarmaTec
                         }
                     }
                 }
-            }           
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -177,11 +169,6 @@ namespace FarmaTec
 
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void txtCodigoFuncionario_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cboclassefunc_SelectedIndexChanged(object sender, EventArgs e)

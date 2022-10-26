@@ -31,13 +31,12 @@ namespace FarmaTec
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultarClientes));
             this.pnlConsulta = new System.Windows.Forms.Panel();
+            this.lblOu = new System.Windows.Forms.Label();
             this.mskCpf = new System.Windows.Forms.MaskedTextBox();
             this.lblCpf = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblNomeCliente = new System.Windows.Forms.Label();
-            this.lblcodigo = new System.Windows.Forms.Label();
-            this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.txtnomeCliente = new System.Windows.Forms.TextBox();
             this.dtClientes = new System.Windows.Forms.DataGridView();
             this.codCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,33 +60,43 @@ namespace FarmaTec
             // pnlConsulta
             // 
             this.pnlConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlConsulta.Controls.Add(this.lblOu);
             this.pnlConsulta.Controls.Add(this.mskCpf);
             this.pnlConsulta.Controls.Add(this.lblCpf);
             this.pnlConsulta.Controls.Add(this.lblBuscar);
             this.pnlConsulta.Controls.Add(this.btnBuscar);
             this.pnlConsulta.Controls.Add(this.lblNomeCliente);
-            this.pnlConsulta.Controls.Add(this.lblcodigo);
-            this.pnlConsulta.Controls.Add(this.txtCodCliente);
             this.pnlConsulta.Controls.Add(this.txtnomeCliente);
             this.pnlConsulta.Location = new System.Drawing.Point(37, 67);
             this.pnlConsulta.Name = "pnlConsulta";
             this.pnlConsulta.Size = new System.Drawing.Size(974, 121);
             this.pnlConsulta.TabIndex = 18;
             // 
+            // lblOu
+            // 
+            this.lblOu.AutoSize = true;
+            this.lblOu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOu.Location = new System.Drawing.Point(308, 73);
+            this.lblOu.Name = "lblOu";
+            this.lblOu.Size = new System.Drawing.Size(48, 20);
+            this.lblOu.TabIndex = 16;
+            this.lblOu.Text = "E/OU";
+            // 
             // mskCpf
             // 
             this.mskCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskCpf.Location = new System.Drawing.Point(377, 65);
+            this.mskCpf.Location = new System.Drawing.Point(408, 67);
             this.mskCpf.Mask = "###,###,###-##";
             this.mskCpf.Name = "mskCpf";
             this.mskCpf.Size = new System.Drawing.Size(136, 29);
             this.mskCpf.TabIndex = 3;
+            this.mskCpf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mskCpf_MouseClick);
             // 
             // lblCpf
             // 
             this.lblCpf.AutoSize = true;
             this.lblCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCpf.Location = new System.Drawing.Point(426, 42);
+            this.lblCpf.Location = new System.Drawing.Point(457, 44);
             this.lblCpf.Name = "lblCpf";
             this.lblCpf.Size = new System.Drawing.Size(40, 20);
             this.lblCpf.TabIndex = 15;
@@ -120,43 +129,26 @@ namespace FarmaTec
             // 
             this.lblNomeCliente.AutoSize = true;
             this.lblNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeCliente.Location = new System.Drawing.Point(119, 42);
+            this.lblNomeCliente.Location = new System.Drawing.Point(40, 44);
             this.lblNomeCliente.Name = "lblNomeCliente";
             this.lblNomeCliente.Size = new System.Drawing.Size(126, 20);
             this.lblNomeCliente.TabIndex = 11;
             this.lblNomeCliente.Text = "Nome do Cliente";
             // 
-            // lblcodigo
-            // 
-            this.lblcodigo.AutoSize = true;
-            this.lblcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcodigo.Location = new System.Drawing.Point(11, 42);
-            this.lblcodigo.Name = "lblcodigo";
-            this.lblcodigo.Size = new System.Drawing.Size(59, 20);
-            this.lblcodigo.TabIndex = 8;
-            this.lblcodigo.Text = "Código";
-            // 
-            // txtCodCliente
-            // 
-            this.txtCodCliente.AllowDrop = true;
-            this.txtCodCliente.Enabled = false;
-            this.txtCodCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodCliente.Location = new System.Drawing.Point(5, 65);
-            this.txtCodCliente.Name = "txtCodCliente";
-            this.txtCodCliente.Size = new System.Drawing.Size(80, 29);
-            this.txtCodCliente.TabIndex = 1;
-            // 
             // txtnomeCliente
             // 
             this.txtnomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomeCliente.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtnomeCliente.Location = new System.Drawing.Point(118, 65);
+            this.txtnomeCliente.Location = new System.Drawing.Point(31, 67);
             this.txtnomeCliente.Name = "txtnomeCliente";
             this.txtnomeCliente.Size = new System.Drawing.Size(226, 29);
             this.txtnomeCliente.TabIndex = 2;
+            this.txtnomeCliente.TextChanged += new System.EventHandler(this.txtnomeCliente_TextChanged);
             // 
             // dtClientes
             // 
+            this.dtClientes.AllowUserToAddRows = false;
+            this.dtClientes.AllowUserToDeleteRows = false;
             this.dtClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codCliente,
@@ -171,15 +163,16 @@ namespace FarmaTec
             this.emailCliente});
             this.dtClientes.Location = new System.Drawing.Point(118, 274);
             this.dtClientes.Name = "dtClientes";
+            this.dtClientes.ReadOnly = true;
             this.dtClientes.Size = new System.Drawing.Size(1247, 388);
             this.dtClientes.TabIndex = 19;
-            this.dtClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // codCliente
             // 
             this.codCliente.HeaderText = "Código";
             this.codCliente.MaxInputLength = 1000;
             this.codCliente.Name = "codCliente";
+            this.codCliente.ReadOnly = true;
             this.codCliente.Width = 80;
             // 
             // nomeCliente
@@ -187,6 +180,7 @@ namespace FarmaTec
             this.nomeCliente.HeaderText = "Cliente";
             this.nomeCliente.MaxInputLength = 50;
             this.nomeCliente.Name = "nomeCliente";
+            this.nomeCliente.ReadOnly = true;
             this.nomeCliente.Width = 130;
             // 
             // endereco
@@ -194,6 +188,7 @@ namespace FarmaTec
             this.endereco.HeaderText = "Endereço";
             this.endereco.MaxInputLength = 50;
             this.endereco.Name = "endereco";
+            this.endereco.ReadOnly = true;
             this.endereco.Width = 130;
             // 
             // cep
@@ -201,6 +196,7 @@ namespace FarmaTec
             this.cep.HeaderText = "CEP";
             this.cep.MaxInputLength = 8;
             this.cep.Name = "cep";
+            this.cep.ReadOnly = true;
             this.cep.Width = 80;
             // 
             // cidade
@@ -208,6 +204,7 @@ namespace FarmaTec
             this.cidade.HeaderText = "Cidade";
             this.cidade.MaxInputLength = 50;
             this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
             this.cidade.Width = 130;
             // 
             // bairro
@@ -215,18 +212,21 @@ namespace FarmaTec
             this.bairro.HeaderText = "Bairro";
             this.bairro.MaxInputLength = 50;
             this.bairro.Name = "bairro";
+            this.bairro.ReadOnly = true;
             this.bairro.Width = 200;
             // 
             // uf
             // 
             this.uf.HeaderText = "UF";
             this.uf.Name = "uf";
+            this.uf.ReadOnly = true;
             // 
             // cpf
             // 
             this.cpf.HeaderText = "CPF";
             this.cpf.MaxInputLength = 13;
             this.cpf.Name = "cpf";
+            this.cpf.ReadOnly = true;
             this.cpf.Width = 130;
             // 
             // foneCliente
@@ -234,12 +234,14 @@ namespace FarmaTec
             this.foneCliente.HeaderText = "Telefone";
             this.foneCliente.MaxInputLength = 13;
             this.foneCliente.Name = "foneCliente";
+            this.foneCliente.ReadOnly = true;
             // 
             // emailCliente
             // 
             this.emailCliente.HeaderText = "Email";
             this.emailCliente.MaxInputLength = 100;
             this.emailCliente.Name = "emailCliente";
+            this.emailCliente.ReadOnly = true;
             this.emailCliente.Width = 130;
             // 
             // lblClientesRegistrados
@@ -290,7 +292,7 @@ namespace FarmaTec
             this.Controls.Add(this.pctClientes);
             this.Name = "frmConsultarClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmConsultarClientes";
+            this.Text = "Consultar Clientes - FarmaTec - Usuário: ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConsultarClientes_Load);
             this.pnlConsulta.ResumeLayout(false);
@@ -306,8 +308,6 @@ namespace FarmaTec
         private System.Windows.Forms.Panel pnlConsulta;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblNomeCliente;
-        private System.Windows.Forms.Label lblcodigo;
-        private System.Windows.Forms.TextBox txtCodCliente;
         private System.Windows.Forms.TextBox txtnomeCliente;
         private System.Windows.Forms.DataGridView dtClientes;
         private System.Windows.Forms.Button btnSair;
@@ -326,5 +326,6 @@ namespace FarmaTec
         private System.Windows.Forms.DataGridViewTextBoxColumn cpf;
         private System.Windows.Forms.DataGridViewTextBoxColumn foneCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailCliente;
+        private System.Windows.Forms.Label lblOu;
     }
 }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TransferenciaDados;
 
@@ -13,8 +6,10 @@ namespace FarmaTec
 {
     public partial class frmConsultarClientes : Form
     {
+
         public frmConsultarClientes()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -72,18 +67,12 @@ namespace FarmaTec
 
         }
 
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnSair_Click(object sender, EventArgs e)
         {
-             if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-             {
-                 Close();
-             }
+            if (MessageBox.Show("Deseja sair da Consulta?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }
 
 
         }
@@ -124,10 +113,13 @@ namespace FarmaTec
                                             consultarClientes.listClientes[i].foneCliente.ToString(),
                                             consultarClientes.listClientes[i].emailCliente.ToString());
                 }
+
+
                 if (dados.mensagens != null)
                 {
-                    MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
 
                 mskCpf.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
             }
@@ -137,12 +129,48 @@ namespace FarmaTec
                 MessageBox.Show(ex.ToString());
             }
 
-           
+
         }
 
         private void frmConsultarClientes_Load(object sender, EventArgs e)
         {
             AutoCompletar();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btnBuscar.PerformClick();
+                    return true;
+
+                case Keys.Escape:
+                    btnSair.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    txtnomeCliente.Clear();
+                    mskCpf.Clear();
+                    txtnomeCliente.Focus();
+                    dtClientes.Rows.Clear();
+                    dtClientes.Refresh();
+                    return true;
+
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void mskCpf_MouseClick(object sender, MouseEventArgs e)
+        {
+            mskCpf.Select(0, 0);
+        }
+
+        private void txtnomeCliente_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

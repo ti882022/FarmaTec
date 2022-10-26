@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FarmaTec
@@ -16,15 +13,16 @@ namespace FarmaTec
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            //Application.Run(new frmPrincipal());
 
-            /* frmLogin frm = new frmLogin();
+             frmLogin frm = new frmLogin();
              frm.ShowDialog();
              if (frm.LoginSucesso)
              {
                  Application.Run(new frmPrincipal());
              }
-            */
+           
+            
         }
     }
 }

@@ -24,26 +24,42 @@ namespace FarmaTec
         }
 
 
+        public int codigoCategoria;
+
+        private void ListarCategoria()
+        {
+            try
+            {
+                ConsultarCategoria consultarcategoria = new ConsultarCategoria();
+                CategoriasDTO dados = new CategoriasDTO();
+
+                consultarcategoria.ListarCombo(dados);
+
+                //Limpar fonte de dados e limpar combo
+                cboCategoria.DataSource = null;
+                cboCategoria.Items.Clear();
+
+                //Popular o listbox
+                //Definir o código do cargo, porém irá apresentar somente o nome do cargo
+                cboCategoria.ValueMember = "catProduto";
+                cboCategoria.DisplayMember = "categoria";
+                cboCategoria.DataSource = consultarcategoria.CategoriasDataTable;
+                //Trazer os dados para serem selecionados
+                cboCategoria.SelectedIndex = -1;
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
+        }
+
+
+
         private void frmCadastroProdutos_Load(object sender, EventArgs e)
         {
-            /* using (MySqlConnection con = new MySqlConnection("datasource = localhost; database = bdfarmacia; port = 3306; username = root; password = "))
-             {
-                 con.Open();
-                 MySqlCommand cmd = new MySqlCommand("SELECT *FROM tbcatprodutos", con);
-                 MySqlDataReader dr = cmd.ExecuteReader();
-                 List<string> list = new List<string>();
-                 while (dr.Read())
-                 {
-                     list.Add(dr["descricao"].ToString());
-                 }
-                 dr.Close();
-                 list = list.Distinct().ToList();
-                 list.Sort();
-                 txtCategoria.DataSource = list;
-
-
-             }
-            */
+            //Iniciar método para consultar as categorias
+            ListarCategoria();
         }
 
         private void InserirImagem_FileOk(object sender, CancelEventArgs e)
@@ -51,7 +67,7 @@ namespace FarmaTec
 
         }
 
-        private void btnInserirImagem_Click(object sender, EventArgs e)
+       /* private void btnInserirImagem_Click(object sender, EventArgs e)
         {
             //define as propriedades do controle 
             //OpenFileDialog
@@ -109,7 +125,7 @@ namespace FarmaTec
                     }
                 }
             }
-        }
+        }*/
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -135,11 +151,11 @@ namespace FarmaTec
                     dados.descricao = txtdescricao.Text;
                     dados.marca = txtmarca.Text;
                     dados.fornecedor = txtfornecedor.Text;
-                    dados.catProduto = Convert.ToInt32(txtCategoria.Text);
+                    dados.catProduto = Convert.ToInt32(codigoCategoria);
                     dados.unidade = txtUnidade.Text;
                     dados.estoqueMinimo = Convert.ToInt32(txtEstoqueMin.Text);
                     dados.preco = Convert.ToInt32(txtpreco.Text);
-                    dados.imgproduto = string.Empty;
+                    //dados.imgproduto = string.Empty;
                    
 
 
@@ -207,9 +223,15 @@ namespace FarmaTec
 
         }
 
+        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            codigoCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
+        }
+
         private void txtdescricao_TextChanged(object sender, EventArgs e)
         {
 
         }
     }
-}
+    }
+

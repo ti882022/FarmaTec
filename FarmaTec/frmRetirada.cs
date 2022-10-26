@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FarmaTec
@@ -16,13 +9,19 @@ namespace FarmaTec
         {
             InitializeComponent();
         }
-
-        private void btnSair_Click(object sender, EventArgs e)
+        public void AbrirForm(Form childForm)
         {
-            if (MessageBox.Show("Deseja sair da Retirada de produtos?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Close();
-            }
+            childForm.StartPosition = FormStartPosition.CenterScreen;
+            int x = (this.Width - childForm.Width) / 2;
+            int y = (this.Height - childForm.Height) / 2;
+            childForm.Show();
+        }
+
+
+        private void menuConsultaClientes_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmConsultarClientes();
+            AbrirForm(childForm);
         }
     }
 }

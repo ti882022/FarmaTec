@@ -122,10 +122,10 @@ namespace FarmaTec
             }
         }
 
-       
-           
 
-        
+
+
+
 
        
 
@@ -263,6 +263,11 @@ namespace FarmaTec
         private void cbocomprar_SelectionChangeCommitted(object sender, EventArgs e)
         {
             codigostatus = Convert.ToInt32(cbocomprar.SelectedValue.ToString());
+        }
+
+        private void cbomotivo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

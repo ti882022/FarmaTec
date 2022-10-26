@@ -378,7 +378,7 @@ namespace FarmaTec
             this.Controls.Add(this.dtRelatório);
             this.Controls.Add(this.pnlBuscar);
             this.Name = "frmRelatorioEstoque";
-            this.Text = "frmRelatorioEstoque";
+            this.Text = "Relatório - FarmaTec - Usuário:  ";
             this.Load += new System.EventHandler(this.frmRelatorioEstoque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtRelatório)).EndInit();
             this.pnlBuscar.ResumeLayout(false);

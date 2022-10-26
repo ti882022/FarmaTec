@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TransferenciaDados;
 
 namespace FarmaTec
 {
@@ -26,6 +27,45 @@ namespace FarmaTec
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            switch (LoginSistema.classe)
+            {
+                case 31:
+                    menuStrip.Visible = false;
+                    break;
+
+
+                case 32:
+                    menuStrip.Visible = true;
+
+                    break;
+
+                case 33:
+                    menuCadastroFuncionarios.Visible = false;
+                    menuCadastroFornecedores.Visible = false;
+                    menuCadastroProdutos.Visible = false;
+                    menuMovimentacao.Visible = false;
+                    menuRelatorios.Visible = false;
+                    menuVendas.Visible = false;
+
+                    break;
+
+                case 34:
+                    menuCadastro.Visible = false;
+                    menuVendas.Visible = false;
+                    menuConsulta.Visible = false;
+                    menuMovimentacao.Visible = false;
+                    menuVendas.Visible = false;
+                    break;
+
+                case 35:
+                    menuRelatorios.Visible = false;
+                    menuCadastroFuncionarios.Visible = false;
+
+                    break;
+            }
+
+            StatusUsuario.Text = "FARMATEC - SISTEMA PARA FARMACIAS -  VERSÃO 2.0 - USUARIO:  " + LoginSistema.nomeUsuario;
+            this.Text = "Principal - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
 
         }
         public void FecharTodos()
@@ -104,7 +144,7 @@ namespace FarmaTec
 
         private void menuAlterarSenha_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void menuCadastroFornecedores_Click(object sender, EventArgs e)
@@ -135,15 +175,7 @@ namespace FarmaTec
 
         }
 
-        private void menuRelatorioFinanceiro_Click(object sender, EventArgs e)
-        {
-            FecharTodos();
-            Form childForm = new frmRelatorioFinanceiro();
-            AbrirForm(childForm);
 
-        }
-
-        
 
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -152,5 +184,33 @@ namespace FarmaTec
             AbrirForm(childForm);
         }
 
+        private async void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Instanciar as classes
+            UsuarioAutenticar usuarioDesconectar = new UsuarioAutenticar();
+            UsuariosDTO dados = new UsuariosDTO();
+
+
+
+            //Popular classe
+            dados.nome = LoginSistema.nomeUsuario;
+            dados.email = LoginSistema.emailUsuario;
+
+
+
+
+            //Chamar o método
+            await usuarioDesconectar.DesconectarUsuario(dados);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void StatusUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
