@@ -239,7 +239,7 @@ namespace FarmaTec
             // 
             this.lblTituloFornecedor.AutoSize = true;
             this.lblTituloFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloFornecedor.Location = new System.Drawing.Point(233, 50);
+            this.lblTituloFornecedor.Location = new System.Drawing.Point(254, 51);
             this.lblTituloFornecedor.Name = "lblTituloFornecedor";
             this.lblTituloFornecedor.Size = new System.Drawing.Size(387, 37);
             this.lblTituloFornecedor.TabIndex = 78;

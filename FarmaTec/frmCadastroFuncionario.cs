@@ -178,5 +178,15 @@ namespace FarmaTec
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void txtCodigoFuncionario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboclassefunc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -206,5 +206,10 @@ namespace FarmaTec
         {
 
         }
+
+        private void txtdescricao_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

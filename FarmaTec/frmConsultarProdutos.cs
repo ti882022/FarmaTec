@@ -29,5 +29,10 @@ namespace FarmaTec
                 Close();
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

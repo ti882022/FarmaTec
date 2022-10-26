@@ -15,7 +15,8 @@ namespace TransferenciaDados
 {
     public class EstoqueDTO
     {
-        public int codigo { get; set; }
+        public int codProduto { get; set; }
+        public string descricao { get; set; }
 
         public string mensagens { get; set; }
     }
@@ -24,21 +25,13 @@ namespace TransferenciaDados
     {
         public Listestoque() { }
 
-        public int codMvto { get; set; }
-        public string statusMvto { get; set; }
-        public DateTime dataMvto { get; set; }
         public int codProduto { get; set; }
-        public int qtdeMvto { get; set; }
         public string descricao { get; set; }
 
 
-        public Listestoque(int codMvto, string statusMvto, DateTime dataMvto, int codProduto, int qtdeMvto, string descricao)
+        public Listestoque(int codProduto, string descricao)
         {
-            this.codMvto = codMvto;
-            this.statusMvto = statusMvto;
-            this.dataMvto = dataMvto;
             this.codProduto = codProduto;
-            this.qtdeMvto = qtdeMvto;
             this.descricao = descricao;
 
         }
@@ -58,14 +51,15 @@ namespace TransferenciaDados
 
             try
             {
-                string URL = "http://localhost/siteturma88/produtos/movimentar/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/produtos/listarcod/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
 
                 var data = new Dictionary<string, string>
                 {
-                    {"txtcodprod", dados.codigo.ToString()},
+                    {"txtcodprod", dados.codProduto.ToString()},
+                    {"txtdescricao", dados.descricao},
 
                     {"HTTP_ACCEPT", "application/Json"}
 
@@ -78,17 +72,14 @@ namespace TransferenciaDados
 
                 JObject obj = JObject.Parse(result);
 
-                JArray arraymovimentar = (JArray)obj["RetornoDados"];
+                JArray arraylistarcod = (JArray)obj["RetornoDados"];
 
-                foreach (var item in arraymovimentar)
+                foreach (var item in arraylistarcod)
                 {
 
 
-                    listestoques.Add(new Listestoque(Convert.ToInt32(item["codMvto"].ToString()), item["statusMvto"].ToString(),
-                                                                                                 Convert.ToDateTime(item["dataMvto"].ToString()),
-                                                                                                Convert.ToInt32 (item["codProduto"].ToString()),
-                                                                                                 Convert.ToInt32(item["qtdeMvto"].ToString()),
-                                                                                                 item["descricao"].ToString()));
+                    listestoques.Add(new Listestoque(Convert.ToInt32(item["codProduto"].ToString()), item["descricao"].ToString())
+                        );
                 }
 
 

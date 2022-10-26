@@ -63,6 +63,7 @@ namespace FarmaTec
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(121, 28);
             this.cmbCargo.TabIndex = 6;
+            this.cmbCargo.SelectedIndexChanged += new System.EventHandler(this.cmbCargo_SelectedIndexChanged);
             // 
             // mskTelefone
             // 
@@ -183,6 +184,7 @@ namespace FarmaTec
             this.txtCodigoFuncionario.Name = "txtCodigoFuncionario";
             this.txtCodigoFuncionario.Size = new System.Drawing.Size(63, 26);
             this.txtCodigoFuncionario.TabIndex = 1;
+            this.txtCodigoFuncionario.TextChanged += new System.EventHandler(this.txtCodigoFuncionario_TextChanged);
             // 
             // lblCodFuncionario
             // 
@@ -208,6 +210,7 @@ namespace FarmaTec
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(121, 28);
             this.cmbStatus.TabIndex = 7;
+            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // lblStatusCadastro
             // 
@@ -245,6 +248,7 @@ namespace FarmaTec
             this.MinimizeBox = false;
             this.Name = "frmEditarCadastro";
             this.Text = "Editar Cadastro de Funcionários - FarmaTec";
+            this.Load += new System.EventHandler(this.frmEditarCadastro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

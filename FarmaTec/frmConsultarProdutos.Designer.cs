@@ -32,6 +32,14 @@ namespace FarmaTec
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultarProdutos));
             this.lblProdutosRegistrados = new System.Windows.Forms.Label();
             this.dtProdutos = new System.Windows.Forms.DataGridView();
+            this.codProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.catProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estoqueMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imagem = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlConsulta = new System.Windows.Forms.Panel();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -64,14 +72,6 @@ namespace FarmaTec
             this.menuRelatorioVendas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRelatorioEstoque = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.codProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.catProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estoqueMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagem = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtProdutos)).BeginInit();
             this.pnlConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctProdutos)).BeginInit();
@@ -104,6 +104,61 @@ namespace FarmaTec
             this.dtProdutos.Name = "dtProdutos";
             this.dtProdutos.Size = new System.Drawing.Size(1134, 388);
             this.dtProdutos.TabIndex = 24;
+            // 
+            // codProduto
+            // 
+            this.codProduto.HeaderText = "Código";
+            this.codProduto.MaxInputLength = 1000;
+            this.codProduto.Name = "codProduto";
+            this.codProduto.Width = 80;
+            // 
+            // descricao
+            // 
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.MaxInputLength = 50;
+            this.descricao.Name = "descricao";
+            this.descricao.Width = 130;
+            // 
+            // marca
+            // 
+            this.marca.HeaderText = "Marca";
+            this.marca.MaxInputLength = 50;
+            this.marca.Name = "marca";
+            this.marca.Width = 130;
+            // 
+            // fornecedor
+            // 
+            this.fornecedor.HeaderText = "Fornecedor";
+            this.fornecedor.MaxInputLength = 8;
+            this.fornecedor.Name = "fornecedor";
+            this.fornecedor.Width = 130;
+            // 
+            // catProduto
+            // 
+            this.catProduto.HeaderText = "Categoria";
+            this.catProduto.MaxInputLength = 50;
+            this.catProduto.Name = "catProduto";
+            this.catProduto.Width = 130;
+            // 
+            // unidade
+            // 
+            this.unidade.HeaderText = "Unidade";
+            this.unidade.MaxInputLength = 50;
+            this.unidade.Name = "unidade";
+            this.unidade.Width = 200;
+            // 
+            // estoqueMinimo
+            // 
+            this.estoqueMinimo.HeaderText = "Estoque mínimo";
+            this.estoqueMinimo.MaxInputLength = 13;
+            this.estoqueMinimo.Name = "estoqueMinimo";
+            this.estoqueMinimo.Width = 130;
+            // 
+            // Imagem
+            // 
+            this.Imagem.HeaderText = "imgProduto";
+            this.Imagem.Name = "Imagem";
+            this.Imagem.Width = 160;
             // 
             // pnlConsulta
             // 
@@ -140,6 +195,7 @@ namespace FarmaTec
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblNomeProduto
             // 
@@ -373,61 +429,6 @@ namespace FarmaTec
             this.menuSair.Name = "menuSair";
             this.menuSair.Size = new System.Drawing.Size(38, 20);
             this.menuSair.Text = "Sair";
-            // 
-            // codProduto
-            // 
-            this.codProduto.HeaderText = "Código";
-            this.codProduto.MaxInputLength = 1000;
-            this.codProduto.Name = "codProduto";
-            this.codProduto.Width = 80;
-            // 
-            // descricao
-            // 
-            this.descricao.HeaderText = "Descrição";
-            this.descricao.MaxInputLength = 50;
-            this.descricao.Name = "descricao";
-            this.descricao.Width = 130;
-            // 
-            // marca
-            // 
-            this.marca.HeaderText = "Marca";
-            this.marca.MaxInputLength = 50;
-            this.marca.Name = "marca";
-            this.marca.Width = 130;
-            // 
-            // fornecedor
-            // 
-            this.fornecedor.HeaderText = "Fornecedor";
-            this.fornecedor.MaxInputLength = 8;
-            this.fornecedor.Name = "fornecedor";
-            this.fornecedor.Width = 130;
-            // 
-            // catProduto
-            // 
-            this.catProduto.HeaderText = "Categoria";
-            this.catProduto.MaxInputLength = 50;
-            this.catProduto.Name = "catProduto";
-            this.catProduto.Width = 130;
-            // 
-            // unidade
-            // 
-            this.unidade.HeaderText = "Unidade";
-            this.unidade.MaxInputLength = 50;
-            this.unidade.Name = "unidade";
-            this.unidade.Width = 200;
-            // 
-            // estoqueMinimo
-            // 
-            this.estoqueMinimo.HeaderText = "Estoque mínimo";
-            this.estoqueMinimo.MaxInputLength = 13;
-            this.estoqueMinimo.Name = "estoqueMinimo";
-            this.estoqueMinimo.Width = 130;
-            // 
-            // Imagem
-            // 
-            this.Imagem.HeaderText = "imgProduto";
-            this.Imagem.Name = "Imagem";
-            this.Imagem.Width = 160;
             // 
             // frmConsultarProdutos
             // 

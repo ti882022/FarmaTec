@@ -4,20 +4,59 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using TransferenciaDados;
-
 
 
 namespace FarmaTec
 {
     public partial class cboEstoque : Form
     {
+        TratamentoCampos tratamentoCampos = new TratamentoCampos();
         public cboEstoque()
         {
+            this.KeyPreview = true;
             InitializeComponent();
+        }
+        public int codigostatus;
+        private void ListarStatus()
+        {
+            try
+            {
+                Consultarstatus consultarstatus = new Consultarstatus();
+                statussDTO dados = new statussDTO();
+
+
+
+                consultarstatus.CarregarComboo(dados);
+
+
+
+                //Limpar fonte de dados e limpar combo
+                cbocomprar.DataSource = null;
+                cbocomprar.Items.Clear();
+
+
+
+                //Popular o listbox
+                //Definir o código do cargo, porém irá apresentar somente o nome do cargo
+                cbocomprar.ValueMember = "statusMvto";
+                cbocomprar.DisplayMember = "descricao";
+                cbocomprar.DataSource = consultarstatus.statusDataTable;
+                //Trazer os dados para serem selecionados
+                cbocomprar.SelectedIndex = -1;
+            }
+
+
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message.ToString());
+            }
         }
 
         AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
@@ -35,7 +74,9 @@ namespace FarmaTec
                 //   txtnomeCliente.Text = "Ewerthon";
 
                 //Popular classe
-                dados.codigo = Convert.ToInt32(txtcodigo.Text);
+                dados.codProduto = Convert.ToInt32(txtcodigo.Text);
+
+
                 // dados.cpf = mskCpf.Text;
 
                 //Chamar o método
@@ -48,7 +89,7 @@ namespace FarmaTec
                         //Percorrer a lista
                         for (int i = 0; i < consultarEstoque.listestoques.Count; i++)
                         {
-                            autocomplete.Add(consultarEstoque.listestoques[i].codMvto.ToString());
+                            autocomplete.Add(consultarEstoque.listestoques[i].codProduto.ToString());
                         }
                         //Definir as propriedades do autocomplete do textbox
                         txtcodigo.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -90,21 +131,66 @@ namespace FarmaTec
 
        
 
-        private void cbocomprar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cbocomprar.Text=="saida"){ cbomotivo.Visible = true;          }
-            else { cbomotivo.Visible = false; }
-        }
+       
 
         private void codigoproduto_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Atualizar_Click(object sender, EventArgs e)
+        private async void Atualizar_Click(object sender, EventArgs e)
         {
+            SalvarMovimento salvarMovimento = new SalvarMovimento();
+            MovimentaçãoDTO dados = new MovimentaçãoDTO();
 
+            if (tratamentoCampos.Vazio(this) == true)
+            {
+                tratamentoCampos.Bloquear(this);
+                if (MessageBox.Show("Deseja Finalizar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    dados.qtdeMvto = Convert.ToInt32(txtQuantidade.Text);
+                    dados.codProduto = Convert.ToInt32(txtcodigo.Text);
+                    if (codigostatus == 1) { dados.descricao = "Compra".ToString();}
+                    else { dados.descricao = "Quebra".ToString();}
+                    dados.txtstatus = Convert.ToInt32(codigostatus); 
+                   
+
+
+
+                    //Chamar o método para incluir dados
+
+                    await salvarMovimento.Produtosmovimentar(dados);
+
+                        if (dados.mensagens == null)
+                        {
+
+                            if (dados.qtdeMvto == 0)
+                            {
+                                MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                            else
+                            {
+                                txtQuantidade.Text = dados.qtdeMvto.ToString();
+                                MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                tratamentoCampos.Limpar(this);
+                                tratamentoCampos.Desbloquear(this);
+                            }
+
+                        }
+
+                        else
+                        {
+                            MessageBox.Show(dados.mensagens, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+
+                
+            
+            }
         }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -120,7 +206,8 @@ namespace FarmaTec
                 EstoqueDTO dados = new EstoqueDTO();
 
                 //Popular classe
-                dados.codigo = Convert.ToInt32(txtcodigo.Text);
+                dados.codProduto = Convert.ToInt32(txtcodigo.Text);
+                
 
                 //Limpar fonte de dados e o DatagridView
                 dtprodutos.DataSource = null;
@@ -131,11 +218,8 @@ namespace FarmaTec
 
                 for (int i = 0; i < consultarestoque.listestoques.Count; i++)
                 {
-                    dtprodutos.Rows.Add(consultarestoque.listestoques[i].codMvto.ToString(),                       
-                                            consultarestoque.listestoques[i].dataMvto.ToString(),
-                                            consultarestoque.listestoques[i].codProduto.ToString(),
-                                            consultarestoque.listestoques[i].qtdeMvto.ToString(),
-                                            consultarestoque.listestoques[i].descricao.ToString());
+                    dtprodutos.Rows.Add(consultarestoque.listestoques[i].codProduto.ToString(), consultarestoque.listestoques[i].descricao.ToString());                       
+                                            
                 }
                 if (dados.mensagens != null)
                 {
@@ -153,7 +237,32 @@ namespace FarmaTec
 
         private void cboEstoque_Load(object sender, EventArgs e)
         {
+            ListarStatus();
+        }
 
+        private void cbocomprar_Click(object sender, EventArgs e)
+        {
+            //dtprodutos.Rows.Add
+        }
+
+        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+                MessageBox.Show("Adicione um valor");
+            }
+
+        }
+
+        private void txtQuantidade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbocomprar_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            codigostatus = Convert.ToInt32(cbocomprar.SelectedValue.ToString());
         }
     }
 }

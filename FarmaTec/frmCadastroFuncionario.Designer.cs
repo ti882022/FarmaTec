@@ -130,6 +130,7 @@ namespace FarmaTec
             this.txtCodigoFuncionario.Name = "txtCodigoFuncionario";
             this.txtCodigoFuncionario.Size = new System.Drawing.Size(63, 26);
             this.txtCodigoFuncionario.TabIndex = 1;
+            this.txtCodigoFuncionario.TextChanged += new System.EventHandler(this.txtCodigoFuncionario_TextChanged);
             // 
             // lblCodFuncionario
             // 
@@ -200,6 +201,7 @@ namespace FarmaTec
             this.cboclassefunc.Name = "cboclassefunc";
             this.cboclassefunc.Size = new System.Drawing.Size(121, 28);
             this.cboclassefunc.TabIndex = 7;
+            this.cboclassefunc.SelectedIndexChanged += new System.EventHandler(this.cboclassefunc_SelectedIndexChanged);
             this.cboclassefunc.SelectionChangeCommitted += new System.EventHandler(this.cboclassefunc_SelectionChangeCommitted);
             // 
             // lblSexo

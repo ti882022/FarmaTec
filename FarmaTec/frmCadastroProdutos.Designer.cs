@@ -184,6 +184,7 @@ namespace FarmaTec
             this.txtdescricao.Name = "txtdescricao";
             this.txtdescricao.Size = new System.Drawing.Size(561, 26);
             this.txtdescricao.TabIndex = 2;
+            this.txtdescricao.TextChanged += new System.EventHandler(this.txtdescricao_TextChanged);
             // 
             // txtCodigo
             // 
