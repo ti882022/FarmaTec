@@ -17,7 +17,7 @@ namespace TransferenciaDados
 {
     public class ClientesDTO
     {
-        public string nome { get; set; }
+        public string nomeCliente { get; set; }
         public string cpf { get; set; }
         public string mensagens { get; set; }
     }
@@ -72,7 +72,7 @@ namespace TransferenciaDados
 
                 var data = new Dictionary<string, string>
                 {
-                    {"txtnomeCliente", dados.nome},
+                    {"txtnomeCliente", dados.nomeCliente},
                     {"txtcpfCliente", dados.cpf},
                     {"HTTP_ACCEPT", "application/Json"}
 

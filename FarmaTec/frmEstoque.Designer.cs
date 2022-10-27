@@ -89,6 +89,7 @@ namespace FarmaTec
             // 
             // txtcodigo
             // 
+            this.txtcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcodigo.Location = new System.Drawing.Point(133, 66);
             this.txtcodigo.Multiline = true;
             this.txtcodigo.Name = "txtcodigo";
@@ -141,6 +142,7 @@ namespace FarmaTec
             // 
             // txtQuantidade
             // 
+            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantidade.Location = new System.Drawing.Point(505, 192);
             this.txtQuantidade.Multiline = true;
             this.txtQuantidade.Name = "txtQuantidade";
@@ -213,7 +215,7 @@ namespace FarmaTec
             this.Controls.Add(this.Produtos);
             this.Controls.Add(this.dtprodutos);
             this.Name = "cboEstoque";
-            this.Text = "frmEstoque";
+            this.Text = "Estoque de Produtos - FarmaTec";
             this.Load += new System.EventHandler(this.cboEstoque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtprodutos)).EndInit();
