@@ -9,11 +9,7 @@ namespace FarmaTec
         public frmConsultarProdutos()
         {
             InitializeComponent();
-        }
-
-        private void pctProdutos_Click(object sender, EventArgs e)
-        {
-
+            this.KeyPreview = true;
         }
 
         //Coleção para o AutoComplete
@@ -137,14 +133,10 @@ namespace FarmaTec
             }
         }
 
-        private void dtProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void frmConsultarProdutos_Load(object sender, EventArgs e)
         {
             AutoCompletarProdutos();
+            this.Text = "Consultar Produtos - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

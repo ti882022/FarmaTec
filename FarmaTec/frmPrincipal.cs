@@ -15,6 +15,7 @@ namespace FarmaTec
     {
         public frmPrincipal()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -123,11 +124,6 @@ namespace FarmaTec
             AbrirForm(childForm);
         }
 
-        private void menuCadastroFuncionarios_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void menuNovoAcesso_Click(object sender, EventArgs e)
         {
             FecharTodos();
@@ -140,11 +136,6 @@ namespace FarmaTec
             FecharTodos();
             Form childForm = new frmEditarCadastro();
             AbrirForm(childForm);
-        }
-
-        private void menuAlterarSenha_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void menuCadastroFornecedores_Click(object sender, EventArgs e)
@@ -161,20 +152,6 @@ namespace FarmaTec
                 Close();
             }
         }
-
-
-        private void menuMovimentacaoEntrada_Click(object sender, EventArgs e)
-        {
-            FecharTodos();
-            Form childForm = new cboEstoque();
-            AbrirForm(childForm);
-        }
-
-        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
 
 
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -203,14 +180,24 @@ namespace FarmaTec
             await usuarioDesconectar.DesconectarUsuario(dados);
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
+        private void menuMovimentacao_Click(object sender, EventArgs e)
+        {
+            FecharTodos();
+            Form childForm = new cboEstoque();
+            AbrirForm(childForm);
         }
-
-        private void StatusUsuario_Click(object sender, EventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
 
+            switch (keyData)
+            {
+               case Keys.Escape:
+                    menuSair.PerformClick();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

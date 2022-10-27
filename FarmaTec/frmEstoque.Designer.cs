@@ -52,11 +52,11 @@ namespace FarmaTec
             // btnsaida
             // 
             this.btnsaida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnsaida.Location = new System.Drawing.Point(653, 304);
+            this.btnsaida.Location = new System.Drawing.Point(664, 310);
             this.btnsaida.Name = "btnsaida";
-            this.btnsaida.Size = new System.Drawing.Size(91, 41);
-            this.btnsaida.TabIndex = 31;
-            this.btnsaida.Text = "Saida";
+            this.btnsaida.Size = new System.Drawing.Size(80, 28);
+            this.btnsaida.TabIndex = 6;
+            this.btnsaida.Text = "Sair";
             this.btnsaida.UseVisualStyleBackColor = true;
             this.btnsaida.Click += new System.EventHandler(this.saida_Click);
             // 
@@ -64,7 +64,7 @@ namespace FarmaTec
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(629, 166);
+            this.label1.Location = new System.Drawing.Point(660, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 30;
@@ -72,47 +72,49 @@ namespace FarmaTec
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(535, 31);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(469, 33);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(209, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(275, 22);
             this.dateTimePicker1.TabIndex = 28;
             // 
             // cbocomprar
             // 
+            this.cbocomprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbocomprar.FormattingEnabled = true;
-            this.cbocomprar.Location = new System.Drawing.Point(623, 192);
+            this.cbocomprar.ItemHeight = 20;
+            this.cbocomprar.Location = new System.Drawing.Point(638, 190);
             this.cbocomprar.Name = "cbocomprar";
-            this.cbocomprar.Size = new System.Drawing.Size(121, 21);
-            this.cbocomprar.TabIndex = 25;
+            this.cbocomprar.Size = new System.Drawing.Size(106, 28);
+            this.cbocomprar.TabIndex = 4;
             this.cbocomprar.SelectionChangeCommitted += new System.EventHandler(this.cbocomprar_SelectionChangeCommitted);
-            this.cbocomprar.Click += new System.EventHandler(this.cbocomprar_Click);
             // 
             // txtcodigo
             // 
-            this.txtcodigo.Location = new System.Drawing.Point(133, 66);
+            this.txtcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcodigo.Location = new System.Drawing.Point(133, 72);
             this.txtcodigo.Multiline = true;
             this.txtcodigo.Name = "txtcodigo";
-            this.txtcodigo.Size = new System.Drawing.Size(87, 39);
-            this.txtcodigo.TabIndex = 22;
-            this.txtcodigo.TextChanged += new System.EventHandler(this.codigoproduto_TextChanged);
+            this.txtcodigo.Size = new System.Drawing.Size(70, 26);
+            this.txtcodigo.TabIndex = 1;
             // 
             // Codigodoproduto
             // 
             this.Codigodoproduto.AutoSize = true;
-            this.Codigodoproduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Codigodoproduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Codigodoproduto.Location = new System.Drawing.Point(129, 31);
             this.Codigodoproduto.Name = "Codigodoproduto";
-            this.Codigodoproduto.Size = new System.Drawing.Size(140, 20);
+            this.Codigodoproduto.Size = new System.Drawing.Size(185, 24);
             this.Codigodoproduto.TabIndex = 21;
             this.Codigodoproduto.Text = "Codigo do produto";
             // 
             // btnPesquisa
             // 
             this.btnPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnPesquisa.Location = new System.Drawing.Point(236, 65);
+            this.btnPesquisa.Location = new System.Drawing.Point(222, 70);
             this.btnPesquisa.Name = "btnPesquisa";
-            this.btnPesquisa.Size = new System.Drawing.Size(91, 40);
-            this.btnPesquisa.TabIndex = 20;
+            this.btnPesquisa.Size = new System.Drawing.Size(85, 28);
+            this.btnPesquisa.TabIndex = 2;
             this.btnPesquisa.Text = "Pesquisar";
             this.btnPesquisa.UseVisualStyleBackColor = true;
             this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
@@ -120,10 +122,10 @@ namespace FarmaTec
             // btnAtualizar
             // 
             this.btnAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAtualizar.Location = new System.Drawing.Point(535, 304);
+            this.btnAtualizar.Location = new System.Drawing.Point(508, 310);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(91, 41);
-            this.btnAtualizar.TabIndex = 19;
+            this.btnAtualizar.Size = new System.Drawing.Size(91, 28);
+            this.btnAtualizar.TabIndex = 5;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.Atualizar_Click);
@@ -141,12 +143,12 @@ namespace FarmaTec
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(505, 192);
+            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantidade.Location = new System.Drawing.Point(508, 192);
             this.txtQuantidade.Multiline = true;
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(91, 39);
-            this.txtQuantidade.TabIndex = 24;
-            this.txtQuantidade.TextChanged += new System.EventHandler(this.txtQuantidade_TextChanged);
+            this.txtQuantidade.Size = new System.Drawing.Size(88, 26);
+            this.txtQuantidade.TabIndex = 3;
             this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
             // 
             // Quantidadedoproduto
@@ -162,21 +164,24 @@ namespace FarmaTec
             // Produtos
             // 
             this.Produtos.AutoSize = true;
-            this.Produtos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.Produtos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Produtos.Location = new System.Drawing.Point(37, 124);
             this.Produtos.Name = "Produtos";
-            this.Produtos.Size = new System.Drawing.Size(110, 29);
+            this.Produtos.Size = new System.Drawing.Size(118, 29);
             this.Produtos.TabIndex = 18;
             this.Produtos.Text = "Produtos";
             // 
             // dtprodutos
             // 
+            this.dtprodutos.AllowUserToAddRows = false;
+            this.dtprodutos.AllowUserToDeleteRows = false;
             this.dtprodutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtprodutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codProduto,
             this.descricao});
-            this.dtprodutos.Location = new System.Drawing.Point(42, 166);
+            this.dtprodutos.Location = new System.Drawing.Point(12, 156);
             this.dtprodutos.Name = "dtprodutos";
+            this.dtprodutos.ReadOnly = true;
             this.dtprodutos.Size = new System.Drawing.Size(443, 196);
             this.dtprodutos.TabIndex = 17;
             this.dtprodutos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
@@ -185,12 +190,14 @@ namespace FarmaTec
             // 
             this.codProduto.HeaderText = "Codigo";
             this.codProduto.Name = "codProduto";
+            this.codProduto.ReadOnly = true;
             this.codProduto.ToolTipText = "Entrada";
             // 
             // descricao
             // 
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
             this.descricao.Width = 300;
             // 
             // cboEstoque
@@ -198,7 +205,7 @@ namespace FarmaTec
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(762, 366);
+            this.ClientSize = new System.Drawing.Size(762, 369);
             this.Controls.Add(this.btnsaida);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -213,7 +220,7 @@ namespace FarmaTec
             this.Controls.Add(this.Produtos);
             this.Controls.Add(this.dtprodutos);
             this.Name = "cboEstoque";
-            this.Text = "frmEstoque";
+            this.Text = "Estoque - FarmaTec - Usuário: ";
             this.Load += new System.EventHandler(this.cboEstoque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtprodutos)).EndInit();

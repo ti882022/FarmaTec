@@ -56,7 +56,7 @@ namespace FarmaTec
             // 
             this.lblFornecedor.AutoSize = true;
             this.lblFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFornecedor.Location = new System.Drawing.Point(68, 167);
+            this.lblFornecedor.Location = new System.Drawing.Point(66, 223);
             this.lblFornecedor.Name = "lblFornecedor";
             this.lblFornecedor.Size = new System.Drawing.Size(91, 20);
             this.lblFornecedor.TabIndex = 125;
@@ -65,7 +65,7 @@ namespace FarmaTec
             // txtfornecedor
             // 
             this.txtfornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfornecedor.Location = new System.Drawing.Point(172, 163);
+            this.txtfornecedor.Location = new System.Drawing.Point(170, 219);
             this.txtfornecedor.MaxLength = 100;
             this.txtfornecedor.Name = "txtfornecedor";
             this.txtfornecedor.Size = new System.Drawing.Size(561, 26);
@@ -75,7 +75,7 @@ namespace FarmaTec
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(68, 197);
+            this.lblCategoria.Location = new System.Drawing.Point(66, 253);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(78, 20);
             this.lblCategoria.TabIndex = 121;
@@ -85,7 +85,7 @@ namespace FarmaTec
             // 
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.Location = new System.Drawing.Point(68, 135);
+            this.lblMarca.Location = new System.Drawing.Point(66, 191);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(53, 20);
             this.lblMarca.TabIndex = 120;
@@ -94,7 +94,7 @@ namespace FarmaTec
             // txtmarca
             // 
             this.txtmarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmarca.Location = new System.Drawing.Point(172, 132);
+            this.txtmarca.Location = new System.Drawing.Point(170, 188);
             this.txtmarca.MaxLength = 100;
             this.txtmarca.Name = "txtmarca";
             this.txtmarca.Size = new System.Drawing.Size(561, 26);
@@ -104,7 +104,7 @@ namespace FarmaTec
             // 
             this.lblUnidade.AutoSize = true;
             this.lblUnidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidade.Location = new System.Drawing.Point(511, 197);
+            this.lblUnidade.Location = new System.Drawing.Point(509, 253);
             this.lblUnidade.Name = "lblUnidade";
             this.lblUnidade.Size = new System.Drawing.Size(69, 20);
             this.lblUnidade.TabIndex = 118;
@@ -113,10 +113,10 @@ namespace FarmaTec
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(489, 354);
+            this.btnSair.Location = new System.Drawing.Point(474, 385);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 28);
-            this.btnSair.TabIndex = 12;
+            this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -124,10 +124,10 @@ namespace FarmaTec
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(375, 354);
+            this.btnLimpar.Location = new System.Drawing.Point(360, 385);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 28);
-            this.btnLimpar.TabIndex = 11;
+            this.btnLimpar.TabIndex = 10;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -135,10 +135,10 @@ namespace FarmaTec
             // btnSalvar
             // 
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(253, 354);
+            this.btnSalvar.Location = new System.Drawing.Point(238, 385);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btnSalvar.TabIndex = 10;
+            this.btnSalvar.TabIndex = 9;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -147,7 +147,7 @@ namespace FarmaTec
             // 
             this.lblTituloProdutos.AutoSize = true;
             this.lblTituloProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProdutos.Location = new System.Drawing.Point(213, 7);
+            this.lblTituloProdutos.Location = new System.Drawing.Point(218, 32);
             this.lblTituloProdutos.Name = "lblTituloProdutos";
             this.lblTituloProdutos.Size = new System.Drawing.Size(350, 37);
             this.lblTituloProdutos.TabIndex = 117;
@@ -157,7 +157,7 @@ namespace FarmaTec
             // 
             this.lblDescricao.AutoSize = true;
             this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao.Location = new System.Drawing.Point(68, 103);
+            this.lblDescricao.Location = new System.Drawing.Point(66, 159);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(80, 20);
             this.lblDescricao.TabIndex = 115;
@@ -166,29 +166,27 @@ namespace FarmaTec
             // txtdescricao
             // 
             this.txtdescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdescricao.Location = new System.Drawing.Point(172, 101);
+            this.txtdescricao.Location = new System.Drawing.Point(170, 157);
             this.txtdescricao.MaxLength = 100;
             this.txtdescricao.Name = "txtdescricao";
             this.txtdescricao.Size = new System.Drawing.Size(561, 26);
             this.txtdescricao.TabIndex = 2;
-            this.txtdescricao.TextChanged += new System.EventHandler(this.txtdescricao_TextChanged);
             // 
             // txtCodigo
             // 
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(172, 71);
+            this.txtCodigo.Location = new System.Drawing.Point(170, 127);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(67, 26);
             this.txtCodigo.TabIndex = 1;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // txtcodProduto
             // 
             this.txtcodProduto.AutoSize = true;
             this.txtcodProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtcodProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcodProduto.Location = new System.Drawing.Point(68, 73);
+            this.txtcodProduto.Location = new System.Drawing.Point(66, 129);
             this.txtcodProduto.Name = "txtcodProduto";
             this.txtcodProduto.Size = new System.Drawing.Size(98, 20);
             this.txtcodProduto.TabIndex = 113;
@@ -197,7 +195,7 @@ namespace FarmaTec
             // txtUnidade
             // 
             this.txtUnidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnidade.Location = new System.Drawing.Point(580, 194);
+            this.txtUnidade.Location = new System.Drawing.Point(578, 250);
             this.txtUnidade.MaxLength = 2;
             this.txtUnidade.Name = "txtUnidade";
             this.txtUnidade.Size = new System.Drawing.Size(152, 26);
@@ -215,7 +213,7 @@ namespace FarmaTec
             // 
             this.lblestoque.AutoSize = true;
             this.lblestoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblestoque.Location = new System.Drawing.Point(68, 231);
+            this.lblestoque.Location = new System.Drawing.Point(66, 287);
             this.lblestoque.Name = "lblestoque";
             this.lblestoque.Size = new System.Drawing.Size(98, 20);
             this.lblestoque.TabIndex = 133;
@@ -224,7 +222,7 @@ namespace FarmaTec
             // txtEstoqueMin
             // 
             this.txtEstoqueMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstoqueMin.Location = new System.Drawing.Point(172, 228);
+            this.txtEstoqueMin.Location = new System.Drawing.Point(170, 284);
             this.txtEstoqueMin.MaxLength = 100;
             this.txtEstoqueMin.Name = "txtEstoqueMin";
             this.txtEstoqueMin.Size = new System.Drawing.Size(178, 26);
@@ -234,7 +232,7 @@ namespace FarmaTec
             // 
             this.cboCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(172, 193);
+            this.cboCategoria.Location = new System.Drawing.Point(170, 249);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(294, 28);
             this.cboCategoria.TabIndex = 5;
@@ -244,7 +242,7 @@ namespace FarmaTec
             // 
             this.lblPreco.AutoSize = true;
             this.lblPreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPreco.Location = new System.Drawing.Point(371, 232);
+            this.lblPreco.Location = new System.Drawing.Point(369, 288);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(50, 20);
             this.lblPreco.TabIndex = 135;
@@ -253,7 +251,7 @@ namespace FarmaTec
             // txtpreco
             // 
             this.txtpreco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpreco.Location = new System.Drawing.Point(424, 231);
+            this.txtpreco.Location = new System.Drawing.Point(422, 287);
             this.txtpreco.MaxLength = 100;
             this.txtpreco.Name = "txtpreco";
             this.txtpreco.Size = new System.Drawing.Size(178, 26);

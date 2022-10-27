@@ -149,7 +149,7 @@ namespace FarmaTec
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
-
+            this.Text = "Cadastro de Cliente - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
         }
     }
 

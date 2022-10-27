@@ -123,21 +123,6 @@ namespace FarmaTec
         }
 
 
-
-
-
-
-       
-
-       
-
-       
-
-        private void codigoproduto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private async void Atualizar_Click(object sender, EventArgs e)
         {
             SalvarMovimento salvarMovimento = new SalvarMovimento();
@@ -151,10 +136,10 @@ namespace FarmaTec
 
                     dados.qtdeMvto = Convert.ToInt32(txtQuantidade.Text);
                     dados.codProduto = Convert.ToInt32(txtcodigo.Text);
-                    if (codigostatus == 1) { dados.descricao = "Compra".ToString();}
-                    else { dados.descricao = "Quebra".ToString();}
-                    dados.txtstatus = Convert.ToInt32(codigostatus); 
-                   
+                    if (codigostatus == 1) { dados.descricao = "Compra".ToString(); }
+                    else { dados.descricao = "Quebra".ToString(); }
+                    dados.txtstatus = Convert.ToInt32(codigostatus);
+
 
 
 
@@ -162,40 +147,35 @@ namespace FarmaTec
 
                     await salvarMovimento.Produtosmovimentar(dados);
 
-                        if (dados.mensagens == null)
+                    if (dados.mensagens == null)
+                    {
+
+                        if (dados.qtdeMvto == 0)
                         {
-
-                            if (dados.qtdeMvto == 0)
-                            {
-                                MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-
-                            else
-                            {
-                                txtQuantidade.Text = dados.qtdeMvto.ToString();
-                                MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                tratamentoCampos.Limpar(this);
-                                tratamentoCampos.Desbloquear(this);
-                            }
-
+                            MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         else
                         {
-                            MessageBox.Show(dados.mensagens, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtQuantidade.Text = dados.qtdeMvto.ToString();
+                            MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            tratamentoCampos.Limpar(this);
+                            tratamentoCampos.Desbloquear(this);
                         }
+
                     }
 
-                
-            
+                    else
+                    {
+                        MessageBox.Show(dados.mensagens, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+
+
+
             }
         }
 
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private async void btnPesquisa_Click(object sender, EventArgs e)
         {
@@ -207,7 +187,7 @@ namespace FarmaTec
 
                 //Popular classe
                 dados.codProduto = Convert.ToInt32(txtcodigo.Text);
-                
+
 
                 //Limpar fonte de dados e o DatagridView
                 dtprodutos.DataSource = null;
@@ -218,8 +198,8 @@ namespace FarmaTec
 
                 for (int i = 0; i < consultarestoque.listestoques.Count; i++)
                 {
-                    dtprodutos.Rows.Add(consultarestoque.listestoques[i].codProduto.ToString(), consultarestoque.listestoques[i].descricao.ToString());                       
-                                            
+                    dtprodutos.Rows.Add(consultarestoque.listestoques[i].codProduto.ToString(), consultarestoque.listestoques[i].descricao.ToString());
+
                 }
                 if (dados.mensagens != null)
                 {
@@ -238,12 +218,9 @@ namespace FarmaTec
         private void cboEstoque_Load(object sender, EventArgs e)
         {
             ListarStatus();
+            this.Text = "Estoque - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
         }
 
-        private void cbocomprar_Click(object sender, EventArgs e)
-        {
-            //dtprodutos.Rows.Add
-        }
 
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -255,19 +232,45 @@ namespace FarmaTec
 
         }
 
-        private void txtQuantidade_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void cbocomprar_SelectionChangeCommitted(object sender, EventArgs e)
         {
             codigostatus = Convert.ToInt32(cbocomprar.SelectedValue.ToString());
         }
 
-        private void cbomotivo_SelectedIndexChanged(object sender, EventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
 
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    if ((txtcodigo.Text != string.Empty) && (txtQuantidade.Text == string.Empty))
+                    {
+                        btnPesquisa.PerformClick();
+                    }
+                    else
+                    {
+                        btnAtualizar.PerformClick();
+                    }
+                    return true;
+
+                case Keys.Escape:
+                    btnsaida.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    txtcodigo.Clear();
+                    txtQuantidade.Clear();
+                    txtcodigo.Focus();
+                    dtprodutos.Rows.Clear();
+                    dtprodutos.Refresh();
+                    cbocomprar.Items.Clear();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
+
+
     }
 }

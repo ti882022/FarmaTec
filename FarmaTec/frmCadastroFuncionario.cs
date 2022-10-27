@@ -10,6 +10,7 @@ namespace FarmaTec
         TratamentoCampos tratamentoCampos = new TratamentoCampos();
         public frmCadastroFuncionario()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -137,6 +138,7 @@ namespace FarmaTec
               }
             */
             ListarCargos();
+            this.Text = "Novo Funcionário - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
         }
 
 
@@ -165,15 +167,12 @@ namespace FarmaTec
 
                 case Keys.F12:
                     btnLimpar.PerformClick();
+                    txtsexo.Items.Clear();
                     return true;
 
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void cboclassefunc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
