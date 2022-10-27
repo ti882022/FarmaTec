@@ -15,39 +15,38 @@ using Newtonsoft.Json.Linq;
 
 namespace TransferenciaDados
 {
-   public class CaixaDTO
+    public class CaixaDTO
     {
         // Declaração dos atributos
-        public int codigo { get; set; }
-        public string descricao  { get; set; }
-        public DateTime dataPagamento { get; set; }
+        public string nomeCliente { get; set; }
         public int canalPgto { get; set; }
         public int formaPgto { get; set; }
+        public int codFuncionario { get; set; }
+        public DateTime dataPgto { get; set; }
+        public DateTime dataEnvio { get; set; }
+        public string produto { get; set; } //Irá receber a descrição, quantidade e o preco convertidos em Json 
         public int nPedido { get; set; }
-        public string nomeCliente { get; set; }
+
 
     }
     public class ListPedidos
     {
-        public string nomeFunc { get; set; }
-        public string usuarioFunc { get; set; }
-        public string emailFunc { get; set; }
-        public int cargoFunc { get; set; }
-        public int statusFunc { get; set; }
-        public string descricaoCargo { get; set; }
-        public string mensagens { get; set; }
 
-        public ListPedidos(string nome, string email, int classeUsuario, int logado, string descricao)
+
+        //Terão que ser convertidos em um único Json e popular a string do produto.
+        public int codProduto { get; set; }
+        public int qtde { get; set; }
+        public decimal preco { get; set; }
+
+        public ListPedidos(int codProduto, int qtde, decimal preco)
         {
-            this.nomeFunc = nome;
-            this.emailFunc = email;
-            this.cargoFunc = classeUsuario;
-            this.statusFunc = logado;
-            this.descricaoCargo = descricao;
+            this.codProduto = codProduto;
+            this.qtde = qtde;
+            this.preco = preco;
+
+
         }
     }
-
-
 
 
 
