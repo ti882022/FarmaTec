@@ -59,6 +59,7 @@ namespace FarmaTec
         private void frmCadastroProdutos_Load(object sender, EventArgs e)
         {
             //Iniciar método para consultar as categorias
+            this.Text = "Cadastro de Produto - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
             ListarCategoria();
         }
 
@@ -67,65 +68,65 @@ namespace FarmaTec
 
         }
 
-       /* private void btnInserirImagem_Click(object sender, EventArgs e)
-        {
-            //define as propriedades do controle 
-            //OpenFileDialog
-            this.InserirImagem.Multiselect = true;
-            this.InserirImagem.Title = "Selecionar Imagem do Produto";
-            InserirImagem.InitialDirectory = @"C:\";
-            //filtra para exibir somente arquivos de imagens
-            InserirImagem.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" + "All files (*.*)|*.*";
-            InserirImagem.CheckFileExists = true;
-            InserirImagem.CheckPathExists = true;
-            InserirImagem.FilterIndex = 2;
-            InserirImagem.RestoreDirectory = true;
-            InserirImagem.ReadOnlyChecked = true;
-            InserirImagem.ShowReadOnly = true;
+        /* private void btnInserirImagem_Click(object sender, EventArgs e)
+         {
+             //define as propriedades do controle 
+             //OpenFileDialog
+             this.InserirImagem.Multiselect = true;
+             this.InserirImagem.Title = "Selecionar Imagem do Produto";
+             InserirImagem.InitialDirectory = @"C:\";
+             //filtra para exibir somente arquivos de imagens
+             InserirImagem.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|" + "All files (*.*)|*.*";
+             InserirImagem.CheckFileExists = true;
+             InserirImagem.CheckPathExists = true;
+             InserirImagem.FilterIndex = 2;
+             InserirImagem.RestoreDirectory = true;
+             InserirImagem.ReadOnlyChecked = true;
+             InserirImagem.ShowReadOnly = true;
 
-            DialogResult dr = this.InserirImagem.ShowDialog();
+             DialogResult dr = this.InserirImagem.ShowDialog();
 
-            if (dr == System.Windows.Forms.DialogResult.OK)
-            {
-                // Le os arquivos selecionados 
-                foreach (String arquivo in InserirImagem.FileNames)
-                {
-                    flowLayoutPanel1.Text += arquivo;
-                    // cria um PictureBox
-                    try
-                    {
+             if (dr == System.Windows.Forms.DialogResult.OK)
+             {
+                 // Le os arquivos selecionados 
+                 foreach (String arquivo in InserirImagem.FileNames)
+                 {
+                     flowLayoutPanel1.Text += arquivo;
+                     // cria um PictureBox
+                     try
+                     {
 
-                        PictureBox pb = new PictureBox();
-                        Image Imagem = Image.FromFile(arquivo);
-                        pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        //para exibir as imagens em tamanho natural 
-                        //descomente as linhas abaixo e comente as duas seguintes
-                        //pb.Height = loadedImage.Height;
-                        //pb.Width = loadedImage.Width;
-                        pb.Height = 100;
-                        pb.Width = 100;
-                        //atribui a imagem ao PictureBox - pb
-                        pb.Image = Imagem;
-                        //inclui a imagem no containter flowLayoutPanel
-                        flowLayoutPanel1.Controls.Add(pb);
-                    }
-                    catch (SecurityException ex)
-                    {
-                        // O usuário  não possui permissão para ler arquivos
-                        MessageBox.Show("Erro de segurança Contate o administrador de segurança da rede.\n\n" +
-                                                    "Mensagem : " + ex.Message + "\n\n" +
-                                                    "Detalhes (enviar ao suporte):\n\n" + ex.StackTrace);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Não pode carregar a imagem (problemas de permissão)
-                        MessageBox.Show("Não é possível exibir a imagem : "
-                                                   + ". Você pode não ter permissão para ler o arquivo , ou " +
-                                                   " ele pode estar corrompido.\n\nErro reportado : " + ex.Message);
-                    }
-                }
-            }
-        }*/
+                         PictureBox pb = new PictureBox();
+                         Image Imagem = Image.FromFile(arquivo);
+                         pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                         //para exibir as imagens em tamanho natural 
+                         //descomente as linhas abaixo e comente as duas seguintes
+                         //pb.Height = loadedImage.Height;
+                         //pb.Width = loadedImage.Width;
+                         pb.Height = 100;
+                         pb.Width = 100;
+                         //atribui a imagem ao PictureBox - pb
+                         pb.Image = Imagem;
+                         //inclui a imagem no containter flowLayoutPanel
+                         flowLayoutPanel1.Controls.Add(pb);
+                     }
+                     catch (SecurityException ex)
+                     {
+                         // O usuário  não possui permissão para ler arquivos
+                         MessageBox.Show("Erro de segurança Contate o administrador de segurança da rede.\n\n" +
+                                                     "Mensagem : " + ex.Message + "\n\n" +
+                                                     "Detalhes (enviar ao suporte):\n\n" + ex.StackTrace);
+                     }
+                     catch (Exception ex)
+                     {
+                         // Não pode carregar a imagem (problemas de permissão)
+                         MessageBox.Show("Não é possível exibir a imagem : "
+                                                    + ". Você pode não ter permissão para ler o arquivo , ou " +
+                                                    " ele pode estar corrompido.\n\nErro reportado : " + ex.Message);
+                     }
+                 }
+             }
+         }*/
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -156,7 +157,7 @@ namespace FarmaTec
                     dados.estoqueMinimo = Convert.ToInt32(txtEstoqueMin.Text);
                     dados.preco = Convert.ToInt32(txtpreco.Text);
                     //dados.imgproduto = string.Empty;
-                   
+
 
 
                     //Chamar o método para incluir dados
@@ -218,20 +219,12 @@ namespace FarmaTec
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void txtCodigo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             codigoCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
         }
 
-        private void txtdescricao_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
-    }
+}
 

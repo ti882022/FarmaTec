@@ -56,7 +56,7 @@ namespace FarmaTec
             this.cmbCargo.Location = new System.Drawing.Point(284, 262);
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(121, 28);
-            this.cmbCargo.TabIndex = 6;
+            this.cmbCargo.TabIndex = 5;
             this.cmbCargo.SelectionChangeCommitted += new System.EventHandler(this.cmbCargo_SelectionChangeCommitted);
             // 
             // lblCargo
@@ -76,7 +76,7 @@ namespace FarmaTec
             this.txtEmailFuncionario.Location = new System.Drawing.Point(284, 230);
             this.txtEmailFuncionario.Name = "txtEmailFuncionario";
             this.txtEmailFuncionario.Size = new System.Drawing.Size(250, 26);
-            this.txtEmailFuncionario.TabIndex = 5;
+            this.txtEmailFuncionario.TabIndex = 4;
             // 
             // lblEmailFuncionario
             // 
@@ -94,7 +94,7 @@ namespace FarmaTec
             this.btnSair.Location = new System.Drawing.Point(459, 370);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 28);
-            this.btnSair.TabIndex = 9;
+            this.btnSair.TabIndex = 10;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -116,7 +116,7 @@ namespace FarmaTec
             this.btnSalvar.Location = new System.Drawing.Point(202, 370);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btnSalvar.TabIndex = 8;
+            this.btnSalvar.TabIndex = 9;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -157,7 +157,6 @@ namespace FarmaTec
             this.txtCodigoFuncionario.Name = "txtCodigoFuncionario";
             this.txtCodigoFuncionario.Size = new System.Drawing.Size(142, 26);
             this.txtCodigoFuncionario.TabIndex = 1;
-            this.txtCodigoFuncionario.TextChanged += new System.EventHandler(this.txtCodigoFuncionario_TextChanged);
             // 
             // lblUsuario
             // 
@@ -169,7 +168,6 @@ namespace FarmaTec
             this.lblUsuario.Size = new System.Drawing.Size(64, 20);
             this.lblUsuario.TabIndex = 46;
             this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
             // 
             // lblStatusCadastro
             // 
@@ -188,7 +186,7 @@ namespace FarmaTec
             this.radAtivo.Location = new System.Drawing.Point(283, 302);
             this.radAtivo.Name = "radAtivo";
             this.radAtivo.Size = new System.Drawing.Size(62, 24);
-            this.radAtivo.TabIndex = 62;
+            this.radAtivo.TabIndex = 6;
             this.radAtivo.TabStop = true;
             this.radAtivo.Text = "Ativo";
             this.radAtivo.UseVisualStyleBackColor = true;
@@ -200,7 +198,7 @@ namespace FarmaTec
             this.radReset.Location = new System.Drawing.Point(464, 302);
             this.radReset.Name = "radReset";
             this.radReset.Size = new System.Drawing.Size(70, 24);
-            this.radReset.TabIndex = 62;
+            this.radReset.TabIndex = 8;
             this.radReset.TabStop = true;
             this.radReset.Text = "Reset";
             this.radReset.UseVisualStyleBackColor = true;
@@ -212,7 +210,7 @@ namespace FarmaTec
             this.radDesativado.Location = new System.Drawing.Point(351, 302);
             this.radDesativado.Name = "radDesativado";
             this.radDesativado.Size = new System.Drawing.Size(107, 24);
-            this.radDesativado.TabIndex = 62;
+            this.radDesativado.TabIndex = 7;
             this.radDesativado.TabStop = true;
             this.radDesativado.Text = "Desativado";
             this.radDesativado.UseVisualStyleBackColor = true;

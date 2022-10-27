@@ -58,7 +58,7 @@ namespace FarmaTec
             // 
             this.lblProdutosRegistrados.AutoSize = true;
             this.lblProdutosRegistrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProdutosRegistrados.Location = new System.Drawing.Point(221, 242);
+            this.lblProdutosRegistrados.Location = new System.Drawing.Point(156, 241);
             this.lblProdutosRegistrados.Name = "lblProdutosRegistrados";
             this.lblProdutosRegistrados.Size = new System.Drawing.Size(219, 25);
             this.lblProdutosRegistrados.TabIndex = 26;
@@ -66,6 +66,8 @@ namespace FarmaTec
             // 
             // dtProdutos
             // 
+            this.dtProdutos.AllowUserToAddRows = false;
+            this.dtProdutos.AllowUserToDeleteRows = false;
             this.dtProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codProduto,
@@ -75,12 +77,11 @@ namespace FarmaTec
             this.categoria,
             this.qtde,
             this.preco});
-            this.dtProdutos.Location = new System.Drawing.Point(142, 274);
+            this.dtProdutos.Location = new System.Drawing.Point(77, 273);
             this.dtProdutos.Name = "dtProdutos";
             this.dtProdutos.ReadOnly = true;
             this.dtProdutos.Size = new System.Drawing.Size(1183, 388);
             this.dtProdutos.TabIndex = 24;
-           
             // 
             // codProduto
             // 
@@ -234,12 +235,11 @@ namespace FarmaTec
             // pctProdutos
             // 
             this.pctProdutos.Image = ((System.Drawing.Image)(resources.GetObject("pctProdutos.Image")));
-            this.pctProdutos.Location = new System.Drawing.Point(142, 212);
+            this.pctProdutos.Location = new System.Drawing.Point(77, 211);
             this.pctProdutos.Name = "pctProdutos";
             this.pctProdutos.Size = new System.Drawing.Size(76, 69);
             this.pctProdutos.TabIndex = 27;
             this.pctProdutos.TabStop = false;
-            this.pctProdutos.Click += new System.EventHandler(this.pctProdutos_Click);
             // 
             // frmConsultarProdutos
             // 

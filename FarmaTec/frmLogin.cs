@@ -7,6 +7,7 @@ namespace FarmaTec
 {
     public partial class frmLogin : Form
     {
+        TratamentoCampos tratamentoCampos = new TratamentoCampos();
 
         //Declaração de variáveis
         public bool LoginSucesso = false;
@@ -18,10 +19,8 @@ namespace FarmaTec
         }
 
 
-
-
         private async void btnAcessar_Click(object sender, EventArgs e)
-            {
+        {
             try
             {
                 if (txtusuario.Text == String.Empty)
@@ -54,9 +53,11 @@ namespace FarmaTec
                     await usuarioAutenticar.ValidarUsuario(dados);
 
 
-                    if (dados.mensagens != null)
+                    if (dados.mensagens == null)
                     {
                         MessageBox.Show("Usuário ou senha inválidas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        tratamentoCampos.Limpar(this);
+                        txtusuario.Focus();
                     }
                     else
                     {
@@ -129,37 +130,12 @@ namespace FarmaTec
 
         }
 
-
-        private void lblSenha_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
             this.Size = new Size(647, 471);
             this.Location = new Point(0, 0);
         }
 
-        private void lblNovaSenha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mskConfirmarSenha_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void lblConfirmarSenha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private async void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -193,7 +169,7 @@ namespace FarmaTec
 
 
                         //Popular classe
-                        
+
                         dados.nome = LoginSistema.nomeUsuario;
                         dados.email = LoginSistema.emailUsuario;
                         dados.senha = mskSenhaAtual.Text;
@@ -239,11 +215,6 @@ namespace FarmaTec
 
         }
 
-
-        private void mskNovaSenha_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
 
@@ -264,10 +235,20 @@ namespace FarmaTec
                     this.Close();
                     return true;
 
+                case Keys.F12:
+                    btnLimpar.PerformClick();
+                    return true;
+
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            mskSenhaAtual.Clear();
+            mskNovaSenha.Clear();
+            mskConfirmarSenha.Clear();
+            mskSenhaAtual.Focus();
+        }
     }
 }

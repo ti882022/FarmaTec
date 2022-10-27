@@ -92,6 +92,7 @@ namespace FarmaTec
                                 MessageBox.Show("Cadastro Atualizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 tratamentoCampos.Limpar(this);
                                 txtCodigoFuncionario.Enabled = true;
+                                txtCodigoFuncionario.Focus();
                                 radDesativado.Checked = false;
                                 radAtivo.Checked = false;
                                 radReset.Checked = false;
@@ -213,19 +214,10 @@ namespace FarmaTec
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void lblUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCodigoFuncionario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmEditarCadastro_Load(object sender, EventArgs e)
         {
             ListarCargos();
+            this.Text = "Editar Cadastro de Funcionários - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
         }
 
         private void cmbCargo_SelectionChangeCommitted(object sender, EventArgs e)

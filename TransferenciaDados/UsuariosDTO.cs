@@ -19,7 +19,7 @@ namespace TransferenciaDados
 {
     public class UsuariosDTO
     {
-       
+
         public string nome { get; set; }
         public string usuario { get; set; }
         public string senha { get; set; }
@@ -27,6 +27,7 @@ namespace TransferenciaDados
         public string email { get; set; }
         public int classeUsuario { get; set; }
         public int logado { get; set; }
+        public int resultado { get; set; }
         public string mensagens { get; set; }
 
     }
@@ -73,16 +74,22 @@ namespace TransferenciaDados
 
                 foreach (var item in arrayUsuarios)
                 {
+                    dados.resultado = Convert.ToInt32(item["resultado"].ToString());
 
-                    dados.logado = Convert.ToInt32(item["plogado"].ToString());
-
-
-                    LoginSistema.codFuncionario = Convert.ToInt32(item["pcod"].ToString());
-                    LoginSistema.emailUsuario = item["pemail"].ToString();
-                    LoginSistema.nomeUsuario = item["pnome"].ToString();
-                    LoginSistema.classe = Convert.ToInt32(item["pcargo"].ToString());
+                    if (dados.resultado == 0)
+                    {
+                        dados.mensagens = null;
+                    }
+                    else
+                    {
+                        dados.logado = Convert.ToInt32(item["plogado"].ToString());
+                        LoginSistema.codFuncionario = Convert.ToInt32(item["pcod"].ToString());
+                        LoginSistema.emailUsuario = item["pemail"].ToString();
+                        LoginSistema.nomeUsuario = item["pnome"].ToString();
+                        LoginSistema.classe = Convert.ToInt32(item["pcargo"].ToString());
+                        dados.mensagens = "1";
+                    }
                 }
-
             }
 
             catch (JsonException e)
@@ -128,7 +135,7 @@ namespace TransferenciaDados
 
                 foreach (var item in arrayUsuarios)
                 {
-                    dados.logado = Convert.ToInt32(item["plogado"].ToString());
+                    dados.logado = Convert.ToInt32(item["logado"].ToString());
                 }
 
             }
@@ -158,7 +165,7 @@ namespace TransferenciaDados
                 {
                     {"txtnome", dados.nome },
                     {"txtemail", dados.email },
-                   
+
                     {"HTTP_ACCEPT", "application/Json"}
 
                 };

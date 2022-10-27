@@ -135,6 +135,7 @@ namespace FarmaTec
         private void frmConsultarClientes_Load(object sender, EventArgs e)
         {
             AutoCompletar();
+            this.Text = "Consultar Clientes - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -166,11 +167,6 @@ namespace FarmaTec
         private void mskCpf_MouseClick(object sender, MouseEventArgs e)
         {
             mskCpf.Select(0, 0);
-        }
-
-        private void txtnomeCliente_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

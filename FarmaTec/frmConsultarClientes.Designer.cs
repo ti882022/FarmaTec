@@ -120,7 +120,7 @@ namespace FarmaTec
             this.btnBuscar.Location = new System.Drawing.Point(825, 73);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(132, 40);
-            this.btnBuscar.TabIndex = 12;
+            this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -143,7 +143,6 @@ namespace FarmaTec
             this.txtnomeCliente.Name = "txtnomeCliente";
             this.txtnomeCliente.Size = new System.Drawing.Size(226, 29);
             this.txtnomeCliente.TabIndex = 2;
-            this.txtnomeCliente.TextChanged += new System.EventHandler(this.txtnomeCliente_TextChanged);
             // 
             // dtClientes
             // 
@@ -161,7 +160,7 @@ namespace FarmaTec
             this.cpf,
             this.foneCliente,
             this.emailCliente});
-            this.dtClientes.Location = new System.Drawing.Point(118, 274);
+            this.dtClientes.Location = new System.Drawing.Point(37, 279);
             this.dtClientes.Name = "dtClientes";
             this.dtClientes.ReadOnly = true;
             this.dtClientes.Size = new System.Drawing.Size(1247, 388);
@@ -248,7 +247,7 @@ namespace FarmaTec
             // 
             this.lblClientesRegistrados.AutoSize = true;
             this.lblClientesRegistrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientesRegistrados.Location = new System.Drawing.Point(172, 243);
+            this.lblClientesRegistrados.Location = new System.Drawing.Point(91, 248);
             this.lblClientesRegistrados.Name = "lblClientesRegistrados";
             this.lblClientesRegistrados.Size = new System.Drawing.Size(211, 25);
             this.lblClientesRegistrados.TabIndex = 21;
@@ -264,7 +263,7 @@ namespace FarmaTec
             this.btnSair.Location = new System.Drawing.Point(1067, 67);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(107, 107);
-            this.btnSair.TabIndex = 20;
+            this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSair.UseVisualStyleBackColor = false;
@@ -273,7 +272,7 @@ namespace FarmaTec
             // pctClientes
             // 
             this.pctClientes.Image = ((System.Drawing.Image)(resources.GetObject("pctClientes.Image")));
-            this.pctClientes.Location = new System.Drawing.Point(121, 234);
+            this.pctClientes.Location = new System.Drawing.Point(40, 239);
             this.pctClientes.Name = "pctClientes";
             this.pctClientes.Size = new System.Drawing.Size(45, 50);
             this.pctClientes.TabIndex = 22;

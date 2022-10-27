@@ -20,6 +20,7 @@ namespace FarmaTec
         public frmCadastroFornecedor()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -149,6 +150,12 @@ namespace FarmaTec
         private void mskTelefone_MouseClick(object sender, MouseEventArgs e)
         {
             mskTelefone.Select(0, 0);
+        }
+
+        private void frmCadastroFornecedor_Load(object sender, EventArgs e)
+        {
+            this.Text = "Cadastro de Fornecedor - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
+
         }
     }
 }

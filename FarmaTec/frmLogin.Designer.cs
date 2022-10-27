@@ -71,7 +71,6 @@ namespace FarmaTec
             this.lblSenha.Size = new System.Drawing.Size(88, 29);
             this.lblSenha.TabIndex = 2;
             this.lblSenha.Text = "Senha:";
-            this.lblSenha.Click += new System.EventHandler(this.lblSenha_Click);
             // 
             // txtusuario
             // 
@@ -118,7 +117,6 @@ namespace FarmaTec
             this.mskNovaSenha.PasswordChar = '*';
             this.mskNovaSenha.Size = new System.Drawing.Size(211, 26);
             this.mskNovaSenha.TabIndex = 4;
-            this.mskNovaSenha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskNovaSenha_MaskInputRejected);
             // 
             // mskConfirmarSenha
             // 
@@ -128,7 +126,6 @@ namespace FarmaTec
             this.mskConfirmarSenha.PasswordChar = '*';
             this.mskConfirmarSenha.Size = new System.Drawing.Size(211, 26);
             this.mskConfirmarSenha.TabIndex = 5;
-            this.mskConfirmarSenha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskConfirmarSenha_MaskInputRejected);
             // 
             // lblConfirmarSenha
             // 
@@ -139,7 +136,6 @@ namespace FarmaTec
             this.lblConfirmarSenha.Size = new System.Drawing.Size(129, 20);
             this.lblConfirmarSenha.TabIndex = 86;
             this.lblConfirmarSenha.Text = "Confirmar Senha";
-            this.lblConfirmarSenha.Click += new System.EventHandler(this.lblConfirmarSenha_Click);
             // 
             // btnLimpar
             // 
@@ -172,7 +168,6 @@ namespace FarmaTec
             this.lblNovaSenha.Size = new System.Drawing.Size(96, 20);
             this.lblNovaSenha.TabIndex = 85;
             this.lblNovaSenha.Text = "Nova Senha";
-            this.lblNovaSenha.Click += new System.EventHandler(this.lblNovaSenha_Click);
             // 
             // mskSenhaAtual
             // 
