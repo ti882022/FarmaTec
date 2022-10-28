@@ -143,6 +143,7 @@ namespace FarmaTec
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(116, 26);
             this.txtNumero.TabIndex = 4;
+            this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // lblEndereco
             // 

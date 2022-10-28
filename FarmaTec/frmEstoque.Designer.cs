@@ -97,6 +97,7 @@ namespace FarmaTec
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(70, 26);
             this.txtcodigo.TabIndex = 1;
+            this.txtcodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcodigo_KeyPress);
             // 
             // Codigodoproduto
             // 

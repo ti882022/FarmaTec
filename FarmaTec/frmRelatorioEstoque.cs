@@ -7,6 +7,7 @@ namespace FarmaTec
     {
         public frmRelatorioEstoque()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -21,6 +22,17 @@ namespace FarmaTec
             {
                 Close();
             }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
+            {
+                case Keys.Escape:
+                    btnSair.PerformClick();
+                    return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

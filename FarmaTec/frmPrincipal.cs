@@ -47,7 +47,6 @@ namespace FarmaTec
                     menuMovimentacao.Visible = false;
                     menuRelatorios.Visible = false;
                     menuVendas.Visible = false;
-
                     break;
 
                 case 34:
@@ -195,9 +194,15 @@ namespace FarmaTec
                case Keys.Escape:
                     menuSair.PerformClick();
                     return true;
-
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void menuRelatorios_Click(object sender, EventArgs e)
+        {
+            FecharTodos();
+            Form childForm = new frmRelatorioEstoque();
+            AbrirForm(childForm);
         }
     }
 }
