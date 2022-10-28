@@ -8,6 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+
+
+//Namespace para APi rest
+using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+
 using TransferenciaDados;
 
 namespace FarmaTec
@@ -16,6 +24,7 @@ namespace FarmaTec
     {
         public frmCaixa()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -23,13 +32,13 @@ namespace FarmaTec
 
 
         //Coleção para o AutoComplete
-        AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection autocompleteCliente = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection autocompleteProduto = new AutoCompleteStringCollection();
 
-     
 
-        public async void AutoCompletar()
+
+        public async void AutoCompletarCliente()
         {
-
 
             try
             {
@@ -37,11 +46,11 @@ namespace FarmaTec
                 ConsultarClientes consultarClientes = new ConsultarClientes();
                 ClientesDTO dados = new ClientesDTO();
 
-           
+               
 
                 //Popular classe
-                dados.nome = txtnomecliente.Text;
-               
+                dados.nomeCliente = txtnomecliente.Text;
+                // dados.cpf = mskCpf.Text;
 
                 //Chamar o método
                 await consultarClientes.MostrarCliente(dados);
@@ -53,12 +62,12 @@ namespace FarmaTec
                         //Percorrer a lista
                         for (int i = 0; i < consultarClientes.listClientes.Count; i++)
                         {
-                            autocomplete.Add(consultarClientes.listClientes[i].nomeCliente.ToString());
+                            autocompleteCliente.Add(consultarClientes.listClientes[i].nomeCliente.ToString());
                         }
                         //Definir as propriedades do autocomplete do textbox
                         txtnomecliente.AutoCompleteMode = AutoCompleteMode.Suggest;
                         txtnomecliente.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                        txtnomecliente.AutoCompleteCustomSource = autocomplete;
+                        txtnomecliente.AutoCompleteCustomSource = autocompleteCliente;
 
                     }
                 }
@@ -78,7 +87,7 @@ namespace FarmaTec
         }
 
 
-       public async void AutoCompletarProdutosCaixa()
+        public async void AutoCompletarProdutosCaixa()
         {
 
 
@@ -102,12 +111,12 @@ namespace FarmaTec
                         //Percorrer a lista
                         for (int i = 0; i < consultarProdutos.listProdutos.Count; i++)
                         {
-                            autocomplete.Add(consultarProdutos.listProdutos[i].descricao.ToString());
+                            autocompleteProduto.Add(consultarProdutos.listProdutos[i].descricao.ToString());
                         }
                         //Definir as propriedades do autocomplete do textbox
                         txtdescricao.AutoCompleteMode = AutoCompleteMode.Suggest;
                         txtdescricao.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                        txtdescricao.AutoCompleteCustomSource = autocomplete;
+                        txtdescricao.AutoCompleteCustomSource = autocompleteProduto;
 
                     }
                 }
@@ -125,7 +134,7 @@ namespace FarmaTec
 
         }
 
-      
+
 
 
         private void ListarPagamento()
@@ -183,17 +192,66 @@ namespace FarmaTec
 
         }
 
+
+
+
         private void frmCaixa_Load(object sender, EventArgs e)
         {
-            
+
             txtNomeFuncionario.Text = LoginSistema.nomeUsuario;
-            AutoCompletar();
+            ListarPagamento();
+            AutoCompletarCliente();
             AutoCompletarProdutosCaixa();
+           
         }
 
         private async void btnIncluir_Click_1(object sender, EventArgs e)
         {
-           
+         
+
+                //Realizar a pesquisa do produto no banco de dados.
+                try
+                {
+                    //Instanciar as classes
+                    ConsultarProdutos consultarProdutos = new ConsultarProdutos();
+                    ProdutosDTO dados = new ProdutosDTO();
+
+
+
+                    //Popular classe
+                    dados.descricao = txtdescricao.Text;
+
+
+                    //Limpar fonte de dados e o DatagridView
+                    dtvProduto.DataSource = null;
+                    dtvProduto.Rows.Clear();
+
+
+                    //Chamar o método
+                    await consultarProdutos.MostrarProduto(dados);
+
+
+                    //Popular o campo código
+                    for (int i = 0; i < consultarProdutos.listProdutos.Count; i++)
+                    {
+                        txtCodProduto.Text = consultarProdutos.listProdutos[i].codProduto.ToString();
+                        dtvProduto.Rows.Add(consultarProdutos.listProdutos[i].codProduto.ToString(),
+                                                consultarProdutos.listProdutos[i].descricao.ToString(),
+                                                Convert.ToDecimal(consultarProdutos.listProdutos[i].qtde.ToString()),
+                                               Convert.ToDecimal(consultarProdutos.listProdutos[i].preco));
+
+
+
+                    }
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+
             if (txtnomecliente.Text == String.Empty && txtdescricao.Text == String.Empty)
             {
                 MessageBox.Show("Favor inserir o nome do Cliente e do Produto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -204,9 +262,9 @@ namespace FarmaTec
             else if (txtnomecliente.Text == String.Empty)
             {
                 MessageBox.Show("Favor inserir o nome do Cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               txtnomecliente.BackColor = Color.Red;
-               txtdescricao.BackColor = Color.Green;
-               txtnomecliente.Focus();
+                txtnomecliente.BackColor = Color.Red;
+                txtdescricao.BackColor = Color.Green;
+                txtnomecliente.Focus();
             }
 
 
@@ -218,53 +276,14 @@ namespace FarmaTec
                 txtdescricao.Focus();
             }
 
-            else {
+            else
+            {
                 txtnomecliente.BackColor = Color.White;
                 txtdescricao.BackColor = Color.White;
                 txtnomecliente.Enabled = false;
                 txtdescricao.Clear();
                 txtCodProduto.Clear();
-               
             }
-
-
-
-                    //Realizar a pesquisa do produto no banco de dados.
-            try
-            {
-                //Instanciar as classes
-                ConsultarProdutos consultarProdutos = new ConsultarProdutos();
-                ProdutosDTO dados = new ProdutosDTO();
-
-
-
-                //Popular classe
-                dados.descricao = txtdescricao.Text;
-
-
-                //Chamar o método
-                await consultarProdutos.MostrarProduto(dados);
-
-
-                //Popular o campo código
-                for (int i = 0; i < consultarProdutos.listProdutos.Count; i++)
-                {
-                    txtCodProduto.Text =   consultarProdutos.listProdutos[i].codProduto.ToString();
-                  
-                    
-                  
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-
-
-
 
 
 
@@ -272,14 +291,11 @@ namespace FarmaTec
 
         private void grpProduto_Paint(object sender, PaintEventArgs e)
         {
-          
+
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
@@ -297,29 +313,23 @@ namespace FarmaTec
         private void cbFormaPagamento_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-         
+
 
         }
 
         private void dtPedido_ValueChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void txtNomeFuncionario_TextChanged(object sender, EventArgs e)
         {
-          
-        }
-
-        private void txtCodFuncionario_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void txtNomeCliente_TextChanged(object sender, EventArgs e)
-        {
 
         }
+
+    
+
+       
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
@@ -334,25 +344,81 @@ namespace FarmaTec
         private void txtDesconto_TextChanged(object sender, EventArgs e)
 
         {
-            if (txtDesconto.Text != string.Empty)
+
+
+
+        }
+
+        private void mskDesconto_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtdesconto_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtdesconto.Text != string.Empty)
             {
                 double number = int.Parse(txtValor.Text);
-                double porcentagem = number * Convert.ToDouble(txtDesconto.Text) / 100;
+                double porcentagem = number * Convert.ToDouble(txtdesconto.Text) / 100;
                 double porcentagemtotal = number - porcentagem;
                 txtValorTotal.Text = porcentagemtotal.ToString();
             }
             else
             {
                 MessageBox.Show("Favor inserir a porcentagem de desconto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtValorTotal.Text = txtValor.Text;
             }
-           
-           
         }
 
+        private void dtvProduto_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            
+                try
+                {
+                    if (e.ColumnIndex == 2)
+                    {
+                        decimal preco = Convert.ToDecimal(dtvProduto.CurrentRow.Cells[3].Value);
+                        decimal qtde = Convert.ToDecimal(dtvProduto.CurrentRow.Cells[2].Value);
+
+                        if (preco.ToString() != "" && qtde.ToString() != "")
+                        {
+                            dtvProduto.CurrentRow.Cells[4].Value = preco * qtde;
+                        }
+                    }
+
+                    decimal valorTotal = 0;
+                    string valor = "";
+                    if (dtvProduto.CurrentRow.Cells[4].Value != null)
+                    {
+                        valor = dtvProduto.CurrentRow.Cells[4].Value.ToString();
+                        if (!valor.Equals(""))
+                        {
+                            for (int i = 0; i <= dtvProduto.RowCount - 1; i++)
+                              {
+                                if (dtvProduto.Rows[i].Cells[4].Value != null)
+                                    valorTotal = Convert.ToDecimal(dtvProduto.Rows[i].Cells[4].Value);
+
+                            }
+                            if (valorTotal == 0)
+                            {
+                                MessageBox.Show("Nenhum registro encontrado");
+                            }
+                            txtValor.Text = valorTotal.ToString("C");
+                        }
+
+                    }
+
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }
         
         
-       
     }
 
-    }
+}
 

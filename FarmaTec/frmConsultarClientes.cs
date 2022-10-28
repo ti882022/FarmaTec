@@ -30,7 +30,7 @@ namespace FarmaTec
                 //   txtnomeCliente.Text = "Ewerthon";
 
                 //Popular classe
-                dados.nome = txtnomeCliente.Text;
+                dados.nomeCliente = txtnomeCliente.Text;
                 // dados.cpf = mskCpf.Text;
 
                 //Chamar o método
@@ -90,7 +90,7 @@ namespace FarmaTec
                 mskCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
                 //Popular classe
-                dados.nome = txtnomeCliente.Text;
+                dados.nomeCliente = txtnomeCliente.Text;
                 dados.cpf = mskCpf.Text;
 
                 //Limpar fonte de dados e o DatagridView
