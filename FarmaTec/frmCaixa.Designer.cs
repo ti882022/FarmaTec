@@ -318,9 +318,9 @@ namespace FarmaTec
             this.grpPagamento.Controls.Add(this.txtValor);
             this.grpPagamento.Controls.Add(this.lblPagamento);
             this.grpPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPagamento.Location = new System.Drawing.Point(657, 389);
+            this.grpPagamento.Location = new System.Drawing.Point(512, 318);
             this.grpPagamento.Name = "grpPagamento";
-            this.grpPagamento.Size = new System.Drawing.Size(406, 397);
+            this.grpPagamento.Size = new System.Drawing.Size(452, 397);
             this.grpPagamento.TabIndex = 17;
             this.grpPagamento.TabStop = false;
             this.grpPagamento.Text = "PAGAMENTO";
@@ -337,24 +337,25 @@ namespace FarmaTec
             // cboFormaPagamento
             // 
             this.cboFormaPagamento.FormattingEnabled = true;
-            this.cboFormaPagamento.Location = new System.Drawing.Point(62, 217);
+            this.cboFormaPagamento.Location = new System.Drawing.Point(62, 211);
             this.cboFormaPagamento.Name = "cboFormaPagamento";
-            this.cboFormaPagamento.Size = new System.Drawing.Size(260, 33);
+            this.cboFormaPagamento.Size = new System.Drawing.Size(272, 33);
             this.cboFormaPagamento.TabIndex = 9;
             this.cboFormaPagamento.SelectedIndexChanged += new System.EventHandler(this.cbFormaPagamento_SelectedIndexChanged);
             // 
             // btnReceber
             // 
-            this.btnReceber.Location = new System.Drawing.Point(322, 350);
+            this.btnReceber.Location = new System.Drawing.Point(323, 325);
             this.btnReceber.Name = "btnReceber";
             this.btnReceber.Size = new System.Drawing.Size(106, 45);
             this.btnReceber.TabIndex = 8;
             this.btnReceber.Text = "Receber";
             this.btnReceber.UseVisualStyleBackColor = true;
+            this.btnReceber.Click += new System.EventHandler(this.btnReceber_Click);
             // 
             // txtValorTotal
             // 
-            this.txtValorTotal.Location = new System.Drawing.Point(221, 292);
+            this.txtValorTotal.Location = new System.Drawing.Point(221, 271);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(113, 31);
             this.txtValorTotal.TabIndex = 7;
@@ -363,7 +364,7 @@ namespace FarmaTec
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(56, 292);
+            this.lblTotal.Location = new System.Drawing.Point(56, 271);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(75, 31);
             this.lblTotal.TabIndex = 6;
@@ -373,7 +374,7 @@ namespace FarmaTec
             // 
             this.lblFormaPagamento.AutoSize = true;
             this.lblFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormaPagamento.Location = new System.Drawing.Point(56, 185);
+            this.lblFormaPagamento.Location = new System.Drawing.Point(56, 179);
             this.lblFormaPagamento.Name = "lblFormaPagamento";
             this.lblFormaPagamento.Size = new System.Drawing.Size(274, 31);
             this.lblFormaPagamento.TabIndex = 4;
@@ -482,6 +483,7 @@ namespace FarmaTec
             this.codProduto.HeaderText = "Código";
             this.codProduto.MinimumWidth = 6;
             this.codProduto.Name = "codProduto";
+            this.codProduto.ReadOnly = true;
             this.codProduto.Width = 125;
             // 
             // descricao
@@ -489,13 +491,14 @@ namespace FarmaTec
             this.descricao.HeaderText = "Produto";
             this.descricao.MinimumWidth = 6;
             this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
             this.descricao.Width = 300;
             // 
             // qtde
             // 
             this.qtde.HeaderText = "Quantidade";
+            this.qtde.MaxInputLength = 2;
             this.qtde.Name = "qtde";
-            this.qtde.ReadOnly = true;
             this.qtde.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.qtde.Width = 180;
             // 
@@ -503,12 +506,14 @@ namespace FarmaTec
             // 
             this.preco.HeaderText = "Valor Unitário";
             this.preco.Name = "preco";
+            this.preco.ReadOnly = true;
             this.preco.Width = 180;
             // 
             // valorTotal
             // 
             this.valorTotal.HeaderText = "Total";
             this.valorTotal.Name = "valorTotal";
+            this.valorTotal.ReadOnly = true;
             this.valorTotal.Width = 180;
             // 
             // frmCaixa

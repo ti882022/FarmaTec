@@ -64,8 +64,8 @@ namespace TransferenciaDados
                 MySqlCommand cmd = new MySqlCommand("spInserirPedidos", Conexao.obterConexao());
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                //Popular os parâmetros da procedure
-                cmd.Parameters.AddWithValue("@pnome", dados.nomeCliente);
+                //Popular os parâmetros da entrada(Input)
+                cmd.Parameters.AddWithValue("@pnomecliente", dados.nomeCliente);
                 cmd.Parameters.AddWithValue("@pcanal", dados.canalPgto);
                 cmd.Parameters.AddWithValue("@pforma", dados.formaPgto);
                 cmd.Parameters.AddWithValue("@pcodigofuncionario", dados.codFuncionario);
@@ -74,6 +74,7 @@ namespace TransferenciaDados
                 cmd.Parameters.AddWithValue("@pproduto", dados.produto); // Ser transformado em json 
 
 
+                //Parametros de saída (Output)
                 cmd.Parameters.Add(new MySqlParameter("pnumeropedido", MySqlDbType.Int32));
                 cmd.Parameters["pnumeropedido"].Direction = ParameterDirection.Output;
 
@@ -95,6 +96,13 @@ namespace TransferenciaDados
             {
                 dados.mensagens = "ERRO - SalvarPedidos - InserirPedidos -" + e.Message.ToString();
             }
+
+            catch (JsonException ex)
+            {
+                dados.mensagens = " ERRO - SalvarPedidos - InserirPedidos - \r\n " + ex.Message.ToString();
+            }
+
+
         }
 
     }

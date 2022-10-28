@@ -10,9 +10,13 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+
 //Namespace para APi rest
 using System.Net.Http;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
@@ -197,7 +201,7 @@ namespace FarmaTec
 
         private void frmCaixa_Load(object sender, EventArgs e)
         {
-
+            
             txtNomeFuncionario.Text = LoginSistema.nomeUsuario;
             ListarPagamento();
             AutoCompletarCliente();
@@ -223,8 +227,8 @@ namespace FarmaTec
 
 
                     //Limpar fonte de dados e o DatagridView
-                    dtvProduto.DataSource = null;
-                    dtvProduto.Rows.Clear();
+                //    dtvProduto.DataSource = null;
+                   
 
 
                     //Chamar o método
@@ -356,9 +360,9 @@ namespace FarmaTec
 
         private void txtdesconto_TextChanged_1(object sender, EventArgs e)
         {
-            if (txtdesconto.Text != string.Empty)
+          /*  if (txtdesconto.Text != string.Empty)
             {
-                double number = int.Parse(txtValor.Text);
+                double number = int.Parse(txtValor.Text.ToString());
                 double porcentagem = number * Convert.ToDouble(txtdesconto.Text) / 100;
                 double porcentagemtotal = number - porcentagem;
                 txtValorTotal.Text = porcentagemtotal.ToString();
@@ -368,6 +372,8 @@ namespace FarmaTec
                 MessageBox.Show("Favor inserir a porcentagem de desconto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtValorTotal.Text = txtValor.Text;
             }
+
+            */
         }
 
         private void dtvProduto_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -396,15 +402,18 @@ namespace FarmaTec
                             for (int i = 0; i <= dtvProduto.RowCount - 1; i++)
                               {
                                 if (dtvProduto.Rows[i].Cells[4].Value != null)
-                                    valorTotal = Convert.ToDecimal(dtvProduto.Rows[i].Cells[4].Value);
+                                    valorTotal += Convert.ToDecimal(dtvProduto.Rows[i].Cells[4].Value);
 
                             }
                             if (valorTotal == 0)
                             {
                                 MessageBox.Show("Nenhum registro encontrado");
                             }
-                            txtValor.Text = valorTotal.ToString("C");
-                        }
+                            txtValor.Text = valorTotal.ToString();
+                       
+                         
+                        txtValorTotal.Text = txtValor.Text.ToString();
+                    }
 
                     }
 
@@ -416,8 +425,80 @@ namespace FarmaTec
                 }
 
             }
-        
-        
+
+        private void btnReceber_Click(object sender, EventArgs e)
+        {
+
+
+            try
+            {
+                SalvarPedidos salvarPedidos = new SalvarPedidos();
+                PedidosDTO dados = new PedidosDTO();
+
+
+                //Percorrer o datagridview
+
+                if (dtvProduto.RowCount > 1)
+                {
+                    bool salvar = false;
+                    int qtderegistros = dtvProduto.RowCount - 1;
+
+                    List<ListarPedidos> listarPedidos = new List<ListarPedidos>();
+
+                    for (int i = 1; i < dtvProduto.RowCount; i++)
+                    {
+                        if (dtvProduto.Rows[i].Cells[4].Value != null)
+                        {
+                            listarPedidos.Add(new ListarPedidos(Convert.ToInt32(dtvProduto.Rows[i].Cells[0].Value.ToString()),
+                                Convert.ToInt32(dtvProduto.Rows[i].Cells[4].Value.ToString()),
+                                 Convert.ToInt32(dtvProduto.Rows[i].Cells[2].Value.ToString())
+                                ));
+
+                        }
+                        salvar = true;
+
+                    }
+
+
+                    if (salvar == true)
+
+                    {
+                        DataRowView drv = (DataRowView)cboFormaPagamento.Items[cboFormaPagamento.SelectedIndex];
+                        string formaPagamento = drv["formaPgto"].ToString();
+
+
+                        dados.nomeCliente = txtnomecliente.Text.ToString();
+                        dados.canalPgto = 12;
+                        dados.formaPgto = Convert.ToInt32(formaPagamento);
+                        dados.codFuncionario = LoginSistema.codFuncionario;
+                        dados.dataPgto = Convert.ToDateTime(dtPedido.Text.ToString());
+                        dados.dataEnvio = Convert.ToDateTime(dtPedido.Text.ToString());
+                                               
+                        //Serelizar Json
+                        dados.produto = JsonSerializer.Serialize(listarPedidos);
+
+                        salvarPedidos.InserirPedidos(dados);
+
+                        if (dados.nPedido > 0)
+                        {
+                            MessageBox.Show("Compra Realizada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                          
+                            dtvProduto.Rows.Clear();
+                            txtValorTotal.Clear();
+                        }
+
+
+                    }
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 
 }
