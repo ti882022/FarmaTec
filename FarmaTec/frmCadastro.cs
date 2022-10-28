@@ -82,15 +82,24 @@ namespace FarmaTec
 
                                 if (dados.codigo == 0)
                                 {
-                                    MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("Não foi possível realizar o Cadastro." + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
 
                                 else
                                 {
                                     txtCodigo.Text = dados.codigo.ToString();
                                     MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    tratamentoCampos.Limpar(this);
-                                    tratamentoCampos.Desbloquear(this);
+
+                                    if (MessageBox.Show("Deseja Realizar um novo Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                        tratamentoCampos.Limpar(this);
+                                        tratamentoCampos.Desbloquear(this);
+                                        txtNome.Focus();
+                                    }
+                                    else
+                                    {
+                                        Close();
+                                    }
                                 }
 
                             }
@@ -98,6 +107,10 @@ namespace FarmaTec
                             {
                                 MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
+                        }
+                        else
+                        {
+                            tratamentoCampos.Desbloquear(this);
                         }
                     }
                 }

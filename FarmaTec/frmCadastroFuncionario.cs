@@ -100,11 +100,26 @@ namespace FarmaTec
                                 {
                                     txtCodigoFuncionario.Text = dados.codigo.ToString();
                                     MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    tratamentoCampos.Limpar(this);
-                                    tratamentoCampos.Desbloquear(this);
+
+                                    if (MessageBox.Show("Deseja Realizar um novo Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                        tratamentoCampos.Limpar(this);
+                                        tratamentoCampos.Desbloquear(this);
+                                        txtsexo.SelectedIndex = -1;
+                                        txtNomeFuncionario.Focus();
+                                    }
+                                    else
+                                    {
+                                        txtsexo.SelectedIndex = -1;
+                                        Close();
+                                    }
                                 }
 
                             }
+                        }
+                        else
+                        {
+                            tratamentoCampos.Desbloquear(this);
                         }
                     }
                 }

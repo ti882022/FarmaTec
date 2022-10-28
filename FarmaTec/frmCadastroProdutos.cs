@@ -176,8 +176,17 @@ namespace FarmaTec
                         {
                             txtCodigo.Text = dados.codigo.ToString();
                             MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            tratamentoCampos.Limpar(this);
-                            tratamentoCampos.Desbloquear(this);
+
+                            if (MessageBox.Show("Deseja Incluir um novo Produto?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                tratamentoCampos.Limpar(this);
+                                tratamentoCampos.Desbloquear(this);
+                                txtdescricao.Focus();
+                            }
+                            else
+                            {
+                                Close();
+                            }
                         }
 
                     }
@@ -186,6 +195,10 @@ namespace FarmaTec
                     {
                         MessageBox.Show(dados.mensagens, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                }
+                else
+                {
+                    tratamentoCampos.Desbloquear(this);
                 }
 
             }
@@ -225,6 +238,15 @@ namespace FarmaTec
             codigoCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
         }
 
+        private void txtpreco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtEstoqueMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }
 

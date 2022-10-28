@@ -76,7 +76,7 @@ namespace FarmaTec
 
                             case 1:
                                 LoginSucesso = true;
-                                MessageBox.Show("Bem-vindo ao Sistema", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Bem-vindo ao Sistema " + LoginSistema.nomeUsuario, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 //Limpar os campos
                                 txtusuario.Clear();
@@ -89,7 +89,7 @@ namespace FarmaTec
                                 break;
 
                             case 2:
-                                MessageBox.Show("Usuário já conectado!!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("Usuário já Conectado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                                 //Limpar os campos e posicionar o cursor no nome do usuário
                                 txtusuario.Clear();
@@ -144,17 +144,17 @@ namespace FarmaTec
                 if (mskSenhaAtual.Text == String.Empty)
                 {
                     MessageBox.Show("Favor informar a senha atual", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtusuario.Focus();
+                    mskSenhaAtual.Focus();
                 }
                 else if (mskNovaSenha.Text == String.Empty)
                 {
                     MessageBox.Show("Favor digitar a nova senha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    mskSenha.Focus();
+                    mskNovaSenha.Focus();
                 }
                 else if (mskConfirmarSenha.Text == String.Empty)
                 {
                     MessageBox.Show("Favor confirmar a nova senha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    mskSenha.Focus();
+                    mskConfirmarSenha.Focus();
                 }
                 else
                 {
@@ -191,17 +191,19 @@ namespace FarmaTec
                             MessageBox.Show("Senha alterada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             pnlMudarSenha.Location = new Point(650, 0);
                             mskSenha.Clear();
-                            txtusuario.Focus();
                             txtusuario.Enabled = true;
                             mskSenha.Enabled = true;
                             LoginSucesso = false;
                         }
+                        mskSenha.Focus();
                     }
 
                     else
                     {
                         MessageBox.Show("As novas senhas digitadas estão divergentes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         mskNovaSenha.Focus();
+                        mskNovaSenha.Clear();
+                        mskConfirmarSenha.Clear();
                     }
 
                 }

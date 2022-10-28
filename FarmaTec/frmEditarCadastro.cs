@@ -73,7 +73,12 @@ namespace FarmaTec
                         dados.usuario = txtCodigoFuncionario.Text;
                         dados.nome = txtNomeFuncionario.Text;
                         dados.email = txtEmailFuncionario.Text;
-                        dados.classeUsuario = Convert.ToInt32(codigoClasse);
+
+                        DataRowView drv = (DataRowView)cmbCargo.Items[cmbCargo.SelectedIndex];
+                        string cargoFunc = drv["classeUsuario"].ToString();
+
+                        dados.classeUsuario = Convert.ToInt32(cargoFunc);
+
                         if (radAtivo.Checked == true) dados.logado = 1;
                         if (radDesativado.Checked == true) dados.logado = 4;
                         if (radReset.Checked == true) dados.logado = 3;
@@ -90,12 +95,7 @@ namespace FarmaTec
                             else
                             {
                                 MessageBox.Show("Cadastro Atualizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                tratamentoCampos.Limpar(this);
-                                txtCodigoFuncionario.Enabled = true;
-                                txtCodigoFuncionario.Focus();
-                                radDesativado.Checked = false;
-                                radAtivo.Checked = false;
-                                radReset.Checked = false;
+                                Close();
                             }
 
                         }
@@ -214,10 +214,11 @@ namespace FarmaTec
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void frmEditarCadastro_Load(object sender, EventArgs e)
+        public void frmEditarCadastro_Load(object sender, EventArgs e)
         {
             ListarCargos();
             this.Text = "Editar Cadastro de Funcionários - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
+           
         }
 
         private void cmbCargo_SelectionChangeCommitted(object sender, EventArgs e)

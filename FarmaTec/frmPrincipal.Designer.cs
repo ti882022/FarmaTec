@@ -185,6 +185,7 @@ namespace FarmaTec
             this.menuRelatorios.Name = "menuRelatorios";
             this.menuRelatorios.Size = new System.Drawing.Size(71, 20);
             this.menuRelatorios.Text = "Relatórios";
+            this.menuRelatorios.Click += new System.EventHandler(this.menuRelatorios_Click);
             // 
             // menuSair
             // 

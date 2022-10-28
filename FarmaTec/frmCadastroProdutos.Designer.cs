@@ -227,6 +227,7 @@ namespace FarmaTec
             this.txtEstoqueMin.Name = "txtEstoqueMin";
             this.txtEstoqueMin.Size = new System.Drawing.Size(178, 26);
             this.txtEstoqueMin.TabIndex = 7;
+            this.txtEstoqueMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstoqueMin_KeyPress);
             // 
             // cboCategoria
             // 
@@ -256,6 +257,7 @@ namespace FarmaTec
             this.txtpreco.Name = "txtpreco";
             this.txtpreco.Size = new System.Drawing.Size(178, 26);
             this.txtpreco.TabIndex = 8;
+            this.txtpreco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpreco_KeyPress);
             // 
             // frmCadastroProdutos
             // 

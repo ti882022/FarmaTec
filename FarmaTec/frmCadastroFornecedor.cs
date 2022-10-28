@@ -95,20 +95,30 @@ namespace FarmaTec
                             {
                                 if (dados.codigo == 0)
                                 {
-                                    MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("Não foi possível realizar o cadastro." + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 else
                                 {
-
-                                    //Popular o campo código
                                     txtCodigo.Text = dados.codigo.ToString();
                                     MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    tratamentoCampos.Limpar(this);
-                                    tratamentoCampos.Desbloquear(this);
 
+                                    if (MessageBox.Show("Deseja Realizar um novo Cadastro?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                        tratamentoCampos.Limpar(this);
+                                        tratamentoCampos.Desbloquear(this);
+                                        txtNomeFornecedor.Focus();
+                                    }
+                                    else
+                                    {
+                                        Close();
+                                    }
                                 }
 
                             }
+                        }
+                        else
+                        {
+                            tratamentoCampos.Desbloquear(this);
                         }
                     }
                 }
@@ -156,6 +166,11 @@ namespace FarmaTec
         {
             this.Text = "Cadastro de Fornecedor - FarmaTec - Usuário: " + LoginSistema.nomeUsuario;
 
+        }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

@@ -157,11 +157,25 @@ namespace FarmaTec
 
                         else
                         {
-                            txtQuantidade.Text = dados.qtdeMvto.ToString();
                             MessageBox.Show("Cadastro Realizado com Sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             tratamentoCampos.Limpar(this);
                             tratamentoCampos.Desbloquear(this);
+
+                            if (MessageBox.Show("Deseja Realizar uma nova Movimentação?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                tratamentoCampos.Limpar(this);
+                                tratamentoCampos.Desbloquear(this);
+                                txtcodigo.Enabled = true;
+                                txtcodigo.Focus();
+                                dtprodutos.DataSource = null;
+                                dtprodutos.Rows.Clear();
+                            }
+                            else
+                            {
+                                Close();
+                            }
                         }
+
 
                     }
 
@@ -169,6 +183,11 @@ namespace FarmaTec
                     {
                         MessageBox.Show(dados.mensagens, "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                }
+                else
+                {
+                    tratamentoCampos.Desbloquear(this);
+                    txtcodigo.Enabled = true;
                 }
 
 
@@ -203,7 +222,7 @@ namespace FarmaTec
                 }
                 if (dados.mensagens != null)
                 {
-                    MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Código de Produto Inexistente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
 
@@ -271,6 +290,9 @@ namespace FarmaTec
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
+        private void txtcodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

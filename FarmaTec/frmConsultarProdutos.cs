@@ -162,5 +162,10 @@ namespace FarmaTec
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void txtcodproduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }
