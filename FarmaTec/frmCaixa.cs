@@ -337,7 +337,13 @@ namespace FarmaTec
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Deseja finalizar a compra?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                grpPagamento.Visible = true;
+                dtvProduto.Enabled = false;
+                txtnomecliente.Enabled = false;
+                txtdescricao.Enabled = false;
+            }
         }
 
         private void txtNomeProduto_TextChanged(object sender, EventArgs e)

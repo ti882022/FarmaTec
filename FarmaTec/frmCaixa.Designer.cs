@@ -69,12 +69,12 @@ namespace FarmaTec
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dtvProduto = new System.Windows.Forms.DataGridView();
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.codProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.grpCliente.SuspendLayout();
             this.grpProduto.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -266,7 +266,7 @@ namespace FarmaTec
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1604, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1412, 24);
             this.menuStrip.TabIndex = 16;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -318,17 +318,18 @@ namespace FarmaTec
             this.grpPagamento.Controls.Add(this.txtValor);
             this.grpPagamento.Controls.Add(this.lblPagamento);
             this.grpPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPagamento.Location = new System.Drawing.Point(512, 318);
+            this.grpPagamento.Location = new System.Drawing.Point(577, 273);
             this.grpPagamento.Name = "grpPagamento";
             this.grpPagamento.Size = new System.Drawing.Size(452, 397);
             this.grpPagamento.TabIndex = 17;
             this.grpPagamento.TabStop = false;
             this.grpPagamento.Text = "PAGAMENTO";
+            this.grpPagamento.Visible = false;
             // 
             // txtdesconto
             // 
             this.txtdesconto.Location = new System.Drawing.Point(221, 116);
-            this.txtdesconto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtdesconto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtdesconto.Name = "txtdesconto";
             this.txtdesconto.Size = new System.Drawing.Size(113, 31);
             this.txtdesconto.TabIndex = 10;
@@ -355,6 +356,7 @@ namespace FarmaTec
             // 
             // txtValorTotal
             // 
+            this.txtValorTotal.Enabled = false;
             this.txtValorTotal.Location = new System.Drawing.Point(221, 271);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(113, 31);
@@ -392,6 +394,7 @@ namespace FarmaTec
             // 
             // txtValor
             // 
+            this.txtValor.Enabled = false;
             this.txtValor.Location = new System.Drawing.Point(221, 54);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(113, 31);
@@ -471,13 +474,6 @@ namespace FarmaTec
             this.dtvProduto.TabIndex = 9;
             this.dtvProduto.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvProduto_CellEndEdit);
             // 
-            // mySqlCommand1
-            // 
-            this.mySqlCommand1.CacheAge = 0;
-            this.mySqlCommand1.Connection = null;
-            this.mySqlCommand1.EnableCaching = false;
-            this.mySqlCommand1.Transaction = null;
-            // 
             // codProduto
             // 
             this.codProduto.HeaderText = "Código";
@@ -498,6 +494,7 @@ namespace FarmaTec
             // 
             this.qtde.HeaderText = "Quantidade";
             this.qtde.MaxInputLength = 2;
+            this.qtde.MinimumWidth = 6;
             this.qtde.Name = "qtde";
             this.qtde.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.qtde.Width = 180;
@@ -505,6 +502,7 @@ namespace FarmaTec
             // preco
             // 
             this.preco.HeaderText = "Valor Unitário";
+            this.preco.MinimumWidth = 6;
             this.preco.Name = "preco";
             this.preco.ReadOnly = true;
             this.preco.Width = 180;
@@ -512,16 +510,24 @@ namespace FarmaTec
             // valorTotal
             // 
             this.valorTotal.HeaderText = "Total";
+            this.valorTotal.MinimumWidth = 6;
             this.valorTotal.Name = "valorTotal";
             this.valorTotal.ReadOnly = true;
             this.valorTotal.Width = 180;
+            // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
             // 
             // frmCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(1604, 700);
+            this.ClientSize = new System.Drawing.Size(1412, 687);
             this.Controls.Add(this.grpPagamento);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.btnFinalizarCompra);
