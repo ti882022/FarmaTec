@@ -426,7 +426,7 @@ namespace FarmaTec
 
             }
 
-        private void btnReceber_Click(object sender, EventArgs e)
+        private async void btnReceber_Click(object sender, EventArgs e)
         {
 
 
@@ -471,20 +471,24 @@ namespace FarmaTec
                         dados.canalPgto = 12;
                         dados.formaPgto = Convert.ToInt32(formaPagamento);
                         dados.codFuncionario = LoginSistema.codFuncionario;
-                        dados.dataPgto = Convert.ToDateTime(dtPedido.Text.ToString());
-                        dados.dataEnvio = Convert.ToDateTime(dtPedido.Text.ToString());
+                        dados.dataPgto = Convert.ToDateTime(dtPedido.Text);
+                        dados.dataEnvio = Convert.ToDateTime(dtPedido.Text);
                                                
                         //Serelizar Json
                         dados.produto = JsonSerializer.Serialize(listarPedidos);
 
-                        salvarPedidos.InserirPedidos(dados);
+                     await salvarPedidos.InserirPedidos(dados);
 
                         if (dados.nPedido > 0)
                         {
-                            MessageBox.Show("Compra Realizada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Compra Realizada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                           
                             dtvProduto.Rows.Clear();
                             txtValorTotal.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
 

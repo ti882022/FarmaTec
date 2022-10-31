@@ -55,54 +55,109 @@ namespace TransferenciaDados
 
     public class SalvarPedidos
     {
-        public void InserirPedidos(PedidosDTO dados)
+        public async Task InserirPedidos(PedidosDTO dados)
         {
+
+
+              try
+              {
+                  //Definir o tipo de comandos do SQL
+                  //chamando a Stored Procedure de inclusão de dados
+                  MySqlCommand cmd = new MySqlCommand("spInserirPedidos", Conexao.obterConexao());
+                  cmd.CommandType = CommandType.StoredProcedure;
+
+                  //Popular os parâmetros da entrada(Input)
+                  cmd.Parameters.AddWithValue("@pnomecliente", dados.nomeCliente);
+                  cmd.Parameters.AddWithValue("@pcanal", dados.canalPgto);
+                  cmd.Parameters.AddWithValue("@pforma", dados.formaPgto);
+                  cmd.Parameters.AddWithValue("@pcodigofuncionario", dados.codFuncionario);
+                  cmd.Parameters.AddWithValue("@pdpgto", dados.dataPgto);
+                  cmd.Parameters.AddWithValue("@pdenvio", dados.dataEnvio);
+                  cmd.Parameters.AddWithValue("@pproduto", dados.produto); // Ser transformado em json 
+
+
+                  //Parametros de saída (Output)
+                  cmd.Parameters.Add(new MySqlParameter("pnumeropedido", MySqlDbType.Int32));
+                  cmd.Parameters["pnumeropedido"].Direction = ParameterDirection.Output;
+
+
+
+                  //Executar os comandos SQL
+                  int resultado = cmd.ExecuteNonQuery();
+
+
+                  //Popular resultado 
+                  dados.nPedido = Convert.ToInt32(cmd.Parameters["pnumeropedido"].Value.ToString());
+
+
+
+                  Conexao.fecharConexao();
+
+              }
+              catch (MySqlException e)
+              {
+                  dados.mensagens = "ERRO - SalvarPedidos - InserirPedidos -" + e.Message.ToString();
+              }
+
+              catch (JsonException ex)
+              {
+                  dados.mensagens = " ERRO - SalvarPedidos - InserirPedidos - \r\n " + ex.Message.ToString();
+              }
+
+            
+              
+
+
+            /*
             try
             {
-                //Definir o tipo de comandos do SQL
-                //chamando a Stored Procedure de inclusão de dados
-                MySqlCommand cmd = new MySqlCommand("spInserirPedidos", Conexao.obterConexao());
-                cmd.CommandType = CommandType.StoredProcedure;
+                string URL = "http://localhost/siteturma88/pedidos/incluir/";
 
-                //Popular os parâmetros da entrada(Input)
-                cmd.Parameters.AddWithValue("@pnomecliente", dados.nomeCliente);
-                cmd.Parameters.AddWithValue("@pcanal", dados.canalPgto);
-                cmd.Parameters.AddWithValue("@pforma", dados.formaPgto);
-                cmd.Parameters.AddWithValue("@pcodigofuncionario", dados.codFuncionario);
-                cmd.Parameters.AddWithValue("@pdpgto", dados.dataPgto);
-                cmd.Parameters.AddWithValue("@pdenvio", dados.dataEnvio);
-                cmd.Parameters.AddWithValue("@pproduto", dados.produto); // Ser transformado em json 
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(URL);
 
+                var data = new Dictionary<string, string>
+                {
+                    {"txtnomecliente", dados.nomeCliente },
+                    {"txtcanal", dados.canalPgto.ToString()},
+                    {"txtforma", dados.formaPgto.ToString()},
+                    {"txtcodfuncionario", dados.codFuncionario.ToString()},
+                    {"txtdpgto", dados.dataPgto.ToString()},
+                    {"txtdenvio", dados.dataEnvio.ToString()},
+                    {"txtproduto", dados.produto},
+                    {"HTTP_ACCEPT", "application/Json"}
 
-                //Parametros de saída (Output)
-                cmd.Parameters.Add(new MySqlParameter("pnumeropedido", MySqlDbType.Int32));
-                cmd.Parameters["pnumeropedido"].Direction = ParameterDirection.Output;
+                };
 
+                var response = await client.PostAsync(URL, new FormUrlEncodedContent(data));
 
-
-                //Executar os comandos SQL
-                int resultado = cmd.ExecuteNonQuery();
-
-
-                //Popular resultado 
-                dados.nPedido = Convert.ToInt32(cmd.Parameters["pnumeropedido"].Value.ToString());
+                var result = await response.Content.ReadAsStringAsync();
 
 
 
-                Conexao.fecharConexao();
+                JObject obj = JObject.Parse(result);
+
+                JArray arrayPedidos = (JArray)obj["RetornoDados"];
+
+                foreach (var item in arrayPedidos)
+                {
+                    dados.nPedido = Convert.ToInt32(item["numeropedido"].ToString());
+
+                }
 
             }
-            catch (MySqlException e)
+
+            catch (JsonException e)
             {
-                dados.mensagens = "ERRO - SalvarPedidos - InserirPedidos -" + e.Message.ToString();
+                dados.mensagens = "ERRO - SalvarPedidos - InserirPedidos - \r\n " + e.Message.ToString();
             }
 
-            catch (JsonException ex)
+            catch (HttpRequestException ex)
             {
                 dados.mensagens = " ERRO - SalvarPedidos - InserirPedidos - \r\n " + ex.Message.ToString();
             }
 
-
+            */
         }
 
     }
