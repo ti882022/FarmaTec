@@ -60,7 +60,9 @@ namespace FarmaTec
                 case 35:
                     menuRelatorios.Visible = false;
                     menuCadastroFuncionarios.Visible = false;
-
+                    menuCadastroFornecedores.Visible = false;
+                    menuCadastroProdutos.Visible = false;
+                    menuMovimentacao.Visible = false;
                     break;
             }
 
