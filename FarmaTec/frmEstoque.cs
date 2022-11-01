@@ -223,6 +223,8 @@ namespace FarmaTec
                 if (dados.mensagens != null)
                 {
                     MessageBox.Show("Código de Produto Inexistente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtcodigo.Clear();
+                    txtcodigo.Focus();
                 }
 
 
@@ -283,7 +285,7 @@ namespace FarmaTec
                     txtcodigo.Focus();
                     dtprodutos.Rows.Clear();
                     dtprodutos.Refresh();
-                    cbocomprar.Items.Clear();
+                    cbocomprar.SelectedIndex = -1;
                     return true;
 
             }

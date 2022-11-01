@@ -118,6 +118,9 @@ namespace FarmaTec
                 if (dados.mensagens != null)
                 {
                     MessageBox.Show(dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtnomeCliente.Clear();
+                    mskCpf.Clear();
+                    txtnomeCliente.Focus();
                 }
 
 
