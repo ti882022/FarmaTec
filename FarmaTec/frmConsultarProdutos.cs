@@ -121,7 +121,10 @@ namespace FarmaTec
                 }
                 if (dados.mensagens != null)
                 {
-                    MessageBox.Show("Contate o suporte \r\n" + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Código do Produto ou Nome incorretos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtcodproduto.Clear();
+                    txtdescricao.Clear();
+                    txtcodproduto.Focus();
                 }
 
 
