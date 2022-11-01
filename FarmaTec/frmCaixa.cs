@@ -26,6 +26,7 @@ namespace FarmaTec
 {
     public partial class frmCaixa : Form
     {
+        TratamentoCampos tratamentoCampos = new TratamentoCampos();
         public frmCaixa()
         {
             this.KeyPreview = true;
@@ -50,7 +51,7 @@ namespace FarmaTec
                 ConsultarClientes consultarClientes = new ConsultarClientes();
                 ClientesDTO dados = new ClientesDTO();
 
-               
+
 
                 //Popular classe
                 dados.nomeCliente = txtnomecliente.Text;
@@ -93,8 +94,6 @@ namespace FarmaTec
 
         public async void AutoCompletarProdutosCaixa()
         {
-
-
             try
             {
                 //Instanciar as classes
@@ -169,53 +168,43 @@ namespace FarmaTec
             }
         }
 
-
-
-        private void btnIncluir_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
         private void frmCaixa_Load(object sender, EventArgs e)
         {
-            
+
             txtNomeFuncionario.Text = LoginSistema.nomeUsuario;
             ListarPagamento();
             AutoCompletarCliente();
             AutoCompletarProdutosCaixa();
-           
+
         }
 
         private async void btnIncluir_Click_1(object sender, EventArgs e)
         {
-         
-
-                //Realizar a pesquisa do produto no banco de dados.
-                try
+            //Realizar a pesquisa do produto no banco de dados.
+            try
+            {
+                if (txtnomecliente.Text == String.Empty && txtdescricao.Text == String.Empty)
                 {
+                    MessageBox.Show("Favor inserir o nome do Cliente e do Produto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtnomecliente.Focus();
+                }
+                else if (txtnomecliente.Text == String.Empty)
+                {
+                    MessageBox.Show("Favor inserir o nome do Cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtnomecliente.Focus();
+                }
+
+
+                else if (txtdescricao.Text == String.Empty)
+                {
+                    MessageBox.Show("Favor inserir o nome do Produto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtdescricao.Focus();
+                }
+                else
+                {
+                    txtnomecliente.Enabled = false;
+
+
                     //Instanciar as classes
                     ConsultarProdutos consultarProdutos = new ConsultarProdutos();
                     ProdutosDTO dados = new ProdutosDTO();
@@ -227,8 +216,8 @@ namespace FarmaTec
 
 
                     //Limpar fonte de dados e o DatagridView
-                //    dtvProduto.DataSource = null;
-                   
+                    //    dtvProduto.DataSource = null;
+
 
 
                     //Chamar o método
@@ -247,55 +236,13 @@ namespace FarmaTec
 
 
                     }
-
                 }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-
-
-            if (txtnomecliente.Text == String.Empty && txtdescricao.Text == String.Empty)
-            {
-                MessageBox.Show("Favor inserir o nome do Cliente e do Produto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtnomecliente.BackColor = Color.Red;
-                txtdescricao.BackColor = Color.Red;
-                txtnomecliente.Focus();
-            }
-            else if (txtnomecliente.Text == String.Empty)
-            {
-                MessageBox.Show("Favor inserir o nome do Cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtnomecliente.BackColor = Color.Red;
-                txtdescricao.BackColor = Color.Green;
-                txtnomecliente.Focus();
             }
 
-
-            else if (txtdescricao.Text == String.Empty)
+            catch (Exception ex)
             {
-                MessageBox.Show("Favor inserir o nome do Produto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtdescricao.BackColor = Color.Red;
-                txtnomecliente.BackColor = Color.Green;
-                txtdescricao.Focus();
+                MessageBox.Show(ex.ToString());
             }
-
-            else
-            {
-                txtnomecliente.BackColor = Color.White;
-                txtdescricao.BackColor = Color.White;
-                txtnomecliente.Enabled = false;
-                txtdescricao.Clear();
-                txtCodProduto.Clear();
-            }
-
-
-
-        }
-
-        private void grpProduto_Paint(object sender, PaintEventArgs e)
-        {
-
 
         }
 
@@ -309,34 +256,11 @@ namespace FarmaTec
             }
         }
 
-        private void menuEditarCadastro_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbFormaPagamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-        private void dtPedido_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNomeFuncionario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-    
-
-       
 
         private void btnFinalizarCompra_Click(object sender, EventArgs e)
         {
+            txtdescricao.Enabled = false;
+
             if (MessageBox.Show("Deseja finalizar a compra?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 grpPagamento.Visible = true;
@@ -344,175 +268,218 @@ namespace FarmaTec
                 txtnomecliente.Enabled = false;
                 txtdescricao.Enabled = false;
             }
-        }
-
-        private void txtNomeProduto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDesconto_TextChanged(object sender, EventArgs e)
-
-        {
-
-
-
-        }
-
-        private void mskDesconto_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
+            else
+            {
+                btnCancelar.PerformClick();
+            }
         }
 
         private void txtdesconto_TextChanged_1(object sender, EventArgs e)
         {
-          /*  if (txtdesconto.Text != string.Empty)
-            {
-                double number = int.Parse(txtValor.Text.ToString());
-                double porcentagem = number * Convert.ToDouble(txtdesconto.Text) / 100;
-                double porcentagemtotal = number - porcentagem;
-                txtValorTotal.Text = porcentagemtotal.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Favor inserir a porcentagem de desconto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtValorTotal.Text = txtValor.Text;
-            }
+            /*  if (txtdesconto.Text != string.Empty)
+              {
+                  double number = int.Parse(txtValor.Text.ToString());
+                  double porcentagem = number * Convert.ToDouble(txtdesconto.Text) / 100;
+                  double porcentagemtotal = number - porcentagem;
+                  txtValorTotal.Text = porcentagemtotal.ToString();
+              }
+              else
+              {
+                  MessageBox.Show("Favor inserir a porcentagem de desconto", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                  txtValorTotal.Text = txtValor.Text;
+              }
 
-            */
+              */
         }
 
         private void dtvProduto_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            
-                try
+
+            try
+            {
+                if (e.ColumnIndex == 2)
                 {
-                    if (e.ColumnIndex == 2)
-                    {
-                        decimal preco = Convert.ToDecimal(dtvProduto.CurrentRow.Cells[3].Value);
-                        decimal qtde = Convert.ToDecimal(dtvProduto.CurrentRow.Cells[2].Value);
+                    decimal preco = Convert.ToDecimal(dtvProduto.CurrentRow.Cells[3].Value);
+                    decimal qtde = Convert.ToDecimal(dtvProduto.CurrentRow.Cells[2].Value);
 
-                        if (preco.ToString() != "" && qtde.ToString() != "")
-                        {
-                            dtvProduto.CurrentRow.Cells[4].Value = preco * qtde;
-                        }
+                    if (preco.ToString() != "" && qtde.ToString() != "")
+                    {
+                        dtvProduto.CurrentRow.Cells[4].Value = preco * qtde;
                     }
+                }
 
-                    decimal valorTotal = 0;
-                    string valor = "";
-                    if (dtvProduto.CurrentRow.Cells[4].Value != null)
+                decimal valorTotal = 0;
+                string valor = "";
+                if (dtvProduto.CurrentRow.Cells[4].Value != null)
+                {
+                    valor = dtvProduto.CurrentRow.Cells[4].Value.ToString();
+                    if (!valor.Equals(""))
                     {
-                        valor = dtvProduto.CurrentRow.Cells[4].Value.ToString();
-                        if (!valor.Equals(""))
+                        for (int i = 0; i <= dtvProduto.RowCount - 1; i++)
                         {
-                            for (int i = 0; i <= dtvProduto.RowCount - 1; i++)
-                              {
-                                if (dtvProduto.Rows[i].Cells[4].Value != null)
-                                    valorTotal += Convert.ToDecimal(dtvProduto.Rows[i].Cells[4].Value);
+                            if (dtvProduto.Rows[i].Cells[4].Value != null)
+                                valorTotal += Convert.ToDecimal(dtvProduto.Rows[i].Cells[4].Value);
 
-                            }
-                            if (valorTotal == 0)
-                            {
-                                MessageBox.Show("Nenhum registro encontrado");
-                            }
-                            txtValor.Text = valorTotal.ToString();
-                       
-                         
+                        }
+                        if (valorTotal == 0)
+                        {
+                            MessageBox.Show("Nenhum registro encontrado");
+                        }
+                        txtValor.Text = valorTotal.ToString();
+
+
                         txtValorTotal.Text = txtValor.Text.ToString();
                     }
 
-                    }
-
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
                 }
 
             }
 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
         private async void btnReceber_Click(object sender, EventArgs e)
         {
-
-
             try
             {
-                SalvarPedidos salvarPedidos = new SalvarPedidos();
-                PedidosDTO dados = new PedidosDTO();
-
-
-                //Percorrer o datagridview
-
-                if (dtvProduto.RowCount > 1)
+                if (MessageBox.Show("Deseja finalizar o pedido?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    bool salvar = false;
-                    int qtderegistros = dtvProduto.RowCount;
+                    SalvarPedidos salvarPedidos = new SalvarPedidos();
+                    PedidosDTO dados = new PedidosDTO();
 
-                    List<ListarPedidos> listarPedidos = new List<ListarPedidos>();
 
-                                 
-
-                    for (int i = 0; i < dtvProduto.RowCount; i++)
+                    //Percorrer o datagridview
+                    if (dtvProduto.RowCount > 1)
                     {
-                        if (dtvProduto.Rows[i].Cells[4].Value != null)
-                        {
-                            listarPedidos.Add(new ListarPedidos(Convert.ToInt32(dtvProduto.Rows[i].Cells[0].Value.ToString()),
-                                 Convert.ToDecimal(dtvProduto.Rows[i].Cells[4].Value.ToString()),
-                           
-                                 Convert.ToInt32(dtvProduto.Rows[i].Cells[2].Value.ToString())
-                                ));
+                        bool salvar = false;
+                        int qtderegistros = dtvProduto.RowCount;
 
-                            salvar = true;
+                        List<ListarPedidos> listarPedidos = new List<ListarPedidos>();
+
+
+
+                        for (int i = 0; i < dtvProduto.RowCount; i++)
+                        {
+                            if (dtvProduto.Rows[i].Cells[4].Value != null)
+                            {
+                                listarPedidos.Add(new ListarPedidos(Convert.ToInt32(dtvProduto.Rows[i].Cells[0].Value.ToString()),
+                                     Convert.ToDecimal(dtvProduto.Rows[i].Cells[4].Value.ToString()),
+
+                                     Convert.ToInt32(dtvProduto.Rows[i].Cells[2].Value.ToString())
+                                    ));
+
+                                salvar = true;
+
+                            }
+                        }
+
+
+                        if (salvar == true)
+                        {
+                            DataRowView drv = (DataRowView)cboFormaPagamento.Items[cboFormaPagamento.SelectedIndex];
+                            string formaPagamento = drv["formaPgto"].ToString();
+
+
+                            dados.nomeCliente = txtnomecliente.Text.ToString();
+                            dados.canalPgto = 12;
+                            dados.formaPgto = Convert.ToInt32(formaPagamento);
+                            dados.codFuncionario = LoginSistema.codFuncionario;
+                            dados.dataPgto = DateTime.Now;
+                            dados.dataEnvio = DateTime.Now;
+
+                            //Serelizar Json
+                            dados.produto = JsonSerializer.Serialize(listarPedidos);
+
+                            await salvarPedidos.InserirPedidos(dados);
+
+                            if (dados.nPedido > 0)
+                            {
+                                MessageBox.Show("Compra Realizada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                dtvProduto.Rows.Clear();
+                                txtValorTotal.Clear();
+                                txtValor.Clear();
+                                grpPagamento.Visible = false;
+                                btnCancelar.PerformClick();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
 
                         }
-                        
 
                     }
-
-
-                    if (salvar == true)
-
-                    {
-                        DataRowView drv = (DataRowView)cboFormaPagamento.Items[cboFormaPagamento.SelectedIndex];
-                        string formaPagamento = drv["formaPgto"].ToString();
-
-
-                        dados.nomeCliente = txtnomecliente.Text.ToString();
-                        dados.canalPgto = 12;
-                        dados.formaPgto = Convert.ToInt32(formaPagamento);
-                        dados.codFuncionario = LoginSistema.codFuncionario;
-                        dados.dataPgto = DateTime.Now;
-                        dados.dataEnvio = DateTime.Now;
-                                               
-                        //Serelizar Json
-                        dados.produto = JsonSerializer.Serialize(listarPedidos);
-
-                        await salvarPedidos.InserirPedidos(dados);
-
-                        if (dados.nPedido > 0)
-                        {
-                            MessageBox.Show("Compra Realizada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                          
-                            dtvProduto.Rows.Clear();
-                            txtValorTotal.Clear();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
-
-                    }
-
                 }
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        public void AbrirForm(Form childForm)
+        {
+            childForm.StartPosition = FormStartPosition.CenterScreen;
+            int x = (this.Width - childForm.Width) / 2;
+            int y = (this.Height - childForm.Height) / 2;
+            childForm.Location = new Point(x, y);
+            childForm.Show();
+        }
+
+        private void menuConsultaProdutos_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmConsultarProdutos();
+            AbrirForm(childForm);
+        }
+
+        private void menuConsultaClientes_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmConsultarClientes();
+            AbrirForm(childForm);
+        }
+
+        private void menuCadastroClientes_Click(object sender, EventArgs e)
+        {
+            Form childForm = new frmCadastro();
+            AbrirForm(childForm);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtnomecliente.Focus();
+            txtdescricao.Clear();
+            txtnomecliente.Clear();
+            txtCodProduto.Clear();
+            txtnomecliente.Enabled = true;
+            txtdescricao.Enabled = true;
+            dtvProduto.Rows.Clear();
+            dtvProduto.Refresh();
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+
+            switch (keyData)
+            {
+                case Keys.Enter:
+                    btnFinalizarCompra.PerformClick();
+                    return true;
+
+                case Keys.Escape:
+                    btnSair.PerformClick();
+                    return true;
+
+                case Keys.F12:
+                    btnCancelar.PerformClick();
+                    txtnomecliente.Focus();
+                    return true;
+
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 

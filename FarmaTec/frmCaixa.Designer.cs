@@ -134,7 +134,6 @@ namespace FarmaTec
             this.txtNomeFuncionario.Name = "txtNomeFuncionario";
             this.txtNomeFuncionario.Size = new System.Drawing.Size(500, 29);
             this.txtNomeFuncionario.TabIndex = 2;
-            this.txtNomeFuncionario.TextChanged += new System.EventHandler(this.txtNomeFuncionario_TextChanged);
             // 
             // grpProduto
             // 
@@ -156,7 +155,6 @@ namespace FarmaTec
             this.grpProduto.TabIndex = 8;
             this.grpProduto.TabStop = false;
             this.grpProduto.Text = "Produto";
-            this.grpProduto.Paint += new System.Windows.Forms.PaintEventHandler(this.grpProduto_Paint);
             // 
             // btnIncluir
             // 
@@ -177,7 +175,6 @@ namespace FarmaTec
             this.dtPedido.Name = "dtPedido";
             this.dtPedido.Size = new System.Drawing.Size(313, 28);
             this.dtPedido.TabIndex = 14;
-            this.dtPedido.ValueChanged += new System.EventHandler(this.dtPedido_ValueChanged);
             // 
             // label1
             // 
@@ -188,7 +185,6 @@ namespace FarmaTec
             this.label1.Size = new System.Drawing.Size(118, 20);
             this.label1.TabIndex = 13;
             this.label1.Text = "Data do pedido";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label6
             // 
@@ -199,7 +195,6 @@ namespace FarmaTec
             this.label6.Size = new System.Drawing.Size(63, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Código:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label4
             // 
@@ -219,7 +214,6 @@ namespace FarmaTec
             this.txtdescricao.Name = "txtdescricao";
             this.txtdescricao.Size = new System.Drawing.Size(500, 29);
             this.txtdescricao.TabIndex = 1;
-            this.txtdescricao.TextChanged += new System.EventHandler(this.txtNomeProduto_TextChanged);
             // 
             // txtCodProduto
             // 
@@ -284,12 +278,14 @@ namespace FarmaTec
             this.menuConsultaProdutos.Name = "menuConsultaProdutos";
             this.menuConsultaProdutos.Size = new System.Drawing.Size(122, 22);
             this.menuConsultaProdutos.Text = "Produtos";
+            this.menuConsultaProdutos.Click += new System.EventHandler(this.menuConsultaProdutos_Click);
             // 
             // menuConsultaClientes
             // 
             this.menuConsultaClientes.Name = "menuConsultaClientes";
             this.menuConsultaClientes.Size = new System.Drawing.Size(122, 22);
             this.menuConsultaClientes.Text = "Clientes";
+            this.menuConsultaClientes.Click += new System.EventHandler(this.menuConsultaClientes_Click);
             // 
             // menuCadastro
             // 
@@ -304,6 +300,7 @@ namespace FarmaTec
             this.menuCadastroClientes.Name = "menuCadastroClientes";
             this.menuCadastroClientes.Size = new System.Drawing.Size(116, 22);
             this.menuCadastroClientes.Text = "Clientes";
+            this.menuCadastroClientes.Click += new System.EventHandler(this.menuCadastroClientes_Click);
             // 
             // grpPagamento
             // 
@@ -342,7 +339,6 @@ namespace FarmaTec
             this.cboFormaPagamento.Name = "cboFormaPagamento";
             this.cboFormaPagamento.Size = new System.Drawing.Size(272, 33);
             this.cboFormaPagamento.TabIndex = 9;
-            this.cboFormaPagamento.SelectedIndexChanged += new System.EventHandler(this.cbFormaPagamento_SelectedIndexChanged);
             // 
             // btnReceber
             // 
@@ -443,7 +439,6 @@ namespace FarmaTec
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(224)))), ((int)(((byte)(213)))));
-            this.btnCancelar.Enabled = false;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCancelar.FlatAppearance.BorderSize = 20;
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -453,9 +448,10 @@ namespace FarmaTec
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(107, 104);
             this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Limpar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dtvProduto
             // 
