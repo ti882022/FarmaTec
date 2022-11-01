@@ -318,7 +318,7 @@ namespace FarmaTec
             this.grpPagamento.Controls.Add(this.txtValor);
             this.grpPagamento.Controls.Add(this.lblPagamento);
             this.grpPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPagamento.Location = new System.Drawing.Point(577, 273);
+            this.grpPagamento.Location = new System.Drawing.Point(580, 372);
             this.grpPagamento.Name = "grpPagamento";
             this.grpPagamento.Size = new System.Drawing.Size(452, 397);
             this.grpPagamento.TabIndex = 17;
@@ -329,7 +329,7 @@ namespace FarmaTec
             // txtdesconto
             // 
             this.txtdesconto.Location = new System.Drawing.Point(221, 116);
-            this.txtdesconto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtdesconto.Margin = new System.Windows.Forms.Padding(2);
             this.txtdesconto.Name = "txtdesconto";
             this.txtdesconto.Size = new System.Drawing.Size(113, 31);
             this.txtdesconto.TabIndex = 10;

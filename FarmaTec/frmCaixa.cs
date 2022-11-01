@@ -447,21 +447,26 @@ namespace FarmaTec
                 if (dtvProduto.RowCount > 1)
                 {
                     bool salvar = false;
-                    int qtderegistros = dtvProduto.RowCount - 1;
+                    int qtderegistros = dtvProduto.RowCount;
 
                     List<ListarPedidos> listarPedidos = new List<ListarPedidos>();
 
-                    for (int i = 1; i < dtvProduto.RowCount; i++)
+                                 
+
+                    for (int i = 0; i < dtvProduto.RowCount; i++)
                     {
                         if (dtvProduto.Rows[i].Cells[4].Value != null)
                         {
                             listarPedidos.Add(new ListarPedidos(Convert.ToInt32(dtvProduto.Rows[i].Cells[0].Value.ToString()),
-                                Convert.ToInt32(dtvProduto.Rows[i].Cells[4].Value.ToString()),
+                                 Convert.ToDecimal(dtvProduto.Rows[i].Cells[4].Value.ToString()),
+                           
                                  Convert.ToInt32(dtvProduto.Rows[i].Cells[2].Value.ToString())
                                 ));
 
+                            salvar = true;
+
                         }
-                        salvar = true;
+                        
 
                     }
 
@@ -477,13 +482,13 @@ namespace FarmaTec
                         dados.canalPgto = 12;
                         dados.formaPgto = Convert.ToInt32(formaPagamento);
                         dados.codFuncionario = LoginSistema.codFuncionario;
-                        dados.dataPgto = Convert.ToDateTime(dtPedido.Text);
-                        dados.dataEnvio = Convert.ToDateTime(dtPedido.Text);
+                        dados.dataPgto = DateTime.Now;
+                        dados.dataEnvio = DateTime.Now;
                                                
                         //Serelizar Json
                         dados.produto = JsonSerializer.Serialize(listarPedidos);
 
-                     await salvarPedidos.InserirPedidos(dados);
+                        await salvarPedidos.InserirPedidos(dados);
 
                         if (dados.nPedido > 0)
                         {

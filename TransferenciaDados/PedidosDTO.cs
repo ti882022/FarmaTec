@@ -36,14 +36,14 @@ namespace TransferenciaDados
         public ListarPedidos() { }
 
         //Terão que ser convertidos em um único Json e popular a string do produto.
-        public int codProduto { get; set; }
+        public int produto { get; set; }
         public decimal preco { get; set; }
         public int qtde { get; set; }
 
 
-        public ListarPedidos(int codProduto, int qtde, decimal preco)
+        public ListarPedidos(int produto, decimal preco, int qtde)
         {
-            this.codProduto = codProduto;
+            this.produto = produto;
             this.preco = preco;
             this.qtde = qtde;
 
@@ -57,7 +57,7 @@ namespace TransferenciaDados
     {
         public async Task InserirPedidos(PedidosDTO dados)
         {
-
+            /*
 
               try
               {
@@ -104,14 +104,14 @@ namespace TransferenciaDados
                   dados.mensagens = " ERRO - SalvarPedidos - InserirPedidos - \r\n " + ex.Message.ToString();
               }
 
-            
+            */
               
 
 
-            /*
+            
             try
             {
-                string URL = "http://localhost/siteturma88/pedidos/incluir/";
+                string URL = "http://10.38.45.24:8080/farmatec-api/pedidos/incluir/";
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(URL);
@@ -122,8 +122,8 @@ namespace TransferenciaDados
                     {"txtcanal", dados.canalPgto.ToString()},
                     {"txtforma", dados.formaPgto.ToString()},
                     {"txtcodfuncionario", dados.codFuncionario.ToString()},
-                    {"txtdpgto", dados.dataPgto.ToString()},
-                    {"txtdenvio", dados.dataEnvio.ToString()},
+                    {"txtdpgto", dados.dataPgto.ToString("yyyy-MM-dd HH:mm:ss.fff")},
+                    {"txtdenvio", dados.dataEnvio.ToString("yyyy-MM-dd HH:mm:ss.fff")},
                     {"txtproduto", dados.produto},
                     {"HTTP_ACCEPT", "application/Json"}
 
@@ -157,7 +157,7 @@ namespace TransferenciaDados
                 dados.mensagens = " ERRO - SalvarPedidos - InserirPedidos - \r\n " + ex.Message.ToString();
             }
 
-            */
+            
         }
 
     }
