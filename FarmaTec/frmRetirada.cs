@@ -89,6 +89,7 @@ namespace FarmaTec
 
         private void frmRetirada_Load(object sender, EventArgs e)
         {
+            txtNomeFuncionario.Text = LoginSistema.nomeUsuario;
             ListarPagamento();
         }
 
@@ -118,14 +119,14 @@ namespace FarmaTec
 
                         if (dados.nPedido > 0)
                         {
-                            MessageBox.Show("Compra Realizada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Retirada Realizada com sucesso", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                            
                             txtValorTotal.Clear();
                         }
                         else
                         {
-                            MessageBox.Show("Não foi possível realizar o cadastro " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Não foi possível realizar a retirada " + dados.mensagens, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
 
@@ -139,7 +140,17 @@ namespace FarmaTec
 
 
             }
-          
+
+        private void btnFinalizarRetirada_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja finalizar a retirada?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                grpPagamento.Visible = true;
+                dtvPedido.Enabled = false;
+                mskCpf.Enabled = false;
+                txtnumpedido.Enabled = false;
+            }
         }
+    }
     
 }

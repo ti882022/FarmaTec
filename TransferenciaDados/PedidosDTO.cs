@@ -47,8 +47,6 @@ namespace TransferenciaDados
             this.preco = preco;
             this.qtde = qtde;
 
-
-
         }
     }
 
